@@ -6,19 +6,19 @@
 /* ---------- Base Styles & Variables ---------- */
 :root {
   /* Color Palette */
-  --primary: #6c63ff;       /* Purple - Primary brand color */
-  --primary-dark: #5a52d5;  /* Darker purple for hover states */
-  --secondary: #00d9c5;     /* Teal - Secondary accent color */
-  --dark: #121212;          /* Near black - Main background */
-  --dark-lighter: #1e1e1e;  /* Slightly lighter dark for cards */
-  --dark-medium: #2d2d2d;   /* Medium dark for hover states */
+  --primary: #ff3030;       /* Red - Primary brand color */
+  --primary-dark: #cc2020;  /* Darker red for hover states */
+  --secondary: #f8f8f8;     /* Off-white - Secondary accent color */
+  --dark: #0a0a0a;          /* Near black - Main background */
+  --dark-lighter: #141414;  /* Slightly lighter dark for cards */
+  --dark-medium: #1c1c1c;   /* Medium dark for hover states */
   --light: #ffffff;         /* White text */
   --light-muted: rgba(255, 255, 255, 0.7); /* Slightly transparent white */
   --light-dimmed: rgba(255, 255, 255, 0.5); /* More transparent white */
   --gray: #9e9e9e;          /* Gray for less important text */
-  --success: #00e676;       /* Green for success messages */
-  --warning: #ffb300;       /* Amber for warnings */
-  --danger: #ff1744;        /* Red for errors */
+  --success: #10b981;       /* Green for success messages */
+  --warning: #f59e0b;       /* Amber for warnings */
+  --danger: #ff3030;        /* Red for errors */
   
   /* Typography */
   --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -93,7 +93,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: 3rem;
-  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  background: linear-gradient(90deg, #ff3030, #ff5050);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -122,7 +122,7 @@ p {
 }
 
 a {
-  color: var(--secondary);
+  color: var(--primary);
   text-decoration: none;
   transition: color var(--transition-fast);
 }
@@ -202,7 +202,7 @@ section {
 }
 
 .btn-secondary:hover {
-  background-color: rgba(108, 99, 255, 0.1);
+  background-color: rgba(255, 48, 48, 0.1);
   color: var(--primary);
 }
 
@@ -218,7 +218,7 @@ header {
   left: 0;
   width: 100%;
   z-index: var(--z-sticky);
-  background-color: rgba(18, 18, 18, 0.9);
+  background-color: rgba(10, 10, 10, 0.95);
   backdrop-filter: blur(10px);
   box-shadow: var(--shadow-sm);
   padding: var(--space-md) 0;
@@ -256,7 +256,7 @@ nav a {
 }
 
 nav a:hover {
-  color: var(--secondary);
+  color: var(--primary);
 }
 
 .hamburger {
@@ -281,8 +281,8 @@ nav a:hover {
   position: relative;
   padding-top: 80px;
   overflow: hidden;
-  background: radial-gradient(circle at 70% 30%, rgba(0, 217, 197, 0.15), transparent 70%),
-              radial-gradient(circle at 30% 70%, rgba(108, 99, 255, 0.15), transparent 70%);
+  background: radial-gradient(circle at 70% 30%, rgba(255, 48, 48, 0.08), transparent 70%),
+              radial-gradient(circle at 30% 70%, rgba(28, 28, 28, 0.3), transparent 70%);
 }
 
 .hero-content {
@@ -358,7 +358,7 @@ nav a:hover {
   align-items: center;
   justify-content: center;
   border-radius: var(--radius-round);
-  background: rgba(108, 99, 255, 0.1);
+  background: rgba(255, 48, 48, 0.1);
 }
 
 .challenge-icon img {
@@ -462,7 +462,7 @@ nav a:hover {
 
 .feature-list li::before {
   content: "•";
-  color: var(--secondary);
+  color: var(--primary);
   position: absolute;
   left: 0;
   top: 0;
@@ -504,7 +504,7 @@ nav a:hover {
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: var(--space-md);
-  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  background: linear-gradient(90deg, var(--primary), #ff7070);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -726,7 +726,7 @@ nav a:hover {
 
 .pricing-features li::before {
   content: "✓";
-  color: var(--secondary);
+  color: var(--primary);
   position: absolute;
   left: 0;
 }
@@ -847,7 +847,7 @@ nav a:hover {
   width: 50px;
   height: 50px;
   margin: 0 auto var(--space-md);
-  background-color: rgba(108, 99, 255, 0.1);
+  background-color: rgba(255, 48, 48, 0.1);
   border-radius: var(--radius-round);
   display: flex;
   align-items: center;
@@ -947,7 +947,7 @@ footer {
 }
 
 .footer-col a:hover {
-  color: var(--secondary);
+  color: var(--primary);
 }
 
 .footer-bottom {
@@ -1328,7 +1328,7 @@ footer {
 }
 
 .gradient-text {
-  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  background: linear-gradient(90deg, var(--primary), #ff7070);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

@@ -4,6 +4,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize components
+    fixSvgRendering();
     initNavigation();
     initTabs();
     initTestimonialSlider();
@@ -14,6 +15,31 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollAnimations();
     handleFormSubmissions();
 });
+
+/**
+ * Fix SVG rendering issues on GitHub Pages
+ */
+function fixSvgRendering() {
+    // Find all SVG elements that might have rendering issues
+    const svgElements = document.querySelectorAll('img[src$=".svg"]');
+    
+    svgElements.forEach(svg => {
+        // Get the current src
+        const currentSrc = svg.getAttribute('src');
+        
+        // Force browser to reload the SVG by adding a cache-busting parameter
+        if (currentSrc && currentSrc.endsWith('.svg')) {
+            svg.setAttribute('src', currentSrc + '?v=' + new Date().getTime());
+            
+            // Set proper MIME type to help browsers render correctly
+            svg.setAttribute('type', 'image/svg+xml');
+            
+            // Add fallback for browsers that don't support SVG
+            const fallbackPng = currentSrc.replace('.svg', '.png');
+            svg.setAttribute('onerror', `this.onerror=null; this.src='${fallbackPng}'`);
+        }
+    });
+}
 
 /**
  * Mobile Navigation Toggle
