@@ -523,10 +523,7 @@ nav .btn {
 }
 
 .hero-visual {
-  position: relative;
-  z-index: 2;
   width: 100%;
-  max-width: 500px;
   height: 400px;
   margin-left: auto;
   flex: 0 1 450px;
@@ -537,11 +534,136 @@ nav .btn {
 }
 
 .ai-animation {
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.2) 0%, transparent 70%);
-  position: relative;
-  border-radius: var(--radius-xl);
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(circle at center, rgba(45, 82, 194, 0.15) 0%, rgba(33, 39, 109, 0.05) 70%, transparent 100%);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    backdrop-filter: blur(5px);
+    z-index: 1;
+}
+
+.ai-animation canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.ai-animation::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at center, 
+        transparent 0%, 
+        transparent 40%, 
+        rgba(72, 106, 218, 0.05) 70%, 
+        rgba(38, 54, 163, 0.1) 100%
+    );
+    z-index: -1;
+    border-radius: var(--radius-lg);
+}
+
+/* Floating particles */
+.particle {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    animation: float 15s infinite ease-in-out;
+    z-index: 2;
+}
+
+/* AI Node Labels */
+.ai-node-label {
+    position: absolute;
+    background: linear-gradient(135deg, rgba(72, 106, 218, 0.9), rgba(44, 83, 197, 0.9));
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 500;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeInUp 0.5s forwards, pulse 3s infinite;
+    animation-delay: var(--delay, 0s);
+    z-index: 3;
+}
+
+/* Node connections */
+.ai-animation::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        /* Patient to Trial */
+        linear-gradient(145deg, transparent 24%, rgba(255, 255, 255, 0.2) 25%, rgba(255, 255, 255, 0.2) 26%, transparent 27%),
+        /* Trial to Data */
+        linear-gradient(35deg, transparent 49%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.1) 51%, transparent 52%),
+        /* Data to Analysis */
+        linear-gradient(260deg, transparent 74%, rgba(255, 255, 255, 0.15) 75%, rgba(255, 255, 255, 0.15) 76%, transparent 77%),
+        /* Analysis to Outcome */
+        linear-gradient(200deg, transparent 84%, rgba(255, 255, 255, 0.12) 85%, rgba(255, 255, 255, 0.12) 86%, transparent 87%);
+    background-size: 400% 400%;
+    animation: move-connections 15s infinite linear;
+    opacity: 0.7;
+    z-index: 1;
+}
+
+/* Animation Keyframes */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) translateX(0);
+    }
+    25% {
+        transform: translateY(-15px) translateX(10px);
+    }
+    50% {
+        transform: translateY(5px) translateX(-15px);
+    }
+    75% {
+        transform: translateY(10px) translateX(5px);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0 5px 15px rgba(64, 95, 224, 0.4);
+        transform: scale(1.05);
+    }
+}
+
+@keyframes move-connections {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
 }
 
 /* Moving dots background similar to Supabase */
@@ -2416,9 +2538,14 @@ svg {
     padding: 20px;
     margin: 0 auto;
     max-width: 1000px;
+    min-height: 650px;
+    transition: all 0.3s ease;
 }
 
 .iframe-wrapper iframe {
+    width: 100%;
+    min-height: 600px;
+    border: none;
     box-shadow: var(--shadow-card);
     border-radius: var(--radius-md);
     transition: var(--transition-normal);
@@ -2449,12 +2576,10 @@ svg {
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(17, 24, 39, 0.5);
-    pointer-events: none;
-    z-index: -1;
-    border-radius: var(--radius-md);
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, var(--primary), var(--accent));
+    z-index: 10;
 }
 
 #contact .section-intro {
@@ -2519,5 +2644,249 @@ svg {
 @media (max-width: 576px) {
     #bookingFrame {
         height: 600px;
+    }
+}
+
+/* Cookie Consent Banner */
+.cookie-banner {
+    position: fixed;
+    bottom: -200px;
+    left: 0;
+    right: 0;
+    background-color: var(--dark);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.25);
+    z-index: 9999;
+    transition: all 0.5s ease-in-out;
+    padding: 20px;
+}
+
+.cookie-banner.show {
+    bottom: 0;
+}
+
+.cookie-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.cookie-text {
+    flex: 1;
+}
+
+.cookie-text h4 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: var(--light);
+}
+
+.cookie-text p {
+    font-size: 14px;
+    color: var(--light-muted);
+    margin-bottom: 0;
+    line-height: 1.5;
+}
+
+.cookie-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Cookie Settings Panel */
+.cookie-settings-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 10000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+}
+
+.cookie-settings-panel.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.settings-content {
+    background-color: var(--dark-lighter);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    width: 90%;
+    max-width: 700px;
+    max-height: 90vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    animation: slideIn 0.3s ease-out forwards;
+}
+
+.settings-header {
+    padding: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    background-color: var(--dark-lighter);
+    z-index: 1;
+}
+
+.settings-header h4 {
+    margin: 0;
+    color: var(--light);
+    font-size: 20px;
+}
+
+.close-cookie-settings {
+    background: none;
+    border: none;
+    color: var(--light-muted);
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+    transition: color 0.3s ease;
+}
+
+.close-cookie-settings:hover {
+    color: var(--light);
+}
+
+.settings-body {
+    padding: 20px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.cookie-option {
+    padding: 15px;
+    border-radius: var(--radius-md);
+    background-color: rgba(255, 255, 255, 0.05);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.option-info {
+    flex: 1;
+}
+
+.option-info h5 {
+    margin: 0 0 8px;
+    color: var(--light);
+    font-size: 16px;
+}
+
+.option-info p {
+    margin: 0;
+    color: var(--light-muted);
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.option-toggle {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.option-toggle input[type="checkbox"] {
+    appearance: none;
+    width: 40px;
+    height: 22px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 11px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.option-toggle input[type="checkbox"]::before {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
+    background-color: var(--light);
+    transition: all 0.3s ease;
+}
+
+.option-toggle input[type="checkbox"]:checked {
+    background-color: var(--primary);
+}
+
+.option-toggle input[type="checkbox"]:checked::before {
+    left: 20px;
+}
+
+.option-toggle input[type="checkbox"]:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.option-toggle label {
+    margin-left: 10px;
+    font-size: 14px;
+    color: var(--light);
+    user-select: none;
+}
+
+.settings-footer {
+    padding: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: flex-end;
+    position: sticky;
+    bottom: 0;
+    background-color: var(--dark-lighter);
+}
+
+@media (max-width: 768px) {
+    .cookie-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .cookie-buttons {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .cookie-option {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .option-toggle {
+        align-self: flex-start;
+    }
+}
+
+@media (max-width: 576px) {
+    .cookie-banner {
+        padding: 15px;
+    }
+    
+    .cookie-buttons .btn {
+        padding: 8px 12px;
+        font-size: 13px;
     }
 } 

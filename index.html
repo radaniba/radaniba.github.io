@@ -5,6 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Streamline clinical trials, document management, and quality control with MAESTRO's unified AI platform. Increase research productivity by 35% while ensuring compliance.">
     <title>MAESTRO | AI-Powered CTMS, eTMF & QMS Platform for Life Sciences</title>
+    
+    <!-- Google Analytics GA4 with Consent Mode -->
+    <script>
+      // Set default consent to 'denied' until user provides consent
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      
+      // Default consent state
+      gtag('consent', 'default', {
+        'analytics_storage': 'denied',
+        'ad_storage': 'denied',
+        'wait_for_update': 500 // Wait for user input
+      });
+      
+      // Restore previous consent if set
+      const consentStatus = localStorage.getItem('cookieConsent');
+      if (consentStatus === 'accepted') {
+        gtag('consent', 'update', {
+          'analytics_storage': 'granted'
+        });
+      } else if (consentStatus === 'custom') {
+        const analyticsConsent = localStorage.getItem('analyticsConsent') === 'true';
+        gtag('consent', 'update', {
+          'analytics_storage': analyticsConsent ? 'granted' : 'denied'
+        });
+      }
+    </script>
+    
+    <!-- Google Analytics tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      
+      // Configure with proper cookie settings for domains
+      gtag('config', 'G-XXXXXXXXXX', {
+        'cookie_domain': 'auto',
+        'cookie_flags': 'SameSite=None;Secure',
+        'cookie_expires': 63072000, // 2 years in seconds
+        'anonymize_ip': true
+      });
+    </script>
+    
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
     <!-- Open Graph / Facebook -->
@@ -448,31 +492,43 @@
                     <div class="iframe-wrapper">
                         <div class="iframe-overlay"></div>
                         
-              <iframe src="https://www.ranbiolinks.com/schedule/maestro-schedule-demo" id="cfEventTypejyXnke" style="width: 1px; min-width: 100%; min-height: 100vh; background: #ffffff;"></iframe>
-              <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.11/iframeResizer.min.js"
-                      integrity="sha512-9kUjCzb6YMm8ZUz/aznqO+9C8QHGr6CLFm654REUYPj2zJzuBoRMygSYhs+vXUQRRJprKjzgxkrdOLTSNhmMag=="
-                      crossorigin="anonymous"
-                      referrerpolicy="no-referrer">
-              </script>
-              <script>
-                iFrameResize({heightCalculationMethod: "max"}, "#cfEventTypejyXnke");
-                window.addEventListener('message', function(event) {
-                  if (event.origin !== 'https://www.ranbiolinks.com') {
-                    return;
-                  }
-              
-                  if (event.data.id === 'redirectFromIframe') {
-                    window.location.href = event.data.url
-                  }
-                });
-              </script>
+                        <iframe 
+                            src="https://www.ranbiolinks.com/schedule/maestro-schedule-demo" 
+                            id="cfEventTypejyXnke" 
+                            title="Schedule a Demo"
+                            allow="camera; microphone; autoplay; encrypted-media; fullscreen; payment"
+                            loading="lazy"
+                            scrolling="no"
+                            frameborder="0"
+                        ></iframe>
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.11/iframeResizer.min.js"
+                                integrity="sha512-9kUjCzb6YMm8ZUz/aznqO+9C8QHGr6CLFm654REUYPj2zJzuBoRMygSYhs+vXUQRRJprKjzgxkrdOLTSNhmMag=="
+                                crossorigin="anonymous"
+                                referrerpolicy="no-referrer">
+                        </script>
+                        <script>
+                          iFrameResize({
+                            heightCalculationMethod: "max",
+                            sizeWidth: true,
+                            scrolling: false,
+                            checkOrigin: false
+                          }, "#cfEventTypejyXnke");
+                          
+                          window.addEventListener('message', function(event) {
+                            if (event.origin !== 'https://www.ranbiolinks.com') {
+                              return;
+                            }
+                        
+                            if (event.data.id === 'redirectFromIframe') {
+                              window.location.href = event.data.url
+                            }
+                          });
+                        </script>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    
 
     <!-- Footer -->
     <footer>
@@ -535,6 +591,9 @@
         </div>
     </footer>
 
+    </div>
+</div>
+
     <!-- Exit Intent Popup -->
     <div id="exit-popup" class="popup">
         <div class="popup-content">
@@ -568,6 +627,66 @@
             <div class="chat-input">
                 <input type="text" placeholder="Type your message...">
                 <button class="send-btn"><img src="assets/images/icons/send.svg" alt="Send"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cookie Consent Banner -->
+    <div class="cookie-banner">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <h4>Cookie Preferences</h4>
+                <p>We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. By clicking "Accept All", you consent to our use of cookies.</p>
+            </div>
+            <div class="cookie-buttons">
+                <button class="cookie-settings btn btn-secondary">Cookie Settings</button>
+                <button class="reject-cookies btn btn-outline">Reject All</button>
+                <button class="accept-cookies btn btn-primary">Accept All</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cookie Settings Panel -->
+    <div class="cookie-settings-panel">
+        <div class="settings-content">
+            <div class="settings-header">
+                <h4>Cookie Preferences Center</h4>
+                <button class="close-cookie-settings">&times;</button>
+            </div>
+            <div class="settings-body">
+                <div class="cookie-option">
+                    <div class="option-info">
+                        <h5>Essential Cookies</h5>
+                        <p>These cookies are necessary for the website to function and cannot be switched off. They are usually only set in response to actions made by you which amount to a request for services.</p>
+                    </div>
+                    <div class="option-toggle">
+                        <input type="checkbox" id="essential-consent" checked disabled>
+                        <label for="essential-consent">Always Active</label>
+                    </div>
+                </div>
+                <div class="cookie-option">
+                    <div class="option-info">
+                        <h5>Analytics Cookies</h5>
+                        <p>These cookies allow us to count visits and traffic sources so we can measure and improve the performance of our site. They help us to know which pages are the most and least popular.</p>
+                    </div>
+                    <div class="option-toggle">
+                        <input type="checkbox" id="analytics-consent">
+                        <label for="analytics-consent">Enable</label>
+                    </div>
+                </div>
+                <div class="cookie-option">
+                    <div class="option-info">
+                        <h5>Functional Cookies</h5>
+                        <p>These cookies enable the website to provide enhanced functionality and personalization. They may be set by us or by third party providers whose services we have added to our pages.</p>
+                    </div>
+                    <div class="option-toggle">
+                        <input type="checkbox" id="functional-consent">
+                        <label for="functional-consent">Enable</label>
+                    </div>
+                </div>
+            </div>
+            <div class="settings-footer">
+                <button class="save-cookie-settings btn btn-primary">Save Preferences</button>
             </div>
         </div>
     </div>
