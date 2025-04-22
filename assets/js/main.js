@@ -13,6 +13,10 @@ document.addEventListener('DOMContentLoaded', () => {
     initExitIntent();
     initScrollAnimations();
     handleFormSubmissions();
+    initSmoothScroll();
+    initTabNavigation();
+    initCookieConsent();
+    initCounters();
 });
 
 /**
@@ -63,35 +67,69 @@ function fixSvgRendering() {
  * Mobile Navigation Toggle
  */
 function initNavigation() {
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('nav ul');
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
     
-    if (hamburger && navMenu) {
-        hamburger.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            hamburger.classList.toggle('active');
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', function() {
+            menuToggle.classList.toggle('active');
+            navMenu.classList.toggle('show');
+            document.body.classList.toggle('menu-open');
         });
         
-        // Close menu when clicking on a nav link
-        document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                hamburger.classList.remove('active');
-            });
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.nav-menu') && !e.target.closest('.menu-toggle') && navMenu.classList.contains('show')) {
+                menuToggle.classList.remove('active');
+                navMenu.classList.remove('show');
+                document.body.classList.remove('menu-open');
+            }
         });
         
-        // Header scroll effect
-        const header = document.querySelector('header');
-        if (header) {
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-            });
-        }
+        // Handle resize events
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 992 && navMenu.classList.contains('show')) {
+                menuToggle.classList.remove('active');
+                navMenu.classList.remove('show');
+                document.body.classList.remove('menu-open');
+            }
+        });
     }
+}
+
+/**
+ * Smooth scrolling for anchor links
+ */
+function initSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            
+            if (href !== '#') {
+                e.preventDefault();
+                
+                const targetElement = document.querySelector(href);
+                
+                if (targetElement) {
+                    // Close mobile menu if open
+                    const navMenu = document.querySelector('.nav-menu');
+                    const menuToggle = document.querySelector('.menu-toggle');
+                    
+                    if (navMenu && navMenu.classList.contains('show')) {
+                        menuToggle.classList.remove('active');
+                        navMenu.classList.remove('show');
+                        document.body.classList.remove('menu-open');
+                    }
+                    
+                    // Scroll to target with smooth behavior
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80, // Adjust for header height
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    });
 }
 
 /**
@@ -126,77 +164,70 @@ function initTabs() {
  * Testimonial Slider
  */
 function initTestimonialSlider() {
-    const testimonials = document.querySelectorAll('.testimonial-slide');
-    const dotsContainer = document.querySelector('.testimonial-dots');
-    const prevBtn = document.querySelector('.testimonial-nav .prev-btn');
-    const nextBtn = document.querySelector('.testimonial-nav .next-btn');
+    const slider = document.querySelector('.testimonial-slider');
     
-    if (testimonials.length && dotsContainer) {
-        let currentSlide = 0;
-        let slideInterval;
+    if (slider) {
+        let isDown = false;
+        let startX;
+        let scrollLeft;
         
-        // Create dots
-        testimonials.forEach((_, index) => {
-            const dot = document.createElement('div');
-            dot.classList.add('dot');
-            if (index === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => goToSlide(index));
-            dotsContainer.appendChild(dot);
+        // Mouse events for drag scrolling
+        slider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            slider.classList.add('active');
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
         });
         
-        const dots = document.querySelectorAll('.dot');
+        slider.addEventListener('mouseleave', () => {
+            isDown = false;
+            slider.classList.remove('active');
+        });
         
-        // Show only the current slide
-        function showSlide(index) {
-            testimonials.forEach((slide, i) => {
-                if (i === index) {
-                    slide.style.display = 'block';
-                } else {
-                    slide.style.display = 'none';
+        slider.addEventListener('mouseup', () => {
+            isDown = false;
+            slider.classList.remove('active');
+        });
+        
+        slider.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 2; // Scroll speed multiplier
+            slider.scrollLeft = scrollLeft - walk;
+        });
+        
+        // Auto scroll functionality
+        let scrollInterval;
+        let scrollDirection = 1;
+        
+        function startAutoScroll() {
+            scrollInterval = setInterval(() => {
+                slider.scrollLeft += 2 * scrollDirection;
+                
+                // Change direction when reaching the end or beginning
+                if (slider.scrollLeft >= slider.scrollWidth - slider.clientWidth) {
+                    scrollDirection = -1;
+                } else if (slider.scrollLeft <= 0) {
+                    scrollDirection = 1;
                 }
-            });
-            
-            // Update dots
-            dots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === index);
-            });
+            }, 30);
         }
         
-        // Initialize first slide
-        showSlide(0);
-        
-        // Handle slide navigation
-        function goToSlide(index) {
-            currentSlide = index;
-            if (currentSlide < 0) currentSlide = testimonials.length - 1;
-            if (currentSlide >= testimonials.length) currentSlide = 0;
-            showSlide(currentSlide);
-            resetSlideInterval();
+        function stopAutoScroll() {
+            clearInterval(scrollInterval);
         }
         
-        // Set up auto-sliding
-        function startSlideInterval() {
-            slideInterval = setInterval(() => {
-                goToSlide(currentSlide + 1);
-            }, 5000);
-        }
+        // Start auto-scrolling after a delay
+        setTimeout(startAutoScroll, 3000);
         
-        function resetSlideInterval() {
-            clearInterval(slideInterval);
-            startSlideInterval();
-        }
+        // Stop auto-scrolling when user interacts with the slider
+        slider.addEventListener('mouseenter', stopAutoScroll);
+        slider.addEventListener('touchstart', stopAutoScroll, { passive: true });
         
-        // Add event listeners to navigation buttons
-        if (prevBtn) {
-            prevBtn.addEventListener('click', () => goToSlide(currentSlide - 1));
-        }
-        
-        if (nextBtn) {
-            nextBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
-        }
-        
-        // Start auto-sliding
-        startSlideInterval();
+        // Resume auto-scrolling when user stops interacting
+        slider.addEventListener('mouseleave', startAutoScroll);
+        slider.addEventListener('touchend', startAutoScroll);
     }
 }
 
@@ -359,48 +390,42 @@ function initChatWidget() {
  * Exit Intent Popup
  */
 function initExitIntent() {
-    const exitPopup = document.getElementById('exit-popup');
-    const closePopup = document.querySelector('.close-popup');
-    const whitePaperForm = document.getElementById('whitepaper-form');
+    const exitPopup = document.querySelector('.exit-popup');
     
-    if (exitPopup && closePopup) {
-        let showOnce = false;
-        
-        // Check if popup has been shown in this session
+    if (exitPopup) {
+        // Check if popup was already shown in this session
         if (!sessionStorage.getItem('exitPopupShown')) {
-            // Mouse leave detection
-            document.addEventListener('mouseleave', (e) => {
-                if (e.clientY < 5 && !showOnce) {
-                    exitPopup.classList.add('active');
-                    showOnce = true;
+            // Set listener for exit intent
+            document.addEventListener('mouseleave', handleExitIntent);
+            
+            // Close button handler
+            const closeButton = exitPopup.querySelector('.close-popup');
+            
+            if (closeButton) {
+                closeButton.addEventListener('click', function() {
+                    exitPopup.classList.remove('show');
+                    // Prevent showing again in this session
                     sessionStorage.setItem('exitPopupShown', 'true');
-                }
-            });
-            
-            // Close button
-            closePopup.addEventListener('click', () => {
-                exitPopup.classList.remove('active');
-            });
-            
-            // Close when clicking outside
-            exitPopup.addEventListener('click', (e) => {
-                if (e.target === exitPopup) {
-                    exitPopup.classList.remove('active');
-                }
-            });
-            
-            // Form submission
-            if (whitePaperForm) {
-                whitePaperForm.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    const email = document.getElementById('popup-email').value;
-                    
-                    // In a real app, this would submit to a server
-                    alert(`Thank you! The whitepaper would be sent to ${email} in a production environment.`);
-                    
-                    exitPopup.classList.remove('active');
                 });
             }
+        }
+    }
+}
+
+/**
+ * Handle exit intent detection
+ */
+function handleExitIntent(e) {
+    // Only trigger when cursor moves out through the top of the page
+    if (e.clientY < 5) {
+        // Remove the event listener
+        document.removeEventListener('mouseleave', handleExitIntent);
+        
+        // Show the popup
+        const exitPopup = document.querySelector('.exit-popup');
+        
+        if (exitPopup) {
+            exitPopup.classList.add('show');
         }
     }
 }
@@ -409,24 +434,124 @@ function initExitIntent() {
  * Scroll Animations
  */
 function initScrollAnimations() {
-    const elements = document.querySelectorAll('.challenge-card, .benefit-card, .pricing-card, .architecture-column');
-    
-    if (elements.length) {
-        // Create an observer
-        const observer = new IntersectionObserver((entries) => {
+    // Check if Intersection Observer is supported
+    if ('IntersectionObserver' in window) {
+        const animatedElements = document.querySelectorAll('.fade-in, .slide-in, .scale-in');
+        
+        const animationObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('animate');
-                    // Unobserve after animation is triggered
-                    observer.unobserve(entry.target);
+                    entry.target.classList.add('visible');
+                    
+                    // Stop observing after animation is triggered
+                    animationObserver.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.1 });
-        
-        // Observe each element
-        elements.forEach(element => {
-            observer.observe(element);
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px' // Trigger slightly before element comes into view
         });
+        
+        animatedElements.forEach(element => {
+            // Add initial state class based on animation type
+            if (element.classList.contains('fade-in')) {
+                element.style.opacity = '0';
+                element.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+            } else if (element.classList.contains('slide-in')) {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(50px)';
+                element.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+            } else if (element.classList.contains('scale-in')) {
+                element.style.opacity = '0';
+                element.style.transform = 'scale(0.9)';
+                element.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+            }
+            
+            animationObserver.observe(element);
+        });
+        
+        // Add styles for visible state
+        const style = document.createElement('style');
+        style.textContent = `
+            .fade-in.visible, .slide-in.visible, .scale-in.visible {
+                opacity: 1;
+                transform: none;
+            }
+        `;
+        document.head.appendChild(style);
+    }
+    
+    // Parallax effect for background elements
+    window.addEventListener('scroll', function() {
+        const parallaxElements = document.querySelectorAll('.parallax');
+        
+        parallaxElements.forEach(element => {
+            const scrollPosition = window.pageYOffset;
+            const speed = element.getAttribute('data-speed') || 0.5;
+            
+            element.style.transform = `translateY(${scrollPosition * speed}px)`;
+        });
+    });
+}
+
+/**
+ * Tab navigation
+ */
+function initTabNavigation() {
+    const tabContainers = document.querySelectorAll('.tab-container');
+    
+    tabContainers.forEach(container => {
+        const tabButtons = container.querySelectorAll('.tab-button');
+        const tabPanels = container.querySelectorAll('.tab-panel');
+        
+        tabButtons.forEach((button, index) => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons and panels
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabPanels.forEach(panel => panel.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding panel
+                button.classList.add('active');
+                tabPanels[index].classList.add('active');
+            });
+        });
+    });
+}
+
+/**
+ * Cookie consent banner
+ */
+function initCookieConsent() {
+    const cookieBanner = document.querySelector('.cookie-banner');
+    
+    if (cookieBanner) {
+        // Check if consent was already given
+        if (!localStorage.getItem('cookieConsent')) {
+            // Show the banner after a short delay
+            setTimeout(() => {
+                cookieBanner.classList.add('show');
+            }, 2000);
+            
+            // Accept button handler
+            const acceptButton = cookieBanner.querySelector('.accept-cookies');
+            
+            if (acceptButton) {
+                acceptButton.addEventListener('click', function() {
+                    localStorage.setItem('cookieConsent', 'accepted');
+                    cookieBanner.classList.remove('show');
+                });
+            }
+            
+            // Reject button handler
+            const rejectButton = cookieBanner.querySelector('.reject-cookies');
+            
+            if (rejectButton) {
+                rejectButton.addEventListener('click', function() {
+                    localStorage.setItem('cookieConsent', 'rejected');
+                    cookieBanner.classList.remove('show');
+                });
+            }
+        }
     }
 }
 
@@ -472,4 +597,51 @@ function debounce(func, wait = 20, immediate = true) {
         timeout = setTimeout(later, wait);
         if (callNow) func.apply(context, args);
     };
+}
+
+// Animate counter elements
+function animateCounters() {
+    const counters = document.querySelectorAll('.counter');
+    
+    counters.forEach(counter => {
+        const target = parseInt(counter.getAttribute('data-target'));
+        const duration = parseInt(counter.getAttribute('data-duration') || 2000);
+        const increment = target / (duration / 16); // 60fps
+        
+        let current = 0;
+        
+        const updateCounter = () => {
+            current += increment;
+            
+            if (current < target) {
+                counter.textContent = Math.floor(current);
+                requestAnimationFrame(updateCounter);
+            } else {
+                counter.textContent = target;
+            }
+        };
+        
+        updateCounter();
+    });
+}
+
+// Initialize counters when they come into view
+function initCounters() {
+    const counterElements = document.querySelectorAll('.counter');
+    
+    if (counterElements.length > 0) {
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        // Observe the first counter element
+        counterObserver.observe(counterElements[0]);
+    }
 } 
