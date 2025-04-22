@@ -278,87 +278,17 @@ function initTestimonialSlider() {
 function initAIAnimation() {
     const aiContainer = document.querySelector('.ai-animation');
     if (aiContainer) {
-        // Create canvas element
-        const canvas = document.createElement('canvas');
-        aiContainer.appendChild(canvas);
+        // Clear any existing content
+        aiContainer.innerHTML = '';
         
-        const ctx = canvas.getContext('2d');
+        // Add the clinical trial network SVG
+        const img = document.createElement('img');
+        img.src = 'assets/images/clinical-trial-network.svg';
+        img.alt = 'Clinical trial concepts network visualization';
+        img.style.width = '100%';
+        img.style.height = '100%';
         
-        // Set canvas dimensions
-        function resizeCanvas() {
-            canvas.width = aiContainer.clientWidth;
-            canvas.height = aiContainer.clientHeight;
-        }
-        
-        // Call once to initialize
-        resizeCanvas();
-        
-        // Listen for window resize
-        window.addEventListener('resize', resizeCanvas);
-        
-        // Particle properties
-        const particles = [];
-        const particleCount = 100;
-        const connectionDistance = 100;
-        const colors = ['#d81c1c', '#a41616', '#ffffff'];
-        
-        // Create particles
-        for (let i = 0; i < particleCount; i++) {
-            particles.push({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                size: Math.random() * 3 + 1,
-                speedX: Math.random() * 1 - 0.5,
-                speedY: Math.random() * 1 - 0.5,
-                color: colors[Math.floor(Math.random() * colors.length)]
-            });
-        }
-        
-        // Animation function
-        function animate() {
-            requestAnimationFrame(animate);
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
-            // Update and draw particles
-            particles.forEach(particle => {
-                // Move particle
-                particle.x += particle.speedX;
-                particle.y += particle.speedY;
-                
-                // Bounce off edges
-                if (particle.x < 0 || particle.x > canvas.width) {
-                    particle.speedX *= -1;
-                }
-                if (particle.y < 0 || particle.y > canvas.height) {
-                    particle.speedY *= -1;
-                }
-                
-                // Draw particle
-                ctx.beginPath();
-                ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-                ctx.fillStyle = particle.color;
-                ctx.fill();
-                
-                // Connect particles if they're close enough
-                particles.forEach(otherParticle => {
-                    const dx = particle.x - otherParticle.x;
-                    const dy = particle.y - otherParticle.y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-                    
-                    if (distance < connectionDistance) {
-                        ctx.beginPath();
-                        ctx.moveTo(particle.x, particle.y);
-                        ctx.lineTo(otherParticle.x, otherParticle.y);
-                        ctx.strokeStyle = `rgba(255, 255, 255, ${1 - distance / connectionDistance * 0.8})`;
-                        ctx.lineWidth = 0.5;
-                        ctx.stroke();
-                    }
-                });
-            });
-        }
-        
-        // Start animation
-        animate();
+        aiContainer.appendChild(img);
     }
 }
 
