@@ -373,7 +373,7 @@ header .container {
 }
 
 .logo img {
-  height: 45px;
+  height: 35px;
   transition: all var(--transition-normal);
   filter: drop-shadow(0 2px 5px rgba(99, 102, 241, 0.3));
 }
