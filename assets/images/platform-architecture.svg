@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="500" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6c63ff" />
+      <stop offset="100%" stop-color="#00d9c5" />
+    </linearGradient>
+    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4a45b2" />
+      <stop offset="100%" stop-color="#009688" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5" />
+      <feOffset dx="0" dy="0" result="offsetblur" />
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.3" />
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background grid -->
+  <rect width="900" height="500" fill="#1e1e1e" />
+  <path d="M0,50 L900,50 M0,100 L900,100 M0,150 L900,150 M0,200 L900,200 M0,250 L900,250 M0,300 L900,300 M0,350 L900,350 M0,400 L900,400 M0,450 L900,450" stroke="#2d2d2d" stroke-width="1" />
+  <path d="M50,0 L50,500 M100,0 L100,500 M150,0 L150,500 M200,0 L200,500 M250,0 L250,500 M300,0 L300,500 M350,0 L350,500 M400,0 L400,500 M450,0 L450,500 M500,0 L500,500 M550,0 L550,500 M600,0 L600,500 M650,0 L650,500 M700,0 L700,500 M750,0 L750,500 M800,0 L800,500 M850,0 L850,500" stroke="#2d2d2d" stroke-width="1" />
+  
+  <!-- AI Core -->
+  <circle cx="450" cy="150" r="80" fill="#121212" stroke="url(#grad1)" stroke-width="3" filter="url(#shadow)" />
+  <text x="450" y="150" font-family="Arial" font-size="20" fill="#ffffff" text-anchor="middle" dominant-baseline="middle" font-weight="bold">AI Core</text>
+  <text x="450" y="180" font-family="Arial" font-size="14" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">Neural Networks, ML Models,</text>
+  <text x="450" y="200" font-family="Arial" font-size="14" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">NLP, Document Processing</text>
+  
+  <!-- Data Layer -->
+  <rect x="200" y="300" width="500" height="100" rx="10" ry="10" fill="#121212" stroke="url(#grad1)" stroke-width="3" filter="url(#shadow)" />
+  <text x="450" y="335" font-family="Arial" font-size="20" fill="#ffffff" text-anchor="middle" dominant-baseline="middle" font-weight="bold">Unified Data Layer</text>
+  <text x="450" y="365" font-family="Arial" font-size="14" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">Secure Storage, Analytics Engine, Cross-Functional Queries</text>
+  
+  <!-- CTMS Module -->
+  <rect x="100" y="150" width="140" height="80" rx="10" ry="10" fill="#121212" stroke="url(#grad2)" stroke-width="3" filter="url(#shadow)" />
+  <text x="170" y="180" font-family="Arial" font-size="18" fill="#ffffff" text-anchor="middle" dominant-baseline="middle" font-weight="bold">CTMS</text>
+  <text x="170" y="205" font-family="Arial" font-size="12" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">Trial Management</text>
+  
+  <!-- eTMF Module -->
+  <rect x="660" y="150" width="140" height="80" rx="10" ry="10" fill="#121212" stroke="url(#grad2)" stroke-width="3" filter="url(#shadow)" />
+  <text x="730" y="180" font-family="Arial" font-size="18" fill="#ffffff" text-anchor="middle" dominant-baseline="middle" font-weight="bold">eTMF</text>
+  <text x="730" y="205" font-family="Arial" font-size="12" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">Document Management</text>
+  
+  <!-- QMS Module -->
+  <rect x="300" y="50" width="140" height="80" rx="10" ry="10" fill="#121212" stroke="url(#grad2)" stroke-width="3" filter="url(#shadow)" />
+  <text x="370" y="80" font-family="Arial" font-size="18" fill="#ffffff" text-anchor="middle" dominant-baseline="middle" font-weight="bold">QMS</text>
+  <text x="370" y="105" font-family="Arial" font-size="12" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">Quality Management</text>
+  
+  <!-- Workflow Module -->
+  <rect x="460" y="50" width="140" height="80" rx="10" ry="10" fill="#121212" stroke="url(#grad2)" stroke-width="3" filter="url(#shadow)" />
+  <text x="530" y="80" font-family="Arial" font-size="18" fill="#ffffff" text-anchor="middle" dominant-baseline="middle" font-weight="bold">Workflows</text>
+  <text x="530" y="105" font-family="Arial" font-size="12" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">Process Automation</text>
+  
+  <!-- Analytics Module -->
+  <rect x="250" y="230" width="140" height="80" rx="10" ry="10" fill="#121212" stroke="url(#grad2)" stroke-width="3" filter="url(#shadow)" />
+  <text x="320" y="260" font-family="Arial" font-size="18" fill="#ffffff" text-anchor="middle" dominant-baseline="middle" font-weight="bold">Analytics</text>
+  <text x="320" y="285" font-family="Arial" font-size="12" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">Insights & Reporting</text>
+  
+  <!-- AI Agents Module -->
+  <rect x="510" y="230" width="140" height="80" rx="10" ry="10" fill="#121212" stroke="url(#grad2)" stroke-width="3" filter="url(#shadow)" />
+  <text x="580" y="260" font-family="Arial" font-size="18" fill="#ffffff" text-anchor="middle" dominant-baseline="middle" font-weight="bold">AI Agents</text>
+  <text x="580" y="285" font-family="Arial" font-size="12" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">Autonomous Tasks</text>
+  
+  <!-- Integration Layer -->
+  <rect x="50" y="450" width="800" height="30" rx="5" ry="5" fill="#121212" stroke="#4a45b2" stroke-width="2" filter="url(#shadow)" />
+  <text x="450" y="470" font-family="Arial" font-size="14" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">API Gateway & Integration Framework</text>
+  
+  <!-- Connections -->
+  <path d="M170,190 C240,190 370,170 370,150" stroke="#6c63ff" stroke-width="2" fill="none" />
+  <path d="M370,130 C370,140 430,140 450,150" stroke="#6c63ff" stroke-width="2" fill="none" />
+  <path d="M530,130 C530,140 480,140 450,150" stroke="#6c63ff" stroke-width="2" fill="none" />
+  <path d="M730,190 C660,190 530,170 530,150" stroke="#6c63ff" stroke-width="2" fill="none" />
+  <path d="M450,230 C450,250 400,250 370,270" stroke="#6c63ff" stroke-width="2" fill="none" />
+  <path d="M450,230 C450,250 500,250 530,270" stroke="#6c63ff" stroke-width="2" fill="none" />
+  <path d="M320,310 L350,300" stroke="#6c63ff" stroke-width="2" fill="none" />
+  <path d="M580,310 L550,300" stroke="#6c63ff" stroke-width="2" fill="none" />
+  <path d="M250,350 L170,230" stroke="#00d9c5" stroke-width="2" fill="none" />
+  <path d="M550,350 L730,230" stroke="#00d9c5" stroke-width="2" fill="none" />
+  <path d="M450,350 L450,230" stroke="#00d9c5" stroke-width="2" fill="none" />
+  <path d="M450,400 L450,450" stroke="#4a45b2" stroke-width="2" fill="none" />
+  
+  <!-- External Systems -->
+  <rect x="100" y="450" width="120" height="30" rx="5" ry="5" fill="none" stroke="#ffffff" stroke-width="1" stroke-dasharray="5,5" />
+  <text x="160" y="470" font-family="Arial" font-size="12" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">External Systems</text>
+  
+  <rect x="680" y="450" width="120" height="30" rx="5" ry="5" fill="none" stroke="#ffffff" stroke-width="1" stroke-dasharray="5,5" />
+  <text x="740" y="470" font-family="Arial" font-size="12" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">Legacy Systems</text>
+  
+  <!-- Glow effects for connections -->
+  <circle cx="170" cy="190" r="5" fill="#6c63ff" filter="url(#shadow)" />
+  <circle cx="370" cy="130" r="5" fill="#6c63ff" filter="url(#shadow)" />
+  <circle cx="530" cy="130" r="5" fill="#6c63ff" filter="url(#shadow)" />
+  <circle cx="730" cy="190" r="5" fill="#6c63ff" filter="url(#shadow)" />
+  <circle cx="320" cy="310" r="5" fill="#6c63ff" filter="url(#shadow)" />
+  <circle cx="580" cy="310" r="5" fill="#6c63ff" filter="url(#shadow)" />
+  <circle cx="450" cy="230" r="5" fill="#6c63ff" filter="url(#shadow)" />
+  <circle cx="450" cy="350" r="5" fill="#00d9c5" filter="url(#shadow)" />
+</svg> 

@@ -1,0 +1,108 @@
+# Comprehensive Prompt for MAESTRO Landing Page Development
+
+## Project Overview
+Create a professional dark-themed landing page for MAESTRO, an AI-powered comprehensive solution for life sciences that integrates CTMS (Clinical Trial Management System), eTMF (Electronic Trial Master File), QMS (Quality Management System), intelligent workflows, and AI agents in a unified platform.
+
+## Design Requirements
+- Use a dark color scheme with professional, modern aesthetics
+- Implement responsive design that works across all devices
+- Use subtle animations for interactive elements
+- Feature a clean, intuitive navigation with clear CTAs (Call to Action)
+- Incorporate scientific/technological visual elements that represent AI and life sciences
+- Ensure high accessibility standards
+
+## Content Structure
+1. **Hero Section**
+   - Headline: "MAESTRO: Transforming Life Science Operations with Intelligent Automation"
+   - Subheading: "The unified AI-powered platform for clinical trials, document management, quality control, and workflow automation"
+   - Primary CTA: "Schedule a Demo"
+   - Secondary CTA: "Explore Features"
+   - Background: Subtle animation showing data visualization or AI processing concept
+
+2. **Pain Points Section**
+   - Title: "Solving Critical Challenges in Research & Development"
+   - Address specific pain points:
+     - Data silos between different systems
+     - Manual documentation processes wasting valuable research time
+     - Complex regulatory compliance requirements
+     - Difficulty tracking and managing clinical trials
+     - Inconsistent quality management processes
+     - Limited insights from fragmented data
+
+3. **Features Overview**
+   - CTMS: Streamlined clinical trial planning, execution, and monitoring
+   - eTMF: Intelligent document management with automated classification
+   - QMS: Integrated quality control processes with real-time monitoring
+   - Workflow Automation: Custom AI-powered workflows for any research process
+   - AI Agents: Autonomous task execution and decision support
+   - Unified Analytics: Cross-functional insights and predictive capabilities
+
+4. **Benefits Section**
+   - 60% reduction in documentation time
+   - 45% faster clinical trial setup
+   - 99.8% regulatory compliance rate
+   - 35% improvement in research team productivity
+   - Seamless integration of all research operations
+   - Real-time insights for better decision making
+
+5. **How It Works Section**
+   - Brief visual explanation of the platform architecture
+   - AI capabilities explanation
+   - Integration capabilities with existing systems
+
+6. **Testimonials/Case Studies**
+   - Quotes from research institutions or pharmaceutical companies (placeholder)
+   - Brief case study showing measurable results
+
+7. **Pricing/Plans Section**
+   - Enterprise
+   - Research Institution
+   - Startup
+   - CTA: "Contact for Custom Solution"
+
+8. **About/Team Section**
+   - Brief company overview
+   - Mission statement focused on advancing scientific discovery
+
+9. **Contact/Demo Request Form**
+   - Simple form with essential fields
+   - Alternative contact methods
+
+## SEO Optimization Requirements
+- Implement semantic HTML5 structure
+- Include structured data (JSON-LD) for rich snippets
+- Set up proper meta tags:
+  - Title: "MAESTRO | AI-Powered CTMS, eTMF & QMS Platform for Life Sciences"
+  - Description: "Streamline clinical trials, document management, and quality control with MAESTRO's unified AI platform. Increase research productivity by 35% while ensuring compliance."
+- Use proper heading hierarchy (H1, H2, H3)
+- Optimize for keywords:
+  - Primary: "AI clinical trial management system", "life sciences workflow automation"
+  - Secondary: "eTMF software", "QMS platform", "research automation", "AI agents for clinical research"
+- Include alt text for all images
+- Implement canonical URLs
+- Create a sitemap.xml and robots.txt
+- Ensure fast loading times with optimized assets
+- Include social media meta tags (Open Graph, Twitter Cards)
+
+## Technical Requirements
+- Pure HTML, CSS, and JavaScript (no frameworks required for GitHub Pages)
+- Modular code structure for easy maintenance
+- Proper comments throughout the code
+- Cross-browser compatibility
+- Mobile-first approach
+- Include Google Analytics tracking setup
+- Implement Schema.org markup for better search visibility
+
+## GitHub Deployment Specifics
+- Structure the repository for GitHub Pages hosting
+- Include a comprehensive README.md with setup instructions
+- Set up proper .gitignore file
+- Configure GitHub Pages in the repository settings
+- Include deployment instructions for custom domain setup (if needed)
+
+## Additional Conversion Elements
+- Exit-intent popup offering a whitepaper download
+- Live chat widget placeholder
+- Newsletter subscription option
+- Social proof elements (client logos, research publications, awards)
+- FAQ section addressing common questions about implementation and migration
