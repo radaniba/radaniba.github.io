@@ -53,6 +53,18 @@
     
     <!-- Data packet symbol -->
     <rect id="dataPacket" width="8" height="4" rx="2" fill="#4cffff" opacity="0.8" />
+    
+    <!-- Add these glow filter for the white dots -->
+    <filter id="whiteDotGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" />
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.5" />
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
   </defs>
   
   <!-- Move all components up to use space from removed title -->
@@ -170,123 +182,159 @@
     <line x1="580" y1="370" x2="600" y2="370" stroke="#6086EC" stroke-width="1.5" />
     <line x1="720" y1="370" x2="740" y2="370" stroke="#6086EC" stroke-width="1.5" />
     
-    <!-- Animated data packets with faster animation and bidirectional flow -->
-    
-    <!-- AI to App Layer - down -->
-    <use href="#dataPacket">
-      <animateMotion dur="1.5s" repeatCount="indefinite" begin="0s">
-        <mpath href="#dataPath3-down" />
-      </animateMotion>
-    </use>
-    
-    <!-- AI to App Layer - up -->
-    <use href="#dataPacket">
-      <animateMotion dur="1.5s" repeatCount="indefinite" begin="0.3s">
-        <mpath href="#dataPath3-up" />
-      </animateMotion>
-    </use>
-    
-    <!-- App Layer to Data Layer - down -->
-    <use href="#dataPacket">
-      <animateMotion dur="1.5s" repeatCount="indefinite" begin="0.5s">
-        <mpath href="#dataPath4-down" />
-      </animateMotion>
-    </use>
-    
-    <!-- App Layer to Data Layer - up -->
-    <use href="#dataPacket">
-      <animateMotion dur="1.5s" repeatCount="indefinite" begin="0.8s">
-        <mpath href="#dataPath4-up" />
-      </animateMotion>
-    </use>
-    
-    <!-- Horizontal in App Layer - right -->
-    <use href="#dataPacket">
-      <animateMotion dur="2s" repeatCount="indefinite" begin="0.2s">
-        <mpath href="#dataPath5-right" />
-      </animateMotion>
-    </use>
-    
-    <!-- Horizontal in App Layer - left -->
-    <use href="#dataPacket">
-      <animateMotion dur="2s" repeatCount="indefinite" begin="1.2s">
-        <mpath href="#dataPath5-left" />
-      </animateMotion>
-    </use>
-    
-    <!-- Horizontal in App Layer - right -->
-    <use href="#dataPacket">
-      <animateMotion dur="2s" repeatCount="indefinite" begin="1s">
-        <mpath href="#dataPath6-right" />
-      </animateMotion>
-    </use>
-    
-    <!-- Horizontal in App Layer - left -->
-    <use href="#dataPacket">
-      <animateMotion dur="2s" repeatCount="indefinite" begin="2s">
-        <mpath href="#dataPath6-left" />
-      </animateMotion>
-    </use>
-    
-    <!-- Data Layer to Integration Layer - down -->
-    <use href="#dataPacket">
-      <animateMotion dur="1.5s" repeatCount="indefinite" begin="0.6s">
-        <mpath href="#dataPath7-down" />
-      </animateMotion>
-    </use>
-    
-    <!-- Data Layer to Integration Layer - up -->
-    <use href="#dataPacket">
-      <animateMotion dur="1.5s" repeatCount="indefinite" begin="1.5s">
-        <mpath href="#dataPath7-up" />
-      </animateMotion>
-    </use>
-    
-    <!-- Integration Layer to External - down -->
-    <use href="#dataPacket">
-      <animateMotion dur="1s" repeatCount="indefinite" begin="0.3s">
-        <mpath href="#dataPath8-down" />
-      </animateMotion>
-    </use>
-    
-    <!-- Integration Layer to External - up -->
-    <use href="#dataPacket">
-      <animateMotion dur="1s" repeatCount="indefinite" begin="0.8s">
-        <mpath href="#dataPath8-up" />
-      </animateMotion>
-    </use>
-    
-    <!-- Integration Layer to External - down -->
-    <use href="#dataPacket">
-      <animateMotion dur="1s" repeatCount="indefinite" begin="1.1s">
-        <mpath href="#dataPath9-down" />
-      </animateMotion>
-    </use>
-    
-    <!-- Integration Layer to External - up -->
-    <use href="#dataPacket">
-      <animateMotion dur="1s" repeatCount="indefinite" begin="1.6s">
-        <mpath href="#dataPath9-up" />
-      </animateMotion>
-    </use>
-    
-    <!-- Add more packets for other connections -->
-    <use href="#dataPacket">
-      <animateMotion dur="1s" repeatCount="indefinite" begin="0.4s">
-        <mpath href="#dataPath3-down" />
-      </animateMotion>
-    </use>
-    
-    <use href="#dataPacket">
-      <animateMotion dur="1s" repeatCount="indefinite" begin="0.9s">
-        <mpath href="#dataPath4-down" />
-      </animateMotion>
-    </use>
-    
-    <use href="#dataPacket">
-      <animateMotion dur="1s" repeatCount="indefinite" begin="1.3s">
-        <mpath href="#dataPath7-down" />
-      </animateMotion>
-    </use>
+    <!-- Add white dot animations for data flows -->
+    <!-- AI Core to Application Modules -->
+    <circle cx="0" cy="0" r="3" fill="white" filter="url(#whiteDotGlow)">
+      <animateMotion 
+        path="M250,120 L250,170"
+        dur="2s"
+        repeatCount="indefinite"
+        rotate="auto"
+      />
+    </circle>
+
+    <circle cx="0" cy="0" r="3" fill="white" filter="url(#whiteDotGlow)">
+      <animateMotion 
+        path="M200,120 L150,170"
+        dur="2.3s"
+        begin="0.4s"
+        repeatCount="indefinite"
+        rotate="auto"
+      />
+    </circle>
+
+    <circle cx="0" cy="0" r="3" fill="white" filter="url(#whiteDotGlow)">
+      <animateMotion 
+        path="M300,120 L350,170"
+        dur="2.1s"
+        begin="0.8s"
+        repeatCount="indefinite"
+        rotate="auto"
+      />
+    </circle>
+
+    <!-- Application Modules to Data Layer -->
+    <circle cx="0" cy="0" r="3" fill="white" filter="url(#whiteDotGlow)">
+      <animateMotion 
+        path="M150,210 L150,260"
+        dur="1.8s"
+        begin="1.2s"
+        repeatCount="indefinite"
+        rotate="auto"
+      />
+    </circle>
+
+    <circle cx="0" cy="0" r="3" fill="white" filter="url(#whiteDotGlow)">
+      <animateMotion 
+        path="M250,210 L250,260"
+        dur="1.9s"
+        begin="0.7s"
+        repeatCount="indefinite"
+        rotate="auto"
+      />
+    </circle>
+
+    <circle cx="0" cy="0" r="3" fill="white" filter="url(#whiteDotGlow)">
+      <animateMotion 
+        path="M350,210 L350,260"
+        dur="2.2s"
+        begin="0.3s"
+        repeatCount="indefinite"
+        rotate="auto"
+      />
+    </circle>
+
+    <!-- Data Layer to Integration Layer -->
+    <circle cx="0" cy="0" r="3" fill="white" filter="url(#whiteDotGlow)">
+      <animateMotion 
+        path="M200,300 L200,350"
+        dur="2.5s"
+        begin="1.5s"
+        repeatCount="indefinite"
+        rotate="auto"
+      />
+    </circle>
+
+    <circle cx="0" cy="0" r="3" fill="white" filter="url(#whiteDotGlow)">
+      <animateMotion 
+        path="M300,300 L300,350"
+        dur="2.4s"
+        begin="0.5s"
+        repeatCount="indefinite"
+        rotate="auto"
+      />
+    </circle>
+
+    <!-- Circular flows in the AI Core -->
+    <circle cx="0" cy="0" r="3" fill="white" filter="url(#whiteDotGlow)">
+      <animateMotion 
+        path="M250,80 A30,30 0 1 1 250,81"
+        dur="4s"
+        repeatCount="indefinite"
+        rotate="auto"
+      />
+    </circle>
+
+    <circle cx="0" cy="0" r="3" fill="white" filter="url(#whiteDotGlow)">
+      <animateMotion 
+        path="M220,100 A20,20 0 1 0 220,101"
+        dur="3s"
+        begin="1s"
+        repeatCount="indefinite"
+        rotate="auto"
+      />
+    </circle>
+
+    <!-- Horizontal flows -->
+    <circle cx="0" cy="0" r="3" fill="white" filter="url(#whiteDotGlow)">
+      <animateMotion 
+        path="M150,190 L350,190"
+        dur="3s"
+        begin="0.2s"
+        repeatCount="indefinite"
+        rotate="auto"
+      />
+    </circle>
+
+    <circle cx="0" cy="0" r="3" fill="white" filter="url(#whiteDotGlow)">
+      <animateMotion 
+        path="M350,280 L150,280"
+        dur="3.2s"
+        begin="1.7s"
+        repeatCount="indefinite"
+        rotate="auto"
+      />
+    </circle>
+
+    <!-- Integration connections to external systems -->
+    <circle cx="0" cy="0" r="3" fill="white" filter="url(#whiteDotGlow)">
+      <animateMotion 
+        path="M175,370 L120,400"
+        dur="1.6s"
+        begin="0.9s"
+        repeatCount="indefinite"
+        rotate="auto"
+      />
+    </circle>
+
+    <circle cx="0" cy="0" r="3" fill="white" filter="url(#whiteDotGlow)">
+      <animateMotion 
+        path="M250,380 L250,420"
+        dur="1.7s"
+        begin="1.3s"
+        repeatCount="indefinite"
+        rotate="auto"
+      />
+    </circle>
+
+    <circle cx="0" cy="0" r="3" fill="white" filter="url(#whiteDotGlow)">
+      <animateMotion 
+        path="M325,370 L380,400"
+        dur="1.8s"
+        begin="0.6s"
+        repeatCount="indefinite"
+        rotate="auto"
+      />
+    </circle>
   </g>
 </svg> 

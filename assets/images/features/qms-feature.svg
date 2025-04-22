@@ -1,70 +1,265 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="500" height="300" viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg">
-  <!-- Browser window -->
-  <rect x="20" y="20" width="460" height="260" rx="8" fill="#1E2A3A" stroke="#3A5BD9" stroke-width="2"/>
+  <!-- Definitions -->
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="headerGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2C3E50" />
+      <stop offset="100%" stop-color="#1A2530" />
+    </linearGradient>
+    
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1E2A3A" />
+      <stop offset="100%" stop-color="#15202E" />
+    </linearGradient>
+    
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4A6ADA" />
+      <stop offset="100%" stop-color="#2C53C5" />
+    </linearGradient>
+    
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1A2530" />
+      <stop offset="100%" stop-color="#15202B" />
+    </linearGradient>
+    
+    <linearGradient id="compliantGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0BAB64" />
+      <stop offset="100%" stop-color="#3BB78F" />
+    </linearGradient>
+    
+    <linearGradient id="pendingGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF9500" />
+      <stop offset="100%" stop-color="#FF5E3A" />
+    </linearGradient>
+    
+    <linearGradient id="nonCompliantGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF416C" />
+      <stop offset="100%" stop-color="#FF4B2B" />
+    </linearGradient>
+    
+    <linearGradient id="chartGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2C3E50" opacity="0.3" />
+      <stop offset="100%" stop-color="#1A2530" opacity="0.1" />
+    </linearGradient>
+    
+    <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4A6ADA" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#4A6ADA" stop-opacity="1" />
+    </linearGradient>
+    
+    <linearGradient id="documentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#CCCCCC" stop-opacity="0.05" />
+    </linearGradient>
+    
+    <!-- Filters -->
+    <filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
+      <feOffset dx="0" dy="2" result="offsetblur" />
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.2" />
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.3" />
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    
+    <!-- Marker for arrow -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="url(#accentGradient)"/>
+    </marker>
+  </defs>
   
-  <!-- Browser toolbar -->
-  <rect x="20" y="20" width="460" height="40" rx="8" fill="#2C3E50" stroke="none"/>
-  <rect x="20" y="20" width="460" height="8" rx="8" fill="#3A5BD9" stroke="none"/>
+  <!-- Background -->
+  <rect x="0" y="0" width="500" height="300" rx="8" fill="url(#bgGradient)"/>
   
-  <!-- Browser controls -->
-  <circle cx="45" cy="40" r="5" fill="#FC6058"/>
-  <circle cx="65" cy="40" r="5" fill="#FEC02F"/>
-  <circle cx="85" cy="40" r="5" fill="#2ACA3E"/>
+  <!-- Header -->
+  <rect x="20" y="20" width="460" height="40" rx="8" fill="url(#headerGradient)" filter="url(#softShadow)"/>
+  <text x="40" y="45" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="bold" fill="white">Quality Management System (QMS)</text>
   
-  <!-- Address bar -->
-  <rect x="110" y="30" width="300" height="20" rx="4" fill="#1A2530" stroke="#4A6ADA" stroke-width="1"/>
-  <text x="125" y="44" font-family="Arial, sans-serif" font-size="10" fill="#B2C7E8">https://maestro.io/quality-management</text>
+  <!-- Left Navigation Menu -->
+  <rect x="20" y="70" width="120" height="210" rx="4" fill="url(#cardGradient)" filter="url(#softShadow)"/>
+  <text x="35" y="90" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="bold" fill="white">Modules</text>
   
-  <!-- Browser content -->
-  <rect x="35" y="75" width="430" height="190" rx="4" fill="#1A2530" stroke="none"/>
+  <!-- Menu Items -->
+  <g transform="translate(30, 105)">
+    <rect width="100" height="28" rx="4" fill="url(#accentGradient)" stroke="none" filter="url(#softShadow)"/>
+    <text x="10" y="18" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="white">Dashboard</text>
+  </g>
   
-  <!-- Dashboard header -->
-  <rect x="50" y="90" width="400" height="40" rx="4" fill="#2C3E50" stroke="#4A6ADA" stroke-width="1"/>
-  <text x="65" y="115" font-family="Arial, sans-serif" font-size="16" fill="#FFFFFF" font-weight="bold">Quality Management Dashboard</text>
+  <g transform="translate(30, 143)">
+    <rect width="100" height="28" rx="4" fill="#1A2530" stroke="#2C3E50" stroke-width="1"/>
+    <text x="10" y="18" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#B2C7E8">Documents</text>
+    <circle cx="90" cy="14" r="5" fill="url(#pendingGradient)" filter="url(#glow)">
+      <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="90" y="17" font-family="Segoe UI, Arial, sans-serif" font-size="7" fill="white" text-anchor="middle">3</text>
+  </g>
   
-  <!-- Status cards row -->
-  <rect x="50" y="140" width="125" height="80" rx="4" fill="#2C3E50" stroke="#4A6ADA" stroke-width="1"/>
-  <circle cx="70" cy="165" r="15" fill="#4A6ADA" stroke="none"/>
-  <text x="70" cy="165" font-family="Arial, sans-serif" font-size="14" fill="#FFFFFF" font-weight="bold" text-anchor="middle" dominant-baseline="middle">!</text>
-  <text x="107" y="160" font-family="Arial, sans-serif" font-size="12" fill="#FFFFFF" font-weight="bold">CAPA</text>
-  <text x="107" y="180" font-family="Arial, sans-serif" font-size="18" fill="#4A6ADA" font-weight="bold">12</text>
-  <text x="130" y="180" font-family="Arial, sans-serif" font-size="10" fill="#B2C7E8">Open</text>
+  <g transform="translate(30, 181)">
+    <rect width="100" height="28" rx="4" fill="#1A2530" stroke="#2C3E50" stroke-width="1"/>
+    <text x="10" y="18" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#B2C7E8">Audits</text>
+  </g>
   
-  <rect x="185" y="140" width="125" height="80" rx="4" fill="#2C3E50" stroke="#4A6ADA" stroke-width="1"/>
-  <circle cx="205" cy="165" r="15" fill="#00694A" stroke="none"/>
-  <text x="205" cy="165" font-family="Arial, sans-serif" font-size="14" fill="#FFFFFF" font-weight="bold" text-anchor="middle" dominant-baseline="middle">✓</text>
-  <text x="242" y="160" font-family="Arial, sans-serif" font-size="12" fill="#FFFFFF" font-weight="bold">Audit</text>
-  <text x="242" y="180" font-family="Arial, sans-serif" font-size="18" fill="#00694A" font-weight="bold">95%</text>
-  <text x="275" y="180" font-family="Arial, sans-serif" font-size="10" fill="#B2C7E8">Compliant</text>
+  <g transform="translate(30, 219)">
+    <rect width="100" height="28" rx="4" fill="#1A2530" stroke="#2C3E50" stroke-width="1"/>
+    <text x="10" y="18" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#B2C7E8">Training</text>
+    <circle cx="90" cy="14" r="5" fill="url(#nonCompliantGradient)" filter="url(#glow)">
+      <animate attributeName="r" values="5;6;5" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <text x="90" y="17" font-family="Segoe UI, Arial, sans-serif" font-size="7" fill="white" text-anchor="middle">1</text>
+  </g>
   
-  <rect x="320" y="140" width="125" height="80" rx="4" fill="#2C3E50" stroke="#4A6ADA" stroke-width="1"/>
-  <circle cx="340" cy="165" r="15" fill="#FF9500" stroke="none"/>
-  <text x="340" cy="165" font-family="Arial, sans-serif" font-size="14" fill="#FFFFFF" font-weight="bold" text-anchor="middle" dominant-baseline="middle">⚠</text>
-  <text x="377" y="160" font-family="Arial, sans-serif" font-size="12" fill="#FFFFFF" font-weight="bold">Deviations</text>
-  <text x="377" y="180" font-family="Arial, sans-serif" font-size="18" fill="#FF9500" font-weight="bold">5</text>
-  <text x="395" y="180" font-family="Arial, sans-serif" font-size="10" fill="#B2C7E8">Pending</text>
+  <!-- Main Dashboard Content -->
+  <rect x="150" y="70" width="330" height="210" rx="4" fill="url(#cardGradient)" filter="url(#softShadow)"/>
   
-  <!-- Quality trends chart -->
-  <rect x="50" y="230" width="400" height="25" rx="4" fill="#2C3E50" stroke="#4A6ADA" stroke-width="1"/>
-  <text x="65" y="247" font-family="Arial, sans-serif" font-size="12" fill="#FFFFFF" font-weight="bold">Quality Metrics Trend</text>
+  <!-- Compliance Summary -->
+  <text x="170" y="90" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Compliance Dashboard</text>
+  <text x="170" y="110" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#B2C7E8">Last Updated: Today at 09:45 AM</text>
   
-  <!-- Simplified chart bars -->
-  <rect x="80" y="230" width="8" height="25" rx="2" fill="#4A6ADA" stroke="none"/>
-  <rect x="100" y="235" width="8" height="20" rx="2" fill="#4A6ADA" stroke="none"/>
-  <rect x="120" y="240" width="8" height="15" rx="2" fill="#4A6ADA" stroke="none"/>
-  <rect x="140" y="235" width="8" height="20" rx="2" fill="#4A6ADA" stroke="none"/>
-  <rect x="160" y="230" width="8" height="25" rx="2" fill="#4A6ADA" stroke="none"/>
-  <rect x="180" y="225" width="8" height="30" rx="2" fill="#4A6ADA" stroke="none"/>
-  <rect x="200" y="225" width="8" height="30" rx="2" fill="#4A6ADA" stroke="none"/>
-  <rect x="220" y="230" width="8" height="25" rx="2" fill="#4A6ADA" stroke="none"/>
-  <rect x="240" y="232" width="8" height="23" rx="2" fill="#4A6ADA" stroke="none"/>
-  <rect x="260" y="228" width="8" height="27" rx="2" fill="#4A6ADA" stroke="none"/>
-  <rect x="280" y="223" width="8" height="32" rx="2" fill="#4A6ADA" stroke="none"/>
-  <rect x="300" y="220" width="8" height="35" rx="2" fill="#4A6ADA" stroke="none"/>
-  <rect x="320" y="218" width="8" height="37" rx="2" fill="#4A6ADA" stroke="none"/>
-  <rect x="340" y="223" width="8" height="32" rx="2" fill="#4A6ADA" stroke="none"/>
-  <rect x="360" y="220" width="8" height="35" rx="2" fill="#4A6ADA" stroke="none"/>
-  <rect x="380" y="218" width="8" height="37" rx="2" fill="#4A6ADA" stroke="none"/>
-  <rect x="400" y="215" width="8" height="40" rx="2" fill="#4A6ADA" stroke="none"/>
+  <!-- Summary Cards -->
+  <g transform="translate(170, 120)">
+    <!-- Compliant -->
+    <rect width="90" height="60" rx="6" fill="#1A2530" filter="url(#softShadow)"/>
+    <rect width="90" height="5" rx="0" fill="url(#compliantGradient)"/>
+    <text x="45" y="30" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="white" text-anchor="middle" font-weight="bold">87%</text>
+    <text x="45" y="45" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#B2C7E8" text-anchor="middle">COMPLIANT</text>
+    <circle cx="75" cy="15" r="5" fill="url(#compliantGradient)" filter="url(#glow)"/>
+  </g>
+  
+  <g transform="translate(270, 120)">
+    <!-- Pending -->
+    <rect width="90" height="60" rx="6" fill="#1A2530" filter="url(#softShadow)"/>
+    <rect width="90" height="5" rx="0" fill="url(#pendingGradient)"/>
+    <text x="45" y="30" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="white" text-anchor="middle" font-weight="bold">9%</text>
+    <text x="45" y="45" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#B2C7E8" text-anchor="middle">PENDING</text>
+    <circle cx="75" cy="15" r="5" fill="url(#pendingGradient)" filter="url(#glow)">
+      <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <g transform="translate(370, 120)">
+    <!-- Non-Compliant -->
+    <rect width="90" height="60" rx="6" fill="#1A2530" filter="url(#softShadow)"/>
+    <rect width="90" height="5" rx="0" fill="url(#nonCompliantGradient)"/>
+    <text x="45" y="30" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="white" text-anchor="middle" font-weight="bold">4%</text>
+    <text x="45" y="45" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#B2C7E8" text-anchor="middle">NON-COMPLIANT</text>
+    <circle cx="75" cy="15" r="5" fill="url(#nonCompliantGradient)" filter="url(#glow)">
+      <animate attributeName="r" values="5;6;5" dur="2s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Document Workflow Preview -->
+  <g transform="translate(170, 195)">
+    <rect x="0" y="0" width="190" height="75" rx="4" fill="url(#chartGradient)" filter="url(#softShadow)"/>
+    <text x="10" y="20" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="bold" fill="white">Document Workflow</text>
+    
+    <!-- Workflow Steps -->
+    <g transform="translate(15, 35)">
+      <!-- Document icon -->
+      <rect x="0" y="0" width="20" height="25" rx="2" fill="url(#documentGradient)" stroke="#4A6ADA" stroke-width="1"/>
+      <line x1="4" y1="6" x2="16" y2="6" stroke="#4A6ADA" stroke-width="1"/>
+      <line x1="4" y1="10" x2="16" y2="10" stroke="#4A6ADA" stroke-width="1"/>
+      <line x1="4" y1="14" x2="12" y2="14" stroke="#4A6ADA" stroke-width="1"/>
+      
+      <!-- Arrow -->
+      <line x1="25" y1="12.5" x2="45" y2="12.5" stroke="#4A6ADA" stroke-width="1.5" marker-end="url(#arrow)"/>
+      
+      <!-- Review icon -->
+      <circle cx="55" cy="12.5" r="10" fill="url(#accentGradient)" filter="url(#softShadow)"/>
+      <text x="55" y="16" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">R</text>
+      
+      <!-- Arrow -->
+      <line x1="70" y1="12.5" x2="90" y2="12.5" stroke="#4A6ADA" stroke-width="1.5" marker-end="url(#arrow)"/>
+      
+      <!-- Approval icon -->
+      <rect x="98" y="2.5" width="20" height="20" rx="4" fill="url(#compliantGradient)" filter="url(#softShadow)"/>
+      <text x="108" y="16" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">A</text>
+      
+      <!-- Arrow -->
+      <line x1="125" y1="12.5" x2="145" y2="12.5" stroke="#4A6ADA" stroke-width="1.5" marker-end="url(#arrow)"/>
+      
+      <!-- Publish icon -->
+      <polygon points="155,2.5 165,12.5 155,22.5 145,12.5" fill="url(#pendingGradient)" filter="url(#softShadow)"/>
+      <text x="155" y="16" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">P</text>
+    </g>
+    
+    <!-- Animated dot moving through workflow -->
+    <circle cx="0" cy="0" r="3" fill="white" filter="url(#glow)">
+      <animateMotion 
+        path="M15,47.5 L45,47.5 L55,47.5 L90,47.5 L108,47.5 L145,47.5 L155,47.5"
+        dur="4s"
+        repeatCount="indefinite"
+        rotate="auto"
+      />
+    </circle>
+  </g>
+  
+  <!-- Compliance Trend Chart -->
+  <g transform="translate(370, 195)">
+    <g transform="rotate(-90, 55, 37.5)">
+      <rect x="25" y="0" width="60" height="75" rx="4" fill="url(#chartGradient)" filter="url(#softShadow)"/>
+      <text x="33" y="15" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="white" transform="rotate(90, 33, 15)">Quality Score</text>
+      
+      <!-- Score indicator -->
+      <rect x="35" y="25" width="40" height="16" rx="8" fill="#1A2530" stroke="#2C3E50" stroke-width="1"/>
+      <text x="55" y="37" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="white" text-anchor="middle" transform="rotate(90, 55, 37)">94.5</text>
+      
+      <!-- Trend Up Arrow -->
+      <polygon points="55,45 60,55 50,55" fill="url(#compliantGradient)" filter="url(#glow)">
+        <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite"/>
+      </polygon>
+      <text x="55" y="70" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#B2C7E8" text-anchor="middle" transform="rotate(90, 55, 70)">+2.3%</text>
+    </g>
+  </g>
+  
+  <!-- Active Document Preview -->
+  <g transform="translate(170, 190)">
+    <g transform="translate(200, 0)">
+      <text x="0" y="20" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="bold" fill="white">Recent Documents</text>
+      
+      <!-- Document List -->
+      <g transform="translate(0, 30)">
+        <rect width="100" height="20" rx="3" fill="#2C3E50" filter="url(#softShadow)"/>
+        <rect width="3" height="20" fill="url(#compliantGradient)"/>
+        <text x="10" y="14" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="white">SOP-001</text>
+      </g>
+      
+      <g transform="translate(0, 55)">
+        <rect width="100" height="20" rx="3" fill="#2C3E50" filter="url(#softShadow)"/>
+        <rect width="3" height="20" fill="url(#pendingGradient)"/>
+        <text x="10" y="14" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="white">PRO-143</text>
+        <animate attributeName="opacity" values="0.9;1;0.9" dur="3s" repeatCount="indefinite"/>
+      </g>
+      
+      <g transform="translate(0, 80)">
+        <rect width="100" height="20" rx="3" fill="#2C3E50" filter="url(#softShadow)"/>
+        <rect width="3" height="20" fill="url(#compliantGradient)"/>
+        <text x="10" y="14" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="white">WI-056</text>
+      </g>
+    </g>
+  </g>
+  
+  <!-- Notification Badge -->
+  <circle cx="440" cy="40" r="6" fill="url(#accentGradient)" filter="url(#glow)">
+    <animate attributeName="r" values="6;7;6" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <text x="440" y="43" font-family="Segoe UI, Arial, sans-serif" font-size="8" fill="white" text-anchor="middle">3</text>
+  
+  <!-- Status Indicator -->
+  <rect x="20" y="20" width="10" height="40" rx="0" fill="url(#compliantGradient)" opacity="0.9"/>
+  <text x="460" y="40" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="white" text-anchor="end" font-weight="bold">Status: Compliant</text>
 </svg> 

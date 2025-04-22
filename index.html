@@ -588,7 +588,7 @@
 
     <!-- Scripts -->
     <script src="assets/js/main.js"></script>
-    <!-- jQuery (for tab functionality) -->
+    <!-- Tab functionality -->
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         // Tab functionality
@@ -604,11 +604,17 @@
                 // Add active class to clicked button
                 this.classList.add('active');
                 
-                // Show corresponding tab pane
+                // Show corresponding tab pane - Get the correct target
                 const tabId = this.getAttribute('data-tab');
                 document.getElementById(tabId).classList.add('active');
             });
         });
+
+        // Activate first tab by default (in case it's not set in HTML)
+        if(tabButtons.length > 0 && tabPanes.length > 0) {
+            tabButtons[0].classList.add('active');
+            tabPanes[0].classList.add('active');
+        }
     });
     </script>
 </body>

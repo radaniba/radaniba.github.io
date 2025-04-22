@@ -1,87 +1,266 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="500" height="300" viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg">
-  <!-- Browser window -->
-  <rect x="20" y="20" width="460" height="260" rx="8" fill="#1E2A3A" stroke="#3A5BD9" stroke-width="2"/>
+  <!-- Definitions -->
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="headerGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2C3E50" />
+      <stop offset="100%" stop-color="#1A2530" />
+    </linearGradient>
+    
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1E2A3A" />
+      <stop offset="100%" stop-color="#15202E" />
+    </linearGradient>
+    
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4A6ADA" />
+      <stop offset="100%" stop-color="#2C53C5" />
+    </linearGradient>
+    
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1A2530" />
+      <stop offset="100%" stop-color="#15202B" />
+    </linearGradient>
+    
+    <linearGradient id="neuronsGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8E54E9" />
+      <stop offset="100%" stop-color="#4A6ADA" />
+    </linearGradient>
+    
+    <linearGradient id="chartGradient1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0BAB64" />
+      <stop offset="100%" stop-color="#3BB78F" />
+    </linearGradient>
+    
+    <linearGradient id="chartGradient2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FF9500" />
+      <stop offset="100%" stop-color="#FF5E3A" />
+    </linearGradient>
+    
+    <linearGradient id="chartGradient3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#4A6ADA" />
+      <stop offset="100%" stop-color="#2C53C5" />
+    </linearGradient>
+    
+    <!-- Filters -->
+    <filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
+      <feOffset dx="0" dy="2" result="offsetblur" />
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.2" />
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.3" />
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    
+    <!-- Animation paths for neural connections -->
+    <path id="neuralPath1" d="M375,155 L360,170 L375,185" />
+    <path id="neuralPath2" d="M375,155 L390,170 L375,185" />
+    <path id="neuralPath3" d="M405,155 L390,170 L405,185" />
+    <path id="neuralPath4" d="M405,155 L420,170 L405,185" />
+    
+    <!-- Animation path for chat flow -->
+    <path id="messageFlow" d="M120,240 L120,265 L290,265 L290,235 L260,235" />
+  </defs>
   
-  <!-- Browser toolbar -->
-  <rect x="20" y="20" width="460" height="40" rx="8" fill="#2C3E50" stroke="none"/>
-  <rect x="20" y="20" width="460" height="8" rx="8" fill="#3A5BD9" stroke="none"/>
+  <!-- Background -->
+  <rect x="0" y="0" width="500" height="300" rx="8" fill="url(#bgGradient)"/>
+  
+  <!-- Header -->
+  <rect x="20" y="20" width="460" height="40" rx="8" fill="url(#headerGradient)" filter="url(#softShadow)"/>
+  <text x="40" y="45" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="bold" fill="white">AI Agent Platform</text>
+  
+  <!-- Browser window -->
+  <rect x="20" y="70" width="460" height="210" rx="8" fill="url(#cardGradient)" filter="url(#softShadow)"/>
+  <rect x="20" y="70" width="460" height="30" rx="8" fill="#2C3E50" stroke="none"/>
+  <rect x="20" y="70" width="460" height="8" rx="8" fill="url(#accentGradient)" stroke="none"/>
   
   <!-- Browser controls -->
-  <circle cx="45" cy="40" r="5" fill="#FC6058"/>
-  <circle cx="65" cy="40" r="5" fill="#FEC02F"/>
-  <circle cx="85" cy="40" r="5" fill="#2ACA3E"/>
+  <circle cx="45" cy="85" r="5" fill="#FC6058"/>
+  <circle cx="65" cy="85" r="5" fill="#FEC02F"/>
+  <circle cx="85" cy="85" r="5" fill="#2ACA3E"/>
   
   <!-- Address bar -->
-  <rect x="110" y="30" width="300" height="20" rx="4" fill="#1A2530" stroke="#4A6ADA" stroke-width="1"/>
-  <text x="125" y="44" font-family="Arial, sans-serif" font-size="10" fill="#B2C7E8">https://maestro.io/ai-agents</text>
+  <rect x="110" y="75" width="300" height="20" rx="4" fill="#1A2530" stroke="#4A6ADA" stroke-width="1"/>
+  <text x="125" y="89" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#B2C7E8">https://maestro.io/ai-agents</text>
   
-  <!-- Browser content -->
-  <rect x="35" y="75" width="430" height="190" rx="4" fill="#1A2530" stroke="none"/>
+  <!-- Left Panel: Chat Interface -->
+  <rect x="35" y="110" width="260" height="160" rx="4" fill="#1E2A3A" filter="url(#softShadow)"/>
+  <text x="50" y="130" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="white">AI Assistant</text>
   
-  <!-- AI Header -->
-  <rect x="50" y="90" width="400" height="40" rx="4" fill="#2C3E50" stroke="#4A6ADA" stroke-width="1"/>
-  <text x="65" y="115" font-family="Arial, sans-serif" font-size="16" fill="#FFFFFF" font-weight="bold">AI Agent Console</text>
+  <!-- Chat Messages -->
+  <rect x="45" y="140" width="200" height="40" rx="6" fill="#2C3E50" filter="url(#softShadow)"/>
+  <text x="55" y="155" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="url(#accentGradient)" font-weight="bold">AI AGENT</text>
+  <text x="55" y="170" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="white">How can I help with your clinical trial data?</text>
   
-  <!-- Chat panel -->
-  <rect x="50" y="140" width="270" height="120" rx="4" fill="#2C3E50" stroke="#4A6ADA" stroke-width="1"/>
-  
-  <!-- AI message -->
-  <rect x="60" y="150" width="200" height="40" rx="4" fill="#1A2530" stroke="none"/>
-  <text x="70" y="165" font-family="Arial, sans-serif" font-size="10" fill="#B2C7E8">AI Agent</text>
-  <text x="70" y="180" font-family="Arial, sans-serif" font-size="12" fill="#FFFFFF">How can I help with your trial data?</text>
-  
-  <!-- User message -->
-  <rect x="110" y="200" width="200" height="40" rx="4" fill="#4A6ADA" stroke="none"/>
-  <text x="120" y="215" font-family="Arial, sans-serif" font-size="10" fill="#FFFFFF">You</text>
-  <text x="120" y="230" font-family="Arial, sans-serif" font-size="12" fill="#FFFFFF">Analyze patient enrollment trends</text>
-  
-  <!-- Chat input -->
-  <rect x="60" y="250" width="250" height="30" rx="15" fill="#1A2530" stroke="#4A6ADA" stroke-width="1"/>
-  <text x="75" y="270" font-family="Arial, sans-serif" font-size="12" fill="#B2C7E8">Ask a question...</text>
-  <circle cx="290" cy="265" r="12" fill="#4A6ADA" stroke="none"/>
-  <text x="290" y="270" font-family="Arial, sans-serif" font-size="14" fill="#FFFFFF" font-weight="bold" text-anchor="middle">➤</text>
-  
-  <!-- AI Visualization panel -->
-  <rect x="330" y="140" width="120" height="120" rx="4" fill="#2C3E50" stroke="#4A6ADA" stroke-width="1"/>
-  
-  <!-- Brain visualization -->
-  <circle cx="390" cy="170" r="25" fill="none" stroke="#4A6ADA" stroke-width="1.5"/>
-  
-  <!-- Neural network representation -->
-  <circle cx="375" cy="155" r="3" fill="#4A6ADA"/>
-  <circle cx="405" cy="155" r="3" fill="#4A6ADA"/>
-  <circle cx="360" cy="170" r="3" fill="#4A6ADA"/>
-  <circle cx="390" cy="170" r="3" fill="#4A6ADA"/>
-  <circle cx="420" cy="170" r="3" fill="#4A6ADA"/>
-  <circle cx="375" cy="185" r="3" fill="#4A6ADA"/>
-  <circle cx="405" cy="185" r="3" fill="#4A6ADA"/>
-  
-  <!-- Connections -->
-  <line x1="375" y1="155" x2="360" y2="170" stroke="#4A6ADA" stroke-width="1"/>
-  <line x1="375" y1="155" x2="390" y2="170" stroke="#4A6ADA" stroke-width="1"/>
-  <line x1="405" y1="155" x2="390" y2="170" stroke="#4A6ADA" stroke-width="1"/>
-  <line x1="405" y1="155" x2="420" y2="170" stroke="#4A6ADA" stroke-width="1"/>
-  <line x1="360" y1="170" x2="375" y2="185" stroke="#4A6ADA" stroke-width="1"/>
-  <line x1="390" y1="170" x2="375" y2="185" stroke="#4A6ADA" stroke-width="1"/>
-  <line x1="390" y1="170" x2="405" y2="185" stroke="#4A6ADA" stroke-width="1"/>
-  <line x1="420" y1="170" x2="405" y2="185" stroke="#4A6ADA" stroke-width="1"/>
-  
-  <!-- Data visualization -->
-  <rect x="350" y="205" width="80" height="40" rx="4" fill="#1A2530" stroke="none"/>
-  <rect x="360" y="215" width="15" height="20" rx="2" fill="#4A6ADA" stroke="none">
-    <animate attributeName="height" values="20;30;20" dur="2s" repeatCount="indefinite"/>
+  <rect x="95" y="190" width="190" height="40" rx="6" fill="url(#accentGradient)" filter="url(#softShadow)">
+    <animate attributeName="opacity" values="0.9;1;0.9" dur="4s" repeatCount="indefinite"/>
   </rect>
-  <rect x="380" y="215" width="15" height="20" rx="2" fill="#4A6ADA" stroke="none">
-    <animate attributeName="height" values="20;10;20" dur="2s" repeatCount="indefinite"/>
-  </rect>
-  <rect x="400" y="215" width="15" height="20" rx="2" fill="#4A6ADA" stroke="none">
-    <animate attributeName="height" values="20;25;20" dur="2s" repeatCount="indefinite"/>
-  </rect>
+  <text x="105" y="205" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="white" font-weight="bold">YOU</text>
+  <text x="105" y="220" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="white">Analyze patient enrollment trends across sites</text>
   
-  <!-- Pulse animation around brain -->
-  <circle cx="390" cy="170" r="30" fill="none" stroke="#4A6ADA" stroke-width="0.5" opacity="0.5">
-    <animate attributeName="r" values="30;40;30" dur="3s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.5;0;0.5" dur="3s" repeatCount="indefinite"/>
+  <!-- Chat Input -->
+  <rect x="45" y="240" width="230" height="30" rx="15" fill="#2C3E50" stroke="url(#accentGradient)" stroke-width="1"/>
+  <text x="60" y="260" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#B2C7E8">Ask a question...</text>
+  <circle cx="260" cy="255" r="10" fill="url(#accentGradient)" filter="url(#glow)"/>
+  <text x="260" y="259" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="white" font-weight="bold" text-anchor="middle">➤</text>
+  
+  <!-- Right Panel: AI Visualization -->
+  <rect x="305" y="110" width="190" height="160" rx="4" fill="#1E2A3A" filter="url(#softShadow)"/>
+  <text x="320" y="130" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="white">AI Analysis</text>
+  
+  <!-- Neural Network Visualization -->
+  <g transform="translate(350, 155)">
+    <!-- Neural Network Circle -->
+    <circle cx="40" cy="0" r="25" fill="none" stroke="url(#neuronsGradient)" stroke-width="1.5" opacity="0.5"/>
+    
+    <!-- Layer 1 (Input) -->
+    <circle cx="0" cy="-15" r="4" fill="url(#neuronsGradient)" filter="url(#glow)"/>
+    <circle cx="0" cy="0" r="4" fill="url(#neuronsGradient)" filter="url(#glow)"/>
+    <circle cx="0" cy="15" r="4" fill="url(#neuronsGradient)" filter="url(#glow)"/>
+    
+    <!-- Layer 2 (Hidden) -->
+    <circle cx="40" cy="-20" r="4" fill="url(#neuronsGradient)" filter="url(#glow)"/>
+    <circle cx="40" cy="-7" r="4" fill="url(#neuronsGradient)" filter="url(#glow)"/>
+    <circle cx="40" cy="7" r="4" fill="url(#neuronsGradient)" filter="url(#glow)"/>
+    <circle cx="40" cy="20" r="4" fill="url(#neuronsGradient)" filter="url(#glow)"/>
+    
+    <!-- Layer 3 (Output) -->
+    <circle cx="80" cy="-10" r="4" fill="url(#neuronsGradient)" filter="url(#glow)"/>
+    <circle cx="80" cy="10" r="4" fill="url(#neuronsGradient)" filter="url(#glow)"/>
+    
+    <!-- Connections -->
+    <!-- Layer 1 to Layer 2 -->
+    <line x1="0" y1="-15" x2="40" y2="-20" stroke="url(#accentGradient)" stroke-width="1" opacity="0.6"/>
+    <line x1="0" y1="-15" x2="40" y2="-7" stroke="url(#accentGradient)" stroke-width="1" opacity="0.6"/>
+    <line x1="0" y1="-15" x2="40" y2="7" stroke="url(#accentGradient)" stroke-width="1" opacity="0.6"/>
+    
+    <line x1="0" y1="0" x2="40" y2="-7" stroke="url(#accentGradient)" stroke-width="1" opacity="0.6"/>
+    <line x1="0" y1="0" x2="40" y2="7" stroke="url(#accentGradient)" stroke-width="1" opacity="0.6"/>
+    <line x1="0" y1="0" x2="40" y2="20" stroke="url(#accentGradient)" stroke-width="1" opacity="0.6"/>
+    
+    <line x1="0" y1="15" x2="40" y2="7" stroke="url(#accentGradient)" stroke-width="1" opacity="0.6"/>
+    <line x1="0" y1="15" x2="40" y2="20" stroke="url(#accentGradient)" stroke-width="1" opacity="0.6"/>
+    
+    <!-- Layer 2 to Layer 3 -->
+    <line x1="40" y1="-20" x2="80" y2="-10" stroke="url(#accentGradient)" stroke-width="1" opacity="0.6"/>
+    <line x1="40" y1="-7" x2="80" y2="-10" stroke="url(#accentGradient)" stroke-width="1" opacity="0.6"/>
+    <line x1="40" y1="-7" x2="80" y2="10" stroke="url(#accentGradient)" stroke-width="1" opacity="0.6"/>
+    
+    <line x1="40" y1="7" x2="80" y2="-10" stroke="url(#accentGradient)" stroke-width="1" opacity="0.6"/>
+    <line x1="40" y1="7" x2="80" y2="10" stroke="url(#accentGradient)" stroke-width="1" opacity="0.6"/>
+    
+    <line x1="40" y1="20" x2="80" y2="10" stroke="url(#accentGradient)" stroke-width="1" opacity="0.6"/>
+    
+    <!-- Animated data packets -->
+    <circle cx="0" cy="0" r="2" fill="white" filter="url(#glow)">
+      <animateMotion
+        path="M0,-15 L40,-20 L80,-10"
+        dur="2s"
+        repeatCount="indefinite"
+        rotate="auto"
+      />
+    </circle>
+    
+    <circle cx="0" cy="0" r="2" fill="white" filter="url(#glow)">
+      <animateMotion
+        path="M0,0 L40,7 L80,10"
+        dur="2.5s"
+        begin="0.5s"
+        repeatCount="indefinite"
+        rotate="auto"
+      />
+    </circle>
+    
+    <circle cx="0" cy="0" r="2" fill="white" filter="url(#glow)">
+      <animateMotion
+        path="M0,15 L40,20 L80,10"
+        dur="2.2s"
+        begin="0.8s"
+        repeatCount="indefinite"
+        rotate="auto"
+      />
+    </circle>
+    
+    <!-- Glow effect -->
+    <circle cx="40" cy="0" r="30" fill="none" stroke="url(#accentGradient)" stroke-width="1" opacity="0.3">
+      <animate attributeName="r" values="30;40;30" dur="5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.3;0.1;0.3" dur="5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Data Visualization -->
+  <g transform="translate(320, 210)">
+    <text x="0" y="10" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="white">Enrollment Trend</text>
+    
+    <!-- Bars -->
+    <rect x="10" y="20" width="15" height="30" rx="2" fill="url(#chartGradient1)">
+      <animate attributeName="height" values="30;35;30" dur="3s" repeatCount="indefinite"/>
+    </rect>
+    
+    <rect x="35" y="20" width="15" height="20" rx="2" fill="url(#chartGradient2)">
+      <animate attributeName="height" values="20;28;20" dur="3s" begin="0.5s" repeatCount="indefinite"/>
+    </rect>
+    
+    <rect x="60" y="20" width="15" height="25" rx="2" fill="url(#chartGradient3)">
+      <animate attributeName="height" values="25;32;25" dur="3s" begin="1s" repeatCount="indefinite"/>
+    </rect>
+    
+    <rect x="85" y="20" width="15" height="15" rx="2" fill="url(#chartGradient1)">
+      <animate attributeName="height" values="15;22;15" dur="3s" begin="1.5s" repeatCount="indefinite"/>
+    </rect>
+    
+    <rect x="110" y="20" width="15" height="38" rx="2" fill="url(#chartGradient3)">
+      <animate attributeName="height" values="38;42;38" dur="3s" begin="2s" repeatCount="indefinite"/>
+    </rect>
+    
+    <rect x="135" y="20" width="15" height="33" rx="2" fill="url(#chartGradient2)">
+      <animate attributeName="height" values="33;37;33" dur="3s" begin="2.5s" repeatCount="indefinite"/>
+    </rect>
+    
+    <!-- Animate predicted growth line -->
+    <path d="M18,20 L43,20 L68,20 L93,15 L118,12 L143,8" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-dasharray="2,2">
+      <animate attributeName="opacity" values="0;0.8;0" dur="4s" repeatCount="indefinite"/>
+    </path>
+  </g>
+  
+  <!-- Notification Badge -->
+  <circle cx="450" cy="85" r="7" fill="url(#accentGradient)" filter="url(#glow)">
+    <animate attributeName="r" values="7;8;7" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <text x="450" y="89" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="white" text-anchor="middle" font-weight="bold">1</text>
+  
+  <!-- Animated data packet for message flow -->
+  <circle cx="0" cy="0" r="3" fill="white" filter="url(#glow)">
+    <animateMotion 
+      path="M120,220 L120,255 L260,255"
+      dur="3s"
+      repeatCount="indefinite"
+      rotate="auto"
+    />
+  </circle>
+  
+  <circle cx="0" cy="0" r="3" fill="white" filter="url(#glow)">
+    <animateMotion 
+      path="M210,170 L300,170 L375,155"
+      dur="3s"
+      begin="0.5s"
+      repeatCount="indefinite"
+      rotate="auto"
+    />
   </circle>
 </svg> 

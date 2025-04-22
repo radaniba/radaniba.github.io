@@ -829,11 +829,12 @@ nav .btn {
 
 .tab-pane {
   display: none;
-  animation: fadeIn 0.5s ease forwards;
+  padding: 2rem 0;
 }
 
 .tab-pane.active {
   display: block;
+  animation: fadeIn 0.5s ease forwards;
 }
 
 .feature-list {
@@ -861,8 +862,11 @@ nav .btn {
 
 .feature-image {
   max-width: 100%;
-  border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
+  height: auto;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  display: block;
+  margin: 0 auto;
 }
 
 @keyframes fadeIn {
@@ -2339,4 +2343,64 @@ svg {
   width: 100%;
   height: auto;
   display: block;
+}
+
+/* Row and Column styles for feature tabs */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.align-items-center {
+  align-items: center !important;
+}
+
+.col-md-6 {
+  position: relative;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+@media (min-width: 768px) {
+  .col-md-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+/* Tab Content styles */
+.tab-pane {
+  display: none;
+  padding: 2rem 0;
+}
+
+.tab-pane.active {
+  display: block;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.feature-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  display: block;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .tab-pane .row {
+    flex-direction: column;
+  }
+  
+  .tab-pane .col-md-6 {
+    margin-bottom: 2rem;
+  }
+  
+  .feature-image {
+    margin-top: 1.5rem;
+  }
 } 

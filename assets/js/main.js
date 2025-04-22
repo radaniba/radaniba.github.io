@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize components
     fixSvgRendering();
     initNavigation();
-    initTabs();
     initTestimonialSlider();
     initAIAnimation();
     initChatWidget();
@@ -125,34 +124,6 @@ function initSmoothScroll() {
             }
         });
     });
-}
-
-/**
- * Feature Tabs
- */
-function initTabs() {
-    const tabButtons = document.querySelectorAll('.tab-btn');
-    const tabPanes = document.querySelectorAll('.tab-pane');
-    
-    if (tabButtons.length && tabPanes.length) {
-        tabButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Remove active class from all buttons and panes
-                tabButtons.forEach(btn => btn.classList.remove('active'));
-                tabPanes.forEach(pane => pane.classList.remove('active'));
-                
-                // Add active class to clicked button
-                button.classList.add('active');
-                
-                // Show corresponding tab pane
-                const tabId = button.getAttribute('data-tab');
-                const targetPane = document.getElementById(tabId + '-tab');
-                if (targetPane) {
-                    targetPane.classList.add('active');
-                }
-            });
-        });
-    }
 }
 
 /**
@@ -716,6 +687,8 @@ function initCounters() {
     }
 }
 
+// Comment out the duplicate tab functionality at the bottom of the file
+/*
 // Tab functionality for features section
 document.addEventListener('DOMContentLoaded', function() {
     const tabButtons = document.querySelectorAll('.tab-btn');
@@ -759,3 +732,4 @@ document.addEventListener('DOMContentLoaded', function() {
         activateTab(firstTabTarget);
     }
 }); 
+*/ 
