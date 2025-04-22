@@ -164,70 +164,83 @@ function initTabs() {
  * Testimonial Slider
  */
 function initTestimonialSlider() {
-    const slider = document.querySelector('.testimonial-slider');
+    const slides = document.querySelectorAll('.testimonial-slide');
+    const dotsContainer = document.querySelector('.testimonial-dots');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
     
-    if (slider) {
-        let isDown = false;
-        let startX;
-        let scrollLeft;
+    if (slides.length && dotsContainer) {
+        let currentSlide = 0;
         
-        // Mouse events for drag scrolling
-        slider.addEventListener('mousedown', (e) => {
-            isDown = true;
-            slider.classList.add('active');
-            startX = e.pageX - slider.offsetLeft;
-            scrollLeft = slider.scrollLeft;
+        // Create navigation dots
+        slides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => {
+                goToSlide(index);
+            });
+            dotsContainer.appendChild(dot);
         });
         
-        slider.addEventListener('mouseleave', () => {
-            isDown = false;
-            slider.classList.remove('active');
-        });
-        
-        slider.addEventListener('mouseup', () => {
-            isDown = false;
-            slider.classList.remove('active');
-        });
-        
-        slider.addEventListener('mousemove', (e) => {
-            if (!isDown) return;
-            e.preventDefault();
-            const x = e.pageX - slider.offsetLeft;
-            const walk = (x - startX) * 2; // Scroll speed multiplier
-            slider.scrollLeft = scrollLeft - walk;
-        });
-        
-        // Auto scroll functionality
-        let scrollInterval;
-        let scrollDirection = 1;
-        
-        function startAutoScroll() {
-            scrollInterval = setInterval(() => {
-                slider.scrollLeft += 2 * scrollDirection;
-                
-                // Change direction when reaching the end or beginning
-                if (slider.scrollLeft >= slider.scrollWidth - slider.clientWidth) {
-                    scrollDirection = -1;
-                } else if (slider.scrollLeft <= 0) {
-                    scrollDirection = 1;
-                }
-            }, 30);
+        // Previous button
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+                updateSlider();
+            });
         }
         
-        function stopAutoScroll() {
-            clearInterval(scrollInterval);
+        // Next button
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                currentSlide = (currentSlide + 1) % slides.length;
+                updateSlider();
+            });
         }
         
-        // Start auto-scrolling after a delay
-        setTimeout(startAutoScroll, 3000);
+        // Go to specific slide
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlider();
+        }
         
-        // Stop auto-scrolling when user interacts with the slider
-        slider.addEventListener('mouseenter', stopAutoScroll);
-        slider.addEventListener('touchstart', stopAutoScroll, { passive: true });
+        // Update slider display
+        function updateSlider() {
+            // Hide all slides
+            slides.forEach(slide => {
+                slide.style.display = 'none';
+            });
+            
+            // Show current slide
+            slides[currentSlide].style.display = 'block';
+            
+            // Update dots
+            document.querySelectorAll('.testimonial-dots .dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
         
-        // Resume auto-scrolling when user stops interacting
-        slider.addEventListener('mouseleave', startAutoScroll);
-        slider.addEventListener('touchend', startAutoScroll);
+        // Auto-advance the slider
+        let autoSlide = setInterval(() => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateSlider();
+        }, 5000);
+        
+        // Pause auto-advance on hover
+        const sliderContainer = document.querySelector('.testimonial-slider');
+        if (sliderContainer) {
+            sliderContainer.addEventListener('mouseenter', () => {
+                clearInterval(autoSlide);
+            });
+            
+            sliderContainer.addEventListener('mouseleave', () => {
+                autoSlide = setInterval(() => {
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    updateSlider();
+                }, 5000);
+            });
+        }
     }
 }
 
