@@ -316,6 +316,21 @@ function initAIAnimation() {
                     <stop offset="0%" stop-color="#00C9FF" stop-opacity="0.9"/>
                     <stop offset="100%" stop-color="#0082FF" stop-opacity="0.9"/>
                 </linearGradient>
+
+                <linearGradient id="nodeGradient7" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#B721FF" stop-opacity="0.9"/>
+                    <stop offset="100%" stop-color="#8A2BE2" stop-opacity="0.9"/>
+                </linearGradient>
+
+                <linearGradient id="nodeGradient8" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#FFC837" stop-opacity="0.9"/>
+                    <stop offset="100%" stop-color="#FF8008" stop-opacity="0.9"/>
+                </linearGradient>
+
+                <linearGradient id="nodeGradient9" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#45B649" stop-opacity="0.9"/>
+                    <stop offset="100%" stop-color="#009688" stop-opacity="0.9"/>
+                </linearGradient>
                 
                 <!-- Filter for node glow -->
                 <filter id="nodeGlow" x="-50%" y="-50%" width="200%" height="200%">
@@ -348,205 +363,98 @@ function initAIAnimation() {
             <!-- Concept Nodes -->
             <g id="concept-nodes">
                 <!-- Patient Node -->
-                <g transform="translate(240, 200)">
+                <g transform="translate(240, 120)">
                     <circle r="40" fill="url(#nodeGradient1)" filter="url(#nodeGlow)">
                         <animate attributeName="opacity" values="0.8;1;0.8" dur="6s" repeatCount="indefinite" />
                         <animate attributeName="r" values="40;43;40" dur="6s" repeatCount="indefinite" />
                     </circle>
-                    <text text-anchor="middle" dy="5" fill="white" font-family="'Segoe UI', Arial, sans-serif" font-size="14">Patient</text>
+                    <text text-anchor="middle" dy="5" fill="white" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="bold">Patient</text>
                 </g>
                 
-                <!-- Record Node -->
-                <g transform="translate(430, 150)">
+                <!-- Trial Node -->
+                <g transform="translate(400, 70)">
                     <circle r="40" fill="url(#nodeGradient2)" filter="url(#nodeGlow)">
                         <animate attributeName="opacity" values="0.7;0.9;0.7" dur="7s" repeatCount="indefinite" />
                         <animate attributeName="r" values="40;44;40" dur="7s" repeatCount="indefinite" />
                     </circle>
-                    <text text-anchor="middle" dy="5" fill="white" font-family="'Segoe UI', Arial, sans-serif" font-size="14">Record</text>
+                    <text text-anchor="middle" dy="5" fill="white" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="bold">Trial</text>
                 </g>
                 
-                <!-- Visit Node -->
-                <g transform="translate(590, 230)">
+                <!-- Site Node -->
+                <g transform="translate(560, 120)">
                     <circle r="40" fill="url(#nodeGradient3)" filter="url(#nodeGlow)">
                         <animate attributeName="opacity" values="0.75;0.95;0.75" dur="8s" repeatCount="indefinite" />
                         <animate attributeName="r" values="40;42;40" dur="8s" repeatCount="indefinite" />
                     </circle>
-                    <text text-anchor="middle" dy="5" fill="white" font-family="'Segoe UI', Arial, sans-serif" font-size="14">Visit</text>
+                    <text text-anchor="middle" dy="5" fill="white" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="bold">Site</text>
                 </g>
                 
-                <!-- Timeline Node -->
-                <g transform="translate(500, 350)">
+                <!-- Visit Node -->
+                <g transform="translate(630, 230)">
                     <circle r="40" fill="url(#nodeGradient4)" filter="url(#nodeGlow)">
                         <animate attributeName="opacity" values="0.8;1;0.8" dur="6.5s" repeatCount="indefinite" />
                         <animate attributeName="r" values="40;45;40" dur="6.5s" repeatCount="indefinite" />
                     </circle>
-                    <text text-anchor="middle" dy="5" fill="white" font-family="'Segoe UI', Arial, sans-serif" font-size="14">Timeline</text>
+                    <text text-anchor="middle" dy="5" fill="white" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="bold">Visit</text>
                 </g>
                 
-                <!-- Compliance Node -->
-                <g transform="translate(320, 400)">
+                <!-- Document Node -->
+                <g transform="translate(560, 340)">
                     <circle r="40" fill="url(#nodeGradient5)" filter="url(#nodeGlow)">
                         <animate attributeName="opacity" values="0.7;0.9;0.7" dur="7.5s" repeatCount="indefinite" />
                         <animate attributeName="r" values="40;43;40" dur="7.5s" repeatCount="indefinite" />
                     </circle>
-                    <text text-anchor="middle" dy="5" fill="white" font-family="'Segoe UI', Arial, sans-serif" font-size="14">Compliance</text>
+                    <text text-anchor="middle" dy="5" fill="white" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="bold">Document</text>
                 </g>
                 
-                <!-- Audit Node -->
-                <g transform="translate(180, 300)">
+                <!-- Data Node -->
+                <g transform="translate(400, 400)">
                     <circle r="40" fill="url(#nodeGradient6)" filter="url(#nodeGlow)">
                         <animate attributeName="opacity" values="0.75;0.95;0.75" dur="5.5s" repeatCount="indefinite" />
                         <animate attributeName="r" values="40;44;40" dur="5.5s" repeatCount="indefinite" />
                     </circle>
-                    <text text-anchor="middle" dy="5" fill="white" font-family="'Segoe UI', Arial, sans-serif" font-size="14">Audit</text>
+                    <text text-anchor="middle" dy="5" fill="white" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="bold">Data</text>
+                </g>
+
+                <!-- Outcome Node -->
+                <g transform="translate(240, 340)">
+                    <circle r="40" fill="url(#nodeGradient7)" filter="url(#nodeGlow)">
+                        <animate attributeName="opacity" values="0.75;0.95;0.75" dur="6.5s" repeatCount="indefinite" />
+                        <animate attributeName="r" values="40;44;40" dur="6.5s" repeatCount="indefinite" />
+                    </circle>
+                    <text text-anchor="middle" dy="5" fill="white" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="bold">Outcome</text>
+                </g>
+
+                <!-- Compliance Node -->
+                <g transform="translate(170, 230)">
+                    <circle r="40" fill="url(#nodeGradient8)" filter="url(#nodeGlow)">
+                        <animate attributeName="opacity" values="0.75;0.95;0.75" dur="7s" repeatCount="indefinite" />
+                        <animate attributeName="r" values="40;44;40" dur="7s" repeatCount="indefinite" />
+                    </circle>
+                    <text text-anchor="middle" dy="5" fill="white" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="bold">Compliance</text>
+                </g>
+
+                <!-- Analysis Node -->
+                <g transform="translate(400, 230)">
+                    <circle r="40" fill="url(#nodeGradient9)" filter="url(#nodeGlow)">
+                        <animate attributeName="opacity" values="0.75;0.95;0.75" dur="8s" repeatCount="indefinite" />
+                        <animate attributeName="r" values="40;44;40" dur="8s" repeatCount="indefinite" />
+                    </circle>
+                    <text text-anchor="middle" dy="5" fill="white" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="bold">Analysis</text>
                 </g>
             </g>
             
             <!-- Connections -->
             <g id="concept-connections">
-                <!-- Patient to Record -->
-                <line x1="240" y1="200" x2="430" y2="150" stroke="#ffffff" stroke-width="2" opacity="0">
-                    <animate
-                        id="p2r-appear"
-                        attributeName="opacity"
-                        from="0"
-                        to="0.6"
-                        dur="1.5s"
-                        begin="0s;p2r-disappear.end+2s"
-                        fill="freeze"
-                    />
-                    <animate
-                        id="p2r-disappear"
-                        attributeName="opacity"
-                        from="0.6"
-                        to="0"
-                        dur="1.5s"
-                        begin="p2r-appear.end+3s"
-                        fill="freeze"
-                    />
-                </line>
-                
-                <!-- Record to Visit -->
-                <line x1="430" y1="150" x2="590" y2="230" stroke="#ffffff" stroke-width="2" opacity="0">
-                    <animate
-                        id="r2v-appear"
-                        attributeName="opacity"
-                        from="0"
-                        to="0.6"
-                        dur="1.5s"
-                        begin="p2r-appear.end+0.5s"
-                        fill="freeze"
-                    />
-                    <animate
-                        id="r2v-disappear"
-                        attributeName="opacity"
-                        from="0.6"
-                        to="0"
-                        dur="1.5s"
-                        begin="p2r-disappear.begin+0.5s"
-                        fill="freeze"
-                    />
-                </line>
-                
-                <!-- Visit to Timeline -->
-                <line x1="590" y1="230" x2="500" y2="350" stroke="#ffffff" stroke-width="2" opacity="0">
-                    <animate
-                        id="v2t-appear"
-                        attributeName="opacity"
-                        from="0"
-                        to="0.6"
-                        dur="1.5s"
-                        begin="r2v-appear.end+0.5s"
-                        fill="freeze"
-                    />
-                    <animate
-                        id="v2t-disappear"
-                        attributeName="opacity"
-                        from="0.6"
-                        to="0"
-                        dur="1.5s"
-                        begin="r2v-disappear.begin+0.5s"
-                        fill="freeze"
-                    />
-                </line>
-                
-                <!-- Timeline to Compliance -->
-                <line x1="500" y1="350" x2="320" y2="400" stroke="#ffffff" stroke-width="2" opacity="0">
-                    <animate
-                        id="t2c-appear"
-                        attributeName="opacity"
-                        from="0"
-                        to="0.6"
-                        dur="1.5s"
-                        begin="v2t-appear.end+0.5s"
-                        fill="freeze"
-                    />
-                    <animate
-                        id="t2c-disappear"
-                        attributeName="opacity"
-                        from="0.6"
-                        to="0"
-                        dur="1.5s"
-                        begin="v2t-disappear.begin+0.5s"
-                        fill="freeze"
-                    />
-                </line>
-                
-                <!-- Compliance to Audit -->
-                <line x1="320" y1="400" x2="180" y2="300" stroke="#ffffff" stroke-width="2" opacity="0">
-                    <animate
-                        id="c2a-appear"
-                        attributeName="opacity"
-                        from="0"
-                        to="0.6"
-                        dur="1.5s"
-                        begin="t2c-appear.end+0.5s"
-                        fill="freeze"
-                    />
-                    <animate
-                        id="c2a-disappear"
-                        attributeName="opacity"
-                        from="0.6"
-                        to="0"
-                        dur="1.5s"
-                        begin="t2c-disappear.begin+0.5s"
-                        fill="freeze"
-                    />
-                </line>
-                
-                <!-- Audit to Patient -->
-                <line x1="180" y1="300" x2="240" y2="200" stroke="#ffffff" stroke-width="2" opacity="0">
-                    <animate
-                        id="a2p-appear"
-                        attributeName="opacity"
-                        from="0"
-                        to="0.6"
-                        dur="1.5s"
-                        begin="c2a-appear.end+0.5s"
-                        fill="freeze"
-                    />
-                    <animate
-                        id="a2p-disappear"
-                        attributeName="opacity"
-                        from="0.6"
-                        to="0"
-                        dur="1.5s"
-                        begin="c2a-disappear.begin+0.5s"
-                        fill="freeze"
-                    />
-                </line>
-                
-                <!-- Alternative connections showing different data flows -->
-                
-                <!-- Patient to Timeline -->
-                <line x1="240" y1="200" x2="500" y2="350" stroke="#ffffff" stroke-width="2" opacity="0">
+                <!-- Patient to Trial -->
+                <line x1="240" y1="120" x2="400" y2="70" stroke="#ffffff" stroke-width="2" opacity="0">
                     <animate
                         id="p2t-appear"
                         attributeName="opacity"
                         from="0"
                         to="0.6"
                         dur="1.5s"
-                        begin="a2p-disappear.end+2s"
+                        begin="0s;a2p-disappear.end+2s"
                         fill="freeze"
                     />
                     <animate
@@ -560,10 +468,10 @@ function initAIAnimation() {
                     />
                 </line>
                 
-                <!-- Record to Compliance -->
-                <line x1="430" y1="150" x2="320" y2="400" stroke="#ffffff" stroke-width="2" opacity="0">
+                <!-- Trial to Site -->
+                <line x1="400" y1="70" x2="560" y2="120" stroke="#ffffff" stroke-width="2" opacity="0">
                     <animate
-                        id="r2c-appear"
+                        id="t2s-appear"
                         attributeName="opacity"
                         from="0"
                         to="0.6"
@@ -572,7 +480,7 @@ function initAIAnimation() {
                         fill="freeze"
                     />
                     <animate
-                        id="r2c-disappear"
+                        id="t2s-disappear"
                         attributeName="opacity"
                         from="0.6"
                         to="0"
@@ -582,15 +490,147 @@ function initAIAnimation() {
                     />
                 </line>
                 
-                <!-- Visit to Audit -->
-                <line x1="590" y1="230" x2="180" y2="300" stroke="#ffffff" stroke-width="2" opacity="0">
+                <!-- Site to Visit -->
+                <line x1="560" y1="120" x2="630" y2="230" stroke="#ffffff" stroke-width="2" opacity="0">
+                    <animate
+                        id="s2v-appear"
+                        attributeName="opacity"
+                        from="0"
+                        to="0.6"
+                        dur="1.5s"
+                        begin="t2s-appear.end+0.5s"
+                        fill="freeze"
+                    />
+                    <animate
+                        id="s2v-disappear"
+                        attributeName="opacity"
+                        from="0.6"
+                        to="0"
+                        dur="1.5s"
+                        begin="t2s-disappear.begin+0.5s"
+                        fill="freeze"
+                    />
+                </line>
+                
+                <!-- Visit to Document -->
+                <line x1="630" y1="230" x2="560" y2="340" stroke="#ffffff" stroke-width="2" opacity="0">
+                    <animate
+                        id="v2d-appear"
+                        attributeName="opacity"
+                        from="0"
+                        to="0.6"
+                        dur="1.5s"
+                        begin="s2v-appear.end+0.5s"
+                        fill="freeze"
+                    />
+                    <animate
+                        id="v2d-disappear"
+                        attributeName="opacity"
+                        from="0.6"
+                        to="0"
+                        dur="1.5s"
+                        begin="s2v-disappear.begin+0.5s"
+                        fill="freeze"
+                    />
+                </line>
+                
+                <!-- Document to Data -->
+                <line x1="560" y1="340" x2="400" y2="400" stroke="#ffffff" stroke-width="2" opacity="0">
+                    <animate
+                        id="d2dt-appear"
+                        attributeName="opacity"
+                        from="0"
+                        to="0.6"
+                        dur="1.5s"
+                        begin="v2d-appear.end+0.5s"
+                        fill="freeze"
+                    />
+                    <animate
+                        id="d2dt-disappear"
+                        attributeName="opacity"
+                        from="0.6"
+                        to="0"
+                        dur="1.5s"
+                        begin="v2d-disappear.begin+0.5s"
+                        fill="freeze"
+                    />
+                </line>
+                
+                <!-- Data to Outcome -->
+                <line x1="400" y1="400" x2="240" y2="340" stroke="#ffffff" stroke-width="2" opacity="0">
+                    <animate
+                        id="dt2o-appear"
+                        attributeName="opacity"
+                        from="0"
+                        to="0.6"
+                        dur="1.5s"
+                        begin="d2dt-appear.end+0.5s"
+                        fill="freeze"
+                    />
+                    <animate
+                        id="dt2o-disappear"
+                        attributeName="opacity"
+                        from="0.6"
+                        to="0"
+                        dur="1.5s"
+                        begin="d2dt-disappear.begin+0.5s"
+                        fill="freeze"
+                    />
+                </line>
+
+                <!-- Outcome to Compliance -->
+                <line x1="240" y1="340" x2="170" y2="230" stroke="#ffffff" stroke-width="2" opacity="0">
+                    <animate
+                        id="o2c-appear"
+                        attributeName="opacity"
+                        from="0"
+                        to="0.6"
+                        dur="1.5s"
+                        begin="dt2o-appear.end+0.5s"
+                        fill="freeze"
+                    />
+                    <animate
+                        id="o2c-disappear"
+                        attributeName="opacity"
+                        from="0.6"
+                        to="0"
+                        dur="1.5s"
+                        begin="dt2o-disappear.begin+0.5s"
+                        fill="freeze"
+                    />
+                </line>
+
+                <!-- Compliance to Patient -->
+                <line x1="170" y1="230" x2="240" y2="120" stroke="#ffffff" stroke-width="2" opacity="0">
+                    <animate
+                        id="c2p-appear"
+                        attributeName="opacity"
+                        from="0"
+                        to="0.6"
+                        dur="1.5s"
+                        begin="o2c-appear.end+0.5s"
+                        fill="freeze"
+                    />
+                    <animate
+                        id="c2p-disappear"
+                        attributeName="opacity"
+                        from="0.6"
+                        to="0"
+                        dur="1.5s"
+                        begin="o2c-disappear.begin+0.5s"
+                        fill="freeze"
+                    />
+                </line>
+
+                <!-- Visit to Analysis -->
+                <line x1="630" y1="230" x2="400" y2="230" stroke="#ffffff" stroke-width="2" opacity="0">
                     <animate
                         id="v2a-appear"
                         attributeName="opacity"
                         from="0"
                         to="0.6"
                         dur="1.5s"
-                        begin="r2c-appear.end+0.5s"
+                        begin="c2p-disappear.end+2s"
                         fill="freeze"
                     />
                     <animate
@@ -599,7 +639,139 @@ function initAIAnimation() {
                         from="0.6"
                         to="0"
                         dur="1.5s"
-                        begin="r2c-disappear.begin+0.5s"
+                        begin="v2a-appear.end+3s"
+                        fill="freeze"
+                    />
+                </line>
+
+                <!-- Analysis to Data -->
+                <line x1="400" y1="230" x2="400" y2="400" stroke="#ffffff" stroke-width="2" opacity="0">
+                    <animate
+                        id="a2d-appear"
+                        attributeName="opacity"
+                        from="0"
+                        to="0.6"
+                        dur="1.5s"
+                        begin="v2a-appear.end+0.5s"
+                        fill="freeze"
+                    />
+                    <animate
+                        id="a2d-disappear"
+                        attributeName="opacity"
+                        from="0.6"
+                        to="0"
+                        dur="1.5s"
+                        begin="v2a-disappear.begin+0.5s"
+                        fill="freeze"
+                    />
+                </line>
+
+                <!-- Data to Patient -->
+                <line x1="400" y1="400" x2="240" y2="120" stroke="#ffffff" stroke-width="2" opacity="0">
+                    <animate
+                        id="d2p-appear"
+                        attributeName="opacity"
+                        from="0"
+                        to="0.6"
+                        dur="1.5s"
+                        begin="a2d-appear.end+0.5s"
+                        fill="freeze"
+                    />
+                    <animate
+                        id="d2p-disappear"
+                        attributeName="opacity"
+                        from="0.6"
+                        to="0"
+                        dur="1.5s"
+                        begin="a2d-disappear.begin+0.5s"
+                        fill="freeze"
+                    />
+                </line>
+
+                <!-- Trial to Analysis -->
+                <line x1="400" y1="70" x2="400" y2="230" stroke="#ffffff" stroke-width="2" opacity="0">
+                    <animate
+                        id="t2a-appear"
+                        attributeName="opacity"
+                        from="0"
+                        to="0.6"
+                        dur="1.5s"
+                        begin="d2p-appear.end+0.5s"
+                        fill="freeze"
+                    />
+                    <animate
+                        id="t2a-disappear"
+                        attributeName="opacity"
+                        from="0.6"
+                        to="0"
+                        dur="1.5s"
+                        begin="d2p-disappear.begin+0.5s"
+                        fill="freeze"
+                    />
+                </line>
+
+                <!-- Analysis to Outcome -->
+                <line x1="400" y1="230" x2="240" y2="340" stroke="#ffffff" stroke-width="2" opacity="0">
+                    <animate
+                        id="a2o-appear"
+                        attributeName="opacity"
+                        from="0"
+                        to="0.6"
+                        dur="1.5s"
+                        begin="t2a-appear.end+0.5s"
+                        fill="freeze"
+                    />
+                    <animate
+                        id="a2o-disappear"
+                        attributeName="opacity"
+                        from="0.6"
+                        to="0"
+                        dur="1.5s"
+                        begin="t2a-disappear.begin+0.5s"
+                        fill="freeze"
+                    />
+                </line>
+
+                <!-- Site to Compliance -->
+                <line x1="560" y1="120" x2="170" y2="230" stroke="#ffffff" stroke-width="2" opacity="0">
+                    <animate
+                        id="s2c-appear"
+                        attributeName="opacity"
+                        from="0"
+                        to="0.6"
+                        dur="1.5s"
+                        begin="a2o-appear.end+0.5s"
+                        fill="freeze"
+                    />
+                    <animate
+                        id="s2c-disappear"
+                        attributeName="opacity"
+                        from="0.6"
+                        to="0"
+                        dur="1.5s"
+                        begin="a2o-disappear.begin+0.5s"
+                        fill="freeze"
+                    />
+                </line>
+
+                <!-- Compliance to Analysis -->
+                <line x1="170" y1="230" x2="400" y2="230" stroke="#ffffff" stroke-width="2" opacity="0">
+                    <animate
+                        id="c2a-appear"
+                        attributeName="opacity"
+                        from="0"
+                        to="0.6"
+                        dur="1.5s"
+                        begin="s2c-appear.end+0.5s"
+                        fill="freeze"
+                    />
+                    <animate
+                        id="c2a-disappear"
+                        attributeName="opacity"
+                        from="0.6"
+                        to="0"
+                        dur="1.5s"
+                        begin="s2c-disappear.begin+0.5s"
                         fill="freeze"
                     />
                 </line>
@@ -607,102 +779,168 @@ function initAIAnimation() {
             
             <!-- Data packets moving along connections -->
             <g id="data-packets">
-                <!-- Patient to Record -->
+                <!-- Patient to Trial -->
                 <circle cx="0" cy="0" r="4" fill="#ffffff" filter="url(#packetGlow)">
                     <animate attributeName="opacity" values="0;1;0" dur="5s" begin="1s" repeatCount="indefinite" />
                     <animateMotion 
-                        path="M240,200 L430,150" 
-                        dur="2s" 
-                        begin="p2r-appear.begin+0.5s" 
-                        repeatCount="2"
-                    />
-                </circle>
-                
-                <!-- Record to Visit -->
-                <circle cx="0" cy="0" r="4" fill="#ffffff" filter="url(#packetGlow)">
-                    <animate attributeName="opacity" values="0;1;0" dur="5s" begin="2s" repeatCount="indefinite" />
-                    <animateMotion 
-                        path="M430,150 L590,230" 
-                        dur="2s" 
-                        begin="r2v-appear.begin+0.5s" 
-                        repeatCount="2"
-                    />
-                </circle>
-                
-                <!-- Visit to Timeline -->
-                <circle cx="0" cy="0" r="4" fill="#ffffff" filter="url(#packetGlow)">
-                    <animate attributeName="opacity" values="0;1;0" dur="5s" begin="3s" repeatCount="indefinite" />
-                    <animateMotion 
-                        path="M590,230 L500,350" 
-                        dur="2s" 
-                        begin="v2t-appear.begin+0.5s" 
-                        repeatCount="2"
-                    />
-                </circle>
-                
-                <!-- Timeline to Compliance -->
-                <circle cx="0" cy="0" r="4" fill="#ffffff" filter="url(#packetGlow)">
-                    <animate attributeName="opacity" values="0;1;0" dur="5s" begin="4s" repeatCount="indefinite" />
-                    <animateMotion 
-                        path="M500,350 L320,400" 
-                        dur="2s" 
-                        begin="t2c-appear.begin+0.5s" 
-                        repeatCount="2"
-                    />
-                </circle>
-                
-                <!-- Compliance to Audit -->
-                <circle cx="0" cy="0" r="4" fill="#ffffff" filter="url(#packetGlow)">
-                    <animate attributeName="opacity" values="0;1;0" dur="5s" begin="5s" repeatCount="indefinite" />
-                    <animateMotion 
-                        path="M320,400 L180,300" 
-                        dur="2s" 
-                        begin="c2a-appear.begin+0.5s" 
-                        repeatCount="2"
-                    />
-                </circle>
-                
-                <!-- Audit to Patient -->
-                <circle cx="0" cy="0" r="4" fill="#ffffff" filter="url(#packetGlow)">
-                    <animate attributeName="opacity" values="0;1;0" dur="5s" begin="6s" repeatCount="indefinite" />
-                    <animateMotion 
-                        path="M180,300 L240,200" 
-                        dur="2s" 
-                        begin="a2p-appear.begin+0.5s" 
-                        repeatCount="2"
-                    />
-                </circle>
-                
-                <!-- Second sequence -->
-                <!-- Patient to Timeline -->
-                <circle cx="0" cy="0" r="4" fill="#ffffff" filter="url(#packetGlow)">
-                    <animate attributeName="opacity" values="0;1;0" dur="5s" begin="15s" repeatCount="indefinite" />
-                    <animateMotion 
-                        path="M240,200 L500,350" 
+                        path="M240,120 L400,70" 
                         dur="2s" 
                         begin="p2t-appear.begin+0.5s" 
                         repeatCount="2"
                     />
                 </circle>
                 
-                <!-- Record to Compliance -->
+                <!-- Trial to Site -->
                 <circle cx="0" cy="0" r="4" fill="#ffffff" filter="url(#packetGlow)">
-                    <animate attributeName="opacity" values="0;1;0" dur="5s" begin="16s" repeatCount="indefinite" />
+                    <animate attributeName="opacity" values="0;1;0" dur="5s" begin="2s" repeatCount="indefinite" />
                     <animateMotion 
-                        path="M430,150 L320,400" 
+                        path="M400,70 L560,120" 
                         dur="2s" 
-                        begin="r2c-appear.begin+0.5s" 
+                        begin="t2s-appear.begin+0.5s" 
                         repeatCount="2"
                     />
                 </circle>
                 
-                <!-- Visit to Audit -->
+                <!-- Site to Visit -->
+                <circle cx="0" cy="0" r="4" fill="#ffffff" filter="url(#packetGlow)">
+                    <animate attributeName="opacity" values="0;1;0" dur="5s" begin="3s" repeatCount="indefinite" />
+                    <animateMotion 
+                        path="M560,120 L630,230" 
+                        dur="2s" 
+                        begin="s2v-appear.begin+0.5s" 
+                        repeatCount="2"
+                    />
+                </circle>
+                
+                <!-- Visit to Document -->
+                <circle cx="0" cy="0" r="4" fill="#ffffff" filter="url(#packetGlow)">
+                    <animate attributeName="opacity" values="0;1;0" dur="5s" begin="4s" repeatCount="indefinite" />
+                    <animateMotion 
+                        path="M630,230 L560,340" 
+                        dur="2s" 
+                        begin="v2d-appear.begin+0.5s" 
+                        repeatCount="2"
+                    />
+                </circle>
+                
+                <!-- Document to Data -->
+                <circle cx="0" cy="0" r="4" fill="#ffffff" filter="url(#packetGlow)">
+                    <animate attributeName="opacity" values="0;1;0" dur="5s" begin="5s" repeatCount="indefinite" />
+                    <animateMotion 
+                        path="M560,340 L400,400" 
+                        dur="2s" 
+                        begin="d2dt-appear.begin+0.5s" 
+                        repeatCount="2"
+                    />
+                </circle>
+                
+                <!-- Data to Outcome -->
+                <circle cx="0" cy="0" r="4" fill="#ffffff" filter="url(#packetGlow)">
+                    <animate attributeName="opacity" values="0;1;0" dur="5s" begin="6s" repeatCount="indefinite" />
+                    <animateMotion 
+                        path="M400,400 L240,340" 
+                        dur="2s" 
+                        begin="dt2o-appear.begin+0.5s" 
+                        repeatCount="2"
+                    />
+                </circle>
+
+                <!-- Outcome to Compliance -->
+                <circle cx="0" cy="0" r="4" fill="#ffffff" filter="url(#packetGlow)">
+                    <animate attributeName="opacity" values="0;1;0" dur="5s" begin="7s" repeatCount="indefinite" />
+                    <animateMotion 
+                        path="M240,340 L170,230" 
+                        dur="2s" 
+                        begin="o2c-appear.begin+0.5s" 
+                        repeatCount="2"
+                    />
+                </circle>
+
+                <!-- Compliance to Patient -->
+                <circle cx="0" cy="0" r="4" fill="#ffffff" filter="url(#packetGlow)">
+                    <animate attributeName="opacity" values="0;1;0" dur="5s" begin="8s" repeatCount="indefinite" />
+                    <animateMotion 
+                        path="M170,230 L240,120" 
+                        dur="2s" 
+                        begin="c2p-appear.begin+0.5s" 
+                        repeatCount="2"
+                    />
+                </circle>
+
+                <!-- Second sequence -->
+                <!-- Visit to Analysis -->
+                <circle cx="0" cy="0" r="4" fill="#ffffff" filter="url(#packetGlow)">
+                    <animate attributeName="opacity" values="0;1;0" dur="5s" begin="15s" repeatCount="indefinite" />
+                    <animateMotion 
+                        path="M630,230 L400,230" 
+                        dur="2s" 
+                        begin="v2a-appear.begin+0.5s" 
+                        repeatCount="2"
+                    />
+                </circle>
+                
+                <!-- Analysis to Data -->
+                <circle cx="0" cy="0" r="4" fill="#ffffff" filter="url(#packetGlow)">
+                    <animate attributeName="opacity" values="0;1;0" dur="5s" begin="16s" repeatCount="indefinite" />
+                    <animateMotion 
+                        path="M400,230 L400,400" 
+                        dur="2s" 
+                        begin="a2d-appear.begin+0.5s" 
+                        repeatCount="2"
+                    />
+                </circle>
+                
+                <!-- Data to Patient -->
                 <circle cx="0" cy="0" r="4" fill="#ffffff" filter="url(#packetGlow)">
                     <animate attributeName="opacity" values="0;1;0" dur="5s" begin="17s" repeatCount="indefinite" />
                     <animateMotion 
-                        path="M590,230 L180,300" 
+                        path="M400,400 L240,120" 
                         dur="2s" 
-                        begin="v2a-appear.begin+0.5s" 
+                        begin="d2p-appear.begin+0.5s" 
+                        repeatCount="2"
+                    />
+                </circle>
+
+                <!-- Trial to Analysis -->
+                <circle cx="0" cy="0" r="4" fill="#ffffff" filter="url(#packetGlow)">
+                    <animate attributeName="opacity" values="0;1;0" dur="5s" begin="18s" repeatCount="indefinite" />
+                    <animateMotion 
+                        path="M400,70 L400,230" 
+                        dur="2s" 
+                        begin="t2a-appear.begin+0.5s" 
+                        repeatCount="2"
+                    />
+                </circle>
+
+                <!-- Analysis to Outcome -->
+                <circle cx="0" cy="0" r="4" fill="#ffffff" filter="url(#packetGlow)">
+                    <animate attributeName="opacity" values="0;1;0" dur="5s" begin="19s" repeatCount="indefinite" />
+                    <animateMotion 
+                        path="M400,230 L240,340" 
+                        dur="2s" 
+                        begin="a2o-appear.begin+0.5s" 
+                        repeatCount="2"
+                    />
+                </circle>
+
+                <!-- Site to Compliance -->
+                <circle cx="0" cy="0" r="4" fill="#ffffff" filter="url(#packetGlow)">
+                    <animate attributeName="opacity" values="0;1;0" dur="5s" begin="20s" repeatCount="indefinite" />
+                    <animateMotion 
+                        path="M560,120 L170,230" 
+                        dur="2s" 
+                        begin="s2c-appear.begin+0.5s" 
+                        repeatCount="2"
+                    />
+                </circle>
+
+                <!-- Compliance to Analysis -->
+                <circle cx="0" cy="0" r="4" fill="#ffffff" filter="url(#packetGlow)">
+                    <animate attributeName="opacity" values="0;1;0" dur="5s" begin="21s" repeatCount="indefinite" />
+                    <animateMotion 
+                        path="M170,230 L400,230" 
+                        dur="2s" 
+                        begin="c2a-appear.begin+0.5s" 
                         repeatCount="2"
                     />
                 </circle>

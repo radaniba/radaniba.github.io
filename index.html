@@ -472,31 +472,7 @@
         </div>
     </section>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.11/iframeResizer.min.js"
-            integrity="sha512-9kUjCzb6YMm8ZUz/aznqO+9C8QHGr6CLFm654REUYPj2zJzuBoRMygSYhs+vXUQRRJprKjzgxkrdOLTSNhmMag=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer">
-    </script>
-    <script>
-      iFrameResize({
-        heightCalculationMethod: "max",
-        scrolling: true,
-        inPageLinks: true,
-        checkOrigin: false,
-        bodyBackground: 'rgba(30, 32, 48, 0.7)',
-        bodyPadding: '20px'
-      }, "#cfEventTypejyXnke");
-      
-      window.addEventListener('message', function(event) {
-        if (event.origin !== 'https://www.ranbiolinks.com') {
-          return;
-        }
-
-        if (event.data.id === 'redirectFromIframe') {
-          window.location.href = event.data.url
-        }
-      });
-    </script>
+    
 
     <!-- Footer -->
     <footer>
