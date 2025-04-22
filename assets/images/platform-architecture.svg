@@ -183,10 +183,10 @@
     <line x1="720" y1="370" x2="740" y2="370" stroke="#6086EC" stroke-width="1.5" />
     
     <!-- Add white dot animations for data flows -->
-    <!-- AI Core to Application Modules -->
+    <!-- AI Core to Application Modules - follow the actual vertical connection line -->
     <circle cx="0" cy="0" r="3" fill="white" filter="url(#whiteDotGlow)">
       <animateMotion 
-        path="M250,120 L250,170"
+        path="M500,240 L500,280"
         dur="2s"
         repeatCount="indefinite"
         rotate="auto"
@@ -195,101 +195,61 @@
 
     <circle cx="0" cy="0" r="3" fill="white" filter="url(#whiteDotGlow)">
       <animateMotion 
-        path="M200,120 L150,170"
+        path="M500,280 L500,240"
         dur="2.3s"
-        begin="0.4s"
+        begin="1.4s"
         repeatCount="indefinite"
         rotate="auto"
       />
     </circle>
 
+    <!-- Application Modules to Data Layer - follow the actual vertical connection line -->
     <circle cx="0" cy="0" r="3" fill="white" filter="url(#whiteDotGlow)">
       <animateMotion 
-        path="M300,120 L350,170"
-        dur="2.1s"
-        begin="0.8s"
-        repeatCount="indefinite"
-        rotate="auto"
-      />
-    </circle>
-
-    <!-- Application Modules to Data Layer -->
-    <circle cx="0" cy="0" r="3" fill="white" filter="url(#whiteDotGlow)">
-      <animateMotion 
-        path="M150,210 L150,260"
+        path="M500,430 L500,470"
         dur="1.8s"
+        begin="0.6s"
+        repeatCount="indefinite"
+        rotate="auto"
+      />
+    </circle>
+
+    <circle cx="0" cy="0" r="3" fill="white" filter="url(#whiteDotGlow)">
+      <animateMotion 
+        path="M500,470 L500,430"
+        dur="1.9s"
         begin="1.2s"
         repeatCount="indefinite"
         rotate="auto"
       />
     </circle>
 
+    <!-- Data Layer to Integration Layer - follow the actual vertical connection line -->
     <circle cx="0" cy="0" r="3" fill="white" filter="url(#whiteDotGlow)">
       <animateMotion 
-        path="M250,210 L250,260"
-        dur="1.9s"
-        begin="0.7s"
-        repeatCount="indefinite"
-        rotate="auto"
-      />
-    </circle>
-
-    <circle cx="0" cy="0" r="3" fill="white" filter="url(#whiteDotGlow)">
-      <animateMotion 
-        path="M350,210 L350,260"
-        dur="2.2s"
+        path="M500,550 L500,590"
+        dur="2.1s"
         begin="0.3s"
         repeatCount="indefinite"
         rotate="auto"
       />
     </circle>
 
-    <!-- Data Layer to Integration Layer -->
     <circle cx="0" cy="0" r="3" fill="white" filter="url(#whiteDotGlow)">
       <animateMotion 
-        path="M200,300 L200,350"
-        dur="2.5s"
-        begin="1.5s"
-        repeatCount="indefinite"
-        rotate="auto"
-      />
-    </circle>
-
-    <circle cx="0" cy="0" r="3" fill="white" filter="url(#whiteDotGlow)">
-      <animateMotion 
-        path="M300,300 L300,350"
+        path="M500,590 L500,550"
         dur="2.4s"
-        begin="0.5s"
+        begin="0.9s"
         repeatCount="indefinite"
         rotate="auto"
       />
     </circle>
 
-    <!-- Circular flows in the AI Core -->
+    <!-- Horizontal connections within App Modules -->
     <circle cx="0" cy="0" r="3" fill="white" filter="url(#whiteDotGlow)">
       <animateMotion 
-        path="M250,80 A30,30 0 1 1 250,81"
-        dur="4s"
-        repeatCount="indefinite"
-        rotate="auto"
-      />
-    </circle>
-
-    <circle cx="0" cy="0" r="3" fill="white" filter="url(#whiteDotGlow)">
-      <animateMotion 
-        path="M220,100 A20,20 0 1 0 220,101"
-        dur="3s"
-        begin="1s"
-        repeatCount="indefinite"
-        rotate="auto"
-      />
-    </circle>
-
-    <!-- Horizontal flows -->
-    <circle cx="0" cy="0" r="3" fill="white" filter="url(#whiteDotGlow)">
-      <animateMotion 
-        path="M150,190 L350,190"
-        dur="3s"
+        path="M300,370 L320,370"
+        dur="1.5s"
         begin="0.2s"
         repeatCount="indefinite"
         rotate="auto"
@@ -298,29 +258,100 @@
 
     <circle cx="0" cy="0" r="3" fill="white" filter="url(#whiteDotGlow)">
       <animateMotion 
-        path="M350,280 L150,280"
-        dur="3.2s"
-        begin="1.7s"
+        path="M440,370 L460,370"
+        dur="1.5s"
+        begin="1.2s"
         repeatCount="indefinite"
         rotate="auto"
       />
     </circle>
 
-    <!-- Integration connections to external systems -->
     <circle cx="0" cy="0" r="3" fill="white" filter="url(#whiteDotGlow)">
       <animateMotion 
-        path="M175,370 L120,400"
+        path="M580,370 L600,370"
+        dur="1.5s"
+        begin="0.5s"
+        repeatCount="indefinite"
+        rotate="auto"
+      />
+    </circle>
+
+    <circle cx="0" cy="0" r="3" fill="white" filter="url(#whiteDotGlow)">
+      <animateMotion 
+        path="M720,370 L740,370"
+        dur="1.5s"
+        begin="1.5s"
+        repeatCount="indefinite"
+        rotate="auto"
+      />
+    </circle>
+
+    <!-- Integration Layer to External Systems -->
+    <circle cx="0" cy="0" r="3" fill="white" filter="url(#whiteDotGlow)">
+      <animateMotion 
+        path="M220,660 L220,680"
         dur="1.6s"
+        begin="0.1s"
+        repeatCount="indefinite"
+        rotate="auto"
+      />
+    </circle>
+
+    <circle cx="0" cy="0" r="3" fill="white" filter="url(#whiteDotGlow)">
+      <animateMotion 
+        path="M340,660 L340,680"
+        dur="1.7s"
+        begin="0.7s"
+        repeatCount="indefinite"
+        rotate="auto"
+      />
+    </circle>
+
+    <circle cx="0" cy="0" r="3" fill="white" filter="url(#whiteDotGlow)">
+      <animateMotion 
+        path="M460,660 L460,680"
+        dur="1.8s"
+        begin="0.3s"
+        repeatCount="indefinite"
+        rotate="auto"
+      />
+    </circle>
+
+    <circle cx="0" cy="0" r="3" fill="white" filter="url(#whiteDotGlow)">
+      <animateMotion 
+        path="M580,660 L580,680"
+        dur="1.7s"
+        begin="1.1s"
+        repeatCount="indefinite"
+        rotate="auto"
+      />
+    </circle>
+
+    <circle cx="0" cy="0" r="3" fill="white" filter="url(#whiteDotGlow)">
+      <animateMotion 
+        path="M700,660 L700,680"
+        dur="1.6s"
+        begin="0.5s"
+        repeatCount="indefinite"
+        rotate="auto"
+      />
+    </circle>
+
+    <circle cx="0" cy="0" r="3" fill="white" filter="url(#whiteDotGlow)">
+      <animateMotion 
+        path="M820,660 L820,680"
+        dur="1.7s"
         begin="0.9s"
         repeatCount="indefinite"
         rotate="auto"
       />
     </circle>
 
+    <!-- Additional dots for upward movement -->
     <circle cx="0" cy="0" r="3" fill="white" filter="url(#whiteDotGlow)">
       <animateMotion 
-        path="M250,380 L250,420"
-        dur="1.7s"
+        path="M220,680 L220,660"
+        dur="1.6s"
         begin="1.3s"
         repeatCount="indefinite"
         rotate="auto"
@@ -329,9 +360,30 @@
 
     <circle cx="0" cy="0" r="3" fill="white" filter="url(#whiteDotGlow)">
       <animateMotion 
-        path="M325,370 L380,400"
-        dur="1.8s"
-        begin="0.6s"
+        path="M580,680 L580,660"
+        dur="1.7s"
+        begin="1.7s"
+        repeatCount="indefinite"
+        rotate="auto"
+      />
+    </circle>
+
+    <!-- Animation for AI Core internal processing -->
+    <circle cx="0" cy="0" r="3" fill="white" filter="url(#whiteDotGlow)">
+      <animateMotion 
+        path="M360,170 C410,160 450,180 500,170"
+        dur="3s"
+        begin="0.5s"
+        repeatCount="indefinite"
+        rotate="auto"
+      />
+    </circle>
+
+    <circle cx="0" cy="0" r="3" fill="white" filter="url(#whiteDotGlow)">
+      <animateMotion 
+        path="M540,170 C590,160 620,180 650,170"
+        dur="3s"
+        begin="1.2s"
         repeatCount="indefinite"
         rotate="auto"
       />
