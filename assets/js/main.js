@@ -168,9 +168,13 @@ function initTestimonialSlider() {
     const dotsContainer = document.querySelector('.testimonial-dots');
     const prevBtn = document.querySelector('.prev-btn');
     const nextBtn = document.querySelector('.next-btn');
+    const slider = document.querySelector('.testimonial-slider');
     
     if (slides.length && dotsContainer) {
         let currentSlide = 0;
+        let autoSlideInterval;
+        let touchStartX = 0;
+        let touchEndX = 0;
         
         // Create navigation dots
         slides.forEach((_, index) => {
@@ -179,66 +183,124 @@ function initTestimonialSlider() {
             if (index === 0) dot.classList.add('active');
             dot.addEventListener('click', () => {
                 goToSlide(index);
+                resetAutoSlide();
             });
             dotsContainer.appendChild(dot);
         });
         
+        // Add swipe functionality
+        if (slider) {
+            slider.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, {passive: true});
+            
+            slider.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+                resetAutoSlide();
+            }, {passive: true});
+        }
+        
+        function handleSwipe() {
+            const threshold = 50; // Minimum swipe distance
+            if (touchStartX - touchEndX > threshold) {
+                // Swipe left (next)
+                goToNextSlide();
+            } else if (touchEndX - touchStartX > threshold) {
+                // Swipe right (previous)
+                goToPrevSlide();
+            }
+        }
+        
         // Previous button
         if (prevBtn) {
             prevBtn.addEventListener('click', () => {
-                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-                updateSlider();
+                goToPrevSlide();
+                resetAutoSlide();
             });
         }
         
         // Next button
         if (nextBtn) {
             nextBtn.addEventListener('click', () => {
-                currentSlide = (currentSlide + 1) % slides.length;
-                updateSlider();
+                goToNextSlide();
+                resetAutoSlide();
             });
         }
         
-        // Go to specific slide
+        function goToNextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateSlider();
+        }
+        
+        function goToPrevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            updateSlider();
+        }
+        
         function goToSlide(index) {
             currentSlide = index;
             updateSlider();
         }
         
-        // Update slider display
         function updateSlider() {
-            // Hide all slides
-            slides.forEach(slide => {
-                slide.style.display = 'none';
+            // Update slides
+            slides.forEach((slide, index) => {
+                slide.classList.remove('active', 'prev', 'next');
+                
+                // Add appropriate class based on position
+                if (index === currentSlide) {
+                    slide.classList.add('active');
+                    slide.style.transform = 'translateX(0)';
+                    slide.style.opacity = '1';
+                    slide.style.zIndex = '2';
+                } else if (index === (currentSlide - 1 + slides.length) % slides.length) {
+                    slide.classList.add('prev');
+                    slide.style.transform = 'translateX(-100%)';
+                    slide.style.opacity = '0.5';
+                    slide.style.zIndex = '1';
+                } else if (index === (currentSlide + 1) % slides.length) {
+                    slide.classList.add('next');
+                    slide.style.transform = 'translateX(100%)';
+                    slide.style.opacity = '0.5';
+                    slide.style.zIndex = '1';
+                } else {
+                    slide.style.transform = 'translateX(100%)';
+                    slide.style.opacity = '0';
+                    slide.style.zIndex = '0';
+                }
             });
             
-            // Show current slide
-            slides[currentSlide].style.display = 'block';
-            
             // Update dots
-            document.querySelectorAll('.testimonial-dots .dot').forEach((dot, index) => {
+            const dots = dotsContainer.querySelectorAll('.dot');
+            dots.forEach((dot, index) => {
                 dot.classList.toggle('active', index === currentSlide);
             });
         }
         
-        // Auto-advance the slider
-        let autoSlide = setInterval(() => {
-            currentSlide = (currentSlide + 1) % slides.length;
-            updateSlider();
-        }, 5000);
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(() => {
+                goToNextSlide();
+            }, 5000); // Change slide every 5 seconds
+        }
         
-        // Pause auto-advance on hover
-        const sliderContainer = document.querySelector('.testimonial-slider');
-        if (sliderContainer) {
-            sliderContainer.addEventListener('mouseenter', () => {
-                clearInterval(autoSlide);
+        function resetAutoSlide() {
+            clearInterval(autoSlideInterval);
+            startAutoSlide();
+        }
+        
+        // Initialize
+        updateSlider();
+        startAutoSlide();
+        
+        // Pause auto-sliding when user hovers over slider
+        if (slider) {
+            slider.addEventListener('mouseenter', () => {
+                clearInterval(autoSlideInterval);
             });
             
-            sliderContainer.addEventListener('mouseleave', () => {
-                autoSlide = setInterval(() => {
-                    currentSlide = (currentSlide + 1) % slides.length;
-                    updateSlider();
-                }, 5000);
+            slider.addEventListener('mouseleave', () => {
+                startAutoSlide();
             });
         }
     }
@@ -657,4 +719,48 @@ function initCounters() {
         // Observe the first counter element
         counterObserver.observe(counterElements[0]);
     }
-} 
+}
+
+// Tab functionality for features section
+document.addEventListener('DOMContentLoaded', function() {
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabPanes = document.querySelectorAll('.tab-pane');
+
+    function activateTab(tabId) {
+        // Hide all tab panes
+        tabPanes.forEach(pane => {
+            pane.classList.remove('active');
+        });
+        
+        // Deactivate all buttons
+        tabButtons.forEach(btn => {
+            btn.classList.remove('active');
+        });
+        
+        // Activate the selected tab and button
+        const selectedTab = document.getElementById(tabId);
+        const selectedButton = document.querySelector(`[data-target="${tabId}"]`);
+        
+        if (selectedTab) {
+            selectedTab.classList.add('active');
+        }
+        
+        if (selectedButton) {
+            selectedButton.classList.add('active');
+        }
+    }
+    
+    // Add click event listeners to all tab buttons
+    tabButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const target = this.getAttribute('data-target');
+            activateTab(target);
+        });
+    });
+    
+    // Activate the first tab by default
+    if (tabButtons.length > 0) {
+        const firstTabTarget = tabButtons[0].getAttribute('data-target');
+        activateTab(firstTabTarget);
+    }
+}); 
