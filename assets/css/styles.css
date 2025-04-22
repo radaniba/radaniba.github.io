@@ -974,7 +974,7 @@ nav .btn {
   background: radial-gradient(circle at center, rgba(99, 102, 241, 0.05) 0%, transparent 70%);
   padding: var(--space-xl);
   border-radius: var(--radius-xl);
-  min-height: 500px;
+  min-height: 550px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -987,7 +987,7 @@ nav .btn {
   border: 1px solid rgba(99, 102, 241, 0.2);
   transition: all var(--transition-normal);
   filter: drop-shadow(0 0 8px rgba(99, 102, 241, 0.2));
-  max-height: 500px;
+  max-height: 600px;
   object-fit: contain;
 }
 
@@ -2329,11 +2329,9 @@ footer {
 
 .full-width-img {
   width: 100%;
-  max-width: 900px;
   height: auto;
   display: block;
   margin: 0 auto;
-  min-height: 400px; /* Ensure minimum height for SVG */
 }
 
 /* Ensure SVG content is properly displayed */

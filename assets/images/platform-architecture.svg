@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="1000" height="700" viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg">
+<svg width="1000" height="750" viewBox="0 0 1000 750" xmlns="http://www.w3.org/2000/svg">
   <title>MAESTRO Platform Architecture</title>
   
   <!-- Definitions for gradients and filters -->
@@ -49,8 +49,8 @@
     <rect id="dataPacket" width="8" height="4" rx="2" fill="#4cffff" opacity="0.8" />
   </defs>
   
-  <!-- Background -->
-  <rect width="1000" height="700" fill="#081018" />
+  <!-- Background - changed to transparent -->
+  <!-- <rect width="1000" height="750" fill="#081018" /> -->
   
   <!-- Title and Subtitle -->
   <text x="500" y="40" font-family="'Segoe UI', Arial, sans-serif" font-size="26" fill="#ffffff" text-anchor="middle" font-weight="600">MAESTRO Platform Architecture</text>
@@ -123,27 +123,27 @@
   
   <!-- External Systems at the bottom -->
   <g transform="translate(170, 680)">
-    <rect x="0" y="0" width="100" height="30" rx="4" fill="rgba(255,255,255,0.10)" stroke="#ffffff" stroke-width="0.8" />
+    <rect x="0" y="0" width="100" height="30" rx="4" fill="rgba(255,255,255,0.15)" stroke="#ffffff" stroke-width="0.8" />
     <text x="50" y="20" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#ffffff" text-anchor="middle">Lab Systems</text>
   </g>
   <g transform="translate(290, 680)">
-    <rect x="0" y="0" width="100" height="30" rx="4" fill="rgba(255,255,255,0.10)" stroke="#ffffff" stroke-width="0.8" />
+    <rect x="0" y="0" width="100" height="30" rx="4" fill="rgba(255,255,255,0.15)" stroke="#ffffff" stroke-width="0.8" />
     <text x="50" y="20" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#ffffff" text-anchor="middle">EDC</text>
   </g>
   <g transform="translate(410, 680)">
-    <rect x="0" y="0" width="100" height="30" rx="4" fill="rgba(255,255,255,0.10)" stroke="#ffffff" stroke-width="0.8" />
+    <rect x="0" y="0" width="100" height="30" rx="4" fill="rgba(255,255,255,0.15)" stroke="#ffffff" stroke-width="0.8" />
     <text x="50" y="20" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#ffffff" text-anchor="middle">eCOA</text>
   </g>
   <g transform="translate(530, 680)">
-    <rect x="0" y="0" width="100" height="30" rx="4" fill="rgba(255,255,255,0.10)" stroke="#ffffff" stroke-width="0.8" />
+    <rect x="0" y="0" width="100" height="30" rx="4" fill="rgba(255,255,255,0.15)" stroke="#ffffff" stroke-width="0.8" />
     <text x="50" y="20" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#ffffff" text-anchor="middle">EHR</text>
   </g>
   <g transform="translate(650, 680)">
-    <rect x="0" y="0" width="100" height="30" rx="4" fill="rgba(255,255,255,0.10)" stroke="#ffffff" stroke-width="0.8" />
+    <rect x="0" y="0" width="100" height="30" rx="4" fill="rgba(255,255,255,0.15)" stroke="#ffffff" stroke-width="0.8" />
     <text x="50" y="20" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#ffffff" text-anchor="middle">IRT</text>
   </g>
   <g transform="translate(770, 680)">
-    <rect x="0" y="0" width="100" height="30" rx="4" fill="rgba(255,255,255,0.10)" stroke="#ffffff" stroke-width="0.8" />
+    <rect x="0" y="0" width="100" height="30" rx="4" fill="rgba(255,255,255,0.15)" stroke="#ffffff" stroke-width="0.8" />
     <text x="50" y="20" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#ffffff" text-anchor="middle">Safety DB</text>
   </g>
   

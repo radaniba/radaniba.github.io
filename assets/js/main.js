@@ -30,13 +30,8 @@ function fixSvgRendering() {
         // Get the current src
         const currentSrc = svg.getAttribute('src');
         
-        // Force browser to reload the SVG by adding a cache-busting parameter
+        // Only make sure SVGs are visible without modifying the source
         if (currentSrc && currentSrc.endsWith('.svg')) {
-            svg.setAttribute('src', currentSrc + '?v=' + new Date().getTime());
-            
-            // Set proper MIME type to help browsers render correctly
-            svg.setAttribute('type', 'image/svg+xml');
-            
             // Make sure SVGs are visible
             svg.style.visibility = 'visible';
             
