@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="500" height="300" viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Browser window -->
+  <rect x="20" y="20" width="460" height="260" rx="8" fill="#1E2A3A" stroke="#3A5BD9" stroke-width="2"/>
+  
+  <!-- Browser toolbar -->
+  <rect x="20" y="20" width="460" height="40" rx="8" fill="#2C3E50" stroke="none"/>
+  <rect x="20" y="20" width="460" height="8" rx="8" fill="#3A5BD9" stroke="none"/>
+  
+  <!-- Browser controls -->
+  <circle cx="45" cy="40" r="5" fill="#FC6058"/>
+  <circle cx="65" cy="40" r="5" fill="#FEC02F"/>
+  <circle cx="85" cy="40" r="5" fill="#2ACA3E"/>
+  
+  <!-- Address bar -->
+  <rect x="110" y="30" width="300" height="20" rx="4" fill="#1A2530" stroke="#4A6ADA" stroke-width="1"/>
+  <text x="125" y="44" font-family="Arial, sans-serif" font-size="10" fill="#B2C7E8">https://maestro.io/clinical-trials-dashboard</text>
+  
+  <!-- Browser content -->
+  <rect x="35" y="75" width="430" height="190" rx="4" fill="#1A2530" stroke="none"/>
+  
+  <!-- Dashboard elements -->
+  <rect x="50" y="90" width="180" height="40" rx="4" fill="#2C3E50" stroke="#4A6ADA" stroke-width="1"/>
+  <text x="60" y="115" font-family="Arial, sans-serif" font-size="14" fill="#FFFFFF" font-weight="bold">Active Trials</text>
+  <text x="190" y="115" font-family="Arial, sans-serif" font-size="18" fill="#4A6ADA" font-weight="bold">12</text>
+  
+  <rect x="250" y="90" width="180" height="40" rx="4" fill="#2C3E50" stroke="#4A6ADA" stroke-width="1"/>
+  <text x="260" y="115" font-family="Arial, sans-serif" font-size="14" fill="#FFFFFF" font-weight="bold">Sites</text>
+  <text x="390" y="115" font-family="Arial, sans-serif" font-size="18" fill="#4A6ADA" font-weight="bold">86</text>
+  
+  <!-- Trial progress visualization -->
+  <rect x="50" y="150" width="380" height="100" rx="4" fill="#2C3E50" stroke="#4A6ADA" stroke-width="1"/>
+  <text x="60" y="175" font-family="Arial, sans-serif" font-size="14" fill="#FFFFFF" font-weight="bold">Trial Progress</text>
+  
+  <!-- Progress bars for different studies -->
+  <rect x="60" y="190" width="360" height="12" rx="6" fill="#1A2530" stroke="none"/>
+  <rect x="60" y="190" width="252" height="12" rx="6" fill="#4A6ADA" stroke="none"/>
+  <text x="430" y="200" font-family="Arial, sans-serif" font-size="10" fill="#FFFFFF" text-anchor="end">70%</text>
+  
+  <rect x="60" y="210" width="360" height="12" rx="6" fill="#1A2530" stroke="none"/>
+  <rect x="60" y="210" width="180" height="12" rx="6" fill="#4A6ADA" stroke="none"/>
+  <text x="430" y="220" font-family="Arial, sans-serif" font-size="10" fill="#FFFFFF" text-anchor="end">50%</text>
+  
+  <rect x="60" y="230" width="360" height="12" rx="6" fill="#1A2530" stroke="none"/>
+  <rect x="60" y="230" width="324" height="12" rx="6" fill="#4A6ADA" stroke="none"/>
+  <text x="430" y="240" font-family="Arial, sans-serif" font-size="10" fill="#FFFFFF" text-anchor="end">90%</text>
+</svg> 

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="500" height="300" viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Browser window -->
+  <rect x="20" y="20" width="460" height="260" rx="8" fill="#1E2A3A" stroke="#3A5BD9" stroke-width="2"/>
+  
+  <!-- Browser toolbar -->
+  <rect x="20" y="20" width="460" height="40" rx="8" fill="#2C3E50" stroke="none"/>
+  <rect x="20" y="20" width="460" height="8" rx="8" fill="#3A5BD9" stroke="none"/>
+  
+  <!-- Browser controls -->
+  <circle cx="45" cy="40" r="5" fill="#FC6058"/>
+  <circle cx="65" cy="40" r="5" fill="#FEC02F"/>
+  <circle cx="85" cy="40" r="5" fill="#2ACA3E"/>
+  
+  <!-- Address bar -->
+  <rect x="110" y="30" width="300" height="20" rx="4" fill="#1A2530" stroke="#4A6ADA" stroke-width="1"/>
+  <text x="125" y="44" font-family="Arial, sans-serif" font-size="10" fill="#B2C7E8">https://maestro.io/quality-management</text>
+  
+  <!-- Browser content -->
+  <rect x="35" y="75" width="430" height="190" rx="4" fill="#1A2530" stroke="none"/>
+  
+  <!-- Dashboard header -->
+  <rect x="50" y="90" width="400" height="40" rx="4" fill="#2C3E50" stroke="#4A6ADA" stroke-width="1"/>
+  <text x="65" y="115" font-family="Arial, sans-serif" font-size="16" fill="#FFFFFF" font-weight="bold">Quality Management Dashboard</text>
+  
+  <!-- Status cards row -->
+  <rect x="50" y="140" width="125" height="80" rx="4" fill="#2C3E50" stroke="#4A6ADA" stroke-width="1"/>
+  <circle cx="70" cy="165" r="15" fill="#4A6ADA" stroke="none"/>
+  <text x="70" cy="165" font-family="Arial, sans-serif" font-size="14" fill="#FFFFFF" font-weight="bold" text-anchor="middle" dominant-baseline="middle">!</text>
+  <text x="107" y="160" font-family="Arial, sans-serif" font-size="12" fill="#FFFFFF" font-weight="bold">CAPA</text>
+  <text x="107" y="180" font-family="Arial, sans-serif" font-size="18" fill="#4A6ADA" font-weight="bold">12</text>
+  <text x="130" y="180" font-family="Arial, sans-serif" font-size="10" fill="#B2C7E8">Open</text>
+  
+  <rect x="185" y="140" width="125" height="80" rx="4" fill="#2C3E50" stroke="#4A6ADA" stroke-width="1"/>
+  <circle cx="205" cy="165" r="15" fill="#00694A" stroke="none"/>
+  <text x="205" cy="165" font-family="Arial, sans-serif" font-size="14" fill="#FFFFFF" font-weight="bold" text-anchor="middle" dominant-baseline="middle">✓</text>
+  <text x="242" y="160" font-family="Arial, sans-serif" font-size="12" fill="#FFFFFF" font-weight="bold">Audit</text>
+  <text x="242" y="180" font-family="Arial, sans-serif" font-size="18" fill="#00694A" font-weight="bold">95%</text>
+  <text x="275" y="180" font-family="Arial, sans-serif" font-size="10" fill="#B2C7E8">Compliant</text>
+  
+  <rect x="320" y="140" width="125" height="80" rx="4" fill="#2C3E50" stroke="#4A6ADA" stroke-width="1"/>
+  <circle cx="340" cy="165" r="15" fill="#FF9500" stroke="none"/>
+  <text x="340" cy="165" font-family="Arial, sans-serif" font-size="14" fill="#FFFFFF" font-weight="bold" text-anchor="middle" dominant-baseline="middle">⚠</text>
+  <text x="377" y="160" font-family="Arial, sans-serif" font-size="12" fill="#FFFFFF" font-weight="bold">Deviations</text>
+  <text x="377" y="180" font-family="Arial, sans-serif" font-size="18" fill="#FF9500" font-weight="bold">5</text>
+  <text x="395" y="180" font-family="Arial, sans-serif" font-size="10" fill="#B2C7E8">Pending</text>
+  
+  <!-- Quality trends chart -->
+  <rect x="50" y="230" width="400" height="25" rx="4" fill="#2C3E50" stroke="#4A6ADA" stroke-width="1"/>
+  <text x="65" y="247" font-family="Arial, sans-serif" font-size="12" fill="#FFFFFF" font-weight="bold">Quality Metrics Trend</text>
+  
+  <!-- Simplified chart bars -->
+  <rect x="80" y="230" width="8" height="25" rx="2" fill="#4A6ADA" stroke="none"/>
+  <rect x="100" y="235" width="8" height="20" rx="2" fill="#4A6ADA" stroke="none"/>
+  <rect x="120" y="240" width="8" height="15" rx="2" fill="#4A6ADA" stroke="none"/>
+  <rect x="140" y="235" width="8" height="20" rx="2" fill="#4A6ADA" stroke="none"/>
+  <rect x="160" y="230" width="8" height="25" rx="2" fill="#4A6ADA" stroke="none"/>
+  <rect x="180" y="225" width="8" height="30" rx="2" fill="#4A6ADA" stroke="none"/>
+  <rect x="200" y="225" width="8" height="30" rx="2" fill="#4A6ADA" stroke="none"/>
+  <rect x="220" y="230" width="8" height="25" rx="2" fill="#4A6ADA" stroke="none"/>
+  <rect x="240" y="232" width="8" height="23" rx="2" fill="#4A6ADA" stroke="none"/>
+  <rect x="260" y="228" width="8" height="27" rx="2" fill="#4A6ADA" stroke="none"/>
+  <rect x="280" y="223" width="8" height="32" rx="2" fill="#4A6ADA" stroke="none"/>
+  <rect x="300" y="220" width="8" height="35" rx="2" fill="#4A6ADA" stroke="none"/>
+  <rect x="320" y="218" width="8" height="37" rx="2" fill="#4A6ADA" stroke="none"/>
+  <rect x="340" y="223" width="8" height="32" rx="2" fill="#4A6ADA" stroke="none"/>
+  <rect x="360" y="220" width="8" height="35" rx="2" fill="#4A6ADA" stroke="none"/>
+  <rect x="380" y="218" width="8" height="37" rx="2" fill="#4A6ADA" stroke="none"/>
+  <rect x="400" y="215" width="8" height="40" rx="2" fill="#4A6ADA" stroke="none"/>
+</svg> 
