@@ -60,7 +60,7 @@
   <!-- Analytics Module -->
   <rect x="250" y="230" width="140" height="80" rx="10" ry="10" fill="#121212" stroke="url(#grad2)" stroke-width="3" filter="url(#shadow)" />
   <text x="320" y="260" font-family="Arial" font-size="18" fill="#ffffff" text-anchor="middle" dominant-baseline="middle" font-weight="bold">Analytics</text>
-  <text x="320" y="285" font-family="Arial" font-size="12" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">Insights & Reporting</text>
+  <text x="320" y="285" font-family="Arial" font-size="12" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">Insights and Reporting</text>
   
   <!-- AI Agents Module -->
   <rect x="510" y="230" width="140" height="80" rx="10" ry="10" fill="#121212" stroke="url(#grad2)" stroke-width="3" filter="url(#shadow)" />
@@ -69,7 +69,7 @@
   
   <!-- Integration Layer -->
   <rect x="50" y="450" width="800" height="30" rx="5" ry="5" fill="#121212" stroke="#4a45b2" stroke-width="2" filter="url(#shadow)" />
-  <text x="450" y="470" font-family="Arial" font-size="14" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">API Gateway & Integration Framework</text>
+  <text x="450" y="470" font-family="Arial" font-size="14" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">API Gateway and Integration Framework</text>
   
   <!-- Connections -->
   <path d="M170,190 C240,190 370,170 370,150" stroke="#6c63ff" stroke-width="2" fill="none" />
