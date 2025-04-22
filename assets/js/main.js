@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initTabs();
     initTestimonialSlider();
     initAIAnimation();
-    initCookieBanner();
     initChatWidget();
     initExitIntent();
     initScrollAnimations();
@@ -34,9 +33,28 @@ function fixSvgRendering() {
             // Set proper MIME type to help browsers render correctly
             svg.setAttribute('type', 'image/svg+xml');
             
+            // Make sure SVGs are visible
+            svg.style.visibility = 'visible';
+            
             // Add fallback for browsers that don't support SVG
             const fallbackPng = currentSrc.replace('.svg', '.png');
             svg.setAttribute('onerror', `this.onerror=null; this.src='${fallbackPng}'`);
+        }
+    });
+    
+    // Specifically target challenge icons in pain points section
+    const challengeIcons = document.querySelectorAll('.challenge-icon img');
+    challengeIcons.forEach(icon => {
+        const src = icon.getAttribute('src');
+        if (src && src.endsWith('.svg')) {
+            // Ensure proper display
+            icon.style.width = '32px'; 
+            icon.style.height = '32px';
+            icon.style.display = 'block';
+            
+            // Add fallback
+            const fallbackPng = src.replace('.svg', '.png');
+            icon.setAttribute('onerror', `this.onerror=null; this.src='${fallbackPng}'`);
         }
     });
 }
@@ -210,7 +228,7 @@ function initAIAnimation() {
         const particles = [];
         const particleCount = 100;
         const connectionDistance = 100;
-        const colors = ['#6c63ff', '#00d9c5', '#ffffff'];
+        const colors = ['#d81c1c', '#a41616', '#ffffff'];
         
         // Create particles
         for (let i = 0; i < particleCount; i++) {
@@ -269,41 +287,6 @@ function initAIAnimation() {
         
         // Start animation
         animate();
-    }
-}
-
-/**
- * Cookie Consent Banner
- */
-function initCookieBanner() {
-    const cookieBanner = document.getElementById('cookie-banner');
-    const acceptBtn = document.getElementById('accept-cookies');
-    const customizeBtn = document.getElementById('customize-cookies');
-    
-    if (cookieBanner && acceptBtn) {
-        // Check if user has already accepted cookies
-        if (!localStorage.getItem('cookiesAccepted')) {
-            // Show banner after a short delay
-            setTimeout(() => {
-                cookieBanner.style.display = 'flex';
-            }, 2000);
-            
-            // Handle accept button
-            acceptBtn.addEventListener('click', () => {
-                localStorage.setItem('cookiesAccepted', 'true');
-                cookieBanner.style.display = 'none';
-            });
-            
-            // Handle customize button (placeholder functionality)
-            if (customizeBtn) {
-                customizeBtn.addEventListener('click', () => {
-                    // In a real implementation, this would show cookie preferences
-                    alert('Cookie preferences would be shown here in a production environment.');
-                    localStorage.setItem('cookiesAccepted', 'true');
-                    cookieBanner.style.display = 'none';
-                });
-            }
-        }
     }
 }
 
