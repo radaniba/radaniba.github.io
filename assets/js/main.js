@@ -39,6 +39,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize cookie consent
     initCookieConsent();
+    
+    // Initialize booking iframe
+    initBookingIframe();
 });
 
 /**
@@ -899,49 +902,47 @@ function initCounters() {
     }
 }
 
-// Comment out the duplicate tab functionality at the bottom of the file
-/*
-// Tab functionality for features section
-document.addEventListener('DOMContentLoaded', function() {
-    const tabButtons = document.querySelectorAll('.tab-btn');
-    const tabPanes = document.querySelectorAll('.tab-pane');
-
-    function activateTab(tabId) {
-        // Hide all tab panes
-        tabPanes.forEach(pane => {
-            pane.classList.remove('active');
-        });
-        
-        // Deactivate all buttons
-        tabButtons.forEach(btn => {
-            btn.classList.remove('active');
-        });
-        
-        // Activate the selected tab and button
-        const selectedTab = document.getElementById(tabId);
-        const selectedButton = document.querySelector(`[data-target="${tabId}"]`);
-        
-        if (selectedTab) {
-            selectedTab.classList.add('active');
+/**
+ * Handle iframe sizing for booking calendar
+ */
+function initBookingIframe() {
+    const bookingIframe = document.getElementById('cfEventTypejyXnke');
+    
+    if (bookingIframe) {
+        // Force iframe to take full container width
+        function resizeIframe() {
+            const wrapper = bookingIframe.closest('.iframe-wrapper');
+            if (wrapper) {
+                const wrapperWidth = wrapper.offsetWidth;
+                bookingIframe.style.width = `${wrapperWidth}px`;
+                
+                // Ensure background stays white
+                bookingIframe.style.backgroundColor = '#fff';
+                wrapper.style.backgroundColor = '#fff';
+                
+                // Dispatch resize event to trigger iframeResizer
+                window.dispatchEvent(new Event('resize'));
+            }
         }
         
-        if (selectedButton) {
-            selectedButton.classList.add('active');
-        }
+        // Initialize on load and when window resizes
+        window.addEventListener('load', resizeIframe);
+        window.addEventListener('resize', debounce(resizeIframe, 100));
+        
+        // Try to force resize after a short delay to ensure calendar is loaded
+        setTimeout(resizeIframe, 500);
+        setTimeout(resizeIframe, 1500);
+        setTimeout(resizeIframe, 3000);
     }
+}
+
+// Add on window load for elements that need full page load
+window.addEventListener('load', () => {
+    // Rerun counters animation after page is fully loaded
+    animateCounters();
     
-    // Add click event listeners to all tab buttons
-    tabButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const target = this.getAttribute('data-target');
-            activateTab(target);
-        });
-    });
-    
-    // Activate the first tab by default
-    if (tabButtons.length > 0) {
-        const firstTabTarget = tabButtons[0].getAttribute('data-target');
-        activateTab(firstTabTarget);
+    // Force iframe resize once more
+    if (typeof initBookingIframe === 'function') {
+        initBookingIframe();
     }
 }); 
-*/ 

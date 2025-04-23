@@ -487,45 +487,44 @@
                 See how MAESTRO can transform your clinical operations. Schedule a personalized demo with our team to explore the platform's capabilities and discuss your specific needs.
             </p>
             
-            <div class="row justify-content-center">
-                <div class="col-lg-12">
-                    <div class="iframe-wrapper">
-                        <div class="iframe-overlay"></div>
-                        
-                        <iframe 
-                            src="https://www.ranbiolinks.com/schedule/maestro-schedule-demo" 
-                            id="cfEventTypejyXnke" 
-                            title="Schedule a Demo"
-                            allow="camera; microphone; autoplay; encrypted-media; fullscreen; payment"
-                            loading="lazy"
-                            scrolling="no"
-                            frameborder="0"
-                        ></iframe>
-                        <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.11/iframeResizer.min.js"
-                                integrity="sha512-9kUjCzb6YMm8ZUz/aznqO+9C8QHGr6CLFm654REUYPj2zJzuBoRMygSYhs+vXUQRRJprKjzgxkrdOLTSNhmMag=="
-                                crossorigin="anonymous"
-                                referrerpolicy="no-referrer">
-                        </script>
-                        <script>
-                          iFrameResize({
-                            heightCalculationMethod: "max",
-                            sizeWidth: true,
-                            scrolling: false,
-                            checkOrigin: false
-                          }, "#cfEventTypejyXnke");
-                          
-                          window.addEventListener('message', function(event) {
-                            if (event.origin !== 'https://www.ranbiolinks.com') {
-                              return;
-                            }
-                        
-                            if (event.data.id === 'redirectFromIframe') {
-                              window.location.href = event.data.url
-                            }
-                          });
-                        </script>
-                    </div>
-                </div>
+            <div class="iframe-wrapper">
+                <div class="iframe-overlay"></div>
+                
+                <iframe 
+                    src="https://www.ranbiolinks.com/schedule/maestro-schedule-demo" 
+                    id="cfEventTypejyXnke" 
+                    title="Schedule a Demo"
+                    allow="camera; microphone; autoplay; encrypted-media; fullscreen; payment"
+                    loading="lazy"
+                    scrolling="no"
+                    frameborder="0"
+                    style="width: 1px; min-width: 100%;"
+                ></iframe>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.11/iframeResizer.min.js"
+                        integrity="sha512-9kUjCzb6YMm8ZUz/aznqO+9C8QHGr6CLFm654REUYPj2zJzuBoRMygSYhs+vXUQRRJprKjzgxkrdOLTSNhmMag=="
+                        crossorigin="anonymous"
+                        referrerpolicy="no-referrer">
+                </script>
+                <script>
+                  iFrameResize({
+                    heightCalculationMethod: "max",
+                    sizeWidth: true,
+                    scrolling: false,
+                    checkOrigin: false,
+                    widthCalculationMethod: 'max',
+                    log: false
+                  }, "#cfEventTypejyXnke");
+                  
+                  window.addEventListener('message', function(event) {
+                    if (event.origin !== 'https://www.ranbiolinks.com') {
+                      return;
+                    }
+                
+                    if (event.data.id === 'redirectFromIframe') {
+                      window.location.href = event.data.url
+                    }
+                  });
+                </script>
             </div>
         </div>
     </section>
