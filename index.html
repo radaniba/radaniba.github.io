@@ -447,7 +447,7 @@
                     <div class="pricing-features">
                         <ul>
                             <li>Full platform access</li>
-                            <li>Up to 100 users</li>
+                            <li>Unlimited users</li>
                             <li>Standard AI capabilities</li>
                             <li>Core integrations</li>
                             <li>Priority support</li>
@@ -466,7 +466,7 @@
                     <div class="pricing-features">
                         <ul>
                             <li>Essential modules access</li>
-                            <li>Up to 25 users</li>
+                            <li>Unlimited users</li>
                             <li>Standard AI capabilities</li>
                             <li>Basic integrations</li>
                             <li>Email support</li>
@@ -511,44 +511,11 @@
                 See how MAESTRO can transform your clinical operations. Schedule a personalized demo with our team to explore the platform's capabilities and discuss your specific needs.
             </p>
             
-            <div class="iframe-wrapper">
-                <div class="iframe-overlay"></div>
-                
-                <iframe 
-                    src="https://www.ranbiolinks.com/schedule/maestro-schedule-demo" 
-                    id="cfEventTypejyXnke" 
-                    title="Schedule a Demo"
-                    allow="camera; microphone; autoplay; encrypted-media; fullscreen; payment"
-                    loading="lazy"
-                    scrolling="no"
-                    frameborder="0"
-                    style="width: 1px; min-width: 100%;"
-                ></iframe>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.11/iframeResizer.min.js"
-                        integrity="sha512-9kUjCzb6YMm8ZUz/aznqO+9C8QHGr6CLFm654REUYPj2zJzuBoRMygSYhs+vXUQRRJprKjzgxkrdOLTSNhmMag=="
-                        crossorigin="anonymous"
-                        referrerpolicy="no-referrer">
-                </script>
-                <script>
-                  iFrameResize({
-                    heightCalculationMethod: "max",
-                    sizeWidth: true,
-                    scrolling: false,
-                    checkOrigin: false,
-                    widthCalculationMethod: 'max',
-                    log: false
-                  }, "#cfEventTypejyXnke");
-                  
-                  window.addEventListener('message', function(event) {
-                    if (event.origin !== 'https://www.ranbiolinks.com') {
-                      return;
-                    }
-                
-                    if (event.data.id === 'redirectFromIframe') {
-                      window.location.href = event.data.url
-                    }
-                  });
-                </script>
+            <div class="demo-cta">
+                <p class="demo-description">
+                    Join organizations achieving faster study startups, real-time TMF inspection readiness, and automated site management—all while saving hours daily per team member.
+                </p>
+                <a href="https://www.ranbiolinks.com/maestro-demo" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large">Book Your Discovery Call</a>
             </div>
         </div>
     </section>
@@ -617,102 +584,6 @@
     </div>
 </div>
 
-    <!-- Exit Intent Popup -->
-    <div id="exit-popup" class="popup">
-        <div class="popup-content">
-            <button class="close-popup">&times;</button>
-            <h3>Before You Go!</h3>
-            <p>Download our free whitepaper on how AI is revolutionizing clinical trial management.</p>
-            <form id="whitepaper-form">
-                <div class="form-group">
-                    <input type="email" id="popup-email" placeholder="Your Email Address" required>
-                </div>
-                <button type="submit" class="btn btn-primary">Get the Whitepaper</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Live Chat Widget -->
-    <div id="chat-widget" class="chat-widget">
-        <button class="chat-toggle">
-            <img src="assets/images/icons/chat.svg" alt="Chat" class="chat-icon">
-            <img src="assets/images/icons/close.svg" alt="Close" class="close-icon hidden">
-        </button>
-        <div class="chat-container hidden">
-            <div class="chat-header">
-                <h4>Live Support</h4>
-            </div>
-            <div class="chat-messages">
-                <div class="message system-message">
-                    <p>Welcome to MAESTRO support! How can we help you today?</p>
-                </div>
-            </div>
-            <div class="chat-input">
-                <input type="text" placeholder="Type your message...">
-                <button class="send-btn"><img src="assets/images/icons/send.svg" alt="Send"></button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Cookie Consent Banner -->
-    <div class="cookie-banner">
-        <div class="cookie-content">
-            <div class="cookie-text">
-                <h4>Cookie Preferences</h4>
-                <p>We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. By clicking "Accept All", you consent to our use of cookies.</p>
-            </div>
-            <div class="cookie-buttons">
-                <button class="cookie-settings btn btn-secondary">Cookie Settings</button>
-                <button class="reject-cookies btn btn-outline">Reject All</button>
-                <button class="accept-cookies btn btn-primary">Accept All</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Cookie Settings Panel -->
-    <div class="cookie-settings-panel">
-        <div class="settings-content">
-            <div class="settings-header">
-                <h4>Cookie Preferences Center</h4>
-                <button class="close-cookie-settings">&times;</button>
-            </div>
-            <div class="settings-body">
-                <div class="cookie-option">
-                    <div class="option-info">
-                        <h5>Essential Cookies</h5>
-                        <p>These cookies are necessary for the website to function and cannot be switched off. They are usually only set in response to actions made by you which amount to a request for services.</p>
-                    </div>
-                    <div class="option-toggle">
-                        <input type="checkbox" id="essential-consent" checked disabled>
-                        <label for="essential-consent">Always Active</label>
-                    </div>
-                </div>
-                <div class="cookie-option">
-                    <div class="option-info">
-                        <h5>Analytics Cookies</h5>
-                        <p>These cookies allow us to count visits and traffic sources so we can measure and improve the performance of our site. They help us to know which pages are the most and least popular.</p>
-                    </div>
-                    <div class="option-toggle">
-                        <input type="checkbox" id="analytics-consent">
-                        <label for="analytics-consent">Enable</label>
-                    </div>
-                </div>
-                <div class="cookie-option">
-                    <div class="option-info">
-                        <h5>Functional Cookies</h5>
-                        <p>These cookies enable the website to provide enhanced functionality and personalization. They may be set by us or by third party providers whose services we have added to our pages.</p>
-                    </div>
-                    <div class="option-toggle">
-                        <input type="checkbox" id="functional-consent">
-                        <label for="functional-consent">Enable</label>
-                    </div>
-                </div>
-            </div>
-            <div class="settings-footer">
-                <button class="save-cookie-settings btn btn-primary">Save Preferences</button>
-            </div>
-        </div>
-    </div>
 
     <!-- Scripts -->
     <script src="assets/js/main.js"></script>

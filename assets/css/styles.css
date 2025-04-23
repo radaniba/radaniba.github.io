@@ -442,7 +442,7 @@ nav .btn {
 /* ---------- Hero Section ---------- */
 #hero {
     position: relative;
-    padding: 8rem 0;
+    padding: 8rem 0 5rem; /* Reduce bottom padding */
     background-color: #151515;
     overflow: hidden;
     background-image: url('../images/hero_background.png');
@@ -2591,69 +2591,6 @@ svg {
   }
 }
 
-/* Contact Section Iframe */
-.iframe-wrapper {
-    position: relative;
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: transform 0.3s ease;
-    margin: 2rem auto;
-    max-width: 1000px;
-    min-height: 650px;
-    width: 100%;
-}
-
-.iframe-wrapper iframe {
-    border: 0;
-    height: 100%;
-    width: 100%;
-    min-height: 600px;
-    background-color: #fff;
-    transition: opacity 0.3s ease;
-}
-
-.iframe-wrapper:before {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: var(--gradient-primary);
-    z-index: -1;
-    filter: blur(10px);
-    opacity: 0.3;
-    border-radius: var(--radius-lg);
-    transition: var(--transition-normal);
-}
-
-.iframe-wrapper:hover:before {
-    opacity: 0.5;
-    filter: blur(15px);
-}
-
-.iframe-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: linear-gradient(to right, var(--primary), var(--accent));
-    z-index: 10;
-}
-
-#contact .section-intro {
-    text-align: center;
-    margin-bottom: var(--space-xl);
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    color: var(--light-muted);
-}
-
 /* Contact Section */
 .contact {
     background-color: var(--dark);
@@ -2672,45 +2609,6 @@ svg {
     color: var(--text-secondary);
 }
 
-.iframe-wrapper {
-    position: relative;
-    background-color: rgba(255, 255, 255, 0.03);
-    border-radius: var(--radius-lg);
-    padding: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-    margin-top: 40px;
-    overflow: hidden;
-}
-
-.iframe-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(to right, var(--primary), var(--accent));
-    z-index: 10;
-}
-
-#bookingFrame {
-    border-radius: var(--radius-md);
-    background-color: rgba(27, 27, 27, 0.6);
-    transition: all 0.3s ease;
-}
-
-@media (max-width: 767px) {
-    #bookingFrame {
-        height: 700px;
-    }
-}
-
-@media (max-width: 576px) {
-    #bookingFrame {
-        height: 600px;
-    }
-}
-
-/* Cookie Consent Banner */
 .cookie-banner {
     position: fixed;
     bottom: -200px;
@@ -3130,4 +3028,28 @@ svg {
     #platform-integration .section-intro {
         font-size: 1rem;
     }
+}
+
+.demo-cta {
+    background-color: rgba(30, 30, 30, 0.6);
+    border-radius: 10px;
+    padding: 3rem;
+    text-align: center;
+    max-width: 800px;
+    margin: 2rem auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(74, 106, 218, 0.2);
+}
+
+.demo-description {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2rem;
+}
+
+.btn-large {
+    padding: 1rem 2.5rem;
+    font-size: 1.125rem;
+    font-weight: 600;
 }

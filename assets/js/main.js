@@ -39,9 +39,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize cookie consent
     initCookieConsent();
-    
-    // Initialize booking iframe
-    initBookingIframe();
 });
 
 /**
@@ -915,47 +912,8 @@ function initCounters() {
     }
 }
 
-/**
- * Handle iframe sizing for booking calendar
- */
-function initBookingIframe() {
-    const bookingIframe = document.getElementById('cfEventTypejyXnke');
-    
-    if (bookingIframe) {
-        // Force iframe to take full container width
-        function resizeIframe() {
-            const wrapper = bookingIframe.closest('.iframe-wrapper');
-            if (wrapper) {
-                const wrapperWidth = wrapper.offsetWidth;
-                bookingIframe.style.width = `${wrapperWidth}px`;
-                
-                // Ensure background stays white
-                bookingIframe.style.backgroundColor = '#fff';
-                wrapper.style.backgroundColor = '#fff';
-                
-                // Dispatch resize event to trigger iframeResizer
-                window.dispatchEvent(new Event('resize'));
-            }
-        }
-        
-        // Initialize on load and when window resizes
-        window.addEventListener('load', resizeIframe);
-        window.addEventListener('resize', debounce(resizeIframe, 100));
-        
-        // Try to force resize after a short delay to ensure calendar is loaded
-        setTimeout(resizeIframe, 500);
-        setTimeout(resizeIframe, 1500);
-        setTimeout(resizeIframe, 3000);
-    }
-}
-
 // Add on window load for elements that need full page load
 window.addEventListener('load', () => {
     // Rerun counters animation after page is fully loaded
     animateCounters();
-    
-    // Force iframe resize once more
-    if (typeof initBookingIframe === 'function') {
-        initBookingIframe();
-    }
 }); 
