@@ -87,32 +87,45 @@ function fixSvgRendering() {
  * Mobile Navigation Toggle
  */
 function initNavigation() {
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navMenu = document.querySelector('.nav-menu');
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('nav ul');
     
-    if (menuToggle && navMenu) {
-        menuToggle.addEventListener('click', function() {
-            menuToggle.classList.toggle('active');
-            navMenu.classList.toggle('show');
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
             document.body.classList.toggle('menu-open');
         });
         
         // Close menu when clicking outside
         document.addEventListener('click', function(e) {
-            if (!e.target.closest('.nav-menu') && !e.target.closest('.menu-toggle') && navMenu.classList.contains('show')) {
-                menuToggle.classList.remove('active');
-                navMenu.classList.remove('show');
+            if (!e.target.closest('nav ul') && !e.target.closest('.hamburger') && navMenu.classList.contains('active')) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
                 document.body.classList.remove('menu-open');
             }
         });
         
-        // Handle resize events
-        window.addEventListener('resize', function() {
-            if (window.innerWidth > 992 && navMenu.classList.contains('show')) {
-                menuToggle.classList.remove('active');
-                navMenu.classList.remove('show');
-                document.body.classList.remove('menu-open');
+        // Handle header background change on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
             }
+        });
+        
+        // Close mobile menu when clicking on a nav link that points to a section
+        const navLinks = document.querySelectorAll('nav a[href^="#"]');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                if (navMenu.classList.contains('active')) {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    document.body.classList.remove('menu-open');
+                }
+            });
         });
     }
 }
