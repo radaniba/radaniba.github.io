@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="600" height="450" viewBox="0 0 600 450" xmlns="http://www.w3.org/2000/svg">
+  <!-- Definitions -->
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="browserGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#292929" />
+      <stop offset="100%" stop-color="#1e1e1e" />
+    </linearGradient>
+    
+    <linearGradient id="contentGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#212121" />
+      <stop offset="100%" stop-color="#1b1b1b" />
+    </linearGradient>
+    
+    <linearGradient id="primaryGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4A6ADA" />
+      <stop offset="100%" stop-color="#2C53C5" />
+    </linearGradient>
+    
+    <linearGradient id="secondaryGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#0d9488" />
+    </linearGradient>
+    
+    <linearGradient id="tertiaryGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8E54E9" />
+      <stop offset="100%" stop-color="#7048E8" />
+    </linearGradient>
+    
+    <linearGradient id="orangeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF9500" />
+      <stop offset="100%" stop-color="#FF5E3A" />
+    </linearGradient>
+    
+    <!-- Filters -->
+    <filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
+      <feOffset dx="0" dy="2" result="offsetblur" />
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.2" />
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.3" />
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    
+    <!-- Data Connection Paths -->
+    <!-- Source systems to central hub -->
+    <path id="path1" d="M100,140 C140,150 160,180 200,180" />
+    <path id="path2" d="M100,220 C140,210 160,180 200,180" />
+    <path id="path3" d="M100,300 C140,290 160,180 200,180" />
+    
+    <!-- Central hub to consumption -->
+    <path id="path4" d="M380,180 C420,150 450,140 500,140" />
+    <path id="path5" d="M380,180 C420,210 450,220 500,220" />
+    <path id="path6" d="M380,180 C420,250 450,300 500,300" />
+  </defs>
+  
+  <!-- Browser Window -->
+  <rect x="10" y="10" width="580" height="430" rx="10" fill="url(#browserGradient)" stroke="#333" stroke-width="1" />
+  
+  <!-- Browser Controls -->
+  <rect x="10" y="10" width="580" height="40" rx="10 10 0 0" fill="#333" />
+  
+  <!-- Browser Buttons -->
+  <circle cx="35" cy="30" r="8" fill="#FF5F57" />
+  <circle cx="60" cy="30" r="8" fill="#FEBC2E" />
+  <circle cx="85" cy="30" r="8" fill="#28C840" />
+  
+  <!-- URL Bar -->
+  <rect x="110" y="15" width="380" height="30" rx="5" fill="#222" />
+  <text x="120" y="35" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#aaa">https://maestro-platform.com/dashboard</text>
+  
+  <!-- Browser Content -->
+  <rect x="10" y="50" width="580" height="390" rx="0 0 10 10" fill="url(#contentGradient)" />
+  
+  <!-- Header -->
+  <rect x="30" y="70" width="540" height="50" rx="5" fill="#252525" />
+  <rect x="50" y="85" width="120" height="20" rx="5" fill="#333" />
+  <rect x="350" y="85" width="80" height="20" rx="5" fill="#333" />
+  <rect x="450" y="85" width="100" height="20" rx="5" fill="url(#primaryGradient)" />
+  
+  <!-- Source Systems -->
+  <g transform="translate(50, 140)">
+    <!-- EHR System -->
+    <rect x="0" y="0" width="100" height="60" rx="5" fill="#252525" filter="url(#softShadow)" />
+    <text x="50" y="35" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#fff" text-anchor="middle">EHR System</text>
+    <circle cx="90" cy="30" r="5" fill="url(#primaryGradient)" />
+  </g>
+  
+  <g transform="translate(50, 220)">
+    <!-- EDC System -->
+    <rect x="0" y="0" width="100" height="60" rx="5" fill="#252525" filter="url(#softShadow)" />
+    <text x="50" y="35" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#fff" text-anchor="middle">EDC System</text>
+    <circle cx="90" cy="30" r="5" fill="url(#secondaryGradient)" />
+  </g>
+  
+  <g transform="translate(50, 300)">
+    <!-- Lab System -->
+    <rect x="0" y="0" width="100" height="60" rx="5" fill="#252525" filter="url(#softShadow)" />
+    <text x="50" y="35" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#fff" text-anchor="middle">Lab System</text>
+    <circle cx="90" cy="30" r="5" fill="url(#tertiaryGradient)" />
+  </g>
+  
+  <!-- Central Data Hub -->
+  <g transform="translate(200, 150)">
+    <rect x="0" y="0" width="180" height="60" rx="5" fill="#252525" filter="url(#softShadow)" />
+    <text x="90" y="25" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#fff" text-anchor="middle" font-weight="bold">Central Integration Hub</text>
+    <text x="90" y="45" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#aaa" text-anchor="middle">Unified Data Layer</text>
+    
+    <!-- Connection points -->
+    <circle cx="0" cy="30" r="5" fill="url(#primaryGradient)" />
+    <circle cx="180" cy="30" r="5" fill="url(#primaryGradient)" />
+  </g>
+  
+  <!-- Data Consumers -->
+  <g transform="translate(450, 140)">
+    <!-- Analytics -->
+    <rect x="0" y="0" width="100" height="60" rx="5" fill="#252525" filter="url(#softShadow)" />
+    <text x="50" y="35" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#fff" text-anchor="middle">Analytics</text>
+    <circle cx="10" cy="30" r="5" fill="url(#primaryGradient)" />
+  </g>
+  
+  <g transform="translate(450, 220)">
+    <!-- AI Models -->
+    <rect x="0" y="0" width="100" height="60" rx="5" fill="#252525" filter="url(#softShadow)" />
+    <text x="50" y="35" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#fff" text-anchor="middle">AI Models</text>
+    <circle cx="10" cy="30" r="5" fill="url(#secondaryGradient)" />
+  </g>
+  
+  <g transform="translate(450, 300)">
+    <!-- Reporting -->
+    <rect x="0" y="0" width="100" height="60" rx="5" fill="#252525" filter="url(#softShadow)" />
+    <text x="50" y="35" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#fff" text-anchor="middle">Reporting</text>
+    <circle cx="10" cy="30" r="5" fill="url(#tertiaryGradient)" />
+  </g>
+  
+  <!-- Animated Data Packets -->
+  <!-- Source to Hub -->
+  <circle cx="0" cy="0" r="3" fill="url(#primaryGradient)" filter="url(#glow)">
+    <animateMotion dur="3s" repeatCount="indefinite" begin="0s">
+      <mpath xlink:href="#path1"/>
+    </animateMotion>
+  </circle>
+  
+  <circle cx="0" cy="0" r="3" fill="url(#secondaryGradient)" filter="url(#glow)">
+    <animateMotion dur="3.5s" repeatCount="indefinite" begin="0.2s">
+      <mpath xlink:href="#path2"/>
+    </animateMotion>
+  </circle>
+  
+  <circle cx="0" cy="0" r="3" fill="url(#tertiaryGradient)" filter="url(#glow)">
+    <animateMotion dur="4s" repeatCount="indefinite" begin="0.4s">
+      <mpath xlink:href="#path3"/>
+    </animateMotion>
+  </circle>
+  
+  <!-- Hub to Consumers -->
+  <circle cx="0" cy="0" r="3" fill="url(#primaryGradient)" filter="url(#glow)">
+    <animateMotion dur="3s" repeatCount="indefinite" begin="1s">
+      <mpath xlink:href="#path4"/>
+    </animateMotion>
+  </circle>
+  
+  <circle cx="0" cy="0" r="3" fill="url(#secondaryGradient)" filter="url(#glow)">
+    <animateMotion dur="3.5s" repeatCount="indefinite" begin="1.2s">
+      <mpath xlink:href="#path5"/>
+    </animateMotion>
+  </circle>
+  
+  <circle cx="0" cy="0" r="3" fill="url(#tertiaryGradient)" filter="url(#glow)">
+    <animateMotion dur="4s" repeatCount="indefinite" begin="1.4s">
+      <mpath xlink:href="#path6"/>
+    </animateMotion>
+  </circle>
+  
+  <!-- Dashboard Elements -->
+  <rect x="30" y="380" width="540" height="40" rx="5" fill="#252525" />
+  <rect x="50" y="390" width="60" height="20" rx="3" fill="#333" />
+  <rect x="120" y="390" width="60" height="20" rx="3" fill="#333" />
+  <rect x="190" y="390" width="60" height="20" rx="3" fill="#333" />
+  <rect x="260" y="390" width="60" height="20" rx="3" fill="url(#primaryGradient)" />
+  
+  <!-- Connection Lines -->
+  <!-- EHR to Hub -->
+  <path d="M140,170 C160,170 180,180 200,180" stroke="#4A6ADA" stroke-width="1.5" stroke-dasharray="4 2" fill="none" />
+  
+  <!-- EDC to Hub -->
+  <path d="M140,250 C160,230 180,190 200,180" stroke="#10b981" stroke-width="1.5" stroke-dasharray="4 2" fill="none" />
+  
+  <!-- Lab to Hub -->
+  <path d="M140,330 C160,290 180,200 200,180" stroke="#8E54E9" stroke-width="1.5" stroke-dasharray="4 2" fill="none" />
+  
+  <!-- Hub to Analytics -->
+  <path d="M380,180 C400,180 430,170 450,170" stroke="#4A6ADA" stroke-width="1.5" stroke-dasharray="4 2" fill="none" />
+  
+  <!-- Hub to AI -->
+  <path d="M380,180 C400,190 430,250 450,250" stroke="#10b981" stroke-width="1.5" stroke-dasharray="4 2" fill="none" />
+  
+  <!-- Hub to Reporting -->
+  <path d="M380,180 C400,220 430,330 450,330" stroke="#8E54E9" stroke-width="1.5" stroke-dasharray="4 2" fill="none" />
+  
+  <!-- Legend -->
+  <rect x="30" y="320" width="140" height="40" rx="5" fill="rgba(37, 37, 37, 0.7)" />
+  <circle cx="45" cy="330" r="4" fill="url(#primaryGradient)" />
+  <text x="55" y="334" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#ddd">Patient Data</text>
+  <circle cx="45" cy="350" r="4" fill="url(#secondaryGradient)" />
+  <text x="55" y="354" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#ddd">Clinical Data</text>
+</svg> 

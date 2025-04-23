@@ -443,34 +443,14 @@ nav .btn {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background-color: var(--dark);
+  background-color: #1b1b1b;
   position: relative;
   padding: 120px 0 var(--space-xxl);
   overflow: hidden;
 }
 
-#hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at top right, rgba(99, 102, 241, 0.15), transparent 60%),
-              radial-gradient(circle at bottom left, rgba(16, 185, 129, 0.1), transparent 60%);
-  z-index: 1;
-}
-
-#hero::after {
-  content: '';
-  position: absolute;
-  top: 20%;
-  left: 25%;
-  width: 50%;
-  height: 60%;
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.1), transparent 70%);
-  z-index: 1;
-  animation: pulse 8s infinite alternate;
+#hero::before, #hero::after {
+  display: none;
 }
 
 #hero .container {
@@ -539,136 +519,136 @@ nav .btn {
 }
 
 .ai-animation {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    overflow: hidden;
-    background: radial-gradient(circle at center, rgba(45, 82, 194, 0.15) 0%, rgba(33, 39, 109, 0.05) 70%, transparent 100%);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-card);
-    backdrop-filter: blur(5px);
-    z-index: 1;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+  z-index: 1;
 }
 
 .ai-animation canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .ai-animation::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(ellipse at center, 
-        transparent 0%, 
-        transparent 40%, 
-        rgba(72, 106, 218, 0.05) 70%, 
-        rgba(38, 54, 163, 0.1) 100%
-    );
-    z-index: -1;
-    border-radius: var(--radius-lg);
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at center, 
+      transparent 0%, 
+      transparent 40%, 
+      rgba(72, 106, 218, 0.05) 70%, 
+      rgba(38, 54, 163, 0.1) 100%
+  );
+  z-index: -1;
+  border-radius: var(--radius-lg);
 }
 
 /* Floating particles */
 .particle {
-    position: absolute;
-    background-color: rgba(255, 255, 255, 0.7);
-    border-radius: 50%;
-    animation: float 15s infinite ease-in-out;
-    z-index: 2;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  animation: float 15s infinite ease-in-out;
+  z-index: 2;
 }
 
 /* AI Node Labels */
 .ai-node-label {
-    position: absolute;
-    background: linear-gradient(135deg, rgba(72, 106, 218, 0.9), rgba(44, 83, 197, 0.9));
-    color: #fff;
-    padding: 8px 12px;
-    border-radius: 12px;
-    font-size: 13px;
-    font-weight: 500;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    opacity: 0;
-    transform: translateY(10px);
-    animation: fadeInUp 0.5s forwards, pulse 3s infinite;
-    animation-delay: var(--delay, 0s);
-    z-index: 3;
+  position: absolute;
+  background: linear-gradient(135deg, rgba(72, 106, 218, 0.9), rgba(44, 83, 197, 0.9));
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 500;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 0.5s forwards, pulse 3s infinite;
+  animation-delay: var(--delay, 0s);
+  z-index: 3;
 }
 
 /* Node connections */
 .ai-animation::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: 
-        /* Patient to Trial */
-        linear-gradient(145deg, transparent 24%, rgba(255, 255, 255, 0.2) 25%, rgba(255, 255, 255, 0.2) 26%, transparent 27%),
-        /* Trial to Data */
-        linear-gradient(35deg, transparent 49%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.1) 51%, transparent 52%),
-        /* Data to Analysis */
-        linear-gradient(260deg, transparent 74%, rgba(255, 255, 255, 0.15) 75%, rgba(255, 255, 255, 0.15) 76%, transparent 77%),
-        /* Analysis to Outcome */
-        linear-gradient(200deg, transparent 84%, rgba(255, 255, 255, 0.12) 85%, rgba(255, 255, 255, 0.12) 86%, transparent 87%);
-    background-size: 400% 400%;
-    animation: move-connections 15s infinite linear;
-    opacity: 0.7;
-    z-index: 1;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+      /* Patient to Trial */
+      linear-gradient(145deg, transparent 24%, rgba(255, 255, 255, 0.2) 25%, rgba(255, 255, 255, 0.2) 26%, transparent 27%),
+      /* Trial to Data */
+      linear-gradient(35deg, transparent 49%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.1) 51%, transparent 52%),
+      /* Data to Analysis */
+      linear-gradient(260deg, transparent 74%, rgba(255, 255, 255, 0.15) 75%, rgba(255, 255, 255, 0.15) 76%, transparent 77%),
+      /* Analysis to Outcome */
+      linear-gradient(200deg, transparent 84%, rgba(255, 255, 255, 0.12) 85%, rgba(255, 255, 255, 0.12) 86%, transparent 87%);
+  background-size: 400% 400%;
+  animation: move-connections 15s infinite linear;
+  opacity: 0.7;
+  z-index: 1;
 }
 
 /* Animation Keyframes */
 @keyframes float {
-    0%, 100% {
-        transform: translateY(0) translateX(0);
-    }
-    25% {
-        transform: translateY(-15px) translateX(10px);
-    }
-    50% {
-        transform: translateY(5px) translateX(-15px);
-    }
-    75% {
-        transform: translateY(10px) translateX(5px);
-    }
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  25% {
+    transform: translateY(-15px) translateX(10px);
+  }
+  50% {
+    transform: translateY(5px) translateX(-15px);
+  }
+  75% {
+    transform: translateY(10px) translateX(5px);
+  }
 }
 
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes pulse {
-    0%, 100% {
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        transform: scale(1);
-    }
-    50% {
-        box-shadow: 0 5px 15px rgba(64, 95, 224, 0.4);
-        transform: scale(1.05);
-    }
+  0%, 100% {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 5px 15px rgba(64, 95, 224, 0.4);
+    transform: scale(1.05);
+  }
 }
 
 @keyframes move-connections {
-    0% {
-        background-position: 0% 0%;
-    }
-    100% {
-        background-position: 100% 100%;
-    }
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
 }
 
 /* Moving dots background similar to Supabase */
@@ -718,7 +698,7 @@ nav .btn {
 
 /* ---------- Card Styling (Glass Morphism) ---------- */
 .card {
-  background: rgba(20, 20, 30, 0.7);
+  background: rgba(27, 27, 27, 0.6);
   backdrop-filter: blur(10px);
   border-radius: var(--radius-lg);
   padding: var(--space-xl);
@@ -803,22 +783,14 @@ nav .btn {
 
 /* ---------- Pain Points Section ---------- */
 #pain-points {
-  background-color: var(--dark-lighter);
+  background-color: #151515;
   padding: var(--space-xxl) 0;
   position: relative;
   overflow: hidden;
 }
 
 #pain-points::after {
-  content: '';
-  position: absolute;
-  top: -10%;
-  right: -10%;
-  width: 60%;
-  height: 40%;
-  background: radial-gradient(circle, rgba(16, 185, 129, 0.05), transparent 70%);
-  z-index: 1;
-  animation: pulse 10s infinite alternate-reverse;
+  display: none;
 }
 
 .challenges-grid {
@@ -831,7 +803,7 @@ nav .btn {
 }
 
 .challenge-card {
-  background: rgba(17, 24, 39, 0.6);
+  background: rgba(27, 27, 27, 0.6);
   backdrop-filter: blur(10px);
   padding: var(--space-xl);
   border-radius: var(--radius-lg);
@@ -886,21 +858,14 @@ nav .btn {
 
 /* ---------- Features Tabs ---------- */
 #features {
+  background-color: #1b1b1b;
   padding: var(--space-xxl) 0;
   position: relative;
   overflow: hidden;
 }
 
 #features::after {
-  content: '';
-  position: absolute;
-  bottom: -10%;
-  left: -10%;
-  width: 60%;
-  height: 50%;
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.08), transparent 70%);
-  z-index: 1;
-  animation: pulse 12s infinite alternate;
+  display: none;
 }
 
 .features {
@@ -1009,22 +974,14 @@ nav .btn {
 
 /* ---------- Benefits Section ---------- */
 #benefits {
-  background-color: var(--dark-lighter);
+  background-color: #151515;
   padding: var(--space-xxl) 0;
   position: relative;
   overflow: hidden;
 }
 
 #benefits::after {
-  content: '';
-  position: absolute;
-  top: 10%;
-  right: -20%;
-  width: 70%;
-  height: 60%;
-  background: radial-gradient(circle, rgba(16, 185, 129, 0.05), transparent 70%);
-  z-index: 1;
-  animation: pulse 15s infinite alternate-reverse;
+  display: none;
 }
 
 .benefits-grid {
@@ -1037,7 +994,7 @@ nav .btn {
 }
 
 .benefit-card {
-  background: rgba(17, 24, 39, 0.6);
+  background: rgba(27, 27, 27, 0.6);
   backdrop-filter: blur(10px);
   padding: var(--space-xl);
   border-radius: var(--radius-lg);
@@ -1092,6 +1049,7 @@ nav .btn {
 
 /* ---------- How It Works Section ---------- */
 #how-it-works {
+  background-color: #1b1b1b;
   padding: var(--space-xxl) 0;
   position: relative;
   overflow: hidden;
@@ -1139,7 +1097,7 @@ nav .btn {
 }
 
 .architecture-column {
-  background: rgba(17, 24, 39, 0.6);
+  background: rgba(27, 27, 27, 0.6);
   backdrop-filter: blur(10px);
   padding: var(--space-lg);
   border-radius: var(--radius-md);
@@ -1185,22 +1143,14 @@ nav .btn {
 
 /* ---------- Testimonials Section ---------- */
 #testimonials {
-  background-color: var(--dark-lighter);
+  background-color: #151515;
   padding: var(--space-xxl) 0;
   position: relative;
   overflow: hidden;
 }
 
 #testimonials::after {
-  content: '';
-  position: absolute;
-  bottom: 5%;
-  left: -10%;
-  width: 50%;
-  height: 50%;
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.08), transparent 70%);
-  z-index: 1;
-  animation: pulse 10s infinite alternate;
+  display: none;
 }
 
 .testimonial-slider {
@@ -1219,7 +1169,7 @@ nav .btn {
   left: 0;
   width: 100%;
   padding: var(--space-xl);
-  background: rgba(17, 24, 39, 0.6);
+  background: rgba(27, 27, 27, 0.6);
   backdrop-filter: blur(10px);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
@@ -1385,21 +1335,14 @@ nav .btn {
 
 /* ---------- Pricing Section ---------- */
 #pricing {
+  background-color: #1b1b1b;
   padding: var(--space-xxl) 0;
   position: relative;
   overflow: hidden;
 }
 
 #pricing::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: -10%;
-  width: 60%;
-  height: 50%;
-  background: radial-gradient(circle, rgba(16, 185, 129, 0.05), transparent 70%);
-  z-index: 1;
-  animation: pulse 12s infinite alternate-reverse;
+  display: none;
 }
 
 .pricing-grid {
@@ -1412,7 +1355,7 @@ nav .btn {
 }
 
 .pricing-card {
-  background: rgba(17, 24, 39, 0.6);
+  background: rgba(27, 27, 27, 0.6);
   backdrop-filter: blur(10px);
   border-radius: var(--radius-lg);
   overflow: hidden;
@@ -1538,7 +1481,7 @@ nav .btn {
   text-align: center;
   margin-top: var(--space-xxl);
   padding: var(--space-xl);
-  background: rgba(17, 24, 39, 0.6);
+  background: rgba(27, 27, 27, 0.6);
   backdrop-filter: blur(10px);
   border-radius: var(--radius-lg);
   border: 1px solid rgba(99, 102, 241, 0.1);
@@ -1571,8 +1514,9 @@ nav .btn {
 
 /* ---------- About Section ---------- */
 #about {
-  background-color: var(--dark-lighter);
+  background-color: #151515;
   padding: var(--space-xxl) 0;
+  position: relative;
 }
 
 .about-content {
@@ -1595,21 +1539,14 @@ nav .btn {
 
 /* ---------- Contact Section ---------- */
 #contact {
+  background-color: #1b1b1b;
   padding: var(--space-xxl) 0;
   position: relative;
   overflow: hidden;
 }
 
 #contact::before {
-  content: '';
-  position: absolute;
-  top: -10%;
-  right: -10%;
-  width: 50%;
-  height: 60%;
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.05), transparent 70%);
-  z-index: 1;
-  animation: pulse 15s infinite alternate;
+  display: none;
 }
 
 .contact-container {
@@ -1622,7 +1559,7 @@ nav .btn {
 }
 
 .contact-form {
-  background: rgba(20, 22, 35, 0.6);
+  background: rgba(27, 27, 27, 0.6);
   backdrop-filter: blur(10px);
   padding: var(--space-xl);
   border-radius: var(--radius-lg);
@@ -1702,7 +1639,7 @@ nav .btn {
 }
 
 .info-card {
-  background: rgba(20, 22, 35, 0.6);
+  background: rgba(27, 27, 27, 0.6);
   backdrop-filter: blur(10px);
   padding: var(--space-lg) var(--space-xl);
   border-radius: var(--radius-lg);
@@ -1787,8 +1724,9 @@ nav .btn {
 
 /* ---------- Footer ---------- */
 footer {
-  background-color: var(--dark-lighter);
+  background-color: #151515;
   padding: var(--space-xxl) 0 var(--space-md);
+  position: relative;
 }
 
 .footer-grid {
@@ -2636,7 +2574,7 @@ svg {
 
 #bookingFrame {
     border-radius: var(--radius-md);
-    background-color: rgba(20, 20, 30, 0.7);
+    background-color: rgba(27, 27, 27, 0.6);
     transition: all 0.3s ease;
 }
 
