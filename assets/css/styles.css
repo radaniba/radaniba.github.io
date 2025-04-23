@@ -491,6 +491,8 @@ nav .btn {
   font-size: 3.5rem;
   line-height: 1.1;
   margin-bottom: var(--space-md);
+  color: #FFFFFF; /* Ensure title is white */
+  font-weight: 700; /* Make it bold for better visibility */
 }
 
 .hero-content h2 {
