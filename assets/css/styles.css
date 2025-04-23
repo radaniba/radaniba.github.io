@@ -11,10 +11,10 @@
   --primary-dark: #4f46e5;  /* Darker indigo for hover states */
   --primary-light: #818cf8; /* Lighter indigo for accents */
   --secondary: #10b981;     /* Teal - Secondary accent color */
-  --dark: #111827;          /* Near black - Main background */
-  --dark-lighter: #1e1e30;  /* Slightly lighter dark for cards */
-  --dark-medium: #252542;   /* Medium dark for hover states */
-  --dark-gradient: linear-gradient(145deg, #0c0c1c, #161630); /* Subtle gradient for cards */
+  --dark: #1b1b1b;          /* Near black - Main background */
+  --dark-lighter: #252525;  /* Slightly lighter dark for cards */
+  --dark-medium: #303030;   /* Medium dark for hover states */
+  --dark-gradient: linear-gradient(145deg, #1b1b1b, #252525); /* Subtle gradient for cards */
   --light: #f9fafb;         /* White text */
   --light-muted: rgba(255, 255, 255, 0.7); /* Slightly transparent white */
   --light-dimmed: rgba(255, 255, 255, 0.5); /* More transparent white */
@@ -493,6 +493,9 @@ nav .btn {
   margin-bottom: var(--space-md);
   color: #FFFFFF; /* Ensure title is white */
   font-weight: 700; /* Make it bold for better visibility */
+  background: none; /* Remove the gradient background */
+  -webkit-text-fill-color: white; /* Override the transparent text for webkit browsers */
+  text-fill-color: white; /* Standard version */
 }
 
 .hero-content h2 {
