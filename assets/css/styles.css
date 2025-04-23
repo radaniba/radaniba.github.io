@@ -3053,3 +3053,393 @@ svg {
     font-size: 1.125rem;
     font-weight: 600;
 }
+
+/* Legal Pages Styles */
+#legal-content {
+    padding: 8rem 0 4rem;
+    background-color: #151515;
+}
+
+.legal-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.legal-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+.legal-date {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+}
+
+.legal-body {
+    max-width: 900px;
+    margin: 0 auto;
+    background: rgba(30, 30, 30, 0.5);
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.legal-body h2 {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: #fff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.5rem;
+}
+
+.legal-body h3 {
+    font-size: 1.25rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.legal-body p, .legal-body li {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.legal-body ul, .legal-body ol {
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.legal-body li {
+    margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    #legal-content {
+        padding: 6rem 0 3rem;
+    }
+    
+    .legal-header h1 {
+        font-size: 2rem;
+    }
+    
+    .legal-body {
+        padding: 1.5rem;
+    }
+}
+
+/* Feature Detail Pages */
+#feature-hero {
+    padding: 8rem 0 4rem;
+    background-color: #151515;
+    position: relative;
+    overflow: hidden;
+}
+
+#feature-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at center, rgba(74, 106, 218, 0.1) 0%, rgba(21, 21, 21, 0) 70%);
+    z-index: 1;
+}
+
+.feature-hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.feature-hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(to right, #4A6ADA, #63E2FF);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+}
+
+.feature-hero-description {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2rem;
+}
+
+#feature-visual {
+    background-color: #1b1b1b;
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.feature-showcase {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.feature-image-large {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+#feature-details {
+    background-color: #151515;
+    padding: 5rem 0;
+}
+
+.feature-overview {
+    margin-bottom: 4rem;
+}
+
+.feature-overview h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #fff;
+}
+
+.feature-overview > p {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    text-align: center;
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.feature-capabilities {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.capability-card {
+    background: rgba(30, 30, 30, 0.5);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(74, 106, 218, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.capability-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    border-color: rgba(74, 106, 218, 0.4);
+}
+
+.capability-card h3 {
+    color: #fff;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    position: relative;
+    padding-bottom: 0.75rem;
+}
+
+.capability-card h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(to right, #4A6ADA, #63E2FF);
+    border-radius: 3px;
+}
+
+.capability-card ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.capability-card li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.capability-card li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    width: 8px;
+    height: 8px;
+    background-color: #4A6ADA;
+    border-radius: 50%;
+}
+
+.feature-benefits {
+    margin-bottom: 4rem;
+}
+
+.feature-benefits h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #fff;
+}
+
+.benefits-grid.small {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.feature-integration {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.feature-integration h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #fff;
+}
+
+.feature-integration > p {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.integration-points {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.integration-point {
+    background: rgba(30, 30, 30, 0.5);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.integration-point:hover {
+    transform: translateY(-5px);
+}
+
+.integration-point h3 {
+    color: #fff;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.integration-point p {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+}
+
+#feature-case-study {
+    background-color: #1b1b1b;
+    padding: 5rem 0;
+}
+
+.case-study-card {
+    max-width: 900px;
+    margin: 0 auto;
+    background: rgba(30, 30, 30, 0.5);
+    border-radius: 8px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(74, 106, 218, 0.2);
+}
+
+.case-study-card h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #fff;
+    text-align: center;
+}
+
+.case-quote {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    font-style: italic;
+    text-align: center;
+    position: relative;
+    padding: 0 2rem;
+    margin-bottom: 2.5rem;
+}
+
+.case-quote::before, .case-quote::after {
+    content: '"';
+    position: absolute;
+    font-size: 2.5rem;
+    color: rgba(74, 106, 218, 0.6);
+    line-height: 1;
+}
+
+.case-quote::before {
+    left: 0;
+    top: 0;
+}
+
+.case-quote::after {
+    right: 0;
+    bottom: -0.5rem;
+}
+
+.case-details {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+}
+
+.case-details p {
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 992px) {
+    .feature-hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .feature-hero-description {
+        font-size: 1.125rem;
+    }
+    
+    .feature-capabilities, .integration-points {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    #feature-hero {
+        padding: 6rem 0 3rem;
+    }
+    
+    .feature-hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .feature-capabilities, .integration-points {
+        grid-template-columns: 1fr;
+    }
+    
+    .case-study-card {
+        padding: 1.5rem;
+    }
+    
+    .case-quote {
+        padding: 0 1.5rem;
+        font-size: 1.1rem;
+    }
+}
