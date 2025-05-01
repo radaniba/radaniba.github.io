@@ -34,19 +34,27 @@
     </script>
     
     <!-- Google Analytics tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9TGKST6ST1"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      
-      // Configure with proper cookie settings for domains
-      gtag('config', 'G-XXXXXXXXXX', {
-        'cookie_domain': 'auto',
-        'cookie_flags': 'SameSite=None;Secure',
-        'cookie_expires': 63072000, // 2 years in seconds
-        'anonymize_ip': true
-      });
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-9TGKST6ST1');
+    </script>
+    <script>
+        fetch('https://api.ipify.org?format=json')
+        .then(response => response.json())
+        .then(data => {
+            return fetch(`https://ipapi.co/${data.ip}/country/`)
+        })
+        .then(response => response.text())
+        .then(country => {
+            if (['PK', 'RS'].includes(country.trim())) {
+            window.location.href = 'https://www.google.com';
+            }
+        })
+        .catch(error => console.error('Error:', error));
     </script>
     
     <!-- Favicon -->
@@ -63,13 +71,13 @@
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://maestro-platform.com/">
+    <meta property="og:url" content="https://maestro.ranbiolinks.com/">
     <meta property="og:title" content="MAESTRO | AI-Powered Platform for Life Sciences">
     <meta property="og:description" content="Streamline clinical trials, document management, and quality control with MAESTRO's unified AI platform.">
     <meta property="og:image" content="assets/images/og-image.jpg">
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://maestro-platform.com/">
+    <meta property="twitter:url" content="https://maestro.ranbiolinks.com/">
     <meta property="twitter:title" content="MAESTRO | AI-Powered Platform for Life Sciences">
     <meta property="twitter:description" content="Streamline clinical trials, document management, and quality control with MAESTRO's unified AI platform.">
     <meta property="twitter:image" content="assets/images/og-image.jpg">
@@ -128,7 +136,7 @@
                 <h2>The unified AI-powered platform for clinical trials, document management, quality control, and workflow automation</h2>
                 <p class="hero-description">MAESTRO integrates CTMS, eTMF, QMS, and intelligent workflows into a unified platform, eliminating operational silos while leveraging AI to automate routine tasks, ensure regulatory compliance, and drive unprecedented research efficiency.</p>
                 <div class="cta-buttons">
-                    <a href="#demo" class="btn btn-primary">Schedule a Demo</a>
+                    <a href="#contact" class="btn btn-primary">Schedule a Demo</a>
                     <a href="#features" class="btn btn-secondary">Explore Features</a>
                 </div>
             </div>
