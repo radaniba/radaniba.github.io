@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://maestro.ranbiolinks.com/</loc>
-    <lastmod>2025-06-15</lastmod>
+    <lastmod>2023-11-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -31,56 +31,56 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://maestro.ranbiolinks.com/privacy-policy</loc>
-    <lastmod>2025-06-15</lastmod>
+    <loc>https://maestro.ranbiolinks.com/privacy-policy.html</loc>
+    <lastmod>2023-11-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://maestro.ranbiolinks.com/terms-of-service</loc>
-    <lastmod>2025-06-15</lastmod>
+    <loc>https://maestro.ranbiolinks.com/terms-of-service.html</loc>
+    <lastmod>2023-11-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://maestro.ranbiolinks.com/gdpr-compliance</loc>
-    <lastmod>2025-06-15</lastmod>
+    <loc>https://maestro.ranbiolinks.com/gdpr-compliance.html</loc>
+    <lastmod>2023-11-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://maestro.ranbiolinks.com/security</loc>
-    <lastmod>2025-06-15</lastmod>
+    <loc>https://maestro.ranbiolinks.com/security.html</loc>
+    <lastmod>2023-11-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://maestro.ranbiolinks.com/features/ctms</loc>
-    <lastmod>2025-06-15</lastmod>
+    <loc>https://maestro.ranbiolinks.com/features/ctms.html</loc>
+    <lastmod>2023-11-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://maestro.ranbiolinks.com/features/etmf</loc>
-    <lastmod>2025-06-15</lastmod>
+    <loc>https://maestro.ranbiolinks.com/features/etmf.html</loc>
+    <lastmod>2023-11-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://maestro.ranbiolinks.com/features/qms</loc>
-    <lastmod>2025-06-15</lastmod>
+    <loc>https://maestro.ranbiolinks.com/features/qms.html</loc>
+    <lastmod>2023-11-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://maestro.ranbiolinks.com/features/workflow</loc>
-    <lastmod>2025-06-15</lastmod>
+    <loc>https://maestro.ranbiolinks.com/features/workflow.html</loc>
+    <lastmod>2023-11-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://maestro.ranbiolinks.com/features/ai-agents</loc>
-    <lastmod>2025-06-15</lastmod>
+    <loc>https://maestro.ranbiolinks.com/features/ai-agents.html</loc>
+    <lastmod>2023-11-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
