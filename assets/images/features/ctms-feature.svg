@@ -1,253 +1,114 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="500" height="300" viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <!-- Definitions -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="CTMS dashboard mockup">
   <defs>
-    <!-- Gradients -->
-    <linearGradient id="headerGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#2C3E50" />
-      <stop offset="100%" stop-color="#1A2530" />
+    <linearGradient id="ctms-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#161618"/>
+      <stop offset="100%" stop-color="#0d0d0f"/>
     </linearGradient>
-    
-    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#4A6ADA" />
-      <stop offset="100%" stop-color="#2C53C5" />
+    <linearGradient id="ctms-bar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ed1c24"/>
+      <stop offset="100%" stop-color="#c8121a"/>
     </linearGradient>
-    
-    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#1E2A3A" />
-      <stop offset="100%" stop-color="#15202B" />
-    </linearGradient>
-    
-    <linearGradient id="onTrackGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0BAB64" />
-      <stop offset="100%" stop-color="#3BB78F" />
-    </linearGradient>
-    
-    <linearGradient id="atRiskGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FF9500" />
-      <stop offset="100%" stop-color="#FF5E3A" />
-    </linearGradient>
-    
-    <linearGradient id="delayedGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FF416C" />
-      <stop offset="100%" stop-color="#FF4B2B" />
-    </linearGradient>
-    
-    <linearGradient id="chartBar1" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#4A6ADA" />
-      <stop offset="100%" stop-color="#2C53C5" />
-    </linearGradient>
-    
-    <linearGradient id="chartBar2" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#FF9500" />
-      <stop offset="100%" stop-color="#FF5E3A" />
-    </linearGradient>
-    
-    <linearGradient id="chartBar3" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#0BAB64" />
-      <stop offset="100%" stop-color="#3BB78F" />
-    </linearGradient>
-    
-    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#1E2A3A" />
-      <stop offset="100%" stop-color="#15202E" />
-    </linearGradient>
-    
-    <!-- Filters -->
-    <filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
-      <feOffset dx="0" dy="2" result="offsetblur" />
-      <feComponentTransfer>
-        <feFuncA type="linear" slope="0.2" />
-      </feComponentTransfer>
-      <feMerge>
-        <feMergeNode />
-        <feMergeNode in="SourceGraphic" />
-      </feMerge>
+    <filter id="ctms-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="14" stdDeviation="22" flood-color="#000" flood-opacity="0.45"/>
     </filter>
-    
-    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
-      <feComponentTransfer>
-        <feFuncA type="linear" slope="0.3" />
-      </feComponentTransfer>
-      <feMerge>
-        <feMergeNode />
-        <feMergeNode in="SourceGraphic" />
-      </feMerge>
-    </filter>
-    
-    <!-- Animations -->
-    <animate 
-      xlink:href="#progress1"
-      attributeName="width"
-      from="0"
-      to="252"
-      dur="1s"
-      begin="0.2s"
-      fill="freeze" 
-    />
-    
-    <animate 
-      xlink:href="#progress2"
-      attributeName="width"
-      from="0"
-      to="180"
-      dur="1s"
-      begin="0.4s"
-      fill="freeze" 
-    />
-    
-    <animate 
-      xlink:href="#progress3"
-      attributeName="width"
-      from="0"
-      to="324"
-      dur="1s"
-      begin="0.6s"
-      fill="freeze" 
-    />
   </defs>
-  
-  <!-- Background -->
-  <rect x="0" y="0" width="500" height="300" rx="8" fill="url(#bgGradient)"/>
-  
-  <!-- Header -->
-  <rect x="20" y="20" width="460" height="40" rx="8" fill="url(#headerGradient)" filter="url(#softShadow)"/>
-  <text x="40" y="45" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="bold" fill="white">Clinical Trial Management System</text>
-  
-  <!-- Left Panel: Trial List -->
-  <rect x="20" y="70" width="150" height="210" rx="4" fill="url(#cardGradient)" filter="url(#softShadow)"/>
-  <text x="30" y="90" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="bold" fill="white">Active Trials</text>
-  
-  <!-- Trial 1 - On Track -->
-  <g transform="translate(30, 100)">
-    <rect width="130" height="30" rx="4" fill="#1A2530" filter="url(#softShadow)"/>
-    <rect width="5" height="30" rx="0" fill="url(#onTrackGradient)"/>
-    <text x="15" y="18" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="white">MST-012: Phase II</text>
-    <text x="15" y="25" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#B2C7E8">Sites: 12</text>
-    <circle cx="120" cy="15" r="5" fill="url(#onTrackGradient)" filter="url(#glow)">
-      <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite"/>
-    </circle>
+
+  <!-- Panel -->
+  <rect x="20" y="20" width="760" height="460" rx="20" fill="url(#ctms-bg)" stroke="#26262a" stroke-width="1" filter="url(#ctms-shadow)"/>
+
+  <!-- Top bar -->
+  <g transform="translate(20,20)">
+    <rect width="760" height="44" rx="20" fill="#0e0e10"/>
+    <circle cx="22" cy="22" r="4" fill="#ed1c24"/>
+    <circle cx="38" cy="22" r="4" fill="#3a3a40"/>
+    <circle cx="54" cy="22" r="4" fill="#3a3a40"/>
+    <text x="380" y="27" text-anchor="middle" font-family="'Public Sans', sans-serif" font-size="13" fill="#9b9ba1" font-weight="500">maestro.app · trial · ONCO-2025-014</text>
   </g>
-  
-  <!-- Trial 2 - At Risk -->
-  <g transform="translate(30, 140)">
-    <rect width="130" height="30" rx="4" fill="#1A2530" filter="url(#softShadow)"/>
-    <rect width="5" height="30" rx="0" fill="url(#atRiskGradient)"/>
-    <text x="15" y="18" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="white">BST-035: Phase III</text>
-    <text x="15" y="25" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#B2C7E8">Sites: 28</text>
-    <circle cx="120" cy="15" r="5" fill="url(#atRiskGradient)" filter="url(#glow)">
-      <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite"/>
-    </circle>
+
+  <!-- Sidebar -->
+  <g transform="translate(40,90)">
+    <rect width="170" height="370" rx="14" fill="#1a1a1d"/>
+    <text x="20" y="32" font-family="'Public Sans', sans-serif" font-size="11" font-weight="600" fill="#9b9ba1" letter-spacing="0.08em">TRIAL OVERVIEW</text>
+    <g font-family="'Public Sans', sans-serif" font-size="13" fill="#ededee">
+      <rect x="14" y="48" width="142" height="34" rx="8" fill="#ed1c2418"/>
+      <circle cx="28" cy="65" r="3" fill="#ed1c24"/>
+      <text x="42" y="69" font-weight="600" fill="#ed1c24">Sites</text>
+      <text x="138" y="69" text-anchor="end" fill="#ed1c24" font-weight="600">14</text>
+
+      <text x="42" y="105" fill="#cfcfd2">Subjects</text><text x="156" y="105" text-anchor="end" fill="#9b9ba1">218</text>
+      <text x="42" y="135" fill="#cfcfd2">Visits</text><text x="156" y="135" text-anchor="end" fill="#9b9ba1">1,402</text>
+      <text x="42" y="165" fill="#cfcfd2">Deviations</text><text x="156" y="165" text-anchor="end" fill="#9b9ba1">7</text>
+      <text x="42" y="195" fill="#cfcfd2">SAEs</text><text x="156" y="195" text-anchor="end" fill="#9b9ba1">2</text>
+      <text x="42" y="225" fill="#cfcfd2">Queries</text><text x="156" y="225" text-anchor="end" fill="#9b9ba1">31</text>
+    </g>
+
+    <rect x="14" y="266" width="142" height="86" rx="10" fill="#0e0e10" stroke="#26262a"/>
+    <text x="28" y="288" font-family="'Public Sans', sans-serif" font-size="10" fill="#9b9ba1" letter-spacing="0.06em">RECRUITMENT</text>
+    <text x="28" y="316" font-family="'Public Sans', sans-serif" font-size="22" fill="#ededee" font-weight="700">73%</text>
+    <rect x="28" y="328" width="114" height="6" rx="3" fill="#26262a"/>
+    <rect x="28" y="328" width="83" height="6" rx="3" fill="url(#ctms-bar)"/>
   </g>
-  
-  <!-- Trial 3 - Delayed -->
-  <g transform="translate(30, 180)">
-    <rect width="130" height="30" rx="4" fill="#1A2530" filter="url(#softShadow)"/>
-    <rect width="5" height="30" rx="0" fill="url(#delayedGradient)"/>
-    <text x="15" y="18" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="white">CDX-103: Phase I</text>
-    <text x="15" y="25" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#B2C7E8">Sites: 5</text>
-    <circle cx="120" cy="15" r="5" fill="url(#delayedGradient)" filter="url(#glow)">
-      <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite"/>
-      <animate attributeName="r" values="5;6;5" dur="1s" repeatCount="indefinite"/>
-    </circle>
+
+  <!-- Main content -->
+  <g transform="translate(230,90)">
+    <text x="0" y="22" font-family="'Public Sans', sans-serif" font-size="18" font-weight="700" fill="#ededee">Site enrollment</text>
+    <text x="0" y="42" font-family="'Public Sans', sans-serif" font-size="12" fill="#9b9ba1">Last 12 months</text>
+
+    <!-- Chart card -->
+    <g transform="translate(0,60)">
+      <rect width="530" height="190" rx="14" fill="#1a1a1d"/>
+      <!-- Y axis grid -->
+      <g stroke="#26262a" stroke-width="1">
+        <line x1="40" y1="40" x2="510" y2="40"/>
+        <line x1="40" y1="80" x2="510" y2="80"/>
+        <line x1="40" y1="120" x2="510" y2="120"/>
+        <line x1="40" y1="160" x2="510" y2="160"/>
+      </g>
+      <!-- Bars -->
+      <g>
+        <rect x="60"  y="110" width="22" height="50" rx="4" fill="#ed1c24"/>
+        <rect x="100" y="90"  width="22" height="70" rx="4" fill="#ed1c24"/>
+        <rect x="140" y="70"  width="22" height="90" rx="4" fill="#ed1c24"/>
+        <rect x="180" y="80"  width="22" height="80" rx="4" fill="#ed1c24" opacity="0.85"/>
+        <rect x="220" y="55"  width="22" height="105" rx="4" fill="#ed1c24"/>
+        <rect x="260" y="40"  width="22" height="120" rx="4" fill="#ed1c24"/>
+        <rect x="300" y="65"  width="22" height="95" rx="4" fill="#ed1c24" opacity="0.85"/>
+        <rect x="340" y="50"  width="22" height="110" rx="4" fill="#ed1c24"/>
+        <rect x="380" y="35"  width="22" height="125" rx="4" fill="#ed1c24"/>
+        <rect x="420" y="48"  width="22" height="112" rx="4" fill="#ed1c24"/>
+        <rect x="460" y="30"  width="22" height="130" rx="4" fill="#ed1c24"/>
+      </g>
+      <!-- Trend line -->
+      <polyline points="71,135 111,115 151,95 191,105 231,80 271,65 311,90 351,75 391,60 431,73 471,55"
+                fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"/>
+      <g fill="#ffffff">
+        <circle cx="71" cy="135" r="2.5"/><circle cx="111" cy="115" r="2.5"/><circle cx="151" cy="95" r="2.5"/>
+        <circle cx="191" cy="105" r="2.5"/><circle cx="231" cy="80" r="2.5"/><circle cx="271" cy="65" r="2.5"/>
+        <circle cx="311" cy="90" r="2.5"/><circle cx="351" cy="75" r="2.5"/><circle cx="391" cy="60" r="2.5"/>
+        <circle cx="431" cy="73" r="2.5"/><circle cx="471" cy="55" r="2.5"/>
+      </g>
+    </g>
+
+    <!-- KPI cards -->
+    <g transform="translate(0,270)" font-family="'Public Sans', sans-serif">
+      <g transform="translate(0,0)">
+        <rect width="170" height="92" rx="14" fill="#1a1a1d"/>
+        <text x="18" y="28" font-size="11" fill="#9b9ba1" letter-spacing="0.06em">SCREEN-FAIL</text>
+        <text x="18" y="62" font-size="26" font-weight="700" fill="#ededee">12.4%</text>
+        <text x="18" y="80" font-size="11" fill="#7da580">▼ 3.1 vs target</text>
+      </g>
+      <g transform="translate(180,0)">
+        <rect width="170" height="92" rx="14" fill="#1a1a1d"/>
+        <text x="18" y="28" font-size="11" fill="#9b9ba1" letter-spacing="0.06em">DAYS TO ACTIVATE</text>
+        <text x="18" y="62" font-size="26" font-weight="700" fill="#ededee">38</text>
+        <text x="18" y="80" font-size="11" fill="#7da580">▼ 22 vs benchmark</text>
+      </g>
+      <g transform="translate(360,0)">
+        <rect width="170" height="92" rx="14" fill="#1a1a1d"/>
+        <text x="18" y="28" font-size="11" fill="#9b9ba1" letter-spacing="0.06em">PROTOCOL DEVIATIONS</text>
+        <text x="18" y="62" font-size="26" font-weight="700" fill="#ed1c24">7</text>
+        <text x="18" y="80" font-size="11" fill="#9b9ba1">2 require CAPA</text>
+      </g>
+    </g>
   </g>
-  
-  <!-- Trial 4 - On Track -->
-  <g transform="translate(30, 220)">
-    <rect width="130" height="30" rx="4" fill="#1A2530" filter="url(#softShadow)"/>
-    <rect width="5" height="30" rx="0" fill="url(#onTrackGradient)"/>
-    <text x="15" y="18" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="white">DRP-217: Phase II</text>
-    <text x="15" y="25" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#B2C7E8">Sites: 18</text>
-    <circle cx="120" cy="15" r="5" fill="url(#onTrackGradient)" filter="url(#glow)">
-      <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite"/>
-    </circle>
-  </g>
-  
-  <!-- Main Content: Trial Details -->
-  <rect x="180" y="70" width="300" height="160" rx="4" fill="url(#cardGradient)" filter="url(#softShadow)"/>
-  <text x="200" y="90" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="bold" fill="white">BST-035: Alzheimer's Treatment</text>
-  <text x="200" y="110" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#B2C7E8">Phase III | Start: Jan 2023 | Status: At Risk</text>
-  
-  <!-- Trial Stats -->
-  <g transform="translate(200, 125)">
-    <!-- Sites -->
-    <rect width="80" height="40" rx="4" fill="#1A2530" filter="url(#softShadow)"/>
-    <text x="40" y="25" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="white" text-anchor="middle" font-weight="bold">28</text>
-    <text x="40" y="35" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#B2C7E8" text-anchor="middle">SITES</text>
-  </g>
-  
-  <g transform="translate(290, 125)">
-    <!-- Patients -->
-    <rect width="80" height="40" rx="4" fill="#1A2530" filter="url(#softShadow)"/>
-    <text x="40" y="25" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="white" text-anchor="middle" font-weight="bold">1,254</text>
-    <text x="40" y="35" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#B2C7E8" text-anchor="middle">PATIENTS</text>
-  </g>
-  
-  <g transform="translate(380, 125)">
-    <!-- Completion -->
-    <rect width="80" height="40" rx="4" fill="#1A2530" filter="url(#softShadow)"/>
-    <text x="40" y="25" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="white" text-anchor="middle" font-weight="bold">68%</text>
-    <text x="40" y="35" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#B2C7E8" text-anchor="middle">COMPLETE</text>
-  </g>
-  
-  <!-- Timeline section -->
-  <g transform="translate(200, 175)">
-    <text x="0" y="0" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" fill="white">Timeline</text>
-    <line x1="0" y1="10" x2="260" y2="10" stroke="#2C3E50" stroke-width="1"/>
-    
-    <!-- Timeline points -->
-    <circle cx="0" cy="10" r="5" fill="url(#onTrackGradient)" filter="url(#glow)"/>
-    <circle cx="75" cy="10" r="5" fill="url(#onTrackGradient)" filter="url(#glow)"/>
-    <circle cx="150" cy="10" r="5" fill="url(#atRiskGradient)" filter="url(#glow)">
-      <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="225" cy="10" r="5" fill="#2C3E50"/>
-    
-    <!-- Timeline labels -->
-    <text x="0" y="25" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#B2C7E8" text-anchor="middle">Jan</text>
-    <text x="75" y="25" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#B2C7E8" text-anchor="middle">Apr</text>
-    <text x="150" y="25" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#B2C7E8" text-anchor="middle">Aug</text>
-    <text x="225" y="25" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#B2C7E8" text-anchor="middle">Dec</text>
-  </g>
-  
-  <!-- Bottom Chart: Recruitment -->
-  <rect x="180" y="240" width="300" height="40" rx="4" fill="url(#cardGradient)" filter="url(#softShadow)"/>
-  <text x="200" y="260" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="bold" fill="white">Recruitment by Country</text>
-  
-  <!-- Bar Chart -->
-  <g transform="translate(200, 270)">
-    <rect width="50" height="40" fill="url(#chartBar1)" rx="2">
-      <animate attributeName="height" values="38;40;38" dur="3s" repeatCount="indefinite"/>
-    </rect>
-    <text x="25" y="55" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#B2C7E8" text-anchor="middle">USA</text>
-  </g>
-  
-  <g transform="translate(265, 270)">
-    <rect width="50" height="30" fill="url(#chartBar2)" rx="2">
-      <animate attributeName="height" values="28;30;28" dur="3s" repeatCount="indefinite"/>
-    </rect>
-    <text x="25" y="55" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#B2C7E8" text-anchor="middle">EU</text>
-  </g>
-  
-  <g transform="translate(330, 270)">
-    <rect width="50" height="20" fill="url(#chartBar3)" rx="2">
-      <animate attributeName="height" values="18;20;18" dur="3s" repeatCount="indefinite"/>
-    </rect>
-    <text x="25" y="55" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#B2C7E8" text-anchor="middle">APAC</text>
-  </g>
-  
-  <g transform="translate(395, 270)">
-    <rect width="50" height="15" fill="url(#delayedGradient)" rx="2">
-      <animate attributeName="height" values="13;15;13" dur="3s" repeatCount="indefinite"/>
-    </rect>
-    <text x="25" y="55" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#B2C7E8" text-anchor="middle">Other</text>
-  </g>
-  
-  <!-- Notification indicator -->
-  <circle cx="440" cy="40" r="6" fill="url(#atRiskGradient)" filter="url(#glow)">
-    <animate attributeName="r" values="5;7;5" dur="2s" repeatCount="indefinite"/>
-  </circle>
-  <text x="440" y="43" font-family="Segoe UI, Arial, sans-serif" font-size="8" fill="white" text-anchor="middle">2</text>
-</svg> 
+</svg>

@@ -1,334 +1,779 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Streamline clinical trials, document management, and quality control with MAESTRO's unified AI platform. Increase research productivity by 35% while ensuring compliance.">
-    <title>MAESTRO | AI-Powered CTMS, eTMF & QMS Platform for Life Sciences</title>
-    
-    <!-- Google Analytics GA4 with Consent Mode -->
-    <script>
-      // Set default consent to 'denied' until user provides consent
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      
-      // Default consent state
-      gtag('consent', 'default', {
-        'analytics_storage': 'denied',
-        'ad_storage': 'denied',
-        'wait_for_update': 500 // Wait for user input
-      });
-      
-      // Restore previous consent if set
-      const consentStatus = localStorage.getItem('cookieConsent');
-      if (consentStatus === 'accepted') {
-        gtag('consent', 'update', {
-          'analytics_storage': 'granted'
-        });
-      } else if (consentStatus === 'custom') {
-        const analyticsConsent = localStorage.getItem('analyticsConsent') === 'true';
-        gtag('consent', 'update', {
-          'analytics_storage': analyticsConsent ? 'granted' : 'denied'
-        });
-      }
-    </script>
-    
-    <!-- Google Analytics tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9TGKST6ST1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+    <meta name="theme-color" content="#0a0a0a">
 
-        gtag('config', 'G-9TGKST6ST1');
-    </script>
-    <script>
-        fetch('https://api.ipify.org?format=json')
-        .then(response => response.json())
-        .then(data => {
-            return fetch(`https://ipapi.co/${data.ip}/country/`)
-        })
-        .then(response => response.text())
-        .then(country => {
-            if (['PK', 'RS'].includes(country.trim())) {
-            window.location.href = 'https://www.google.com';
-            }
-        })
-        .catch(error => console.error('Error:', error));
-    </script>
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="assets/images/favicon.png">
-    
-    <!-- Font preloading -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://fonts.gstatic.com/s/montserrat/v25/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Hw5aXp-p7K4KLg.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="https://fonts.gstatic.com/s/montserrat/v25/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCuM73w5aXp-p7K4KLg.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="https://fonts.gstatic.com/s/inter/v13/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu4mxK.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="https://fonts.gstatic.com/s/opensans/v40/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4gaVI.woff2" as="font" type="font/woff2" crossorigin>
-    
-    <!-- Open Graph / Facebook -->
+    <!-- ============================================================ -->
+    <!-- Primary SEO meta — Canada-first, clinical-trials commercial   -->
+    <!-- ============================================================ -->
+    <title>Clinical Trial Management Software for Canada — CTMS, eTMF, QMS & AI | MAESTRO</title>
+    <meta name="description" content="MAESTRO is the AI-powered clinical trials platform for Canadian sponsors, CROs and academic centres. CTMS, eTMF, QMS and AI agents, PIPEDA-compliant. Book a demo.">
+    <meta name="keywords" content="clinical trial management software Canada, CTMS Canada, eTMF Canada, QMS clinical trials Canada, Health Canada CTA, PIPEDA clinical trials, AI clinical trials Canada, Veeva alternative Canada, Medidata alternative Canada, clinical trial software Toronto Montreal Vancouver">
+    <meta name="author" content="MAESTRO by RAN BIOLINKS">
+    <meta name="publisher" content="RAN BIOLINKS">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <meta name="bingbot" content="index, follow">
+
+    <!-- Geographic targeting — primary market: Canada -->
+    <meta name="geo.region" content="CA">
+    <meta name="geo.country" content="Canada">
+    <meta name="geo.placename" content="Montréal, Toronto, Vancouver">
+    <meta name="ICBM" content="45.5017, -73.5673">
+    <meta name="language" content="English, French">
+    <meta http-equiv="content-language" content="en-CA">
+
+    <!-- Canonical & alternates (en-CA primary) -->
+    <link rel="canonical" href="https://maestro.ranbiolinks.com/">
+    <link rel="alternate" hreflang="en-CA" href="https://maestro.ranbiolinks.com/">
+    <link rel="alternate" hreflang="en"    href="https://maestro.ranbiolinks.com/">
+    <link rel="alternate" hreflang="x-default" href="https://maestro.ranbiolinks.com/">
+
+    <!-- Open Graph / Facebook / LinkedIn -->
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="MAESTRO by RAN BIOLINKS">
+    <meta property="og:locale" content="en_CA">
+    <meta property="og:locale:alternate" content="fr_CA">
     <meta property="og:url" content="https://maestro.ranbiolinks.com/">
-    <meta property="og:title" content="MAESTRO | AI-Powered Platform for Life Sciences">
-    <meta property="og:description" content="Streamline clinical trials, document management, and quality control with MAESTRO's unified AI platform.">
-    <meta property="og:image" content="assets/images/og-image.jpg">
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://maestro.ranbiolinks.com/">
-    <meta property="twitter:title" content="MAESTRO | AI-Powered Platform for Life Sciences">
-    <meta property="twitter:description" content="Streamline clinical trials, document management, and quality control with MAESTRO's unified AI platform.">
-    <meta property="twitter:image" content="assets/images/og-image.jpg">
-    <!-- Structured Data -->
+    <meta property="og:title" content="Clinical Trial Management Software for Canada — CTMS, eTMF, QMS & AI | MAESTRO">
+    <meta property="og:description" content="MAESTRO is the AI-powered clinical trials platform for Canadian sponsors, CROs and academic centres. CTMS, eTMF, QMS and AI agents, PIPEDA-compliant. Book a demo.">
+    <meta property="og:image" content="https://maestro.ranbiolinks.com/assets/images/og-image.png">
+    <meta property="og:image:secure_url" content="https://maestro.ranbiolinks.com/assets/images/og-image.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="MAESTRO clinical trial management platform for Canada">
+
+    <!-- Twitter / X Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@ranbiolinks">
+    <meta name="twitter:creator" content="@ranbiolinks">
+    <meta name="twitter:url" content="https://maestro.ranbiolinks.com/">
+    <meta name="twitter:title" content="Clinical Trial Management Software for Canada — CTMS, eTMF, QMS & AI | MAESTRO">
+    <meta name="twitter:description" content="MAESTRO is the AI-powered clinical trials platform for Canadian sponsors, CROs and academic centres. CTMS, eTMF, QMS and AI agents, PIPEDA-compliant. Book a demo.">
+    <meta name="twitter:image" content="https://maestro.ranbiolinks.com/assets/images/og-image.png">
+    <meta name="twitter:image:alt" content="MAESTRO clinical trial management platform for Canada">
+
+    <!-- Favicons / app icons -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link rel="apple-touch-icon" href="assets/images/favicon.png">
+    <link rel="manifest" href="assets/site.webmanifest">
+
+    <!-- Performance: preconnect / dns-prefetch for any future third parties -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+
+    <!-- ============================================================ -->
+    <!-- Structured Data (JSON-LD) — full Schema.org bundle             -->
+    <!-- ============================================================ -->
     <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://maestro.ranbiolinks.com/#organization",
+  "name": "MAESTRO by RAN BIOLINKS",
+  "alternateName": [
+    "MAESTRO Clinical Trials Platform",
+    "RAN BIOLINKS MAESTRO"
+  ],
+  "url": "https://maestro.ranbiolinks.com",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://maestro.ranbiolinks.com/assets/images/logo.svg",
+    "width": 512,
+    "height": 512
+  },
+  "image": "https://maestro.ranbiolinks.com/assets/images/og-image.png",
+  "description": "MAESTRO is an AI-powered clinical trials platform that unifies CTMS, eTMF, QMS, intelligent workflows and AI agents for Canadian sponsors, CROs and academic research centres.",
+  "foundingDate": "2024",
+  "founder": {
+    "@type": "Person",
+    "name": "RAN BIOLINKS Founding Team"
+  },
+  "areaServed": [
     {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "MAESTRO",
-      "applicationCategory": "BusinessApplication",
-      "operatingSystem": "Web",
-      "offers": {
-        "@type": "Offer",
-        "price": "Contact for pricing",
-        "priceCurrency": "USD"
-      },
-      "description": "AI-powered comprehensive solution for life sciences that integrates CTMS, eTMF, QMS, intelligent workflows, and AI agents in a unified platform."
+      "@type": "Country",
+      "name": "Canada"
+    },
+    {
+      "@type": "Country",
+      "name": "United States"
+    },
+    {
+      "@type": "Place",
+      "name": "European Union"
     }
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "CA",
+    "addressRegion": "QC",
+    "addressLocality": "Montréal"
+  },
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "contactType": "sales",
+      "email": "sales@ranbiolinks.com",
+      "availableLanguage": [
+        "English",
+        "French"
+      ],
+      "areaServed": [
+        "CA",
+        "US",
+        "EU"
+      ]
+    },
+    {
+      "@type": "ContactPoint",
+      "contactType": "customer support",
+      "email": "support@ranbiolinks.com",
+      "availableLanguage": [
+        "English",
+        "French"
+      ]
+    }
+  ],
+  "sameAs": [
+    "https://www.linkedin.com/company/ranbiolinks",
+    "https://maestro.ranbiolinks.com"
+  ],
+  "knowsAbout": [
+    "Clinical Trial Management",
+    "Electronic Trial Master File",
+    "Quality Management System",
+    "Health Canada regulations",
+    "PIPEDA",
+    "ICH E6 R3 Good Clinical Practice",
+    "21 CFR Part 11",
+    "Decentralized Clinical Trials",
+    "Pharmacovigilance"
+  ]
+}
     </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://maestro.ranbiolinks.com/#website",
+  "url": "https://maestro.ranbiolinks.com",
+  "name": "MAESTRO",
+  "description": "Clinical Trial Management Software for Canada — CTMS, eTMF, QMS and AI Agents",
+  "publisher": {
+    "@id": "https://maestro.ranbiolinks.com/#organization"
+  },
+  "inLanguage": [
+    "en-CA",
+    "en"
+  ],
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://maestro.ranbiolinks.com/?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "@id": "https://maestro.ranbiolinks.com/#software",
+  "name": "MAESTRO",
+  "applicationCategory": "BusinessApplication",
+  "applicationSubCategory": "Clinical Trial Management Software",
+  "operatingSystem": "Web, Cloud, SaaS",
+  "url": "https://maestro.ranbiolinks.com",
+  "description": "AI-powered clinical trials platform for Canadian sponsors, CROs and academic research centres. Unifies CTMS, eTMF, QMS, intelligent workflows and AI agents in a single PIPEDA-compliant, Health Canada-aware system.",
+  "softwareVersion": "2026.1",
+  "publisher": {
+    "@id": "https://maestro.ranbiolinks.com/#organization"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "https://maestro.ranbiolinks.com/#pricing",
+    "priceCurrency": "CAD",
+    "price": "0",
+    "priceSpecification": {
+      "@type": "PriceSpecification",
+      "priceCurrency": "CAD",
+      "description": "Contact sales for Canadian Startup, Research Institution and Enterprise pricing."
+    },
+    "availability": "https://schema.org/InStock",
+    "areaServed": [
+      {
+        "@type": "Country",
+        "name": "Canada"
+      },
+      {
+        "@type": "Country",
+        "name": "United States"
+      }
+    ]
+  },
+  "featureList": [
+    "Clinical Trial Management System (CTMS)",
+    "Electronic Trial Master File (eTMF)",
+    "Quality Management System (QMS)",
+    "Visual Workflow Automation",
+    "AI Agents for clinical operations",
+    "Health Canada CTA submission support",
+    "PIPEDA-compliant Canadian data residency",
+    "21 CFR Part 11 e-signatures",
+    "ICH E6 R3 Good Clinical Practice alignment",
+    "Multi-cloud deployment (AWS, Azure, GCP, OCI, IBM, DigitalOcean)"
+  ],
+  "audience": {
+    "@type": "BusinessAudience",
+    "audienceType": "Clinical research organizations, biotech sponsors, academic medical centres in Canada"
+  },
+  "inLanguage": [
+    "en-CA",
+    "en",
+    "fr-CA"
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the best clinical trial management software in Canada?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "MAESTRO is a Canadian-built, AI-powered clinical trials platform that unifies CTMS, eTMF, QMS, workflow automation and AI agents in one system. It is designed around Health Canada regulations (GUI-0104, GUI-0029), PIPEDA and provincial privacy laws (PHIPA, Loi 25), and ICH E6 R3 Good Clinical Practice — making it a fit-for-purpose alternative to legacy Veeva and Medidata stacks for Canadian sponsors and CROs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is MAESTRO compliant with PIPEDA and Canadian data residency requirements?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. MAESTRO can be deployed in Canadian regions of AWS, Microsoft Azure, Google Cloud, Oracle Cloud, IBM Cloud and DigitalOcean. Personal information is processed in accordance with PIPEDA and applicable provincial laws (PHIPA in Ontario, Loi 25 in Quebec, HIA in Alberta), with audit logging, role-based access and breach notification built in."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does MAESTRO support Health Canada Clinical Trial Application (CTA) submissions?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The eTMF and QMS modules are pre-configured with the document types, sectional structures and quality records required for Health Canada CTAs and amendments. Workflows trigger required reviews, e-signatures and notifications so submission-ready bundles can be exported on demand."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is MAESTRO 21 CFR Part 11 and ICH E6 R3 ready?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. MAESTRO provides 21 CFR Part 11 e-signatures, audit trails and computer system controls, and is designed against ICH E6 R3 principles (risk-based quality management, sponsor oversight, data integrity)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does MAESTRO compare to Veeva Vault, Medidata Rave or Oracle Clinical?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "MAESTRO is a unified, modular alternative built for Canadian and mid-market sponsors. Instead of stitching multiple tools together, you get CTMS + eTMF + QMS + workflow + AI agents in one platform — at a fraction of enterprise pricing, with Canadian data residency and bilingual (EN/FR) support."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is MAESTRO suitable for academic clinical research centres in Canada?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. MAESTRO offers academic-discount pricing for university hospitals, research institutes and the Clinical Trials Ontario / 3CTN ecosystem, and provides simplified workflows for investigator-initiated and Phase I–IV studies."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does MAESTRO support bilingual (English / French) clinical trials in Quebec?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. MAESTRO's UI, document templates and workflow notifications support English and Canadian French, in line with Quebec's Loi 25 and the language-of-work requirements common to Quebec-based research sites."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does MAESTRO implementation take for a Canadian CRO or sponsor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most Canadian customers go live within 4–8 weeks. Implementation includes data migration, validation evidence (IQ/OQ/PQ aligned with GAMP 5), Health Canada-aware configuration and team training."
+      }
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://maestro.ranbiolinks.com/"
+    }
+  ]
+}
+    </script>
+
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-<body class="dark-mode">
-    <!-- Header/Navigation -->
-    <header>
+<body>
+    <!-- Ambient clinical-trial motifs (oversized, edge-bleeding, parallax-driven) -->
+    <div class="ambient-bg" aria-hidden="true">
+        <!-- 1. RIGHT — Hub-and-spoke study network (two linked clusters) -->
+        <svg class="ambient-shape" data-speed="0.92" viewBox="0 0 480 800"
+             style="top: 160px; right: -160px; width: 480px; height: 800px;">
+            <circle cx="240" cy="200" r="130" stroke-width="1.2" stroke-dasharray="2 5"/>
+            <line x1="240" y1="200" x2="240" y2="70"  stroke-width="1.2" stroke-dasharray="4 6"/>
+            <line x1="240" y1="200" x2="353" y2="135" stroke-width="1.2" stroke-dasharray="4 6"/>
+            <line x1="240" y1="200" x2="353" y2="265" stroke-width="1.2" stroke-dasharray="4 6"/>
+            <line x1="240" y1="200" x2="240" y2="330" stroke-width="1.2" stroke-dasharray="4 6"/>
+            <line x1="240" y1="200" x2="127" y2="265" stroke-width="1.2" stroke-dasharray="4 6"/>
+            <line x1="240" y1="200" x2="127" y2="135" stroke-width="1.2" stroke-dasharray="4 6"/>
+            <circle cx="240" cy="200" r="9" fill="currentColor" stroke="none"/>
+            <circle cx="240" cy="70"  r="6" fill="currentColor" stroke="none"/>
+            <circle cx="353" cy="135" r="6" fill="currentColor" stroke="none"/>
+            <circle cx="353" cy="265" r="6" fill="currentColor" stroke="none"/>
+            <circle cx="240" cy="330" r="6" fill="currentColor" stroke="none"/>
+            <circle cx="127" cy="265" r="6" fill="currentColor" stroke="none"/>
+            <circle cx="127" cy="135" r="6" fill="currentColor" stroke="none"/>
+            <line x1="240" y1="330" x2="240" y2="470" stroke-width="1.5"/>
+            <circle cx="240" cy="400" r="3" fill="currentColor" stroke="none"/>
+            <circle cx="240" cy="600" r="130" stroke-width="1.2" stroke-dasharray="2 5"/>
+            <line x1="240" y1="600" x2="240" y2="470" stroke-width="1.2" stroke-dasharray="4 6"/>
+            <line x1="240" y1="600" x2="353" y2="535" stroke-width="1.2" stroke-dasharray="4 6"/>
+            <line x1="240" y1="600" x2="353" y2="665" stroke-width="1.2" stroke-dasharray="4 6"/>
+            <line x1="240" y1="600" x2="240" y2="730" stroke-width="1.2" stroke-dasharray="4 6"/>
+            <line x1="240" y1="600" x2="127" y2="665" stroke-width="1.2" stroke-dasharray="4 6"/>
+            <line x1="240" y1="600" x2="127" y2="535" stroke-width="1.2" stroke-dasharray="4 6"/>
+            <circle cx="240" cy="600" r="9" fill="currentColor" stroke="none"/>
+            <circle cx="240" cy="470" r="6" fill="currentColor" stroke="none"/>
+            <circle cx="353" cy="535" r="6" fill="currentColor" stroke="none"/>
+            <circle cx="353" cy="665" r="6" fill="currentColor" stroke="none"/>
+            <circle cx="240" cy="730" r="6" fill="currentColor" stroke="none"/>
+            <circle cx="127" cy="665" r="6" fill="currentColor" stroke="none"/>
+            <circle cx="127" cy="535" r="6" fill="currentColor" stroke="none"/>
+        </svg>
+
+        <!-- 2. LEFT — Triangulated cohort point mesh -->
+        <svg class="ambient-shape" data-speed="0.94" viewBox="0 0 720 360"
+             style="top: 1900px; left: -240px; width: 720px; height: 360px;">
+            <line x1="60" y1="60" x2="180" y2="50" stroke-width="1.2" stroke-dasharray="3 5"/>
+            <line x1="180" y1="50" x2="320" y2="70" stroke-width="1.2" stroke-dasharray="3 5"/>
+            <line x1="320" y1="70" x2="450" y2="45" stroke-width="1.2" stroke-dasharray="3 5"/>
+            <line x1="450" y1="45" x2="580" y2="65" stroke-width="1.2" stroke-dasharray="3 5"/>
+            <line x1="580" y1="65" x2="700" y2="55" stroke-width="1.2" stroke-dasharray="3 5"/>
+            <line x1="90" y1="175" x2="220" y2="195" stroke-width="1.2" stroke-dasharray="3 5"/>
+            <line x1="220" y1="195" x2="350" y2="175" stroke-width="1.2" stroke-dasharray="3 5"/>
+            <line x1="350" y1="175" x2="490" y2="200" stroke-width="1.2" stroke-dasharray="3 5"/>
+            <line x1="490" y1="200" x2="620" y2="180" stroke-width="1.2" stroke-dasharray="3 5"/>
+            <line x1="60" y1="300" x2="200" y2="290" stroke-width="1.2" stroke-dasharray="3 5"/>
+            <line x1="200" y1="290" x2="340" y2="310" stroke-width="1.2" stroke-dasharray="3 5"/>
+            <line x1="340" y1="310" x2="480" y2="295" stroke-width="1.2" stroke-dasharray="3 5"/>
+            <line x1="480" y1="295" x2="620" y2="320" stroke-width="1.2" stroke-dasharray="3 5"/>
+            <line x1="60" y1="60" x2="90" y2="175" stroke-width="1.2" stroke-dasharray="3 5"/>
+            <line x1="180" y1="50" x2="90" y2="175" stroke-width="1.2" stroke-dasharray="3 5"/>
+            <line x1="180" y1="50" x2="220" y2="195" stroke-width="1.2" stroke-dasharray="3 5"/>
+            <line x1="320" y1="70" x2="220" y2="195" stroke-width="1.2" stroke-dasharray="3 5"/>
+            <line x1="320" y1="70" x2="350" y2="175" stroke-width="1.2" stroke-dasharray="3 5"/>
+            <line x1="450" y1="45" x2="350" y2="175" stroke-width="1.2" stroke-dasharray="3 5"/>
+            <line x1="450" y1="45" x2="490" y2="200" stroke-width="1.2" stroke-dasharray="3 5"/>
+            <line x1="580" y1="65" x2="490" y2="200" stroke-width="1.2" stroke-dasharray="3 5"/>
+            <line x1="580" y1="65" x2="620" y2="180" stroke-width="1.2" stroke-dasharray="3 5"/>
+            <line x1="700" y1="55" x2="620" y2="180" stroke-width="1.2" stroke-dasharray="3 5"/>
+            <line x1="90" y1="175" x2="60" y2="300" stroke-width="1.2" stroke-dasharray="3 5"/>
+            <line x1="90" y1="175" x2="200" y2="290" stroke-width="1.2" stroke-dasharray="3 5"/>
+            <line x1="220" y1="195" x2="200" y2="290" stroke-width="1.2" stroke-dasharray="3 5"/>
+            <line x1="220" y1="195" x2="340" y2="310" stroke-width="1.2" stroke-dasharray="3 5"/>
+            <line x1="350" y1="175" x2="340" y2="310" stroke-width="1.2" stroke-dasharray="3 5"/>
+            <line x1="350" y1="175" x2="480" y2="295" stroke-width="1.2" stroke-dasharray="3 5"/>
+            <line x1="490" y1="200" x2="480" y2="295" stroke-width="1.2" stroke-dasharray="3 5"/>
+            <line x1="490" y1="200" x2="620" y2="320" stroke-width="1.2" stroke-dasharray="3 5"/>
+            <line x1="620" y1="180" x2="620" y2="320" stroke-width="1.2" stroke-dasharray="3 5"/>
+            <circle cx="60" cy="60" r="4" fill="currentColor" stroke="none"/>
+            <circle cx="180" cy="50" r="4" fill="currentColor" stroke="none"/>
+            <circle cx="320" cy="70" r="4" fill="currentColor" stroke="none"/>
+            <circle cx="450" cy="45" r="4" fill="currentColor" stroke="none"/>
+            <circle cx="580" cy="65" r="4" fill="currentColor" stroke="none"/>
+            <circle cx="700" cy="55" r="4" fill="currentColor" stroke="none"/>
+            <circle cx="90" cy="175" r="4" fill="currentColor" stroke="none"/>
+            <circle cx="220" cy="195" r="4" fill="currentColor" stroke="none"/>
+            <circle cx="350" cy="175" r="4" fill="currentColor" stroke="none"/>
+            <circle cx="490" cy="200" r="4" fill="currentColor" stroke="none"/>
+            <circle cx="620" cy="180" r="4" fill="currentColor" stroke="none"/>
+            <circle cx="60" cy="300" r="4" fill="currentColor" stroke="none"/>
+            <circle cx="200" cy="290" r="4" fill="currentColor" stroke="none"/>
+            <circle cx="340" cy="310" r="4" fill="currentColor" stroke="none"/>
+            <circle cx="480" cy="295" r="4" fill="currentColor" stroke="none"/>
+            <circle cx="620" cy="320" r="4" fill="currentColor" stroke="none"/>
+        </svg>
+
+        <!-- 3. RIGHT — Drug molecule (hex ring + substituents) — KEPT -->
+        <svg class="ambient-shape" data-speed="0.88" viewBox="0 0 560 480"
+             style="top: 3400px; right: -180px; width: 560px; height: 480px;">
+            <path d="M 280 140 L 367 190 L 367 290 L 280 340 L 193 290 L 193 190 Z" stroke-width="1.8"/>
+            <circle cx="280" cy="240" r="55" stroke-width="1.2" stroke-dasharray="3 5"/>
+            <circle cx="280" cy="140" r="6" fill="currentColor" stroke="none"/>
+            <circle cx="367" cy="190" r="6" fill="currentColor" stroke="none"/>
+            <circle cx="367" cy="290" r="6" fill="currentColor" stroke="none"/>
+            <circle cx="280" cy="340" r="6" fill="currentColor" stroke="none"/>
+            <circle cx="193" cy="290" r="6" fill="currentColor" stroke="none"/>
+            <circle cx="193" cy="190" r="6" fill="currentColor" stroke="none"/>
+            <line x1="280" y1="140" x2="280" y2="60" stroke-width="1.6"/>
+            <circle cx="280" cy="60" r="5" fill="currentColor" stroke="none"/>
+            <line x1="367" y1="190" x2="450" y2="130" stroke-width="1.6"/>
+            <circle cx="450" cy="130" r="5" fill="currentColor" stroke="none"/>
+            <line x1="450" y1="130" x2="530" y2="100" stroke-width="1.6"/>
+            <circle cx="530" cy="100" r="4" fill="currentColor" stroke="none"/>
+            <line x1="367" y1="290" x2="450" y2="350" stroke-width="1.6"/>
+            <circle cx="450" cy="350" r="5" fill="currentColor" stroke="none"/>
+            <line x1="193" y1="290" x2="100" y2="350" stroke-width="1.6"/>
+            <circle cx="100" cy="350" r="5" fill="currentColor" stroke="none"/>
+            <line x1="100" y1="350" x2="40" y2="400" stroke-width="1.6"/>
+            <circle cx="40" cy="400" r="4" fill="currentColor" stroke="none"/>
+            <line x1="193" y1="190" x2="100" y2="130" stroke-width="1.6"/>
+            <circle cx="100" cy="130" r="5" fill="currentColor" stroke="none"/>
+        </svg>
+
+        <!-- 4. LEFT — Spider / radar KPI chart (concentric hexagons + data polygon) -->
+        <svg class="ambient-shape" data-speed="0.90" viewBox="0 0 720 600"
+             style="top: 4500px; left: -240px; width: 720px; height: 600px;">
+            <path d="M 320 80 L 510.5 190 L 510.5 410 L 320 520 L 129.5 410 L 129.5 190 Z" stroke-width="1.6"/>
+            <path d="M 320 155 L 445.55 227.5 L 445.55 372.5 L 320 445 L 194.45 372.5 L 194.45 227.5 Z" stroke-width="1.2" stroke-dasharray="3 5"/>
+            <path d="M 320 230 L 380.6 265 L 380.6 335 L 320 370 L 259.4 335 L 259.4 265 Z" stroke-width="1.2"/>
+            <line x1="320" y1="300" x2="320"   y2="80"  stroke-width="1.2" stroke-dasharray="2 4"/>
+            <line x1="320" y1="300" x2="510.5" y2="190" stroke-width="1.2" stroke-dasharray="2 4"/>
+            <line x1="320" y1="300" x2="510.5" y2="410" stroke-width="1.2" stroke-dasharray="2 4"/>
+            <line x1="320" y1="300" x2="320"   y2="520" stroke-width="1.2" stroke-dasharray="2 4"/>
+            <line x1="320" y1="300" x2="129.5" y2="410" stroke-width="1.2" stroke-dasharray="2 4"/>
+            <line x1="320" y1="300" x2="129.5" y2="190" stroke-width="1.2" stroke-dasharray="2 4"/>
+            <path d="M 320 113 L 443.8 228.5 L 405.7 349.5 L 320 465 L 224.75 355 L 186.65 223 Z" stroke-width="1.8"/>
+            <circle cx="320"    cy="113"   r="5" fill="currentColor" stroke="none"/>
+            <circle cx="443.8"  cy="228.5" r="5" fill="currentColor" stroke="none"/>
+            <circle cx="405.7"  cy="349.5" r="5" fill="currentColor" stroke="none"/>
+            <circle cx="320"    cy="465"   r="5" fill="currentColor" stroke="none"/>
+            <circle cx="224.75" cy="355"   r="5" fill="currentColor" stroke="none"/>
+            <circle cx="186.65" cy="223"   r="5" fill="currentColor" stroke="none"/>
+            <circle cx="320" cy="300" r="4" fill="currentColor" stroke="none"/>
+        </svg>
+
+        <!-- 5. RIGHT — Petri dish with concentric culture rings — KEPT -->
+        <svg class="ambient-shape" data-speed="0.86" viewBox="0 0 560 560"
+             style="top: 5800px; right: -180px; width: 560px; height: 560px;">
+            <circle cx="280" cy="280" r="260" stroke-width="1.4"/>
+            <circle cx="280" cy="280" r="220" stroke-width="1.2" stroke-dasharray="4 7"/>
+            <circle cx="280" cy="280" r="180" stroke-width="1.2"/>
+            <circle cx="280" cy="280" r="140" stroke-width="1.2" stroke-dasharray="3 6"/>
+            <circle cx="280" cy="280" r="100" stroke-width="1.2"/>
+            <circle cx="280" cy="280" r="60"  stroke-width="1.2" stroke-dasharray="2 4"/>
+            <circle cx="200" cy="200" r="5"   fill="currentColor" stroke="none"/>
+            <circle cx="350" cy="220" r="4"   fill="currentColor" stroke="none"/>
+            <circle cx="320" cy="340" r="5.5" fill="currentColor" stroke="none"/>
+            <circle cx="180" cy="320" r="3.5" fill="currentColor" stroke="none"/>
+            <circle cx="380" cy="380" r="4"   fill="currentColor" stroke="none"/>
+            <circle cx="240" cy="160" r="3"   fill="currentColor" stroke="none"/>
+            <circle cx="400" cy="280" r="4"   fill="currentColor" stroke="none"/>
+            <circle cx="160" cy="260" r="3"   fill="currentColor" stroke="none"/>
+            <circle cx="280" cy="420" r="4.5" fill="currentColor" stroke="none"/>
+        </svg>
+
+        <!-- 6. LEFT — Phylogenetic tree (root anchored off-screen, crown blooming in) -->
+        <svg class="ambient-shape" data-speed="0.95" viewBox="0 0 600 600"
+             style="top: 7300px; left: -200px; width: 600px; height: 600px;">
+            <line x1="40"  y1="300" x2="150" y2="300" stroke-width="2"/>
+            <line x1="150" y1="300" x2="280" y2="150" stroke-width="1.7"/>
+            <line x1="150" y1="300" x2="280" y2="450" stroke-width="1.7"/>
+            <line x1="280" y1="150" x2="420" y2="80"  stroke-width="1.5"/>
+            <line x1="280" y1="150" x2="420" y2="220" stroke-width="1.5"/>
+            <line x1="280" y1="450" x2="420" y2="380" stroke-width="1.5"/>
+            <line x1="280" y1="450" x2="420" y2="520" stroke-width="1.5"/>
+            <line x1="420" y1="80"  x2="560" y2="50"  stroke-width="1.3"/>
+            <line x1="420" y1="80"  x2="560" y2="110" stroke-width="1.3"/>
+            <line x1="420" y1="220" x2="560" y2="190" stroke-width="1.3"/>
+            <line x1="420" y1="220" x2="560" y2="250" stroke-width="1.3"/>
+            <line x1="420" y1="380" x2="560" y2="350" stroke-width="1.3"/>
+            <line x1="420" y1="380" x2="560" y2="410" stroke-width="1.3"/>
+            <line x1="420" y1="520" x2="560" y2="490" stroke-width="1.3"/>
+            <line x1="420" y1="520" x2="560" y2="550" stroke-width="1.3"/>
+            <circle cx="150" cy="300" r="6" fill="currentColor" stroke="none"/>
+            <circle cx="280" cy="150" r="5" fill="currentColor" stroke="none"/>
+            <circle cx="280" cy="450" r="5" fill="currentColor" stroke="none"/>
+            <circle cx="420" cy="80"  r="4" fill="currentColor" stroke="none"/>
+            <circle cx="420" cy="220" r="4" fill="currentColor" stroke="none"/>
+            <circle cx="420" cy="380" r="4" fill="currentColor" stroke="none"/>
+            <circle cx="420" cy="520" r="4" fill="currentColor" stroke="none"/>
+            <circle cx="560" cy="50"  r="5" fill="currentColor" stroke="none"/>
+            <circle cx="560" cy="110" r="5" fill="currentColor" stroke="none"/>
+            <circle cx="560" cy="190" r="5" fill="currentColor" stroke="none"/>
+            <circle cx="560" cy="250" r="5" fill="currentColor" stroke="none"/>
+            <circle cx="560" cy="350" r="5" fill="currentColor" stroke="none"/>
+            <circle cx="560" cy="410" r="5" fill="currentColor" stroke="none"/>
+            <circle cx="560" cy="490" r="5" fill="currentColor" stroke="none"/>
+            <circle cx="560" cy="550" r="5" fill="currentColor" stroke="none"/>
+        </svg>
+    </div>
+    <!-- Header -->
+    <header class="site-header">
         <div class="container">
             <div class="logo">
-                <a href="index.html">
-                    <img src="assets/images/maestro_full_light.png" alt="MAESTRO Logo">
+                <a class="brand-logo" href="index.html" aria-label="MAESTRO home">
+                    <img class="logo-on-dark" src="assets/images/maestro_full_light.png" alt="MAESTRO logo — clinical trial management platform for Canada" loading="eager" decoding="async" fetchpriority="high">
+                    <img class="logo-on-light" src="assets/images/maestro_full_dark.png" alt="MAESTRO logo — clinical trial management platform for Canada" loading="eager" decoding="async" fetchpriority="high">
                 </a>
             </div>
             <nav>
                 <ul>
                     <li><a href="#features">Features</a></li>
-                    <li><a href="#benefits">Benefits</a></li>
+                    <li><a href="#benefits">Outcomes</a></li>
                     <li><a href="#how-it-works">How It Works</a></li>
                     <li><a href="#pricing">Pricing</a></li>
                     <li><a href="#about">About</a></li>
-                    <li><a href="#cloud-providers">Cloud Providers</a></li>
+                    <li><a href="#cloud-providers">Cloud</a></li>
                     <li><a href="#contact" class="btn btn-secondary">Contact</a></li>
-                    <li><a href="#contact" class="btn btn-primary">Demo</a></li>
+                    <li><a href="#contact" class="btn btn-primary">Book a demo</a></li>
+                    <li>
+                        <button class="theme-toggle" data-theme-toggle aria-label="Toggle color theme" title="Toggle theme">
+                            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+                        </button>
+                    </li>
                 </ul>
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
+                <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="hero">
+    <main>
+    <!-- Hero -->
+    <section class="hero">
         <div class="container">
-            <div class="hero-content">
-                <h1>The All-In-One Solution<br>For Your Clinical Trials</h1>
-                <h2>The unified AI-powered platform for clinical trials, document management, quality control, and workflow automation</h2>
-                <p class="hero-description">MAESTRO integrates CTMS, eTMF, QMS, and intelligent workflows into a unified platform, eliminating operational silos while leveraging AI to automate routine tasks, ensure regulatory compliance, and drive unprecedented research efficiency.</p>
-                <div class="cta-buttons">
-                    <a href="#contact" class="btn btn-primary">Schedule a Demo</a>
-                    <a href="#features" class="btn btn-secondary">Explore Features</a>
+            <div class="hero-grid">
+                <div class="hero-text">
+                    <span class="eyebrow">Unified clinical research platform</span>
+                    <h1 class="hero-headline mt-16">Run trials in <span>one platform</span>.</h1>
+                    <p class="hero-sub">MAESTRO unifies CTMS, eTMF, QMS, intelligent workflows and AI agents — eliminating data silos so your scientists focus on discovery, not on stitching tools together.</p>
+                    <div class="hero-actions">
+                        <a href="#contact" class="btn btn-primary btn-large btn-arrow">Book a demo</a>
+                        <a href="#features" class="btn btn-secondary btn-large">Explore the platform</a>
+                    </div>
+                    <div class="hero-meta">Trusted by clinical operations teams across CROs, biotechs and academic centers</div>
                 </div>
+
+                <!-- Demo card -->
+                <aside class="hero-card" id="contact-card">
+                    <h3>Talk to our team</h3>
+                    <p class="muted">Tell us a little about you. We&rsquo;ll open your email app with a pre-filled request and reply within one business day.</p>
+                    <form data-demo-form data-mailto="sales@ranbiolinks.com" novalidate>
+                        <div class="form-row">
+                            <label for="full-name">Full Name *</label>
+                            <input id="full-name" type="text" name="full-name" placeholder="Enter your name" required autocomplete="name">
+                        </div>
+                        <div class="form-row">
+                            <label for="work-email">Work Email *</label>
+                            <input id="work-email" type="email" name="email" placeholder="you@yourcompany.com" required autocomplete="email">
+                        </div>
+                        <div class="form-row">
+                            <label for="org">Organization</label>
+                            <input id="org" type="text" name="org" placeholder="e.g. Acme Biotech" autocomplete="organization">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-large btn-arrow">Compose my request</button>
+                        <p class="form-status" data-form-status role="status" aria-live="polite"></p>
+                        <p class="legal">Prefer to write us directly? <a href="mailto:sales@ranbiolinks.com">sales@ranbiolinks.com</a> &middot; By submitting, you agree to our <a href="privacy-policy.html">Privacy Policy</a>.</p>
+                    </form>
+                </aside>
             </div>
         </div>
     </section>
 
-    <!-- Platform Integration Section -->
-    <section id="platform-integration">
+    <!-- Trust strip -->
+    <section class="trust" style="padding: 28px 0;">
         <div class="container">
-            <h2>Unifying Your Clinical Research Ecosystem</h2>
-            <p class="section-intro">MAESTRO transforms fragmented research operations into a cohesive, intelligent ecosystem by eliminating data silos and connecting every aspect of your clinical trials.</p>
-            
-            <div class="integration-visual">
-                <img src="assets/images/maestro.png" alt="MAESTRO Integration Platform" class="platform-diagram">
-            </div>
-            
-            <div class="integration-benefits">
-                <div class="benefit-column">
-                    <h3>Connect All Data Sources</h3>
-                    <p>MAESTRO seamlessly integrates with EDC systems, risk assessments, monitoring reports, SOPs, and audit documentation, creating a single source of truth that eliminates conflicting information and duplicative work.</p>
-                </div>
-                <div class="benefit-column">
-                    <h3>Intelligent Data Processing</h3>
-                    <p>Our AI-powered platform automatically processes and contextualizes information from multiple sources, delivering real-time insights and predictive analytics that drive better decision-making across your organization.</p>
-                </div>
-                <div class="benefit-column">
-                    <h3>Cross-Functional Collaboration</h3>
-                    <p>Break down barriers between teams with unified workflows that enable seamless collaboration, ensuring everyone has immediate access to the information they need while maintaining strict compliance controls.</p>
-                </div>
+            <p class="trust-label">Cloud agnostic — deployable on every major provider</p>
+            <div class="logo-row">
+                <img src="assets/images/cloud/aws-logo.svg" alt="Amazon Web Services Canadian region — MAESTRO deployment target" loading="lazy" decoding="async">
+                <img src="assets/images/cloud/azure-logo.svg" alt="Microsoft Azure Canadian region — MAESTRO deployment target" loading="lazy" decoding="async">
+                <img src="assets/images/cloud/google-cloud-logo.svg" alt="Google Cloud Canadian region — MAESTRO deployment target" loading="lazy" decoding="async">
+                <img src="assets/images/cloud/oracle-cloud-logo.svg" alt="Oracle Cloud — MAESTRO multi-cloud deployment" loading="lazy" decoding="async">
+                <img src="assets/images/cloud/ibm-cloud-logo.svg" alt="IBM Cloud Canadian region — MAESTRO deployment target" loading="lazy" decoding="async">
+                <img src="assets/images/cloud/digitalocean-logo.svg" alt="DigitalOcean Toronto region — MAESTRO deployment target" loading="lazy" decoding="async">
             </div>
         </div>
     </section>
 
-    <!-- Pain Points Section -->
+    <!-- Pain points / value props (Bento) -->
     <section id="pain-points">
         <div class="container">
-            <h2>Solving Critical Challenges in Research & Development</h2>
-            <p class="section-intro" style="text-align: center;">MAESTRO directly addresses the key obstacles hindering research progress and operational efficiency in life sciences.</p>
-            <div class="challenges-grid">
-                <div class="challenge-card">
-                    <div class="challenge-icon"><img src="assets/images/icons/data-silos.svg" alt="Data Silos"></div>
-                    <h3>Data Silos</h3>
-                    <p>Eliminate disconnected systems with a unified platform that ensures seamless data flow between modules, creating a single source of truth that enhances collaboration and visibility across your research portfolio.</p>
-                </div>
-                <div class="challenge-card">
-                    <div class="challenge-icon"><img src="assets/images/icons/manual-docs.svg" alt="Manual Documentation"></div>
-                    <h3>Manual Documentation</h3>
-                    <p>Automate documentation processes with intelligent document processing using AI to generate, classify, and validate documentation, reducing manual effort by up to 60% while improving accuracy.</p>
-                </div>
-                <div class="challenge-card">
-                    <div class="challenge-icon"><img src="assets/images/icons/compliance.svg" alt="Regulatory Compliance"></div>
-                    <h3>Regulatory Compliance</h3>
-                    <p>Ensure 99.8% compliance with automated checks against FDA, EMA, and ICH guidelines, identifying potential issues before they become problems with real-time regulatory updates.</p>
-                </div>
-                <div class="challenge-card">
-                    <div class="challenge-icon"><img src="assets/images/icons/trial-management.svg" alt="Trial Management"></div>
-                    <h3>Trial Management</h3>
-                    <p>Streamline planning, execution, and monitoring with comprehensive tools for every stage of the trial lifecycle, enhanced by predictive analytics to prevent bottlenecks.</p>
-                </div>
-                <div class="challenge-card">
-                    <div class="challenge-icon"><img src="assets/images/icons/quality.svg" alt="Quality Management"></div>
-                    <h3>Quality Management</h3>
-                    <p>Implement consistent quality processes with real-time monitoring that automates quality event detection, root cause analysis, and CAPA implementation for GxP compliance.</p>
-                </div>
-                <div class="challenge-card">
-                    <div class="challenge-icon"><img src="assets/images/icons/insights.svg" alt="Limited Insights"></div>
-                    <h3>Limited Insights</h3>
-                    <p>Transform fragmented data into actionable insights with AI-powered analytics that uncover patterns, predict outcomes, and identify optimization opportunities through customizable dashboards.</p>
-                </div>
+            <div class="section-header">
+                <span class="eyebrow">Why MAESTRO</span>
+                <h2>Use one or all. Best-of-breed modules. Integrated as a platform.</h2>
+                <p>Stop choosing between fragmented point-tools and rigid suites. MAESTRO gives you composable modules that share a unified data layer, AI core, and audit trail.</p>
+            </div>
+
+            <div class="bento">
+                <article class="bento-card col-4">
+                    <div class="icon"><img src="assets/images/icons/data-silos.svg" alt="" loading="lazy" decoding="async"></div>
+                    <h3>Eliminate data silos</h3>
+                    <p>One source of truth across CTMS, eTMF, QMS &amp; workflows. No more reconciling spreadsheets between teams.</p>
+                </article>
+                <article class="bento-card col-4">
+                    <div class="icon"><img src="assets/images/icons/manual-docs.svg" alt="" loading="lazy" decoding="async"></div>
+                    <h3>Automate documentation</h3>
+                    <p>AI generates, classifies and validates docs &mdash; cutting manual effort by up to 60% while improving accuracy.</p>
+                </article>
+                <article class="bento-card col-4">
+                    <div class="icon"><img src="assets/images/icons/compliance.svg" alt="" loading="lazy" decoding="async"></div>
+                    <h3>Built for compliance</h3>
+                    <p>Continuous checks against FDA, EMA and ICH guidelines with real-time regulatory updates and full audit trails.</p>
+                </article>
+                <article class="bento-card col-4">
+                    <div class="icon"><img src="assets/images/icons/trial-management.svg" alt="" loading="lazy" decoding="async"></div>
+                    <h3>Run trials end-to-end</h3>
+                    <p>Plan, execute and monitor every stage of the trial lifecycle &mdash; with predictive analytics to prevent bottlenecks.</p>
+                </article>
+                <article class="bento-card col-4">
+                    <div class="icon"><img src="assets/images/icons/quality.svg" alt="" loading="lazy" decoding="async"></div>
+                    <h3>Quality by design</h3>
+                    <p>Real-time monitoring automates quality event detection, root cause analysis and CAPA for full GxP compliance.</p>
+                </article>
+                <article class="bento-card col-4">
+                    <div class="icon"><img src="assets/images/icons/insights.svg" alt="" loading="lazy" decoding="async"></div>
+                    <h3>Insights that act</h3>
+                    <p>Turn fragmented trial data into AI-powered insights and customizable dashboards your team will actually use.</p>
+                </article>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section id="features" class="features">
+    <!-- Features (tabs) -->
+    <section id="features">
         <div class="container">
             <div class="section-header">
+                <span class="eyebrow">The MAESTRO platform</span>
                 <h2>Powerful. Modular. Intelligent.</h2>
-                <p style="text-align: center;">MAESTRO combines industry-leading modules with AI-powered workflows.</p>
+                <p>Industry-leading modules combined with AI-powered workflows. Start with what you need, expand as you grow.</p>
             </div>
 
-            <div class="tabs-container">
-                <div class="tabs-navigation">
+            <div class="tabs">
+                <div class="tabs-nav">
                     <button class="tab-btn active" data-tab="ctms-tab">CTMS</button>
                     <button class="tab-btn" data-tab="etmf-tab">eTMF</button>
                     <button class="tab-btn" data-tab="qms-tab">QMS</button>
                     <button class="tab-btn" data-tab="workflow-tab">Workflow</button>
                     <button class="tab-btn" data-tab="ai-tab">AI Agents</button>
                 </div>
-                
+
                 <div class="tab-content">
                     <div class="tab-pane active" id="ctms-tab">
-                        <div class="row align-items-center">
-                            <div class="col-md-6">
+                        <div class="tab-grid">
+                            <div>
+                                <span class="tag">CTMS</span>
                                 <h3>Clinical Trial Management System</h3>
-                                <p>Streamlined management of all clinical trial aspects.</p>
-                                <ul class="feature-list">
+                                <p>Streamlined management of every aspect of your clinical trials &mdash; from study setup to financials.</p>
+                                <ul>
                                     <li>Study and site management</li>
                                     <li>Patient recruitment and enrollment</li>
                                     <li>Budget tracking and financials</li>
                                     <li>Regulatory compliance automation</li>
                                 </ul>
+                                <a href="features/ctms.html" class="btn btn-secondary btn-arrow">Explore CTMS</a>
                             </div>
-                            <div class="col-md-6">
-                                <img src="assets/images/features/ctms-feature.svg" alt="CTMS Module" class="feature-image">
-                                <div class="text-center mt-md">
-                                    <a href="features/ctms.html" class="btn btn-secondary">More Details</a>
-                                </div>
+                            <div class="feature-image-wrap">
+                                <img src="assets/images/features/ctms-feature.svg" alt="CTMS module for Canadian clinical trials — site, study and subject management" loading="lazy" decoding="async">
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="tab-pane" id="etmf-tab">
-                        <div class="row align-items-center">
-                            <div class="col-md-6">
+                        <div class="tab-grid">
+                            <div>
+                                <span class="tag">eTMF</span>
                                 <h3>Electronic Trial Master File</h3>
-                                <p>AI-powered trial documentation management.</p>
-                                <ul class="feature-list">
+                                <p>AI-powered trial documentation that&rsquo;s always inspection-ready.</p>
+                                <ul>
                                     <li>Automated document classification</li>
                                     <li>Regulatory compliance tracking</li>
                                     <li>Smart document search</li>
                                     <li>Audit-ready documentation</li>
                                 </ul>
+                                <a href="features/etmf.html" class="btn btn-secondary btn-arrow">Explore eTMF</a>
                             </div>
-                            <div class="col-md-6">
-                                <img src="assets/images/features/etmf-feature.svg" alt="eTMF Module" class="feature-image">
-                                <div class="text-center mt-md">
-                                    <a href="features/etmf.html" class="btn btn-secondary">More Details</a>
-                                </div>
+                            <div class="feature-image-wrap">
+                                <img src="assets/images/features/etmf-feature.svg" alt="eTMF for Health Canada-compliant clinical trials with 21 CFR Part 11 e-signatures" loading="lazy" decoding="async">
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="tab-pane" id="qms-tab">
-                        <div class="row align-items-center">
-                            <div class="col-md-6">
+                        <div class="tab-grid">
+                            <div>
+                                <span class="tag">QMS</span>
                                 <h3>Quality Management System</h3>
-                                <p>Comprehensive quality control and compliance.</p>
-                                <ul class="feature-list">
+                                <p>Comprehensive quality control and compliance &mdash; built into your daily workflows.</p>
+                                <ul>
                                     <li>CAPA management</li>
                                     <li>Deviation tracking</li>
                                     <li>SOP and document control</li>
                                     <li>Audit management</li>
                                 </ul>
+                                <a href="features/qms.html" class="btn btn-secondary btn-arrow">Explore QMS</a>
                             </div>
-                            <div class="col-md-6">
-                                <img src="assets/images/features/qms-feature.svg" alt="QMS Module" class="feature-image">
-                                <div class="text-center mt-md">
-                                    <a href="features/qms.html" class="btn btn-secondary">More Details</a>
-                                </div>
+                            <div class="feature-image-wrap">
+                                <img src="assets/images/features/qms-feature.svg" alt="Clinical trial QMS for Canada — deviations, CAPAs and audit readiness" loading="lazy" decoding="async">
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="tab-pane" id="workflow-tab">
-                        <div class="row align-items-center">
-                            <div class="col-md-6">
+                        <div class="tab-grid">
+                            <div>
+                                <span class="tag">Workflow</span>
                                 <h3>Intelligent Workflow Automation</h3>
-                                <p>Streamlined operations with smart process automation.</p>
-                                <ul class="feature-list">
+                                <p>Streamline operations with smart, no-code automation across modules.</p>
+                                <ul>
                                     <li>No-code workflow builder</li>
                                     <li>Cross-module automation</li>
                                     <li>AI-powered task prioritization</li>
                                     <li>Real-time progress dashboards</li>
                                 </ul>
+                                <a href="features/workflow.html" class="btn btn-secondary btn-arrow">Explore Workflow</a>
                             </div>
-                            <div class="col-md-6">
-                                <img src="assets/images/features/workflow-feature.svg" alt="Workflow Automation" class="feature-image">
-                                <div class="text-center mt-md">
-                                    <a href="features/workflow.html" class="btn btn-secondary">More Details</a>
-                                </div>
+                            <div class="feature-image-wrap">
+                                <img src="assets/images/features/workflow-feature.svg" alt="Visual workflow automation for Canadian clinical operations" loading="lazy" decoding="async">
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="tab-pane" id="ai-tab">
-                        <div class="row align-items-center">
-                            <div class="col-md-6">
-                                <h3>AI Agents</h3>
-                                <p>Autonomous agents for complex task automation.</p>
-                                <ul class="feature-list">
+                        <div class="tab-grid">
+                            <div>
+                                <span class="tag">AI Agents</span>
+                                <h3>Autonomous AI Agents</h3>
+                                <p>Specialized agents for the repetitive, error-prone tasks slowing your team down.</p>
+                                <ul>
                                     <li>Document review and processing</li>
                                     <li>Data anomaly detection</li>
                                     <li>Automated correspondence</li>
                                     <li>Predictive insights</li>
                                 </ul>
+                                <a href="features/ai-agents.html" class="btn btn-secondary btn-arrow">Explore AI Agents</a>
                             </div>
-                            <div class="col-md-6">
-                                <img src="assets/images/features/ai-feature.svg" alt="AI Agents" class="feature-image">
-                                <div class="text-center mt-md">
-                                    <a href="features/ai-agents.html" class="btn btn-secondary">More Details</a>
-                                </div>
+                            <div class="feature-image-wrap">
+                                <img src="assets/images/features/ai-feature.svg" alt="AI agents for Canadian clinical trials — protocol Q&A, safety triage, regulatory drafting" loading="lazy" decoding="async">
                             </div>
                         </div>
                     </div>
@@ -337,261 +782,461 @@
         </div>
     </section>
 
-    <!-- Benefits Section -->
+    <!-- Benefits / stats -->
     <section id="benefits">
         <div class="container">
-            <h2>Measurable Outcomes</h2>
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-number">60%</div>
-                    <h3>Reduced Documentation Time</h3>
-                    <p>Automated processing and templates slash documentation overhead.</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-number">45%</div>
-                    <h3>Faster Trial Setup</h3>
-                    <p>Streamlined workflows accelerate trial initiation processes.</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-number">99.8%</div>
-                    <h3>Regulatory Compliance</h3>
-                    <p>AI-powered validation ensures near-perfect compliance.</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-number">35%</div>
-                    <h3>Research Productivity</h3>
-                    <p>Automation of routine tasks focuses teams on innovation.</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-number">100%</div>
-                    <h3>Seamless Integration</h3>
-                    <p>Unify all research operations in a single platform.</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-number">24/7</div>
-                    <h3>Real-time Insights</h3>
-                    <p>Continuous monitoring and analytics for better decisions.</p>
-                </div>
+            <div class="section-header">
+                <span class="eyebrow">Measurable outcomes</span>
+                <h2>The numbers behind unified clinical operations.</h2>
+            </div>
+            <div class="stats">
+                <div class="stat"><div class="num">60%</div><h4>Reduced documentation time</h4><p>Automated processing and templates slash documentation overhead.</p></div>
+                <div class="stat"><div class="num">45%</div><h4>Faster trial setup</h4><p>Streamlined workflows accelerate trial initiation processes.</p></div>
+                <div class="stat"><div class="num">99.8%</div><h4>Regulatory compliance</h4><p>AI-powered validation ensures near-perfect compliance.</p></div>
+                <div class="stat"><div class="num">35%</div><h4>Research productivity</h4><p>Automate routine tasks so teams focus on innovation.</p></div>
+            </div>
+            <div class="stats mt-24">
+                <div class="stat"><div class="num">100%</div><h4>Seamless integration</h4><p>Unify all research operations in a single platform.</p></div>
+                <div class="stat"><div class="num">24/7</div><h4>Real-time insights</h4><p>Continuous monitoring and analytics for better decisions.</p></div>
+                <div class="stat"><div class="num">5+</div><h4>Cloud providers</h4><p>Deploy where regulation, cost and geography demand.</p></div>
+                <div class="stat"><div class="num">1</div><h4>Source of truth</h4><p>One unified data layer across CTMS, eTMF and QMS.</p></div>
             </div>
         </div>
     </section>
 
-    <!-- How It Works Section -->
+    <!-- How it works -->
     <section id="how-it-works">
         <div class="container">
-            <h2>How MAESTRO Works</h2>
-            <p class="section-intro" style="text-align: center;">Our platform integrates cutting-edge AI with robust data management for a comprehensive solution that adapts to your needs.</p>
-            <div class="platform-architecture">
-                <img src="assets/images/platform-architecture.svg" alt="MAESTRO Platform Architecture" class="full-width-img" onerror="this.onerror=null; this.src='assets/images/platform-architecture.png'">
+            <div class="section-header">
+                <span class="eyebrow">How it works</span>
+                <h2>Cutting-edge AI on a robust data foundation.</h2>
+                <p>Our platform integrates AI with rigorous data management for a comprehensive solution that adapts to your needs.</p>
             </div>
-            <div class="architecture-description">
-                <div class="architecture-column">
+
+            <div class="architecture-image">
+                <img src="assets/images/platform-architecture.svg" alt="MAESTRO platform architecture for Canadian clinical trials" loading="lazy" decoding="async">
+            </div>
+
+            <div class="architecture-cols">
+                <div class="card">
+                    <div class="icon-circle"><img src="assets/images/icons/insights.svg" alt="" loading="lazy" decoding="async"></div>
                     <h3>AI Core Technology</h3>
-                    <p>Advanced AI engine that processes research data, automates tasks, and provides predictive insights. Includes specialized models for document processing, NLP, anomaly detection, and analytics that continuously learn while maintaining compliance.</p>
+                    <p>Specialized models for document processing, NLP, anomaly detection and analytics &mdash; continuously learning while staying compliant.</p>
                 </div>
-                <div class="architecture-column">
+                <div class="card">
+                    <div class="icon-circle"><img src="assets/images/icons/data-silos.svg" alt="" loading="lazy" decoding="async"></div>
                     <h3>Unified Data Layer</h3>
-                    <p>Centralized repository that eliminates silos and enables cross-functional analytics. Maps complex relationships between trials, documents, quality events, and metrics to create a complete digital representation of research activities.</p>
+                    <p>Centralized repository that maps relationships between trials, documents, quality events and metrics &mdash; killing silos for good.</p>
                 </div>
-                <div class="architecture-column">
+                <div class="card">
+                    <div class="icon-circle"><img src="assets/images/icons/server.svg" alt="" loading="lazy" decoding="async"></div>
                     <h3>Integration Capabilities</h3>
-                    <p>Connect with existing systems through our API framework, supporting both legacy and modern technologies. Includes pre-built connectors, flexible REST API, and specialized adapters for clinical data standards with comprehensive audit trails.</p>
+                    <p>Pre-built connectors, REST APIs and adapters for clinical data standards with comprehensive audit trails out of the box.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Cloud Providers Section -->
+    <!-- Cloud providers -->
     <section id="cloud-providers">
         <div class="container">
-            <h2>Cloud Agnostic Platform</h2>
-            <p class="section-intro" >MAESTRO's flexible architecture deploys seamlessly across all major cloud providers, giving you freedom of choice without vendor lock-in.</p>
-            <br>
-            <div class="cloud-slider">
-                <div class="cloud-slide">
-                    <div class="cloud-content">
-                        <img src="assets/images/cloud/aws-logo.svg" alt="Amazon Web Services" class="cloud-logo">
-                    </div>
-                </div>
-                <div class="cloud-slide">
-                    <div class="cloud-content">
-                        <img src="assets/images/cloud/azure-logo.svg" alt="Microsoft Azure" class="cloud-logo">
-                    </div>
-                </div>
-                <div class="cloud-slide">
-                    <div class="cloud-content">
-                        <img src="assets/images/cloud/google-cloud-logo.svg" alt="Google Cloud Platform" class="cloud-logo">
-                    </div>
-                </div>
-                <div class="cloud-slide">
-                    <div class="cloud-content">
-                        <img src="assets/images/cloud/digitalocean-logo.svg" alt="Digital Ocean" class="cloud-logo">
-                    </div>
-                </div>
-                <div class="cloud-slide">
-                    <div class="cloud-content">
-                        <img src="assets/images/cloud/oracle-cloud-logo.svg" alt="Oracle Cloud" class="cloud-logo">
-                    </div>
-                </div>
+            <div class="section-header">
+                <span class="eyebrow">Cloud agnostic</span>
+                <h2>Deploy MAESTRO wherever your data needs to live.</h2>
+                <p>Choose the provider, region and topology that fits your regulatory, cost and geographic constraints &mdash; without vendor lock-in.</p>
             </div>
-            <div class="cloud-nav">
-                <button class="prev-btn"><img src="assets/images/icons/arrow-left.svg" alt="Previous"></button>
-                <div class="cloud-dots"></div>
-                <button class="next-btn"><img src="assets/images/icons/arrow-right.svg" alt="Next"></button>
+
+            <div class="cloud-strip">
+                <img src="assets/images/cloud/aws-logo.svg" alt="Amazon Web Services Canadian region — MAESTRO deployment target" loading="lazy" decoding="async">
+                <img src="assets/images/cloud/azure-logo.svg" alt="Microsoft Azure Canadian region — MAESTRO deployment target" loading="lazy" decoding="async">
+                <img src="assets/images/cloud/google-cloud-logo.svg" alt="Google Cloud Canadian region — MAESTRO deployment target" loading="lazy" decoding="async">
+                <img src="assets/images/cloud/oracle-cloud-logo.svg" alt="Oracle Cloud — MAESTRO multi-cloud deployment" loading="lazy" decoding="async">
+                <img src="assets/images/cloud/ibm-cloud-logo.svg" alt="IBM Cloud Canadian region — MAESTRO deployment target" loading="lazy" decoding="async">
+                <img src="assets/images/cloud/digitalocean-logo.svg" alt="DigitalOcean Toronto region — MAESTRO deployment target" loading="lazy" decoding="async">
             </div>
-            
-            <div class="cloud-benefits challenge-grid">
-                <div class="challenge-card">
-                    <div class="challenge-icon">
-                        <img src="assets/images/icons/global.svg" alt="Deployment Flexibility">
-                    </div>
-                    <h3>Deployment Flexibility</h3>
-                    <p>Choose the cloud provider that best meets your regulatory, cost, and geographic requirements.</p>
+
+            <div class="card-grid">
+                <div class="card">
+                    <div class="icon-circle"><img src="assets/images/icons/global.svg" alt="" loading="lazy" decoding="async"></div>
+                    <h3>Deployment flexibility</h3>
+                    <p>Pick the cloud provider that best meets your regulatory, cost and geographic requirements.</p>
                 </div>
-                <div class="challenge-card">
-                    <div class="challenge-icon">
-                        <img src="assets/images/icons/shield.svg" alt="Data Sovereignty">
-                    </div>
-                    <h3>Data Sovereignty</h3>
-                    <p>Maintain compliance with regional data regulations by selecting appropriate cloud regions.</p>
+                <div class="card">
+                    <div class="icon-circle"><img src="assets/images/icons/shield.svg" alt="" loading="lazy" decoding="async"></div>
+                    <h3>Data sovereignty</h3>
+                    <p>Comply with regional data regulations by selecting the appropriate cloud regions.</p>
                 </div>
-                <div class="challenge-card">
-                    <div class="challenge-icon">
-                        <img src="assets/images/icons/server.svg" alt="Hybrid Options">
-                    </div>
-                    <h3>Hybrid Options</h3>
-                    <p>Seamlessly operate across public cloud, private cloud, and on-premises environments.</p>
+                <div class="card">
+                    <div class="icon-circle"><img src="assets/images/icons/server.svg" alt="" loading="lazy" decoding="async"></div>
+                    <h3>Hybrid options</h3>
+                    <p>Operate seamlessly across public cloud, private cloud and on-premises environments.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Pricing Section -->
+    <!-- Pricing -->
     <section id="pricing">
         <div class="container">
-            <h2>Pricing Plans</h2>
+            <div class="section-header">
+                <span class="eyebrow">Pricing</span>
+                <h2>Plans that scale with your research portfolio.</h2>
+                <p>From startups to enterprise programs &mdash; pick the engagement that matches your stage.</p>
+            </div>
+
             <div class="pricing-grid">
                 <div class="pricing-card">
-                    <div class="pricing-header">
-                        <h3>Enterprise</h3>
-                        <p class="pricing-subheading">For large pharmaceutical companies</p>
-                    </div>
-                    <div class="pricing-features">
-                        <ul>
-                            <li>Full platform access</li>
-                            <li>Unlimited users</li>
-                            <li>Custom AI model training</li>
-                            <li>Enterprise integrations</li>
-                            <li>Dedicated support team</li>
-                            <li>Compliance validation package</li>
-                        </ul>
-                    </div>
-                    <div class="pricing-cta">
-                        <a href="#contact" class="btn btn-primary">Contact for Pricing</a>
-                    </div>
+                    <h3>Startup</h3>
+                    <p class="sub">For biotech and early-stage companies</p>
+                    <ul>
+                        <li>Essential modules access</li>
+                        <li>Unlimited users</li>
+                        <li>Standard AI capabilities</li>
+                        <li>Basic integrations</li>
+                        <li>Email support</li>
+                        <li>Startup-friendly pricing</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-secondary">Contact sales</a>
                 </div>
-                <div class="pricing-card">
-                    <div class="pricing-header">
-                        <h3>Research Institution</h3>
-                        <p class="pricing-subheading">For universities and research centers</p>
-                    </div>
-                    <div class="pricing-features">
-                        <ul>
-                            <li>Full platform access</li>
-                            <li>Unlimited users</li>
-                            <li>Standard AI capabilities</li>
-                            <li>Core integrations</li>
-                            <li>Priority support</li>
-                            <li>Academic discount available</li>
-                        </ul>
-                    </div>
-                    <div class="pricing-cta">
-                        <a href="#contact" class="btn btn-primary">Contact for Pricing</a>
-                    </div>
+
+                <div class="pricing-card featured">
+                    <span class="badge">Most popular</span>
+                    <h3>Research Institution</h3>
+                    <p class="sub">For universities and research centers</p>
+                    <ul>
+                        <li>Full platform access</li>
+                        <li>Unlimited users</li>
+                        <li>Standard AI capabilities</li>
+                        <li>Core integrations</li>
+                        <li>Priority support</li>
+                        <li>Academic discount available</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Contact sales</a>
                 </div>
+
                 <div class="pricing-card">
-                    <div class="pricing-header">
-                        <h3>Startup</h3>
-                        <p class="pricing-subheading">For biotech and early-stage companies</p>
-                    </div>
-                    <div class="pricing-features">
-                        <ul>
-                            <li>Essential modules access</li>
-                            <li>Unlimited users</li>
-                            <li>Standard AI capabilities</li>
-                            <li>Basic integrations</li>
-                            <li>Email support</li>
-                            <li>Startup-friendly pricing</li>
-                        </ul>
-                    </div>
-                    <div class="pricing-cta">
-                        <a href="#contact" class="btn btn-primary">Contact for Pricing</a>
-                    </div>
+                    <h3>Enterprise</h3>
+                    <p class="sub">For large pharmaceutical companies</p>
+                    <ul>
+                        <li>Full platform access</li>
+                        <li>Unlimited users</li>
+                        <li>Custom AI model training</li>
+                        <li>Enterprise integrations</li>
+                        <li>Dedicated support team</li>
+                        <li>Compliance validation package</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-secondary">Contact sales</a>
                 </div>
             </div>
+
             <div class="custom-solution">
-                <h3>Need a Custom Solution?</h3>
+                <h3>Need a custom solution?</h3>
                 <p>Contact our team to design a tailored implementation that meets your specific research requirements.</p>
-                <a href="#contact" class="btn btn-secondary">Contact for Custom Solution</a>
+                <a href="#contact" class="btn btn-secondary btn-arrow">Request a custom proposal</a>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- About -->
     <section id="about">
         <div class="container">
-            <h2>About MAESTRO</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>MAESTRO was created by RAN BIOLINKS CANADA, a company founded by scientists with extensive clinical and research experience who recognized a critical problem in the industry: fragmented tools creating artificial data silos.</p>
-                    <p>While numerous solutions exist in the market, we observed that their separation is primarily driven by business models rather than scientific needs. This fragmentation forces researchers to make difficult choices—either invest in multiple disconnected systems or sacrifice essential capabilities due to budget constraints.</p>
-                    <p>Our philosophy is fundamentally different. We believe clinical scientists deserve a unified ecosystem where all tools work seamlessly together, allowing them to focus on breakthrough discoveries rather than managing disjointed software. MAESTRO embodies this vision, combining traditionally separate systems into one cohesive platform that puts scientists first.</p>
+            <div class="section-header">
+                <span class="eyebrow">About MAESTRO</span>
+                <h2>Built by scientists, for scientists.</h2>
+            </div>
+
+            <div class="about-grid">
+                <div>
+                    <p>MAESTRO was created by <strong>RAN BIOLINKS CANADA</strong>, a company founded by scientists with extensive clinical and research experience who recognized a critical problem in the industry: fragmented tools creating artificial data silos.</p>
+                    <p>While numerous solutions exist in the market, we observed that their separation is primarily driven by business models rather than scientific needs. This fragmentation forces researchers to make difficult choices &mdash; either invest in multiple disconnected systems or sacrifice essential capabilities due to budget constraints.</p>
+                    <p>Our philosophy is fundamentally different. We believe clinical scientists deserve a unified ecosystem where all tools work seamlessly together, allowing them to focus on breakthrough discoveries rather than managing disjointed software. MAESTRO embodies this vision &mdash; combining traditionally separate systems into one cohesive platform that puts scientists first.</p>
                 </div>
-                <div class="about-image">
-                    <div class="image-container">
-                        <img src="assets/images/scientists-first.png" alt="Scientists First - MAESTRO Philosophy">
-                    </div>
+                <div class="image-wrap">
+                    <img src="assets/images/scientists-first.png" alt="MAESTRO — clinical trials platform built by scientists for Canadian sponsors and CROs" loading="lazy" decoding="async">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact -->
-    <section id="contact" class="contact">
+    <!-- Personas — built for every role across the clinical-trial lifecycle -->
+    <section id="personas">
         <div class="container">
-            <h2 class="section-title text-center">Schedule a Demo</h2>
-            <p class="section-intro text-center">
-                See how MAESTRO can transform your clinical operations. Schedule a personalized demo with our team to explore the platform's capabilities and discuss your specific needs.
-            </p>
-            
-            <div class="demo-cta">
-                <p class="demo-description">
-                    Join organizations achieving faster study startups, real-time TMF inspection readiness, and automated site management—all while saving hours daily per team member.
-                </p>
-                <a href="https://www.ranbiolinks.com/maestro-demo" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large">Book Your Discovery Call</a>
+            <div class="section-header">
+                <span class="eyebrow">Built for every role</span>
+                <h2>From protocol design to safety closeout.</h2>
+                <p>MAESTRO doesn&rsquo;t replace your team. It removes the duct-tape between Word docs, spreadsheets, EDCs and email &mdash; so each role can spend their time on the work only they can do.</p>
+            </div>
+
+            <div class="persona-grid">
+
+                <article class="persona">
+                    <div class="persona-stage"><span class="dot"></span>Design</div>
+                    <div class="persona-header">
+                        <div class="persona-avatar">MD</div>
+                        <div>
+                            <h4 class="persona-role">Medical Director</h4>
+                            <p class="persona-title">Protocol &amp; medical strategy</p>
+                        </div>
+                    </div>
+                    <p class="persona-need">Designs protocols that survive ethics review and stand up to amendments. Wants prior-study answers in seconds &mdash; not weeks of digging through SharePoint.</p>
+                    <div class="persona-uses">
+                        <span class="persona-chip-label">Lives in</span>
+                        <div class="persona-chips">
+                            <a href="features/etmf.html" class="persona-chip">eTMF</a>
+                            <a href="features/ai-agents.html" class="persona-chip">Protocol Q&amp;A</a>
+                            <a href="features/workflow.html" class="persona-chip">Workflow</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="persona">
+                    <div class="persona-stage"><span class="dot"></span>Submit</div>
+                    <div class="persona-header">
+                        <div class="persona-avatar">RA</div>
+                        <div>
+                            <h4 class="persona-role">Regulatory Affairs Lead</h4>
+                            <p class="persona-title">Health Canada, FDA, EMA filings</p>
+                        </div>
+                    </div>
+                    <p class="persona-need">Builds CTA dossiers and ICH-aligned submissions. Needs every document version-controlled, signed, and traceable &mdash; not scattered across email and shared drives.</p>
+                    <div class="persona-uses">
+                        <span class="persona-chip-label">Lives in</span>
+                        <div class="persona-chips">
+                            <a href="features/etmf.html" class="persona-chip">eTMF</a>
+                            <a href="features/qms.html" class="persona-chip">QMS</a>
+                            <a href="features/workflow.html" class="persona-chip">Workflow</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="persona">
+                    <div class="persona-stage"><span class="dot"></span>Execute</div>
+                    <div class="persona-header">
+                        <div class="persona-avatar">CO</div>
+                        <div>
+                            <h4 class="persona-role">Clinical Operations Manager</h4>
+                            <p class="persona-title">Portfolio planning &amp; vendors</p>
+                        </div>
+                    </div>
+                    <p class="persona-need">Plans timelines, vendors and budgets across a portfolio of trials. Wants one live dashboard for every study, every site &mdash; not seventeen weekly status calls.</p>
+                    <div class="persona-uses">
+                        <span class="persona-chip-label">Lives in</span>
+                        <div class="persona-chips">
+                            <a href="features/ctms.html" class="persona-chip">CTMS</a>
+                            <a href="features/ai-agents.html" class="persona-chip">AI Agents</a>
+                            <a href="features/workflow.html" class="persona-chip">Workflow</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="persona">
+                    <div class="persona-stage"><span class="dot"></span>Deliver</div>
+                    <div class="persona-header">
+                        <div class="persona-avatar">PI</div>
+                        <div>
+                            <h4 class="persona-role">Principal Investigator</h4>
+                            <p class="persona-title">Site delivery &amp; patient care</p>
+                        </div>
+                    </div>
+                    <p class="persona-need">Treats patients and runs the study at the site. Wants admin work &mdash; visit windows, queries, source data &mdash; to disappear so clinical focus stays on people.</p>
+                    <div class="persona-uses">
+                        <span class="persona-chip-label">Lives in</span>
+                        <div class="persona-chips">
+                            <a href="features/ctms.html" class="persona-chip">CTMS</a>
+                            <a href="features/etmf.html" class="persona-chip">eTMF</a>
+                            <a href="features/ai-agents.html" class="persona-chip">AI Agents</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="persona">
+                    <div class="persona-stage"><span class="dot"></span>Coordinate</div>
+                    <div class="persona-header">
+                        <div class="persona-avatar">SC</div>
+                        <div>
+                            <h4 class="persona-role">Study Coordinator</h4>
+                            <p class="persona-title">Site operations, day to day</p>
+                        </div>
+                    </div>
+                    <p class="persona-need">Holds the site together: visits, queries, source docs, IP accountability. Needs shortcuts that never break GCP &mdash; and a system that doesn&rsquo;t require triple data entry.</p>
+                    <div class="persona-uses">
+                        <span class="persona-chip-label">Lives in</span>
+                        <div class="persona-chips">
+                            <a href="features/ctms.html" class="persona-chip">CTMS</a>
+                            <a href="features/etmf.html" class="persona-chip">eTMF</a>
+                            <a href="features/workflow.html" class="persona-chip">Workflow</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="persona">
+                    <div class="persona-stage"><span class="dot"></span>Monitor</div>
+                    <div class="persona-header">
+                        <div class="persona-avatar">CR</div>
+                        <div>
+                            <h4 class="persona-role">Clinical Research Associate</h4>
+                            <p class="persona-title">Remote &amp; on-site monitoring</p>
+                        </div>
+                    </div>
+                    <p class="persona-need">Monitors a portfolio of sites. Wants pre-visit briefs auto-prepared, deviations surfaced before they grow, and report time cut in half.</p>
+                    <div class="persona-uses">
+                        <span class="persona-chip-label">Lives in</span>
+                        <div class="persona-chips">
+                            <a href="features/ctms.html" class="persona-chip">CTMS</a>
+                            <a href="features/qms.html" class="persona-chip">QMS</a>
+                            <a href="features/ai-agents.html" class="persona-chip">Monitor briefs</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="persona">
+                    <div class="persona-stage"><span class="dot"></span>Comply</div>
+                    <div class="persona-header">
+                        <div class="persona-avatar">QA</div>
+                        <div>
+                            <h4 class="persona-role">Quality &amp; GxP Manager</h4>
+                            <p class="persona-title">Audit readiness &amp; compliance</p>
+                        </div>
+                    </div>
+                    <p class="persona-need">Owns audit readiness. Needs every action timestamped, signed and reproducible &mdash; so when an inspector arrives, the answer is one click away, not a week of prep.</p>
+                    <div class="persona-uses">
+                        <span class="persona-chip-label">Lives in</span>
+                        <div class="persona-chips">
+                            <a href="features/qms.html" class="persona-chip">QMS</a>
+                            <a href="features/etmf.html" class="persona-chip">eTMF</a>
+                            <a href="features/workflow.html" class="persona-chip">Workflow</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="persona">
+                    <div class="persona-stage"><span class="dot"></span>Report</div>
+                    <div class="persona-header">
+                        <div class="persona-avatar">PV</div>
+                        <div>
+                            <h4 class="persona-role">Pharmacovigilance Lead</h4>
+                            <p class="persona-title">Safety, SAEs &amp; narratives</p>
+                        </div>
+                    </div>
+                    <p class="persona-need">Owns the SAE clock. Needs structured cases, regulator-ready narratives drafted in minutes, and an audit trail proving every step was on time.</p>
+                    <div class="persona-uses">
+                        <span class="persona-chip-label">Lives in</span>
+                        <div class="persona-chips">
+                            <a href="features/ai-agents.html" class="persona-chip">AI Agents</a>
+                            <a href="features/qms.html" class="persona-chip">QMS</a>
+                            <a href="features/workflow.html" class="persona-chip">Workflow</a>
+                        </div>
+                    </div>
+                </article>
+
             </div>
         </div>
     </section>
+
+    <!-- ============================================================ -->
+    <!-- FAQ — Canada-first questions, paired with FAQPage JSON-LD     -->
+    <!-- High-intent long-tail keywords for Canadian clinical trials.   -->
+    <!-- ============================================================ -->
+    <section id="faq" aria-labelledby="faq-title">
+        <div class="container">
+            <div class="section-header">
+                <span class="eyebrow">Frequently asked</span>
+                <h2 id="faq-title">MAESTRO for Canadian clinical trials &mdash; answered.</h2>
+                <p>From PIPEDA and Health Canada to ICH E6 R3 and bilingual Quebec studies &mdash; the questions Canadian sponsors, CROs and academic centres ask us most.</p>
+            </div>
+
+            <div class="faq-grid">
+                <details class="faq-item">
+                    <summary>What is the best clinical trial management software in Canada?</summary>
+                    <div class="faq-answer">
+                        <p>MAESTRO is a Canadian-built, AI-powered clinical trials platform that unifies CTMS, eTMF, QMS, workflow automation and AI agents in one system. It is designed around <strong>Health Canada</strong> regulations (GUI-0104, GUI-0029), <strong>PIPEDA</strong> and provincial privacy laws (PHIPA in Ontario, Loi 25 in Quebec, HIA in Alberta), and <strong>ICH E6 R3</strong> Good Clinical Practice &mdash; making it a fit-for-purpose alternative to legacy Veeva and Medidata stacks for Canadian sponsors and CROs.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Is MAESTRO compliant with PIPEDA and Canadian data residency requirements?</summary>
+                    <div class="faq-answer">
+                        <p>Yes. MAESTRO can be deployed in Canadian regions of AWS, Microsoft Azure, Google Cloud, Oracle Cloud, IBM Cloud and DigitalOcean. Personal information is processed in accordance with PIPEDA and applicable provincial laws (PHIPA, Loi 25, HIA), with audit logging, role-based access and breach-notification workflows built in.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Does MAESTRO support Health Canada Clinical Trial Application (CTA) submissions?</summary>
+                    <div class="faq-answer">
+                        <p>Yes. The eTMF and QMS modules are pre-configured with the document types, sectional structures and quality records required for <strong>Health Canada CTAs</strong> and amendments. Workflows trigger required reviews, e-signatures and notifications so submission-ready bundles can be exported on demand.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Is MAESTRO 21 CFR Part 11 and ICH E6 R3 ready?</summary>
+                    <div class="faq-answer">
+                        <p>Yes. MAESTRO provides <strong>21 CFR Part 11</strong> e-signatures, audit trails and computer system controls, and is designed against <strong>ICH E6 R3</strong> principles (risk-based quality management, sponsor oversight, data integrity) &mdash; with validation packages (IQ/OQ/PQ) aligned to GAMP 5 available to customers.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>How does MAESTRO compare to Veeva Vault, Medidata Rave or Oracle Clinical?</summary>
+                    <div class="faq-answer">
+                        <p>MAESTRO is a unified, modular alternative built for Canadian and mid-market sponsors. Instead of stitching together multiple enterprise tools, you get <strong>CTMS + eTMF + QMS + workflow + AI agents</strong> in one platform &mdash; at a fraction of enterprise pricing, with Canadian data residency and bilingual (English / French) support.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Is MAESTRO suitable for academic clinical research centres in Canada?</summary>
+                    <div class="faq-answer">
+                        <p>Yes. MAESTRO offers academic-discount pricing for university hospitals, research institutes and the <strong>Clinical Trials Ontario / 3CTN</strong> ecosystem, and provides simplified workflows for investigator-initiated and Phase I&ndash;IV studies.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Does MAESTRO support bilingual (English / French) clinical trials in Quebec?</summary>
+                    <div class="faq-answer">
+                        <p>Yes. MAESTRO&rsquo;s UI, document templates and workflow notifications support English and Canadian French, in line with Quebec&rsquo;s <strong>Loi&nbsp;25</strong> and the language-of-work requirements common to Quebec-based research sites.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>How long does MAESTRO implementation take for a Canadian CRO or sponsor?</summary>
+                    <div class="faq-answer">
+                        <p>Most Canadian customers go live within <strong>4&ndash;8 weeks</strong>. Implementation includes data migration, validation evidence (IQ/OQ/PQ aligned with GAMP 5), Health Canada-aware configuration and team training in English and French.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA banner -->
+    <section id="contact">
+        <div class="container">
+            <div class="cta-banner">
+                <span class="eyebrow">Ready when you are</span>
+                <h2 class="mt-16">Run your trials in MAESTRO.<br>Schedule a demo today.</h2>
+                <p>See how MAESTRO can transform your clinical operations. Schedule a personalized demo with our team to explore the platform&rsquo;s capabilities and discuss your specific needs.</p>
+                <a href="https://www.ranbiolinks.com/maestro-demo" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large btn-arrow">Book your discovery call</a>
+            </div>
+        </div>
+    </section>
+    </main>
 
     <!-- Footer -->
-    <footer>
+    <footer class="site-footer">
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-col">
-                    <div class="footer-logo">
-                        <a href="index.html">
-                            <img src="assets/images/maestro_full_light.png" alt="MAESTRO Logo">
-                        </a>
-                    </div>
-                    <p>Transforming life science operations with intelligent automation.</p>
+                <div class="footer-col footer-brand">
+                    <a class="brand-logo" href="index.html" aria-label="MAESTRO home">
+                        <img class="logo-on-dark" src="assets/images/maestro_full_light.png" alt="MAESTRO logo — clinical trial management platform for Canada" loading="lazy" decoding="async" >
+                    <img class="logo-on-light" src="assets/images/maestro_full_dark.png" alt="MAESTRO logo — clinical trial management platform for Canada" loading="lazy" decoding="async" >
+                    </a>
+                    <p>Transforming life science operations with intelligent automation &mdash; built by scientists, for scientists.</p>
                     <div class="social-icons">
-                        <a href="https://www.linkedin.com/company/ranbiolinks/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><img src="assets/images/icons/linkedin.svg" alt="LinkedIn"></a>
-                        <a href="https://www.youtube.com/@ranbiolinks" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><img src="assets/images/icons/youtube.svg" alt="YouTube"></a>
-                        <a href="https://www.ranbiolinks.com" target="_blank" rel="noopener noreferrer" aria-label="Website"><img src="assets/images/icons/website.svg" alt="Website"></a>
+                        <a href="https://www.linkedin.com/company/ranbiolinks/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><img src="assets/images/icons/linkedin.svg" alt="" loading="lazy" decoding="async"></a>
+                        <a href="https://www.youtube.com/@ranbiolinks" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><img src="assets/images/icons/youtube.svg" alt="" loading="lazy" decoding="async"></a>
+                        <a href="https://www.ranbiolinks.com" target="_blank" rel="noopener noreferrer" aria-label="Website"><img src="assets/images/icons/website.svg" alt="" loading="lazy" decoding="async"></a>
                     </div>
                 </div>
+
                 <div class="footer-col">
-                    <h4>Features</h4>
+                    <h4>Product</h4>
                     <ul>
                         <li><a href="features/ctms.html">CTMS</a></li>
                         <li><a href="features/etmf.html">eTMF</a></li>
@@ -600,16 +1245,17 @@
                         <li><a href="features/ai-agents.html">AI Agents</a></li>
                     </ul>
                 </div>
+
                 <div class="footer-col">
                     <h4>Company</h4>
                     <ul>
                         <li><a href="#about">About</a></li>
                         <li><a href="#cloud-providers">Cloud Providers</a></li>
                         <li><a href="#pricing">Pricing</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Blog</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
+
                 <div class="footer-col">
                     <h4>Legal</h4>
                     <ul>
@@ -620,46 +1266,19 @@
                     </ul>
                 </div>
             </div>
+
             <div class="footer-bottom">
-                <p>&copy; 2025 MAESTRO. All rights reserved.</p>
+                <p>&copy; 2026 MAESTRO &mdash; RAN BIOLINKS CANADA LTD. All rights reserved.</p>
+                <div class="legal-links">
+                    <a href="privacy-policy.html">Privacy</a>
+                    <a href="terms-of-service.html">Terms</a>
+                    <a href="security.html">Security</a>
+                </div>
             </div>
         </div>
     </footer>
 
-    </div>
-</div>
-
-
     <!-- Scripts -->
     <script src="assets/js/main.js"></script>
-    <!-- Tab functionality -->
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Tab functionality
-        const tabButtons = document.querySelectorAll('.tab-btn');
-        const tabPanes = document.querySelectorAll('.tab-pane');
-        
-        tabButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                // Remove active class from all buttons and panes
-                tabButtons.forEach(btn => btn.classList.remove('active'));
-                tabPanes.forEach(pane => pane.classList.remove('active'));
-                
-                // Add active class to clicked button
-                this.classList.add('active');
-                
-                // Show corresponding tab pane - Get the correct target
-                const tabId = this.getAttribute('data-tab');
-                document.getElementById(tabId).classList.add('active');
-            });
-        });
-
-        // Activate first tab by default (in case it's not set in HTML)
-        if(tabButtons.length > 0 && tabPanes.length > 0) {
-            tabButtons[0].classList.add('active');
-            tabPanes[0].classList.add('active');
-        }
-    });
-    </script>
 </body>
-</html> 
+</html>

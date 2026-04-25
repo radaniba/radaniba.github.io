@@ -1,87 +1,139 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset
+    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+    xmlns:xhtml="http://www.w3.org/1999/xhtml"
+    xmlns:image="http://www.google.com/schemas/sitemaps-image/1.1">
+
+  <!-- Homepage — primary commercial keyword: clinical trial management software Canada -->
   <url>
     <loc>https://maestro.ranbiolinks.com/</loc>
-    <lastmod>2023-11-30</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://maestro.ranbiolinks.com/"/>
+    <xhtml:link rel="alternate" hreflang="en"    href="https://maestro.ranbiolinks.com/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://maestro.ranbiolinks.com/"/>
+    <image:image>
+      <image:loc>https://maestro.ranbiolinks.com/assets/images/og-image.png</image:loc>
+      <image:title>MAESTRO clinical trial management platform for Canada</image:title>
+      <image:caption>MAESTRO unified clinical trials platform — CTMS, eTMF, QMS and AI agents for Canadian sponsors and CROs.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://maestro.ranbiolinks.com/assets/images/platform-architecture.svg</image:loc>
+      <image:title>MAESTRO platform architecture for Canadian clinical trials</image:title>
+    </image:image>
   </url>
-  <url>
-    <loc>https://maestro.ranbiolinks.com/about</loc>
-    <lastmod>2025-06-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://maestro.ranbiolinks.com/features</loc>
-    <lastmod>2025-06-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://maestro.ranbiolinks.com/pricing</loc>
-    <lastmod>2025-06-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://maestro.ranbiolinks.com/contact</loc>
-    <lastmod>2025-06-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://maestro.ranbiolinks.com/privacy-policy.html</loc>
-    <lastmod>2023-11-30</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://maestro.ranbiolinks.com/terms-of-service.html</loc>
-    <lastmod>2023-11-30</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://maestro.ranbiolinks.com/gdpr-compliance.html</loc>
-    <lastmod>2023-11-30</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://maestro.ranbiolinks.com/security.html</loc>
-    <lastmod>2023-11-30</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-  </url>
+
+  <!-- Feature pages — module-level commercial intent -->
   <url>
     <loc>https://maestro.ranbiolinks.com/features/ctms.html</loc>
-    <lastmod>2023-11-30</lastmod>
+    <lastmod>2026-04-25</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://maestro.ranbiolinks.com/features/ctms.html"/>
+    <xhtml:link rel="alternate" hreflang="en"    href="https://maestro.ranbiolinks.com/features/ctms.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://maestro.ranbiolinks.com/features/ctms.html"/>
+    <image:image>
+      <image:loc>https://maestro.ranbiolinks.com/assets/images/features/ctms-feature.svg</image:loc>
+      <image:title>CTMS for Canadian clinical trials — site, study and subject management</image:title>
+    </image:image>
   </url>
+
   <url>
     <loc>https://maestro.ranbiolinks.com/features/etmf.html</loc>
-    <lastmod>2023-11-30</lastmod>
+    <lastmod>2026-04-25</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://maestro.ranbiolinks.com/features/etmf.html"/>
+    <xhtml:link rel="alternate" hreflang="en"    href="https://maestro.ranbiolinks.com/features/etmf.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://maestro.ranbiolinks.com/features/etmf.html"/>
+    <image:image>
+      <image:loc>https://maestro.ranbiolinks.com/assets/images/features/etmf-feature.svg</image:loc>
+      <image:title>eTMF for Canadian clinical trials — Health Canada and 21 CFR Part 11 compliant</image:title>
+    </image:image>
   </url>
+
   <url>
     <loc>https://maestro.ranbiolinks.com/features/qms.html</loc>
-    <lastmod>2023-11-30</lastmod>
+    <lastmod>2026-04-25</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://maestro.ranbiolinks.com/features/qms.html"/>
+    <xhtml:link rel="alternate" hreflang="en"    href="https://maestro.ranbiolinks.com/features/qms.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://maestro.ranbiolinks.com/features/qms.html"/>
+    <image:image>
+      <image:loc>https://maestro.ranbiolinks.com/assets/images/features/qms-feature.svg</image:loc>
+      <image:title>Clinical trial QMS for Canada — deviations, CAPAs and audit readiness</image:title>
+    </image:image>
   </url>
+
   <url>
     <loc>https://maestro.ranbiolinks.com/features/workflow.html</loc>
-    <lastmod>2023-11-30</lastmod>
+    <lastmod>2026-04-25</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://maestro.ranbiolinks.com/features/workflow.html"/>
+    <xhtml:link rel="alternate" hreflang="en"    href="https://maestro.ranbiolinks.com/features/workflow.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://maestro.ranbiolinks.com/features/workflow.html"/>
+    <image:image>
+      <image:loc>https://maestro.ranbiolinks.com/assets/images/features/workflow-feature.svg</image:loc>
+      <image:title>Clinical trial workflow automation for Canadian operations teams</image:title>
+    </image:image>
   </url>
+
   <url>
     <loc>https://maestro.ranbiolinks.com/features/ai-agents.html</loc>
-    <lastmod>2023-11-30</lastmod>
+    <lastmod>2026-04-25</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://maestro.ranbiolinks.com/features/ai-agents.html"/>
+    <xhtml:link rel="alternate" hreflang="en"    href="https://maestro.ranbiolinks.com/features/ai-agents.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://maestro.ranbiolinks.com/features/ai-agents.html"/>
+    <image:image>
+      <image:loc>https://maestro.ranbiolinks.com/assets/images/features/ai-feature.svg</image:loc>
+      <image:title>AI agents for Canadian clinical trials — protocol Q&amp;A, safety triage, regulatory drafting</image:title>
+    </image:image>
   </url>
-</urlset> 
+
+  <!-- Trust / legal pages — important for SEO trust signals (E-E-A-T) -->
+  <url>
+    <loc>https://maestro.ranbiolinks.com/security.html</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>quarterly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://maestro.ranbiolinks.com/security.html"/>
+    <xhtml:link rel="alternate" hreflang="en"    href="https://maestro.ranbiolinks.com/security.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://maestro.ranbiolinks.com/security.html"/>
+  </url>
+
+  <url>
+    <loc>https://maestro.ranbiolinks.com/privacy-policy.html</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>quarterly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://maestro.ranbiolinks.com/privacy-policy.html"/>
+    <xhtml:link rel="alternate" hreflang="en"    href="https://maestro.ranbiolinks.com/privacy-policy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://maestro.ranbiolinks.com/privacy-policy.html"/>
+  </url>
+
+  <url>
+    <loc>https://maestro.ranbiolinks.com/gdpr-compliance.html</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>quarterly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://maestro.ranbiolinks.com/gdpr-compliance.html"/>
+    <xhtml:link rel="alternate" hreflang="en"    href="https://maestro.ranbiolinks.com/gdpr-compliance.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://maestro.ranbiolinks.com/gdpr-compliance.html"/>
+  </url>
+
+  <url>
+    <loc>https://maestro.ranbiolinks.com/terms-of-service.html</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://maestro.ranbiolinks.com/terms-of-service.html"/>
+    <xhtml:link rel="alternate" hreflang="en"    href="https://maestro.ranbiolinks.com/terms-of-service.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://maestro.ranbiolinks.com/terms-of-service.html"/>
+  </url>
+
+</urlset>

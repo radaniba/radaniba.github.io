@@ -1,420 +1,115 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
-    <!-- Definitions -->
-    <defs>
-        <!-- Gradients for nodes -->
-        <linearGradient id="nodeGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#4A6ADA" stop-opacity="0.9"/>
-            <stop offset="100%" stop-color="#2C53C5" stop-opacity="0.9"/>
-        </linearGradient>
-        
-        <linearGradient id="nodeGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#FF416C" stop-opacity="0.9"/>
-            <stop offset="100%" stop-color="#FF4B2B" stop-opacity="0.9"/>
-        </linearGradient>
-        
-        <linearGradient id="nodeGradient3" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#0BAB64" stop-opacity="0.9"/>
-            <stop offset="100%" stop-color="#3BB78F" stop-opacity="0.9"/>
-        </linearGradient>
-        
-        <linearGradient id="nodeGradient4" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#8E54E9" stop-opacity="0.9"/>
-            <stop offset="100%" stop-color="#4A6ADA" stop-opacity="0.9"/>
-        </linearGradient>
-        
-        <linearGradient id="nodeGradient5" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#FF9500" stop-opacity="0.9"/>
-            <stop offset="100%" stop-color="#FF5E3A" stop-opacity="0.9"/>
-        </linearGradient>
-        
-        <linearGradient id="nodeGradient6" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#00C9FF" stop-opacity="0.9"/>
-            <stop offset="100%" stop-color="#0082FF" stop-opacity="0.9"/>
-        </linearGradient>
-        
-        <!-- Filter for node glow -->
-        <filter id="nodeGlow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="5" />
-            <feComponentTransfer>
-                <feFuncA type="linear" slope="0.2" />
-            </feComponentTransfer>
-            <feMerge>
-                <feMergeNode />
-                <feMergeNode in="SourceGraphic" />
-            </feMerge>
-        </filter>
-        
-        <!-- Filter for data packet glow -->
-        <filter id="packetGlow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
-            <feComponentTransfer>
-                <feFuncA type="linear" slope="0.5" />
-            </feComponentTransfer>
-            <feMerge>
-                <feMergeNode />
-                <feMergeNode in="SourceGraphic" />
-            </feMerge>
-        </filter>
-    </defs>
-    
-    <!-- Background -->
-    <rect x="0" y="0" width="800" height="600" fill="none" />
-    
-    <!-- Concept Nodes -->
-    <g id="concept-nodes">
-        <!-- Patient Node -->
-        <g transform="translate(240, 200)">
-            <circle r="40" fill="url(#nodeGradient1)" filter="url(#nodeGlow)">
-                <animate attributeName="opacity" values="0.8;1;0.8" dur="6s" repeatCount="indefinite" />
-            </circle>
-            <text text-anchor="middle" dy="5" fill="white" font-family="'Segoe UI', Arial, sans-serif" font-size="14">Patient</text>
-        </g>
-        
-        <!-- Record Node -->
-        <g transform="translate(430, 150)">
-            <circle r="40" fill="url(#nodeGradient2)" filter="url(#nodeGlow)">
-                <animate attributeName="opacity" values="0.7;0.9;0.7" dur="7s" repeatCount="indefinite" />
-            </circle>
-            <text text-anchor="middle" dy="5" fill="white" font-family="'Segoe UI', Arial, sans-serif" font-size="14">Record</text>
-        </g>
-        
-        <!-- Visit Node -->
-        <g transform="translate(590, 230)">
-            <circle r="40" fill="url(#nodeGradient3)" filter="url(#nodeGlow)">
-                <animate attributeName="opacity" values="0.75;0.95;0.75" dur="8s" repeatCount="indefinite" />
-            </circle>
-            <text text-anchor="middle" dy="5" fill="white" font-family="'Segoe UI', Arial, sans-serif" font-size="14">Visit</text>
-        </g>
-        
-        <!-- Timeline Node -->
-        <g transform="translate(500, 350)">
-            <circle r="40" fill="url(#nodeGradient4)" filter="url(#nodeGlow)">
-                <animate attributeName="opacity" values="0.8;1;0.8" dur="6.5s" repeatCount="indefinite" />
-            </circle>
-            <text text-anchor="middle" dy="5" fill="white" font-family="'Segoe UI', Arial, sans-serif" font-size="14">Timeline</text>
-        </g>
-        
-        <!-- Compliance Node -->
-        <g transform="translate(320, 400)">
-            <circle r="40" fill="url(#nodeGradient5)" filter="url(#nodeGlow)">
-                <animate attributeName="opacity" values="0.7;0.9;0.7" dur="7.5s" repeatCount="indefinite" />
-            </circle>
-            <text text-anchor="middle" dy="5" fill="white" font-family="'Segoe UI', Arial, sans-serif" font-size="14">Compliance</text>
-        </g>
-        
-        <!-- Audit Node -->
-        <g transform="translate(180, 300)">
-            <circle r="40" fill="url(#nodeGradient6)" filter="url(#nodeGlow)">
-                <animate attributeName="opacity" values="0.75;0.95;0.75" dur="5.5s" repeatCount="indefinite" />
-            </circle>
-            <text text-anchor="middle" dy="5" fill="white" font-family="'Segoe UI', Arial, sans-serif" font-size="14">Audit</text>
-        </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Clinical trial network">
+  <defs>
+    <linearGradient id="ctn-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#161618"/>
+      <stop offset="100%" stop-color="#0d0d0f"/>
+    </linearGradient>
+    <radialGradient id="ctn-hub" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ed1c24"/>
+      <stop offset="100%" stop-color="#9c0e14"/>
+    </radialGradient>
+    <filter id="ctn-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="14" stdDeviation="22" flood-color="#000" flood-opacity="0.45"/>
+    </filter>
+    <filter id="ctn-glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="14"/>
+    </filter>
+  </defs>
+
+  <rect x="20" y="20" width="760" height="460" rx="20" fill="url(#ctn-bg)" stroke="#26262a" stroke-width="1" filter="url(#ctn-shadow)"/>
+
+  <g transform="translate(400,260)" font-family="'Public Sans', sans-serif">
+    <!-- Hub glow -->
+    <circle cx="0" cy="0" r="120" fill="#ed1c24" opacity="0.18" filter="url(#ctn-glow)"/>
+
+    <!-- Connection lines -->
+    <g stroke="#3a3a40" stroke-width="1.2" fill="none">
+      <line x1="0" y1="0" x2="-240" y2="-160"/>
+      <line x1="0" y1="0" x2="-280" y2="0"/>
+      <line x1="0" y1="0" x2="-220" y2="160"/>
+      <line x1="0" y1="0" x2="0" y2="-200"/>
+      <line x1="0" y1="0" x2="180" y2="-180"/>
+      <line x1="0" y1="0" x2="280" y2="-30"/>
+      <line x1="0" y1="0" x2="240" y2="140"/>
+      <line x1="0" y1="0" x2="0" y2="200"/>
+      <line x1="0" y1="0" x2="-100" y2="200"/>
+      <line x1="0" y1="0" x2="100" y2="200"/>
     </g>
-    
-    <!-- Connections -->
-    <g id="concept-connections">
-        <!-- Patient to Record -->
-        <line x1="240" y1="200" x2="430" y2="150" stroke="#ffffff" stroke-width="2" opacity="0">
-            <animate
-                id="p2r-appear"
-                attributeName="opacity"
-                from="0"
-                to="0.6"
-                dur="1.5s"
-                begin="0s;p2r-disappear.end+2s"
-                fill="freeze"
-            />
-            <animate
-                id="p2r-disappear"
-                attributeName="opacity"
-                from="0.6"
-                to="0"
-                dur="1.5s"
-                begin="p2r-appear.end+3s"
-                fill="freeze"
-            />
-        </line>
-        
-        <!-- Record to Visit -->
-        <line x1="430" y1="150" x2="590" y2="230" stroke="#ffffff" stroke-width="2" opacity="0">
-            <animate
-                id="r2v-appear"
-                attributeName="opacity"
-                from="0"
-                to="0.6"
-                dur="1.5s"
-                begin="p2r-appear.end+0.5s"
-                fill="freeze"
-            />
-            <animate
-                id="r2v-disappear"
-                attributeName="opacity"
-                from="0.6"
-                to="0"
-                dur="1.5s"
-                begin="p2r-disappear.begin+0.5s"
-                fill="freeze"
-            />
-        </line>
-        
-        <!-- Visit to Timeline -->
-        <line x1="590" y1="230" x2="500" y2="350" stroke="#ffffff" stroke-width="2" opacity="0">
-            <animate
-                id="v2t-appear"
-                attributeName="opacity"
-                from="0"
-                to="0.6"
-                dur="1.5s"
-                begin="r2v-appear.end+0.5s"
-                fill="freeze"
-            />
-            <animate
-                id="v2t-disappear"
-                attributeName="opacity"
-                from="0.6"
-                to="0"
-                dur="1.5s"
-                begin="r2v-disappear.begin+0.5s"
-                fill="freeze"
-            />
-        </line>
-        
-        <!-- Timeline to Compliance -->
-        <line x1="500" y1="350" x2="320" y2="400" stroke="#ffffff" stroke-width="2" opacity="0">
-            <animate
-                id="t2c-appear"
-                attributeName="opacity"
-                from="0"
-                to="0.6"
-                dur="1.5s"
-                begin="v2t-appear.end+0.5s"
-                fill="freeze"
-            />
-            <animate
-                id="t2c-disappear"
-                attributeName="opacity"
-                from="0.6"
-                to="0"
-                dur="1.5s"
-                begin="v2t-disappear.begin+0.5s"
-                fill="freeze"
-            />
-        </line>
-        
-        <!-- Compliance to Audit -->
-        <line x1="320" y1="400" x2="180" y2="300" stroke="#ffffff" stroke-width="2" opacity="0">
-            <animate
-                id="c2a-appear"
-                attributeName="opacity"
-                from="0"
-                to="0.6"
-                dur="1.5s"
-                begin="t2c-appear.end+0.5s"
-                fill="freeze"
-            />
-            <animate
-                id="c2a-disappear"
-                attributeName="opacity"
-                from="0.6"
-                to="0"
-                dur="1.5s"
-                begin="t2c-disappear.begin+0.5s"
-                fill="freeze"
-            />
-        </line>
-        
-        <!-- Audit to Patient -->
-        <line x1="180" y1="300" x2="240" y2="200" stroke="#ffffff" stroke-width="2" opacity="0">
-            <animate
-                id="a2p-appear"
-                attributeName="opacity"
-                from="0"
-                to="0.6"
-                dur="1.5s"
-                begin="c2a-appear.end+0.5s"
-                fill="freeze"
-            />
-            <animate
-                id="a2p-disappear"
-                attributeName="opacity"
-                from="0.6"
-                to="0"
-                dur="1.5s"
-                begin="c2a-disappear.begin+0.5s"
-                fill="freeze"
-            />
-        </line>
-        
-        <!-- Alternative connections showing different data flows -->
-        
-        <!-- Patient to Timeline -->
-        <line x1="240" y1="200" x2="500" y2="350" stroke="#ffffff" stroke-width="2" opacity="0">
-            <animate
-                id="p2t-appear"
-                attributeName="opacity"
-                from="0"
-                to="0.6"
-                dur="1.5s"
-                begin="a2p-disappear.end+2s"
-                fill="freeze"
-            />
-            <animate
-                id="p2t-disappear"
-                attributeName="opacity"
-                from="0.6"
-                to="0"
-                dur="1.5s"
-                begin="p2t-appear.end+3s"
-                fill="freeze"
-            />
-        </line>
-        
-        <!-- Record to Compliance -->
-        <line x1="430" y1="150" x2="320" y2="400" stroke="#ffffff" stroke-width="2" opacity="0">
-            <animate
-                id="r2c-appear"
-                attributeName="opacity"
-                from="0"
-                to="0.6"
-                dur="1.5s"
-                begin="p2t-appear.end+0.5s"
-                fill="freeze"
-            />
-            <animate
-                id="r2c-disappear"
-                attributeName="opacity"
-                from="0.6"
-                to="0"
-                dur="1.5s"
-                begin="p2t-disappear.begin+0.5s"
-                fill="freeze"
-            />
-        </line>
-        
-        <!-- Visit to Audit -->
-        <line x1="590" y1="230" x2="180" y2="300" stroke="#ffffff" stroke-width="2" opacity="0">
-            <animate
-                id="v2a-appear"
-                attributeName="opacity"
-                from="0"
-                to="0.6"
-                dur="1.5s"
-                begin="r2c-appear.end+0.5s"
-                fill="freeze"
-            />
-            <animate
-                id="v2a-disappear"
-                attributeName="opacity"
-                from="0.6"
-                to="0"
-                dur="1.5s"
-                begin="r2c-disappear.begin+0.5s"
-                fill="freeze"
-            />
-        </line>
+
+    <!-- Pulses on lines -->
+    <g fill="#ed1c24">
+      <circle cx="-100" cy="-66" r="3"><animate attributeName="opacity" values="0;1;0" dur="2.4s" repeatCount="indefinite"/></circle>
+      <circle cx="120" cy="-120" r="3"><animate attributeName="opacity" values="0;1;0" dur="2.8s" begin="0.8s" repeatCount="indefinite"/></circle>
+      <circle cx="180" cy="-20" r="3"><animate attributeName="opacity" values="0;1;0" dur="3.0s" begin="1.2s" repeatCount="indefinite"/></circle>
+      <circle cx="-140" cy="80" r="3"><animate attributeName="opacity" values="0;1;0" dur="3.2s" begin="0.4s" repeatCount="indefinite"/></circle>
     </g>
-    
-    <!-- Data packets moving along connections -->
-    <g id="data-packets">
-        <!-- Patient to Record -->
-        <circle cx="0" cy="0" r="4" fill="#ffffff" filter="url(#packetGlow)">
-            <animate attributeName="opacity" values="0;1;0" dur="5s" begin="1s" repeatCount="indefinite" />
-            <animateMotion 
-                path="M240,200 L430,150" 
-                dur="2s" 
-                begin="p2r-appear.begin+0.5s" 
-                repeatCount="2"
-            />
-        </circle>
-        
-        <!-- Record to Visit -->
-        <circle cx="0" cy="0" r="4" fill="#ffffff" filter="url(#packetGlow)">
-            <animate attributeName="opacity" values="0;1;0" dur="5s" begin="2s" repeatCount="indefinite" />
-            <animateMotion 
-                path="M430,150 L590,230" 
-                dur="2s" 
-                begin="r2v-appear.begin+0.5s" 
-                repeatCount="2"
-            />
-        </circle>
-        
-        <!-- Visit to Timeline -->
-        <circle cx="0" cy="0" r="4" fill="#ffffff" filter="url(#packetGlow)">
-            <animate attributeName="opacity" values="0;1;0" dur="5s" begin="3s" repeatCount="indefinite" />
-            <animateMotion 
-                path="M590,230 L500,350" 
-                dur="2s" 
-                begin="v2t-appear.begin+0.5s" 
-                repeatCount="2"
-            />
-        </circle>
-        
-        <!-- Timeline to Compliance -->
-        <circle cx="0" cy="0" r="4" fill="#ffffff" filter="url(#packetGlow)">
-            <animate attributeName="opacity" values="0;1;0" dur="5s" begin="4s" repeatCount="indefinite" />
-            <animateMotion 
-                path="M500,350 L320,400" 
-                dur="2s" 
-                begin="t2c-appear.begin+0.5s" 
-                repeatCount="2"
-            />
-        </circle>
-        
-        <!-- Compliance to Audit -->
-        <circle cx="0" cy="0" r="4" fill="#ffffff" filter="url(#packetGlow)">
-            <animate attributeName="opacity" values="0;1;0" dur="5s" begin="5s" repeatCount="indefinite" />
-            <animateMotion 
-                path="M320,400 L180,300" 
-                dur="2s" 
-                begin="c2a-appear.begin+0.5s" 
-                repeatCount="2"
-            />
-        </circle>
-        
-        <!-- Audit to Patient -->
-        <circle cx="0" cy="0" r="4" fill="#ffffff" filter="url(#packetGlow)">
-            <animate attributeName="opacity" values="0;1;0" dur="5s" begin="6s" repeatCount="indefinite" />
-            <animateMotion 
-                path="M180,300 L240,200" 
-                dur="2s" 
-                begin="a2p-appear.begin+0.5s" 
-                repeatCount="2"
-            />
-        </circle>
-        
-        <!-- Second sequence -->
-        <!-- Patient to Timeline -->
-        <circle cx="0" cy="0" r="4" fill="#ffffff" filter="url(#packetGlow)">
-            <animate attributeName="opacity" values="0;1;0" dur="5s" begin="15s" repeatCount="indefinite" />
-            <animateMotion 
-                path="M240,200 L500,350" 
-                dur="2s" 
-                begin="p2t-appear.begin+0.5s" 
-                repeatCount="2"
-            />
-        </circle>
-        
-        <!-- Record to Compliance -->
-        <circle cx="0" cy="0" r="4" fill="#ffffff" filter="url(#packetGlow)">
-            <animate attributeName="opacity" values="0;1;0" dur="5s" begin="16s" repeatCount="indefinite" />
-            <animateMotion 
-                path="M430,150 L320,400" 
-                dur="2s" 
-                begin="r2c-appear.begin+0.5s" 
-                repeatCount="2"
-            />
-        </circle>
-        
-        <!-- Visit to Audit -->
-        <circle cx="0" cy="0" r="4" fill="#ffffff" filter="url(#packetGlow)">
-            <animate attributeName="opacity" values="0;1;0" dur="5s" begin="17s" repeatCount="indefinite" />
-            <animateMotion 
-                path="M590,230 L180,300" 
-                dur="2s" 
-                begin="v2a-appear.begin+0.5s" 
-                repeatCount="2"
-            />
-        </circle>
+
+    <!-- Hub -->
+    <circle cx="0" cy="0" r="56" fill="url(#ctn-hub)" stroke="#fff" stroke-width="2" stroke-opacity="0.16"/>
+    <text x="0" y="-2" text-anchor="middle" font-size="11" font-weight="700" fill="#fff" letter-spacing="0.12em">MAESTRO</text>
+    <text x="0" y="14" text-anchor="middle" font-size="9" fill="#fff" opacity="0.85" letter-spacing="0.08em">CORE</text>
+
+    <!-- Outer site nodes -->
+    <g font-size="10" font-weight="600" fill="#cfcfd2">
+      <g transform="translate(-240,-160)">
+        <circle cx="0" cy="0" r="22" fill="#1a1a1d" stroke="#26262a"/>
+        <text x="0" y="3" text-anchor="middle" fill="#ededee" font-weight="700">VAN</text>
+        <text x="0" y="40" text-anchor="middle" font-size="9" fill="#9b9ba1">Vancouver · BCCH</text>
+      </g>
+      <g transform="translate(-280,0)">
+        <circle cx="0" cy="0" r="26" fill="#1a1a1d" stroke="#ed1c24"/>
+        <text x="0" y="3" text-anchor="middle" fill="#ededee" font-weight="700">YYC</text>
+        <text x="0" y="44" text-anchor="middle" font-size="9" fill="#9b9ba1">Calgary · Foothills</text>
+      </g>
+      <g transform="translate(-220,160)">
+        <circle cx="0" cy="0" r="22" fill="#1a1a1d" stroke="#26262a"/>
+        <text x="0" y="3" text-anchor="middle" fill="#ededee" font-weight="700">YEG</text>
+        <text x="0" y="40" text-anchor="middle" font-size="9" fill="#9b9ba1">Edmonton · UofA</text>
+      </g>
+      <g transform="translate(0,-200)">
+        <circle cx="0" cy="0" r="26" fill="#1a1a1d" stroke="#ed1c24"/>
+        <text x="0" y="3" text-anchor="middle" fill="#ededee" font-weight="700">YYZ</text>
+        <text x="0" y="-32" text-anchor="middle" font-size="9" fill="#9b9ba1">Toronto · UHN / SickKids</text>
+      </g>
+      <g transform="translate(180,-180)">
+        <circle cx="0" cy="0" r="22" fill="#1a1a1d" stroke="#26262a"/>
+        <text x="0" y="3" text-anchor="middle" fill="#ededee" font-weight="700">YOW</text>
+        <text x="0" y="-32" text-anchor="middle" font-size="9" fill="#9b9ba1">Ottawa · Civic</text>
+      </g>
+      <g transform="translate(280,-30)">
+        <circle cx="0" cy="0" r="22" fill="#1a1a1d" stroke="#26262a"/>
+        <text x="0" y="3" text-anchor="middle" fill="#ededee" font-weight="700">YUL</text>
+        <text x="0" y="40" text-anchor="middle" font-size="9" fill="#9b9ba1">Montréal · MUHC</text>
+      </g>
+      <g transform="translate(240,140)">
+        <circle cx="0" cy="0" r="22" fill="#1a1a1d" stroke="#26262a"/>
+        <text x="0" y="3" text-anchor="middle" fill="#ededee" font-weight="700">YHZ</text>
+        <text x="0" y="40" text-anchor="middle" font-size="9" fill="#9b9ba1">Halifax · QEII</text>
+      </g>
+      <g transform="translate(0,200)">
+        <circle cx="0" cy="0" r="22" fill="#1a1a1d" stroke="#26262a"/>
+        <text x="0" y="3" text-anchor="middle" fill="#ededee" font-weight="700">YYT</text>
+        <text x="0" y="40" text-anchor="middle" font-size="9" fill="#9b9ba1">St. John's · MUN</text>
+      </g>
+      <g transform="translate(-100,200)">
+        <circle cx="0" cy="0" r="22" fill="#1a1a1d" stroke="#26262a"/>
+        <text x="0" y="3" text-anchor="middle" fill="#ededee" font-weight="700">YQB</text>
+        <text x="0" y="40" text-anchor="middle" font-size="9" fill="#9b9ba1">Québec · CHUQ</text>
+      </g>
+      <g transform="translate(100,200)">
+        <circle cx="0" cy="0" r="22" fill="#1a1a1d" stroke="#26262a"/>
+        <text x="0" y="3" text-anchor="middle" fill="#ededee" font-weight="700">YWG</text>
+        <text x="0" y="40" text-anchor="middle" font-size="9" fill="#9b9ba1">Winnipeg · HSC</text>
+      </g>
     </g>
-</svg> 
+  </g>
+
+  <!-- Legend -->
+  <g transform="translate(40,440)" font-family="'Public Sans', sans-serif">
+    <circle cx="8" cy="8" r="6" fill="#1a1a1d" stroke="#ed1c24"/>
+    <text x="22" y="12" font-size="11" fill="#cfcfd2">Active site</text>
+    <circle cx="118" cy="8" r="6" fill="#1a1a1d" stroke="#26262a"/>
+    <text x="132" y="12" font-size="11" fill="#cfcfd2">Activating</text>
+    <text x="216" y="12" font-size="11" fill="#9b9ba1">10 sites · 218 enrolled · live data sync</text>
+  </g>
+</svg>

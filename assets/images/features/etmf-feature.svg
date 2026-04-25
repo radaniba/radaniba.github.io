@@ -1,242 +1,136 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="500" height="300" viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg">
-  <!-- Definitions -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="eTMF document tree mockup">
   <defs>
-    <!-- Gradients -->
-    <linearGradient id="headerGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#2C3E50" />
-      <stop offset="100%" stop-color="#1A2530" />
+    <linearGradient id="etmf-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#161618"/>
+      <stop offset="100%" stop-color="#0d0d0f"/>
     </linearGradient>
-    
-    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#1E2A3A" />
-      <stop offset="100%" stop-color="#15202E" />
-    </linearGradient>
-    
-    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#4A6ADA" />
-      <stop offset="100%" stop-color="#2C53C5" />
-    </linearGradient>
-    
-    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#1A2530" />
-      <stop offset="100%" stop-color="#15202B" />
-    </linearGradient>
-    
-    <linearGradient id="completeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0BAB64" />
-      <stop offset="100%" stop-color="#3BB78F" />
-    </linearGradient>
-    
-    <linearGradient id="incompleteGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FF9500" />
-      <stop offset="100%" stop-color="#FF5E3A" />
-    </linearGradient>
-    
-    <linearGradient id="missingGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FF416C" />
-      <stop offset="100%" stop-color="#FF4B2B" />
-    </linearGradient>
-    
-    <linearGradient id="folderGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#F4D03F" />
-      <stop offset="100%" stop-color="#EAB543" />
-    </linearGradient>
-    
-    <linearGradient id="folderOpenGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#F9CA24" />
-      <stop offset="100%" stop-color="#F0932B" />
-    </linearGradient>
-    
-    <!-- Filters -->
-    <filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
-      <feOffset dx="0" dy="2" result="offsetblur" />
-      <feComponentTransfer>
-        <feFuncA type="linear" slope="0.2" />
-      </feComponentTransfer>
-      <feMerge>
-        <feMergeNode />
-        <feMergeNode in="SourceGraphic" />
-      </feMerge>
-    </filter>
-    
-    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
-      <feComponentTransfer>
-        <feFuncA type="linear" slope="0.3" />
-      </feComponentTransfer>
-      <feMerge>
-        <feMergeNode />
-        <feMergeNode in="SourceGraphic" />
-      </feMerge>
-    </filter>
-
-    <filter id="fileHover" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="1" />
-      <feOffset dx="0" dy="1" result="offsetblur" />
-      <feComponentTransfer>
-        <feFuncA type="linear" slope="0.5" />
-      </feComponentTransfer>
-      <feMerge>
-        <feMergeNode />
-        <feMergeNode in="SourceGraphic" />
-      </feMerge>
+    <filter id="etmf-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="14" stdDeviation="22" flood-color="#000" flood-opacity="0.45"/>
     </filter>
   </defs>
-  
-  <!-- Background -->
-  <rect x="0" y="0" width="500" height="300" rx="8" fill="url(#bgGradient)"/>
-  
-  <!-- Header -->
-  <rect x="20" y="20" width="460" height="40" rx="8" fill="url(#headerGradient)" filter="url(#softShadow)"/>
-  <text x="40" y="45" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="bold" fill="white">Electronic Trial Master File (eTMF)</text>
-  
-  <!-- Left Panel: Folder Structure -->
-  <rect x="20" y="70" width="160" height="210" rx="4" fill="url(#cardGradient)" filter="url(#softShadow)"/>
-  <text x="35" y="90" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="bold" fill="white">TMF Structure</text>
-  
-  <!-- Folder Tree -->
-  <g transform="translate(30, 100)">
-    <!-- Main folder -->
-    <rect x="0" y="0" width="20" height="16" rx="2" fill="url(#folderOpenGradient)" filter="url(#fileHover)"/>
-    <rect x="0" y="0" width="16" height="8" rx="2" fill="url(#folderOpenGradient)" filter="url(#fileHover)"/>
-    <text x="25" y="12" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="white">Trial XYZ-123</text>
-    
-    <!-- Subfolder 1 -->
-    <g transform="translate(15, 24)">
-      <rect x="0" y="0" width="18" height="14" rx="2" fill="url(#folderOpenGradient)" filter="url(#fileHover)"/>
-      <rect x="0" y="0" width="14" height="7" rx="2" fill="url(#folderOpenGradient)" filter="url(#fileHover)"/>
-      <text x="23" y="12" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="white">01 - Regulatory</text>
-      
-      <!-- Files -->
-      <g transform="translate(15, 20)">
-        <rect x="0" y="0" width="12" height="14" rx="1" fill="#FFFFFF" opacity="0.9" filter="url(#fileHover)"/>
-        <rect x="2" y="2" width="8" height="1" rx="0.5" fill="#4A6ADA" opacity="0.5"/>
-        <rect x="2" y="4" width="8" height="1" rx="0.5" fill="#4A6ADA" opacity="0.5"/>
-        <rect x="2" y="6" width="6" height="1" rx="0.5" fill="#4A6ADA" opacity="0.5"/>
-        <text x="17" y="10" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#B2C7E8">Protocol v2.1</text>
-        <circle cx="80" cy="7" r="5" fill="url(#completeGradient)" filter="url(#glow)"/>
+
+  <rect x="20" y="20" width="760" height="460" rx="20" fill="url(#etmf-bg)" stroke="#26262a" stroke-width="1" filter="url(#etmf-shadow)"/>
+
+  <!-- Top bar -->
+  <g transform="translate(20,20)">
+    <rect width="760" height="44" rx="20" fill="#0e0e10"/>
+    <circle cx="22" cy="22" r="4" fill="#ed1c24"/>
+    <circle cx="38" cy="22" r="4" fill="#3a3a40"/>
+    <circle cx="54" cy="22" r="4" fill="#3a3a40"/>
+    <text x="380" y="27" text-anchor="middle" font-family="'Public Sans', sans-serif" font-size="13" fill="#9b9ba1" font-weight="500">maestro.app · eTMF · ONCO-2025-014</text>
+  </g>
+
+  <!-- Folder tree -->
+  <g transform="translate(40,90)" font-family="'Public Sans', sans-serif">
+    <rect width="280" height="370" rx="14" fill="#1a1a1d"/>
+    <g transform="translate(18,28)">
+      <text x="0" y="0" font-size="11" font-weight="600" fill="#9b9ba1" letter-spacing="0.08em">DIA REFERENCE MODEL</text>
+    </g>
+
+    <!-- Tree items -->
+    <g transform="translate(18,52)" font-size="13" fill="#cfcfd2">
+      <!-- Zone 1 expanded -->
+      <g transform="translate(0,0)">
+        <path d="M0 4 l5 4 -5 4z" fill="#9b9ba1"/>
+        <text x="14" y="12" fill="#ededee" font-weight="600">01 Trial Management</text>
+        <text x="240" y="12" text-anchor="end" font-size="11" fill="#9b9ba1">42</text>
       </g>
-      
-      <g transform="translate(15, 40)">
-        <rect x="0" y="0" width="12" height="14" rx="1" fill="#FFFFFF" opacity="0.9" filter="url(#fileHover)"/>
-        <rect x="2" y="2" width="8" height="1" rx="0.5" fill="#4A6ADA" opacity="0.5"/>
-        <rect x="2" y="4" width="8" height="1" rx="0.5" fill="#4A6ADA" opacity="0.5"/>
-        <rect x="2" y="6" width="6" height="1" rx="0.5" fill="#4A6ADA" opacity="0.5"/>
-        <text x="17" y="10" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#B2C7E8">FDA Approval</text>
-        <circle cx="80" cy="7" r="5" fill="url(#incompleteGradient)" filter="url(#glow)">
-          <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite"/>
-        </circle>
+      <g transform="translate(20,28)">
+        <path d="M0 8 h6 v-4 l5 4 -5 4 v-4" fill="#9b9ba1"/>
+        <text x="18" y="12" fill="#ededee" font-weight="600">02 Central Trial Documents</text>
+        <text x="220" y="12" text-anchor="end" font-size="11" fill="#9b9ba1">86</text>
+      </g>
+      <!-- Zone 2 with sub items -->
+      <g transform="translate(40,52)" font-size="12">
+        <text x="0" y="12">Investigator's Brochure v4.0</text>
+        <rect x="200" y="2" width="44" height="14" rx="7" fill="#1f5c3a"/>
+        <text x="222" y="12" text-anchor="middle" font-size="10" font-weight="600" fill="#a7e1bd">FINAL</text>
+      </g>
+      <g transform="translate(40,76)" font-size="12">
+        <text x="0" y="12">Protocol Amendment 03</text>
+        <rect x="200" y="2" width="44" height="14" rx="7" fill="#5c481f"/>
+        <text x="222" y="12" text-anchor="middle" font-size="10" font-weight="600" fill="#ffd789">DRAFT</text>
+      </g>
+      <g transform="translate(40,100)" font-size="12">
+        <text x="0" y="12">Informed Consent EN/FR</text>
+        <rect x="200" y="2" width="44" height="14" rx="7" fill="#1f5c3a"/>
+        <text x="222" y="12" text-anchor="middle" font-size="10" font-weight="600" fill="#a7e1bd">FINAL</text>
+      </g>
+      <g transform="translate(40,124)" font-size="12">
+        <text x="0" y="12">Sample CRF Booklet</text>
+        <rect x="200" y="2" width="44" height="14" rx="7" fill="#1f5c3a"/>
+        <text x="222" y="12" text-anchor="middle" font-size="10" font-weight="600" fill="#a7e1bd">FINAL</text>
+      </g>
+
+      <g transform="translate(0,160)">
+        <path d="M0 4 l5 4 -5 4z" fill="#9b9ba1"/>
+        <text x="14" y="12" fill="#ededee" font-weight="600">03 Regulatory</text>
+        <text x="240" y="12" text-anchor="end" font-size="11" fill="#9b9ba1">214</text>
+      </g>
+      <g transform="translate(0,188)">
+        <path d="M0 4 l5 4 -5 4z" fill="#9b9ba1"/>
+        <text x="14" y="12" fill="#ededee" font-weight="600">04 IRB / IEC</text>
+        <text x="240" y="12" text-anchor="end" font-size="11" fill="#9b9ba1">68</text>
+      </g>
+      <g transform="translate(0,216)">
+        <path d="M0 4 l5 4 -5 4z" fill="#9b9ba1"/>
+        <text x="14" y="12" fill="#ededee" font-weight="600">05 Site Management</text>
+        <text x="240" y="12" text-anchor="end" font-size="11" fill="#9b9ba1">312</text>
       </g>
     </g>
-    
-    <!-- Subfolder 2 -->
-    <g transform="translate(15, 90)">
-      <rect x="0" y="0" width="18" height="14" rx="2" fill="url(#folderGradient)" filter="url(#fileHover)"/>
-      <rect x="0" y="0" width="14" height="7" rx="2" fill="url(#folderGradient)" filter="url(#fileHover)"/>
-      <text x="23" y="12" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="white">02 - IRB/IEC</text>
-      <circle cx="95" cy="6" r="5" fill="url(#missingGradient)" filter="url(#glow)">
-        <animate attributeName="r" values="5;6;5" dur="2s" repeatCount="indefinite"/>
-      </circle>
-    </g>
-    
-    <!-- Subfolder 3 -->
-    <g transform="translate(15, 114)">
-      <rect x="0" y="0" width="18" height="14" rx="2" fill="url(#folderGradient)" filter="url(#fileHover)"/>
-      <rect x="0" y="0" width="14" height="7" rx="2" fill="url(#folderGradient)" filter="url(#fileHover)"/>
-      <text x="23" y="12" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="white">03 - Site Management</text>
-      <circle cx="115" cy="6" r="5" fill="url(#completeGradient)" filter="url(#glow)"/>
-    </g>
-    
-    <!-- Subfolder 4 -->
-    <g transform="translate(15, 138)">
-      <rect x="0" y="0" width="18" height="14" rx="2" fill="url(#folderGradient)" filter="url(#fileHover)"/>
-      <rect x="0" y="0" width="14" height="7" rx="2" fill="url(#folderGradient)" filter="url(#fileHover)"/>
-      <text x="23" y="12" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="white">04 - Safety Reports</text>
-      <circle cx="106" cy="6" r="5" fill="url(#incompleteGradient)" filter="url(#glow)">
-        <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite"/>
-      </circle>
+
+    <!-- Status footer -->
+    <g transform="translate(18,322)">
+      <text x="0" y="0" font-size="11" fill="#9b9ba1">Inspection-readiness</text>
+      <text x="244" y="0" text-anchor="end" font-size="11" fill="#ededee" font-weight="600">98%</text>
+      <rect x="0" y="8" width="244" height="6" rx="3" fill="#26262a"/>
+      <rect x="0" y="8" width="239" height="6" rx="3" fill="#ed1c24"/>
     </g>
   </g>
-  
-  <!-- Right Panel: Document Viewer -->
-  <rect x="190" y="70" width="290" height="210" rx="4" fill="url(#cardGradient)" filter="url(#softShadow)"/>
-  
-  <!-- Document Header -->
-  <rect x="200" y="80" width="270" height="30" rx="4" fill="#1A2530" filter="url(#softShadow)"/>
-  <text x="215" y="100" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="bold" fill="white">Protocol XYZ-123-P v2.1</text>
-  
-  <!-- Document Tabs -->
-  <g transform="translate(400, 80)">
-    <rect width="30" height="30" rx="4" fill="url(#accentGradient)" filter="url(#softShadow)"/>
-    <text x="15" y="20" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">📄</text>
+
+  <!-- Document preview -->
+  <g transform="translate(340,90)" font-family="'Public Sans', sans-serif">
+    <rect width="420" height="370" rx="14" fill="#1a1a1d"/>
+
+    <!-- Doc header -->
+    <g transform="translate(24,24)">
+      <text x="0" y="14" font-size="11" font-weight="600" fill="#9b9ba1" letter-spacing="0.08em">PROTOCOL AMENDMENT 03</text>
+      <text x="0" y="40" font-size="18" font-weight="700" fill="#ededee">Phase II — ONCO-2025-014</text>
+      <g transform="translate(0,52)" font-size="11" fill="#9b9ba1">
+        <text x="0" y="14">Owner · A. Petrov</text>
+        <text x="120" y="14">Version · 3.1</text>
+        <text x="220" y="14">Modified · 2 days ago</text>
+      </g>
+    </g>
+
+    <!-- Faux document body -->
+    <g transform="translate(24,108)" fill="#26262a">
+      <rect x="0"  y="0"  width="372" height="6" rx="3"/>
+      <rect x="0"  y="14" width="320" height="6" rx="3"/>
+      <rect x="0"  y="28" width="356" height="6" rx="3"/>
+      <rect x="0"  y="42" width="280" height="6" rx="3"/>
+      <rect x="0"  y="64" width="372" height="6" rx="3"/>
+      <rect x="0"  y="78" width="340" height="6" rx="3"/>
+      <rect x="0"  y="92" width="300" height="6" rx="3"/>
+    </g>
+
+    <!-- Signatures panel -->
+    <g transform="translate(24,232)">
+      <rect width="372" height="116" rx="12" fill="#0e0e10" stroke="#26262a"/>
+      <text x="20" y="26" font-size="11" fill="#9b9ba1" letter-spacing="0.06em">21 CFR PART 11 SIGNATURES</text>
+
+      <g transform="translate(20,40)">
+        <circle cx="10" cy="14" r="10" fill="#ed1c24"/>
+        <text x="10" y="18" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">AP</text>
+        <text x="30" y="14" font-size="12" font-weight="600" fill="#ededee">Anton Petrov</text>
+        <text x="30" y="28" font-size="10" fill="#9b9ba1">Sponsor PI · signed Apr 18, 2026 14:02 UTC</text>
+      </g>
+      <g transform="translate(20,76)">
+        <circle cx="10" cy="14" r="10" fill="#3a3a40"/>
+        <text x="10" y="18" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">SK</text>
+        <text x="30" y="14" font-size="12" font-weight="600" fill="#ededee">Sara Kim</text>
+        <text x="30" y="28" font-size="10" fill="#9b9ba1">QA · awaiting signature</text>
+      </g>
+    </g>
   </g>
-  
-  <g transform="translate(440, 80)">
-    <rect width="30" height="30" rx="4" fill="#1E2A3A" stroke="#2C3E50" stroke-width="1"/>
-    <text x="15" y="20" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#B2C7E8" text-anchor="middle">📊</text>
-  </g>
-  
-  <!-- Document Content -->
-  <rect x="200" y="120" width="270" height="130" rx="4" fill="#FFFFFF" opacity="0.03"/>
-  
-  <!-- Document Lines -->
-  <g transform="translate(210, 130)">
-    <rect width="250" height="3" rx="1.5" fill="#FFFFFF" opacity="0.2"/>
-    <rect width="200" height="3" rx="1.5" fill="#FFFFFF" opacity="0.2" y="10"/>
-    <rect width="230" height="3" rx="1.5" fill="#FFFFFF" opacity="0.2" y="20"/>
-    <rect width="180" height="3" rx="1.5" fill="#FFFFFF" opacity="0.2" y="30"/>
-    <rect width="220" height="3" rx="1.5" fill="#FFFFFF" opacity="0.2" y="40"/>
-    <rect width="240" height="3" rx="1.5" fill="#FFFFFF" opacity="0.2" y="50"/>
-    <rect width="200" height="3" rx="1.5" fill="#FFFFFF" opacity="0.2" y="60"/>
-    <rect width="190" height="3" rx="1.5" fill="#FFFFFF" opacity="0.2" y="70"/>
-    <rect width="230" height="3" rx="1.5" fill="#FFFFFF" opacity="0.2" y="80"/>
-    <rect width="170" height="3" rx="1.5" fill="#FFFFFF" opacity="0.2" y="90"/>
-    
-    <!-- Animated cursor -->
-    <rect id="cursor" width="2" height="14" x="0" y="0" fill="#4A6ADA" opacity="0.8">
-      <animate attributeName="opacity" values="0.8;0;0.8" dur="1s" repeatCount="indefinite"/>
-      <animate attributeName="x" values="0;250;0" dur="15s" repeatCount="indefinite"/>
-      <animate attributeName="y" values="0;90;0" dur="15s" repeatCount="indefinite"/>
-    </rect>
-  </g>
-  
-  <!-- Document Metadata -->
-  <rect x="200" y="260" width="270" height="20" rx="4" fill="#1A2530" filter="url(#softShadow)"/>
-  <text x="210" y="274" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#B2C7E8">Last Modified: 2023-06-15 • Uploaded by: J. Smith • Version: 2.1</text>
-  
-  <!-- Audit Trail Button -->
-  <g transform="translate(380, 260)">
-    <rect width="90" height="20" rx="10" fill="url(#accentGradient)" filter="url(#softShadow)"/>
-    <text x="45" y="14" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="white" text-anchor="middle">AUDIT TRAIL</text>
-  </g>
-  
-  <!-- Document Status -->
-  <g transform="translate(440, 120)">
-    <circle cx="15" cy="15" r="12" fill="none" stroke="url(#completeGradient)" stroke-width="2">
-      <animate attributeName="stroke-dasharray" values="0,76;76,0" dur="1s" fill="freeze"/>
-    </circle>
-    <path d="M10,15 L14,19 L20,11" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <animate attributeName="opacity" values="0;1" dur="0.5s" begin="0.8s" fill="freeze"/>
-    </path>
-    <text x="15" y="45" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="white" text-anchor="middle">APPROVED</text>
-  </g>
-  
-  <!-- Notification Indicators -->
-  <g transform="translate(440, 180)">
-    <rect width="30" height="20" rx="10" fill="url(#accentGradient)" filter="url(#softShadow)"/>
-    <text x="15" y="14" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="white" text-anchor="middle">3</text>
-    <text x="15" y="30" font-family="Segoe UI, Arial, sans-serif" font-size="8" fill="#B2C7E8" text-anchor="middle">COMMENTS</text>
-  </g>
-  
-  <g transform="translate(440, 220)">
-    <rect width="30" height="20" rx="10" fill="#1E2A3A" stroke="#2C3E50" stroke-width="1"/>
-    <text x="15" y="14" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#B2C7E8" text-anchor="middle">2</text>
-    <text x="15" y="30" font-family="Segoe UI, Arial, sans-serif" font-size="8" fill="#B2C7E8" text-anchor="middle">SIGNATURES</text>
-  </g>
-  
-  <!-- Compliance Status -->
-  <rect x="20" y="20" width="10" height="40" rx="0" fill="url(#completeGradient)" opacity="0.9"/>
-  <text x="460" y="40" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="end">Compliance: 85%</text>
-</svg> 
+</svg>

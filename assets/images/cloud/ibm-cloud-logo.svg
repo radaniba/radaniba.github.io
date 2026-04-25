@@ -1,3 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <path d="M9.5 4v2h13v-2zm0 4v2h13v-2zm-7 4v2h27v-2zm3 4v2h5v-2zm16 0v2h5v-2zm-16 4v2h5v-2zm16 0v2h5v-2zm-19 4v2h27v-2zm10 4v2h13v-2zm0 4v2h13v-2z" fill="#0F62FE"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 44" role="img" aria-label="IBM Cloud">
+  <!-- Bold IBM wordmark — at trust-strip render size (~32px tall) the iconic 8-bar stripes
+       fall below the display resolution and blur into noise, so we render the wordmark in
+       very heavy condensed weight, which keeps the IBM identity legible. -->
+  <text x="0" y="32"
+        fill="currentColor"
+        font-family="'Helvetica Neue', 'Arial Narrow', Helvetica, Arial, sans-serif"
+        font-size="30"
+        font-weight="900"
+        font-stretch="condensed"
+        letter-spacing="-0.04em">IBM</text>
+  <text x="60" y="29"
+        fill="currentColor"
+        font-family="'Helvetica Neue', 'Public Sans', sans-serif"
+        font-size="20"
+        font-weight="500"
+        letter-spacing="-0.005em">Cloud</text>
 </svg>

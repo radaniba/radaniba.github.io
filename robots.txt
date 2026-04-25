@@ -1,3 +1,121 @@
+# MAESTRO — Clinical Trial Management Software for Canada
+# https://maestro.ranbiolinks.com/
+
+# ---------------------------------------------------------------------------
+# Default policy: allow all reputable crawlers full access.
+# ---------------------------------------------------------------------------
 User-agent: *
 Allow: /
-Sitemap: https://maestro.ranbiolinks.com/sitemap.xml 
+Disallow: /assets/css/
+Disallow: /assets/js/
+Disallow: /*.json$
+Disallow: /cdn-cgi/
+
+# ---------------------------------------------------------------------------
+# Search engine crawlers — explicitly welcomed (some respect specific blocks
+# only, others honour Allow:/ over the wildcard).
+# ---------------------------------------------------------------------------
+User-agent: Googlebot
+Allow: /
+Allow: /assets/images/
+
+User-agent: Googlebot-Image
+Allow: /assets/images/
+
+User-agent: Googlebot-News
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 2
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 5
+
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: Applebot
+Allow: /
+
+# ---------------------------------------------------------------------------
+# AI / LLM crawlers — allowed (we want MAESTRO to appear in AI answers about
+# Canadian clinical trials software). Adjust per your IP/data policy.
+# ---------------------------------------------------------------------------
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+# ---------------------------------------------------------------------------
+# Block known bad/abusive crawlers and SEO scrapers that drain bandwidth.
+# ---------------------------------------------------------------------------
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+# ---------------------------------------------------------------------------
+# Sitemaps & host
+# ---------------------------------------------------------------------------
+Sitemap: https://maestro.ranbiolinks.com/sitemap.xml
+Host: https://maestro.ranbiolinks.com

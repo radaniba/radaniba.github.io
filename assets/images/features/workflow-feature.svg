@@ -1,174 +1,98 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="500" height="300" viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg">
-  <!-- Definitions -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Visual workflow builder mockup">
   <defs>
-    <!-- Gradients -->
-    <linearGradient id="headerGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#2C3E50" />
-      <stop offset="100%" stop-color="#1A2530" />
+    <linearGradient id="wf-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#161618"/>
+      <stop offset="100%" stop-color="#0d0d0f"/>
     </linearGradient>
-    
-    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#4A6ADA" />
-      <stop offset="100%" stop-color="#2C53C5" />
-    </linearGradient>
-    
-    <linearGradient id="moduleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#8E54E9" />
-      <stop offset="100%" stop-color="#4A6ADA" />
-    </linearGradient>
-    
-    <linearGradient id="nodeStartGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0BAB64" />
-      <stop offset="100%" stop-color="#3BB78F" />
-    </linearGradient>
-    
-    <linearGradient id="nodeProcessGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#4A6ADA" />
-      <stop offset="100%" stop-color="#6A8CFF" />
-    </linearGradient>
-    
-    <linearGradient id="nodeDecisionGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#F9D423" />
-      <stop offset="100%" stop-color="#FF9500" />
-    </linearGradient>
-    
-    <linearGradient id="nodeEndGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FF512F" />
-      <stop offset="100%" stop-color="#DD2476" />
-    </linearGradient>
-    
-    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#1E2A3A" />
-      <stop offset="100%" stop-color="#15202E" />
-    </linearGradient>
-    
-    <!-- Filters -->
-    <filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
-      <feOffset dx="0" dy="2" result="offsetblur" />
-      <feComponentTransfer>
-        <feFuncA type="linear" slope="0.2" />
-      </feComponentTransfer>
-      <feMerge>
-        <feMergeNode />
-        <feMergeNode in="SourceGraphic" />
-      </feMerge>
+    <pattern id="wf-grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M24 0H0V24" fill="none" stroke="#1f1f23" stroke-width="1"/>
+    </pattern>
+    <filter id="wf-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="14" stdDeviation="22" flood-color="#000" flood-opacity="0.45"/>
     </filter>
-    
-    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
-      <feComponentTransfer>
-        <feFuncA type="linear" slope="0.3" />
-      </feComponentTransfer>
-      <feMerge>
-        <feMergeNode />
-        <feMergeNode in="SourceGraphic" />
-      </feMerge>
-    </filter>
-    
-    <!-- Data flow markers -->
-    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" 
-      markerWidth="6" markerHeight="6" orient="auto">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="url(#accentGradient)"/>
+    <marker id="wf-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#5a5a62"/>
     </marker>
   </defs>
-  
-  <!-- Background -->
-  <rect x="0" y="0" width="500" height="300" rx="8" fill="url(#bgGradient)"/>
-  
-  <!-- Title bar -->
-  <rect x="20" y="20" width="460" height="40" rx="8" fill="url(#headerGradient)" filter="url(#softShadow)"/>
-  <text x="40" y="45" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="bold" fill="white">Automated Workflow Designer</text>
-  
-  <!-- Toolbar -->
-  <rect x="20" y="70" width="460" height="30" rx="4" fill="url(#accentGradient)" opacity="0.9" filter="url(#softShadow)"/>
-  <text x="40" y="90" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="white">New</text>
-  <text x="80" y="90" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="white">Save</text>
-  <text x="120" y="90" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="white">Run</text>
-  <text x="160" y="90" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="white">Debug</text>
-  <text x="210" y="90" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="white">|</text>
-  <text x="230" y="90" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="white">Clinical Protocol Approval</text>
-  
-  <!-- Canvas -->
-  <rect x="20" y="110" width="460" height="170" rx="4" fill="#1A2530" stroke="url(#accentGradient)" stroke-width="1" filter="url(#softShadow)"/>
-  
-  <!-- Grid lines (subtle) -->
-  <g stroke="#2C3E50" stroke-width="0.5" stroke-dasharray="2,2">
-    <line x1="20" y1="140" x2="480" y2="140" />
-    <line x1="20" y1="170" x2="480" y2="170" />
-    <line x1="20" y1="200" x2="480" y2="200" />
-    <line x1="20" y1="230" x2="480" y2="230" />
-    <line x1="20" y1="260" x2="480" y2="260" />
-    
-    <line x1="80" y1="110" x2="80" y2="280" />
-    <line x1="140" y1="110" x2="140" y2="280" />
-    <line x1="200" y1="110" x2="200" y2="280" />
-    <line x1="260" y1="110" x2="260" y2="280" />
-    <line x1="320" y1="110" x2="320" y2="280" />
-    <line x1="380" y1="110" x2="380" y2="280" />
-    <line x1="440" y1="110" x2="440" y2="280" />
+
+  <rect x="20" y="20" width="760" height="460" rx="20" fill="url(#wf-bg)" stroke="#26262a" stroke-width="1" filter="url(#wf-shadow)"/>
+
+  <!-- Top bar -->
+  <g transform="translate(20,20)">
+    <rect width="760" height="44" rx="20" fill="#0e0e10"/>
+    <circle cx="22" cy="22" r="4" fill="#ed1c24"/>
+    <circle cx="38" cy="22" r="4" fill="#3a3a40"/>
+    <circle cx="54" cy="22" r="4" fill="#3a3a40"/>
+    <text x="380" y="27" text-anchor="middle" font-family="'Public Sans', sans-serif" font-size="13" fill="#9b9ba1" font-weight="500">maestro.app · Workflow Builder · "SAE Reporting"</text>
   </g>
-  
-  <!-- Workflow nodes -->
-  <!-- Start node -->
-  <circle cx="80" cy="150" r="20" fill="url(#nodeStartGradient)" filter="url(#softShadow)">
-    <animate attributeName="opacity" values="0.8;1;0.8" dur="3s" repeatCount="indefinite"/>
-  </circle>
-  <text x="80" y="155" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">Start</text>
-  
-  <!-- Process node 1 -->
-  <rect x="140" y="130" width="80" height="40" rx="6" fill="url(#nodeProcessGradient)" filter="url(#softShadow)"/>
-  <text x="180" y="155" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">Document Review</text>
-  
-  <!-- Decision node -->
-  <polygon points="320,130 350,150 320,170 290,150" fill="url(#nodeDecisionGradient)" filter="url(#softShadow)"/>
-  <text x="320" y="155" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">Approved?</text>
-  
-  <!-- Process node 2 (Yes path) -->
-  <rect x="410" y="130" width="50" height="40" rx="6" fill="url(#nodeProcessGradient)" filter="url(#softShadow)"/>
-  <text x="435" y="155" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">Publish</text>
-  
-  <!-- Process node 3 (No path) -->
-  <rect x="290" y="200" width="60" height="40" rx="6" fill="url(#nodeProcessGradient)" filter="url(#softShadow)"/>
-  <text x="320" y="225" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">Revise</text>
-  
-  <!-- End node -->
-  <circle cx="435" cy="220" r="20" fill="url(#nodeEndGradient)" filter="url(#softShadow)"/>
-  <text x="435" y="225" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">End</text>
-  
-  <!-- Connection paths -->
-  <path d="M100,150 L140,150" stroke="#4A6ADA" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
-  
-  <path d="M220,150 L290,150" stroke="#4A6ADA" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
-  
-  <path d="M350,150 L410,150" stroke="#0BAB64" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
-  <text x="380" y="140" font-family="Segoe UI, Arial, sans-serif" font-size="8" fill="#B2C7E8">Yes</text>
-  
-  <path d="M320,170 L320,200" stroke="#FF512F" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
-  <text x="330" y="185" font-family="Segoe UI, Arial, sans-serif" font-size="8" fill="#B2C7E8">No</text>
-  
-  <path d="M290,220 L180,220 L180,170" stroke="#4A6ADA" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
-  
-  <path d="M435,170 L435,200" stroke="#4A6ADA" stroke-width="2" marker-end="url(#arrow)" fill="none"/>
-  
-  <!-- Animated data packet -->
-  <circle cx="0" cy="0" r="4" fill="white" filter="url(#glow)">
-    <animateMotion 
-      path="M100,150 L140,150 L220,150 L290,150 L350,150 L410,150 L435,150 L435,220"
-      dur="4s"
-      repeatCount="indefinite"
-      rotate="auto"
-    />
-  </circle>
-  
-  <circle cx="0" cy="0" r="4" fill="white" filter="url(#glow)">
-    <animateMotion 
-      path="M100,150 L140,150 L220,150 L290,150 L320,170 L320,200 L290,220 L180,220 L180,170"
-      dur="6s"
-      begin="2s"
-      repeatCount="indefinite"
-      rotate="auto"
-    />
-  </circle>
-</svg> 
+
+  <!-- Canvas with grid -->
+  <g transform="translate(40,90)">
+    <rect width="720" height="370" rx="14" fill="#101012"/>
+    <rect width="720" height="370" rx="14" fill="url(#wf-grid)"/>
+
+    <!-- Connections -->
+    <g fill="none" stroke="#5a5a62" stroke-width="1.6">
+      <path d="M120 90 H 240" marker-end="url(#wf-arrow)"/>
+      <path d="M340 90 H 460" marker-end="url(#wf-arrow)"/>
+      <path d="M560 90 V 200 H 660" marker-end="url(#wf-arrow)"/>
+      <path d="M540 110 V 220 H 460" marker-end="url(#wf-arrow)"/>
+      <path d="M260 130 V 250 H 320" marker-end="url(#wf-arrow)"/>
+    </g>
+
+    <!-- Node: Trigger -->
+    <g transform="translate(20,55)" font-family="'Public Sans', sans-serif">
+      <rect width="100" height="70" rx="12" fill="#ed1c24"/>
+      <text x="50" y="26" text-anchor="middle" font-size="10" font-weight="700" fill="#fff" letter-spacing="0.08em">TRIGGER</text>
+      <text x="50" y="46" text-anchor="middle" font-size="13" font-weight="600" fill="#fff">SAE form</text>
+      <text x="50" y="60" text-anchor="middle" font-size="10" fill="#fff" opacity="0.8">submitted</text>
+    </g>
+
+    <!-- Node: Validate -->
+    <g transform="translate(240,55)" font-family="'Public Sans', sans-serif">
+      <rect width="100" height="70" rx="12" fill="#1a1a1d" stroke="#26262a"/>
+      <text x="50" y="26" text-anchor="middle" font-size="10" font-weight="700" fill="#9b9ba1" letter-spacing="0.08em">RULE</text>
+      <text x="50" y="46" text-anchor="middle" font-size="13" font-weight="600" fill="#ededee">Validate</text>
+      <text x="50" y="60" text-anchor="middle" font-size="10" fill="#9b9ba1">required fields</text>
+    </g>
+
+    <!-- Node: Sponsor notify -->
+    <g transform="translate(460,55)" font-family="'Public Sans', sans-serif">
+      <rect width="100" height="70" rx="12" fill="#1a1a1d" stroke="#26262a"/>
+      <text x="50" y="26" text-anchor="middle" font-size="10" font-weight="700" fill="#9b9ba1" letter-spacing="0.08em">NOTIFY</text>
+      <text x="50" y="46" text-anchor="middle" font-size="13" font-weight="600" fill="#ededee">Sponsor</text>
+      <text x="50" y="60" text-anchor="middle" font-size="10" fill="#9b9ba1">PV team email</text>
+    </g>
+
+    <!-- Node: Health Canada -->
+    <g transform="translate(660,180)" font-family="'Public Sans', sans-serif">
+      <rect width="120" height="70" rx="12" fill="#1a1a1d" stroke="#ed1c24" stroke-width="1.6"/>
+      <text x="60" y="26" text-anchor="middle" font-size="10" font-weight="700" fill="#ed1c24" letter-spacing="0.08em">SUBMIT</text>
+      <text x="60" y="46" text-anchor="middle" font-size="13" font-weight="600" fill="#ededee">Health Canada</text>
+      <text x="60" y="60" text-anchor="middle" font-size="10" fill="#9b9ba1">CIOMS within 7d</text>
+    </g>
+
+    <!-- Node: Site monitor task -->
+    <g transform="translate(460,200)" font-family="'Public Sans', sans-serif">
+      <rect width="100" height="70" rx="12" fill="#1a1a1d" stroke="#26262a"/>
+      <text x="50" y="26" text-anchor="middle" font-size="10" font-weight="700" fill="#9b9ba1" letter-spacing="0.08em">TASK</text>
+      <text x="50" y="46" text-anchor="middle" font-size="13" font-weight="600" fill="#ededee">CRA review</text>
+      <text x="50" y="60" text-anchor="middle" font-size="10" fill="#9b9ba1">SLA · 24h</text>
+    </g>
+
+    <!-- Node: Audit log -->
+    <g transform="translate(320,235)" font-family="'Public Sans', sans-serif">
+      <rect width="100" height="70" rx="12" fill="#1a1a1d" stroke="#26262a"/>
+      <text x="50" y="26" text-anchor="middle" font-size="10" font-weight="700" fill="#9b9ba1" letter-spacing="0.08em">LOG</text>
+      <text x="50" y="46" text-anchor="middle" font-size="13" font-weight="600" fill="#ededee">Audit trail</text>
+      <text x="50" y="60" text-anchor="middle" font-size="10" fill="#9b9ba1">21 CFR Part 11</text>
+    </g>
+
+    <!-- Status pill -->
+    <g transform="translate(20,316)" font-family="'Public Sans', sans-serif">
+      <rect width="320" height="34" rx="17" fill="#0e0e10" stroke="#26262a"/>
+      <circle cx="20" cy="17" r="5" fill="#ed1c24"/>
+      <text x="36" y="22" font-size="12" fill="#ededee" font-weight="600">Active · 1,402 runs this month · 0 failures</text>
+    </g>
+  </g>
+</svg>

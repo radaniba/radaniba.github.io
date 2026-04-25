@@ -1,1173 +1,257 @@
-/**
- * MAESTRO Landing Page JavaScript
+/*
+ * MAESTRO Redesign — minimal site script
+ * - Theme toggle (default: dark, persisted in localStorage)
+ * - Header scroll state
+ * - Mobile menu
+ * - Tabs
+ * - Cookie banner
+ * - SVG icon hydration (replaces <img src="*.svg"> with inline <svg> so they
+ *   inherit currentColor from CSS — works for icon containers + social icons)
  */
 
-// Main initialization function
-document.addEventListener('DOMContentLoaded', function() {
-    // Fix SVG rendering in older browsers
-    fixSvgRendering();
-    
-    // Initialize navigation
-    initNavigation();
-    
-    // Initialize smooth scrolling
-    initSmoothScroll();
-    
-    // Initialize tab functionality
-    initTabNavigation();
-    
-    // Initialize testimonial slider
-    initTestimonialSlider();
-    
-    // Initialize AI animation
-    initAIAnimation();
-    
-    // Initialize chat widget
-    initChatWidget();
-    
-    // Initialize exit intent popup
-    initExitIntent();
-    
-    // Initialize scroll animations
-    initScrollAnimations();
-    
-    // Initialize counters
-    initCounters();
-    
-    // Initialize form handling
-    handleFormSubmissions();
-    
-    // Initialize cookie consent
-    initCookieConsent();
+(function () {
+  'use strict';
 
-    // Cloud Provider Slider
-    function initCloudProviderSlider() {
-        const sliderTrack = document.querySelector('.cloud-slider-track');
-        const slides = document.querySelectorAll('.cloud-slide');
-        const dotsContainer = document.querySelector('.cloud-slider-dots');
-        const prevButton = document.querySelector('.cloud-slider-nav.prev');
-        const nextButton = document.querySelector('.cloud-slider-nav.next');
-        
-        if (!sliderTrack || slides.length === 0) return;
-        
-        // Variables
-        let currentSlide = 0;
-        const slidesToShow = window.innerWidth < 768 ? 1 : 3;
-        let slideWidth = 100 / slidesToShow;
-        let autoplayInterval;
-        
-        // Create dot indicators
-        slides.forEach((_, index) => {
-            const dot = document.createElement('button');
-            dot.className = 'cloud-slider-dot';
-            dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
-            dot.addEventListener('click', () => goToSlide(index));
-            dotsContainer.appendChild(dot);
-        });
-        
-        // Set initial state
-        function initSlider() {
-            // Set slider track width
-            sliderTrack.style.width = `${slides.length * 100 / slidesToShow}%`;
-            
-            // Set slide widths
-            slides.forEach(slide => {
-                slide.style.width = `${slideWidth}%`;
-            });
-            
-            // Init first slide
-            updateSlider();
-            
-            // Start autoplay
-            startAutoplay();
-        }
-        
-        // Go to specific slide
-        function goToSlide(index) {
-            currentSlide = index;
-            updateSlider();
-            resetAutoplay();
-        }
-        
-        // Next slide
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % slides.length;
-            updateSlider();
-            resetAutoplay();
-        }
-        
-        // Previous slide
-        function prevSlide() {
-            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-            updateSlider();
-            resetAutoplay();
-        }
-        
-        // Update slider state
-        function updateSlider() {
-            // Calculate position
-            const position = -currentSlide * slideWidth;
-            sliderTrack.style.transform = `translateX(${position}%)`;
-            
-            // Update active class on slides
-            slides.forEach((slide, i) => {
-                slide.classList.toggle('active', i === currentSlide);
-            });
-            
-            // Update dots
-            const dots = dotsContainer.querySelectorAll('.cloud-slider-dot');
-            dots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === currentSlide);
-            });
-        }
-        
-        // Start autoplay
-        function startAutoplay() {
-            autoplayInterval = setInterval(nextSlide, 3000);
-        }
-        
-        // Reset autoplay
-        function resetAutoplay() {
-            clearInterval(autoplayInterval);
-            startAutoplay();
-        }
-        
-        // Event listeners
-        if (prevButton) prevButton.addEventListener('click', prevSlide);
-        if (nextButton) nextButton.addEventListener('click', nextSlide);
-        
-        // Handle resize
-        window.addEventListener('resize', debounce(() => {
-            const newSlidesToShow = window.innerWidth < 768 ? 1 : 3;
-            if (newSlidesToShow !== slidesToShow) {
-                slideWidth = 100 / newSlidesToShow;
-                initSlider();
-            }
-        }, 200));
-        
-        // Initialize slider
-        initSlider();
+  /* ---------- Theme ---------- */
+  var THEME_KEY = 'maestro-theme';
+  var root = document.documentElement;
+
+  function getStoredTheme() {
+    try { return localStorage.getItem(THEME_KEY); } catch (e) { return null; }
+  }
+  function setStoredTheme(value) {
+    try { localStorage.setItem(THEME_KEY, value); } catch (e) {}
+  }
+  function applyTheme(theme) {
+    root.setAttribute('data-theme', theme);
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', theme === 'light' ? '#fafafa' : '#0a0a0a');
+  }
+
+  // Default to dark unless user previously chose light
+  var initial = getStoredTheme() || 'dark';
+  applyTheme(initial);
+
+  document.addEventListener('DOMContentLoaded', function () {
+    /* Theme toggle button */
+    var toggle = document.querySelector('[data-theme-toggle]');
+    if (toggle) {
+      toggle.addEventListener('click', function () {
+        var current = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+        var next = current === 'light' ? 'dark' : 'light';
+        applyTheme(next);
+        setStoredTheme(next);
+      });
     }
-    
-    // Initialize cloud provider slider
-    initCloudProviderSlider();
 
-    // Initialize cloud slider
-    initCloudSlider();
-});
-
-/**
- * Fix SVG rendering issues on GitHub Pages
- */
-function fixSvgRendering() {
-    // Find all SVG elements that might have rendering issues
-    const svgElements = document.querySelectorAll('img[src$=".svg"]');
-    
-    svgElements.forEach(svg => {
-        // Get the current src
-        const currentSrc = svg.getAttribute('src');
-        
-        // Only make sure SVGs are visible without modifying the source
-        if (currentSrc && currentSrc.endsWith('.svg')) {
-            // Make sure SVGs are visible
-            svg.style.visibility = 'visible';
-            
-            // Add fallback for browsers that don't support SVG
-            const fallbackPng = currentSrc.replace('.svg', '.png');
-            svg.setAttribute('onerror', `this.onerror=null; this.src='${fallbackPng}'`);
-        }
-    });
-    
-    // Specifically target challenge icons in pain points section
-    const challengeIcons = document.querySelectorAll('.challenge-icon img');
-    challengeIcons.forEach(icon => {
-        const src = icon.getAttribute('src');
-        if (src && src.endsWith('.svg')) {
-            // Ensure proper display
-            icon.style.width = '32px'; 
-            icon.style.height = '32px';
-            icon.style.display = 'block';
-            
-            // Add fallback
-            const fallbackPng = src.replace('.svg', '.png');
-            icon.setAttribute('onerror', `this.onerror=null; this.src='${fallbackPng}'`);
-        }
-    });
-}
-
-/**
- * Mobile Navigation Toggle
- */
-function initNavigation() {
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('nav ul');
-    
-    if (hamburger && navMenu) {
-        hamburger.addEventListener('click', function() {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-            document.body.classList.toggle('menu-open');
-        });
-        
-        // Close menu when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!e.target.closest('nav ul') && !e.target.closest('.hamburger') && navMenu.classList.contains('active')) {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-                document.body.classList.remove('menu-open');
-            }
-        });
-        
-        // Handle header background change on scroll
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-        
-        // Close mobile menu when clicking on a nav link that points to a section
-        const navLinks = document.querySelectorAll('nav a[href^="#"]');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                if (navMenu.classList.contains('active')) {
-                    hamburger.classList.remove('active');
-                    navMenu.classList.remove('active');
-                    document.body.classList.remove('menu-open');
-                }
-            });
-        });
+    /* Header scroll state */
+    var header = document.querySelector('.site-header');
+    if (header) {
+      var onScroll = function () {
+        if (window.scrollY > 8) header.classList.add('scrolled');
+        else header.classList.remove('scrolled');
+      };
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
     }
-}
 
-/**
- * Smooth scrolling for anchor links
- */
-function initSmoothScroll() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            
-            if (href !== '#') {
-                e.preventDefault();
-                
-                const targetElement = document.querySelector(href);
-                
-                if (targetElement) {
-                    // Close mobile menu if open
-                    const navMenu = document.querySelector('.nav-menu');
-                    const menuToggle = document.querySelector('.menu-toggle');
-                    
-                    if (navMenu && navMenu.classList.contains('show')) {
-                        menuToggle.classList.remove('active');
-                        navMenu.classList.remove('show');
-                        document.body.classList.remove('menu-open');
-                    }
-                    
-                    // Scroll to target with smooth behavior
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80, // Adjust for header height
-                        behavior: 'smooth'
-                    });
-                }
-            }
+    /* Mobile menu */
+    var hamburger = document.querySelector('.hamburger');
+    var navList = document.querySelector('.site-header nav ul');
+    if (hamburger && navList) {
+      hamburger.addEventListener('click', function () {
+        var open = navList.classList.toggle('is-open');
+        hamburger.classList.toggle('is-open', open);
+        hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      navList.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          navList.classList.remove('is-open');
+          hamburger.classList.remove('is-open');
+          hamburger.setAttribute('aria-expanded', 'false');
         });
-    });
-}
+      });
+    }
 
-/**
- * Testimonial Slider
- */
-function initTestimonialSlider() {
-    const slides = document.querySelectorAll('.testimonial-slide');
-    const dotsContainer = document.querySelector('.testimonial-dots');
-    const prevBtn = document.querySelector('.prev-btn');
-    const nextBtn = document.querySelector('.next-btn');
-    const slider = document.querySelector('.testimonial-slider');
-    
-    if (slides.length && dotsContainer) {
-        let currentSlide = 0;
-        let autoSlideInterval;
-        let touchStartX = 0;
-        let touchEndX = 0;
-        
-        // Create navigation dots
-        slides.forEach((_, index) => {
-            const dot = document.createElement('div');
-            dot.classList.add('dot');
-            if (index === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => {
-                goToSlide(index);
-                resetAutoSlide();
-            });
-            dotsContainer.appendChild(dot);
+    /* Tabs */
+    var tabButtons = document.querySelectorAll('.tab-btn');
+    var tabPanes = document.querySelectorAll('.tab-pane');
+    if (tabButtons.length && tabPanes.length) {
+      tabButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          tabButtons.forEach(function (b) { b.classList.remove('active'); });
+          tabPanes.forEach(function (p) { p.classList.remove('active'); });
+          btn.classList.add('active');
+          var target = document.getElementById(btn.getAttribute('data-tab'));
+          if (target) target.classList.add('active');
         });
-        
-        // Add swipe functionality
-        if (slider) {
-            slider.addEventListener('touchstart', (e) => {
-                touchStartX = e.changedTouches[0].screenX;
-            }, {passive: true});
-            
-            slider.addEventListener('touchend', (e) => {
-                touchEndX = e.changedTouches[0].screenX;
-                handleSwipe();
-                resetAutoSlide();
-            }, {passive: true});
-        }
-        
-        function handleSwipe() {
-            const threshold = 50; // Minimum swipe distance
-            if (touchStartX - touchEndX > threshold) {
-                // Swipe left (next)
-                goToNextSlide();
-            } else if (touchEndX - touchStartX > threshold) {
-                // Swipe right (previous)
-                goToPrevSlide();
-            }
-        }
-        
-        // Previous button
-        if (prevBtn) {
-            prevBtn.addEventListener('click', () => {
-                goToPrevSlide();
-                resetAutoSlide();
-            });
-        }
-        
-        // Next button
-        if (nextBtn) {
-            nextBtn.addEventListener('click', () => {
-                goToNextSlide();
-                resetAutoSlide();
-            });
-        }
-        
-        function goToNextSlide() {
-            currentSlide = (currentSlide + 1) % slides.length;
-            updateSlider();
-        }
-        
-        function goToPrevSlide() {
-            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-            updateSlider();
-        }
-        
-        function goToSlide(index) {
-            currentSlide = index;
-            updateSlider();
-        }
-        
-        function updateSlider() {
-            // Update slides
-            slides.forEach((slide, index) => {
-                slide.classList.remove('active', 'prev', 'next');
-                
-                // Add appropriate class based on position
-                if (index === currentSlide) {
-                    slide.classList.add('active');
-                    slide.style.transform = 'translateX(0)';
-                    slide.style.opacity = '1';
-                    slide.style.zIndex = '2';
-                } else if (index === (currentSlide - 1 + slides.length) % slides.length) {
-                    slide.classList.add('prev');
-                    slide.style.transform = 'translateX(-100%)';
-                    slide.style.opacity = '0.5';
-                    slide.style.zIndex = '1';
-                } else if (index === (currentSlide + 1) % slides.length) {
-                    slide.classList.add('next');
-                    slide.style.transform = 'translateX(100%)';
-                    slide.style.opacity = '0.5';
-                    slide.style.zIndex = '1';
-                } else {
-                    slide.style.transform = 'translateX(100%)';
-                    slide.style.opacity = '0';
-                    slide.style.zIndex = '0';
-                }
-            });
-            
-            // Update dots
-            const dots = dotsContainer.querySelectorAll('.dot');
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentSlide);
-            });
-        }
-        
-        function startAutoSlide() {
-            autoSlideInterval = setInterval(() => {
-                goToNextSlide();
-            }, 5000); // Change slide every 5 seconds
-        }
-        
-        function resetAutoSlide() {
-            clearInterval(autoSlideInterval);
-            startAutoSlide();
-        }
-        
-        // Initialize
-        updateSlider();
-        startAutoSlide();
-        
-        // Pause auto-sliding when user hovers over slider
-        if (slider) {
-            slider.addEventListener('mouseenter', () => {
-                clearInterval(autoSlideInterval);
-            });
-            
-            slider.addEventListener('mouseleave', () => {
-                startAutoSlide();
-            });
-        }
+      });
+      // Ensure one is active
+      var anyActive = Array.prototype.some.call(tabButtons, function (b) { return b.classList.contains('active'); });
+      if (!anyActive) {
+        tabButtons[0].classList.add('active');
+        if (tabPanes[0]) tabPanes[0].classList.add('active');
+      }
     }
-}
 
-/**
- * AI Animation in Hero Section
- */
-function initAIAnimation() {
-    const container = document.querySelector('.ai-animation');
-    if (!container) return;
-
-    // Clear any existing content
-    container.innerHTML = '';
-    
-    // Create a canvas for better performance
-    const canvas = document.createElement('canvas');
-    canvas.width = container.offsetWidth;
-    canvas.height = container.offsetHeight;
-    container.appendChild(canvas);
-    
-    const ctx = canvas.getContext('2d');
-    
-    // Parameters
-    const particles = [];
-    const connections = [];
-    const particleCount = 40;
-    const connectionDistance = 100;
-    const nodeSize = 3;
-    
-    // Create particles (neural nodes)
-    for (let i = 0; i < particleCount; i++) {
-        particles.push({
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height,
-            size: nodeSize + Math.random() * 2,
-            speedX: (Math.random() - 0.5) * 0.5,
-            speedY: (Math.random() - 0.5) * 0.5,
-            hue: 220 + Math.random() * 40, // Blue to purple range
-            active: Math.random() > 0.7  // Some nodes start active
-        });
-    }
-    
-    // Create data packets for animation
-    const dataPackets = [];
-    
-    // Animation loop
-    function animate() {
-        // Clear canvas
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        
-        // Update and draw connections first (behind particles)
-        ctx.lineWidth = 0.5;
-        connections.length = 0; // Reset connections
-        
-        for (let i = 0; i < particles.length; i++) {
-            for (let j = i + 1; j < particles.length; j++) {
-                const dx = particles[i].x - particles[j].x;
-                const dy = particles[i].y - particles[j].y;
-                const distance = Math.sqrt(dx * dx + dy * dy);
-                
-                if (distance < connectionDistance) {
-                    connections.push({
-                        from: particles[i],
-                        to: particles[j],
-                        opacity: 1 - (distance / connectionDistance)
-                    });
-                    
-                    // Draw connection
-                    ctx.beginPath();
-                    ctx.moveTo(particles[i].x, particles[i].y);
-                    ctx.lineTo(particles[j].x, particles[j].y);
-                    
-                    const opacity = 0.2 * (1 - (distance / connectionDistance));
-                    ctx.strokeStyle = `rgba(120, 170, 255, ${opacity})`;
-                    ctx.stroke();
-                }
-            }
-        }
-        
-        // Create new data packets randomly
-        if (Math.random() > 0.97 && connections.length > 0) {
-            const connection = connections[Math.floor(Math.random() * connections.length)];
-            if (connection) {
-                dataPackets.push({
-                    x: connection.from.x,
-                    y: connection.from.y,
-                    targetX: connection.to.x,
-                    targetY: connection.to.y,
-                    progress: 0,
-                    speed: 0.02 + Math.random() * 0.03
-                });
-            }
-        }
-        
-        // Update and draw data packets
-        for (let i = dataPackets.length - 1; i >= 0; i--) {
-            const packet = dataPackets[i];
-            packet.progress += packet.speed;
-            
-            if (packet.progress >= 1) {
-                // Remove completed packets
-                dataPackets.splice(i, 1);
-                
-                // Activate the target node
-                for (let j = 0; j < particles.length; j++) {
-                    if (particles[j].x === packet.targetX && particles[j].y === packet.targetY) {
-                        particles[j].active = true;
-                        setTimeout(() => {
-                            particles[j].active = Math.random() > 0.5;
-                        }, 1000 + Math.random() * 2000);
-                    }
-                }
-                continue;
-            }
-            
-            // Calculate current position
-            const x = packet.x + (packet.targetX - packet.x) * packet.progress;
-            const y = packet.y + (packet.targetY - packet.y) * packet.progress;
-            
-            // Draw data packet
-            ctx.beginPath();
-            ctx.arc(x, y, 2, 0, Math.PI * 2);
-            ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
-            ctx.fill();
-        }
-        
-        // Update and draw particles
-        for (let i = 0; i < particles.length; i++) {
-            const p = particles[i];
-            
-            // Update position with boundaries
-            p.x += p.speedX;
-            p.y += p.speedY;
-            
-            if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
-            if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
-            
-            // Draw particle
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-            
-            // Different style for active nodes
-            if (p.active) {
-                // Glowing effect for active nodes
-                const gradient = ctx.createRadialGradient(
-                    p.x, p.y, 0,
-                    p.x, p.y, p.size * 2
-                );
-                gradient.addColorStop(0, `hsla(${p.hue}, 80%, 70%, 1)`);
-                gradient.addColorStop(1, `hsla(${p.hue}, 80%, 50%, 0)`);
-                
-                ctx.fillStyle = `hsla(${p.hue}, 80%, 70%, 1)`;
-                ctx.fill();
-                
-                // Draw glow
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.size * 2, 0, Math.PI * 2);
-                ctx.fillStyle = gradient;
-                ctx.fill();
-            } else {
-                ctx.fillStyle = `hsla(${p.hue}, 70%, 60%, 0.6)`;
-                ctx.fill();
-            }
-        }
-        
-        requestAnimationFrame(animate);
-    }
-    
-    // Handle resize
-    function handleResize() {
-        canvas.width = container.offsetWidth;
-        canvas.height = container.offsetHeight;
-        
-        // Redistribute particles
-        for (let i = 0; i < particles.length; i++) {
-            particles[i].x = Math.random() * canvas.width;
-            particles[i].y = Math.random() * canvas.height;
-        }
-    }
-    
-    window.addEventListener('resize', debounce(handleResize, 250));
-    
-    // Start animation
-    animate();
-}
-
-/**
- * Live Chat Widget
- */
-function initChatWidget() {
-    const chatToggle = document.querySelector('.chat-toggle');
-    const chatContainer = document.querySelector('.chat-container');
-    const chatIcon = document.querySelector('.chat-icon');
-    const closeIcon = document.querySelector('.close-icon');
-    const chatInput = document.querySelector('.chat-input input');
-    const sendBtn = document.querySelector('.send-btn');
-    const chatMessages = document.querySelector('.chat-messages');
-    
-    if (chatToggle && chatContainer) {
-        // Toggle chat window
-        chatToggle.addEventListener('click', () => {
-            chatContainer.classList.toggle('hidden');
-            chatIcon.classList.toggle('hidden');
-            closeIcon.classList.toggle('hidden');
-        });
-        
-        // Send message function
-        function sendMessage() {
-            const message = chatInput.value.trim();
-            if (message) {
-                // Add user message
-                const userMessageEl = document.createElement('div');
-                userMessageEl.classList.add('message', 'user-message');
-                userMessageEl.innerHTML = `<p>${message}</p>`;
-                chatMessages.appendChild(userMessageEl);
-                
-                // Clear input
-                chatInput.value = '';
-                
-                // Scroll to bottom
-                chatMessages.scrollTop = chatMessages.scrollHeight;
-                
-                // Simulate response (in a real app, this would call an API)
-                setTimeout(() => {
-                    const botMessageEl = document.createElement('div');
-                    botMessageEl.classList.add('message', 'system-message');
-                    botMessageEl.innerHTML = `<p>Thanks for your message! This is a demo chat widget. In a production environment, this would connect to a live chat system.</p>`;
-                    chatMessages.appendChild(botMessageEl);
-                    
-                    // Scroll to bottom again
-                    chatMessages.scrollTop = chatMessages.scrollHeight;
-                }, 1000);
-            }
-        }
-        
-        // Send message on button click
-        if (sendBtn) {
-            sendBtn.addEventListener('click', sendMessage);
-        }
-        
-        // Send message on Enter key
-        if (chatInput) {
-            chatInput.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') {
-                    sendMessage();
-                }
-            });
-        }
-    }
-}
-
-/**
- * Exit Intent Popup
- */
-function initExitIntent() {
-    const exitPopup = document.querySelector('.exit-popup');
-    
-    if (exitPopup) {
-        // Check if popup was already shown in this session
-        if (!sessionStorage.getItem('exitPopupShown')) {
-            // Set listener for exit intent
-            document.addEventListener('mouseleave', handleExitIntent);
-            
-            // Close button handler
-            const closeButton = exitPopup.querySelector('.close-popup');
-            
-            if (closeButton) {
-                closeButton.addEventListener('click', function() {
-                    exitPopup.classList.remove('show');
-                    // Prevent showing again in this session
-                    sessionStorage.setItem('exitPopupShown', 'true');
-                });
-            }
-        }
-    }
-}
-
-/**
- * Handle exit intent detection
- */
-function handleExitIntent(e) {
-    // Only trigger when cursor moves out through the top of the page
-    if (e.clientY < 5) {
-        // Remove the event listener
-        document.removeEventListener('mouseleave', handleExitIntent);
-        
-        // Show the popup
-        const exitPopup = document.querySelector('.exit-popup');
-        
-        if (exitPopup) {
-            exitPopup.classList.add('show');
-        }
-    }
-}
-
-/**
- * Scroll Animations
- */
-function initScrollAnimations() {
-    // Check if Intersection Observer is supported
-    if ('IntersectionObserver' in window) {
-        const animatedElements = document.querySelectorAll('.fade-in, .slide-in, .scale-in');
-        
-        const animationObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    
-                    // Stop observing after animation is triggered
-                    animationObserver.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px' // Trigger slightly before element comes into view
-        });
-        
-        animatedElements.forEach(element => {
-            // Add initial state class based on animation type
-            if (element.classList.contains('fade-in')) {
-                element.style.opacity = '0';
-                element.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
-            } else if (element.classList.contains('slide-in')) {
-                element.style.opacity = '0';
-                element.style.transform = 'translateY(50px)';
-                element.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
-            } else if (element.classList.contains('scale-in')) {
-                element.style.opacity = '0';
-                element.style.transform = 'scale(0.9)';
-                element.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
-            }
-            
-            animationObserver.observe(element);
-        });
-        
-        // Add styles for visible state
-        const style = document.createElement('style');
-        style.textContent = `
-            .fade-in.visible, .slide-in.visible, .scale-in.visible {
-                opacity: 1;
-                transform: none;
-            }
-        `;
-        document.head.appendChild(style);
-    }
-    
-    // Parallax effect for background elements
-    window.addEventListener('scroll', function() {
-        const parallaxElements = document.querySelectorAll('.parallax');
-        
-        parallaxElements.forEach(element => {
-            const scrollPosition = window.pageYOffset;
-            const speed = element.getAttribute('data-speed') || 0.5;
-            
-            element.style.transform = `translateY(${scrollPosition * speed}px)`;
-        });
-    });
-}
-
-/**
- * Tab navigation
- */
-function initTabNavigation() {
-    const tabContainers = document.querySelectorAll('.tab-container');
-    
-    tabContainers.forEach(container => {
-        const tabButtons = container.querySelectorAll('.tab-button');
-        const tabPanels = container.querySelectorAll('.tab-panel');
-        
-        tabButtons.forEach((button, index) => {
-            button.addEventListener('click', function() {
-                // Remove active class from all buttons and panels
-                tabButtons.forEach(btn => btn.classList.remove('active'));
-                tabPanels.forEach(panel => panel.classList.remove('active'));
-                
-                // Add active class to clicked button and corresponding panel
-                button.classList.add('active');
-                tabPanels[index].classList.add('active');
-            });
-        });
-    });
-}
-
-/**
- * Cookie consent banner with Google Analytics integration
- */
-function initCookieConsent() {
-    const cookieBanner = document.querySelector('.cookie-banner');
-    
-    if (cookieBanner) {
-        // Check if consent was already given
-        if (!localStorage.getItem('cookieConsent')) {
-            // Show the banner after a short delay
-            setTimeout(() => {
-                cookieBanner.classList.add('show');
-            }, 2000);
-            
-            // Accept button handler
-            const acceptButton = cookieBanner.querySelector('.accept-cookies');
-            
-            if (acceptButton) {
-                acceptButton.addEventListener('click', function() {
-                    localStorage.setItem('cookieConsent', 'accepted');
-                    cookieBanner.classList.remove('show');
-                    
-                    // Enable Google Analytics if available
-                    if (typeof gtag === 'function') {
-                        // Update GA consent
-                        gtag('consent', 'update', {
-                            'analytics_storage': 'granted'
-                        });
-                    }
-                });
-            }
-            
-            // Reject button handler
-            const rejectButton = cookieBanner.querySelector('.reject-cookies');
-            
-            if (rejectButton) {
-                rejectButton.addEventListener('click', function() {
-                    localStorage.setItem('cookieConsent', 'rejected');
-                    cookieBanner.classList.remove('show');
-                    
-                    // Disable Google Analytics if available
-                    if (typeof gtag === 'function') {
-                        // Update GA consent
-                        gtag('consent', 'update', {
-                            'analytics_storage': 'denied'
-                        });
-                    }
-                });
-            }
-            
-            // Settings button handler
-            const settingsButton = cookieBanner.querySelector('.cookie-settings');
-            
-            if (settingsButton) {
-                settingsButton.addEventListener('click', function() {
-                    // Show cookie settings panel
-                    const settingsPanel = document.querySelector('.cookie-settings-panel');
-                    if (settingsPanel) {
-                        settingsPanel.classList.add('show');
-                    }
-                });
-            }
-            
-            // Save settings button handler
-            const saveSettingsButton = document.querySelector('.save-cookie-settings');
-            
-            if (saveSettingsButton) {
-                saveSettingsButton.addEventListener('click', function() {
-                    // Get selected preferences
-                    const analyticsConsent = document.getElementById('analytics-consent').checked;
-                    const functionalConsent = document.getElementById('functional-consent').checked;
-                    
-                    // Save preferences
-                    localStorage.setItem('cookieConsent', 'custom');
-                    localStorage.setItem('analyticsConsent', analyticsConsent);
-                    localStorage.setItem('functionalConsent', functionalConsent);
-                    
-                    // Update Google Analytics consent
-                    if (typeof gtag === 'function') {
-                        gtag('consent', 'update', {
-                            'analytics_storage': analyticsConsent ? 'granted' : 'denied'
-                        });
-                    }
-                    
-                    // Hide panels
-                    document.querySelector('.cookie-settings-panel').classList.remove('show');
-                    cookieBanner.classList.remove('show');
-                });
-            }
-            
-            // Close settings panel button
-            const closeSettingsButton = document.querySelector('.close-cookie-settings');
-            
-            if (closeSettingsButton) {
-                closeSettingsButton.addEventListener('click', function() {
-                    const settingsPanel = document.querySelector('.cookie-settings-panel');
-                    if (settingsPanel) {
-                        settingsPanel.classList.remove('show');
-                    }
-                });
-            }
-        } else {
-            // Apply stored preferences on page load
-            const consentType = localStorage.getItem('cookieConsent');
-            
-            if (consentType === 'accepted') {
-                // Enable all cookies
-                if (typeof gtag === 'function') {
-                    gtag('consent', 'update', { 'analytics_storage': 'granted' });
-                }
-            } else if (consentType === 'custom') {
-                // Apply custom settings
-                const analyticsConsent = localStorage.getItem('analyticsConsent') === 'true';
-                
-                if (typeof gtag === 'function') {
-                    gtag('consent', 'update', { 
-                        'analytics_storage': analyticsConsent ? 'granted' : 'denied'
-                    });
-                }
-            } else if (consentType === 'rejected') {
-                // Disable all cookies
-                if (typeof gtag === 'function') {
-                    gtag('consent', 'update', { 'analytics_storage': 'denied' });
-                }
-            }
-        }
-    }
-}
-
-/**
- * Form Handling
- */
-function handleFormSubmissions() {
-    const demoForm = document.getElementById('demo-form');
-    
+    /* Hero demo form — no backend needed.
+       On submit we (1) validate required fields, (2) compose a structured
+       email body from the form values, and (3) open the user's mail client
+       with everything pre-filled, addressed to the configured inbox.
+       The recipient is taken from the form's `data-mailto` attribute so it
+       can be changed in HTML without touching JS. */
+    var demoForm = document.querySelector('[data-demo-form]');
     if (demoForm) {
-        demoForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(demoForm);
-            const data = Object.fromEntries(formData.entries());
-            
-            // In a real app, this would submit to a server
-            console.log('Form Data:', data);
-            alert('Thank you for your interest! Your demo request has been received. This is a demo form - in a production environment, this would be sent to our sales team.');
-            
-            // Clear form
-            demoForm.reset();
-        });
+      demoForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        var recipient = demoForm.getAttribute('data-mailto') || 'sales@ranbiolinks.com';
+        var btn = demoForm.querySelector('button[type="submit"]');
+        var statusEl = demoForm.querySelector('[data-form-status]');
+
+        var nameField = demoForm.querySelector('[name="full-name"]');
+        var emailField = demoForm.querySelector('[name="email"]');
+        var orgField = demoForm.querySelector('[name="org"]');
+
+        var name = nameField ? nameField.value.trim() : '';
+        var email = emailField ? emailField.value.trim() : '';
+        var org = orgField ? orgField.value.trim() : '';
+
+        var emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        if (!name || !emailValid) {
+          if (statusEl) {
+            statusEl.textContent = 'Please enter your name and a valid work email.';
+            statusEl.classList.add('is-error');
+          }
+          (name ? emailField : nameField) && (name ? emailField : nameField).focus();
+          return;
+        }
+        if (statusEl) statusEl.classList.remove('is-error');
+
+        var subject = 'MAESTRO demo request — ' + (org || name);
+        var bodyLines = [
+          'Hello MAESTRO team,',
+          '',
+          'I would like to schedule a demo of the platform.',
+          '',
+          'Name:         ' + name,
+          'Work email:   ' + email,
+          'Organization: ' + (org || '—'),
+          '',
+          'Sent from maestro.ranbiolinks.com'
+        ];
+        var href = 'mailto:' + encodeURIComponent(recipient) +
+          '?subject=' + encodeURIComponent(subject) +
+          '&body=' + encodeURIComponent(bodyLines.join('\n'));
+
+        if (btn) {
+          var label = btn.textContent;
+          btn.disabled = true;
+          btn.textContent = 'Opening your email…';
+          setTimeout(function () {
+            btn.disabled = false;
+            btn.textContent = label;
+          }, 2400);
+        }
+
+        if (statusEl) {
+          statusEl.textContent = 'Opening your email app — just hit Send to finish your request.';
+        }
+
+        window.location.href = href;
+      });
     }
-}
 
-/**
- * Utility Functions
- */
+    /* SVG icon hydration — turn <img src="...svg"> inside icon-y containers into
+       inline <svg> so they pick up currentColor from CSS (theme + brand aware). */
+    (function hydrateIcons() {
+      var SELECTOR = [
+        '.icon img[src$=".svg"]',
+        '.icon-circle img[src$=".svg"]',
+        '.social-icons a img[src$=".svg"]',
+        'img.icon-svg[src$=".svg"]',
+        '.logo-row img[src$=".svg"]',
+        '.cloud-strip img[src$=".svg"]'
+      ].join(', ');
+      var imgs = document.querySelectorAll(SELECTOR);
+      var cache = {};
+      imgs.forEach(function (img) {
+        var src = img.getAttribute('src');
+        if (!src) return;
+        var fetchPromise = cache[src] || (cache[src] = fetch(src).then(function (r) { return r.text(); }));
+        fetchPromise.then(function (text) {
+          var doc = new DOMParser().parseFromString(text, 'image/svg+xml');
+          var svg = doc.querySelector('svg');
+          if (!svg) return;
+          // Carry over alt → aria-label and decorative role
+          var alt = img.getAttribute('alt') || '';
+          if (alt) {
+            svg.setAttribute('role', 'img');
+            svg.setAttribute('aria-label', alt);
+          } else {
+            svg.setAttribute('aria-hidden', 'true');
+            svg.setAttribute('focusable', 'false');
+          }
+          // Preserve any classes from the img on the svg
+          if (img.className) svg.setAttribute('class', img.className);
+          img.replaceWith(svg);
+        }).catch(function () { /* leave img in place if fetch fails */ });
+      });
+    })();
 
-// Debounce function to limit how often a function can be called
-function debounce(func, wait = 20, immediate = true) {
-    let timeout;
-    return function() {
-        const context = this, args = arguments;
-        const later = function() {
-            timeout = null;
-            if (!immediate) func.apply(context, args);
-        };
-        const callNow = immediate && !timeout;
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-        if (callNow) func.apply(context, args);
-    };
-}
-
-// Animate counter elements
-function animateCounters() {
-    const counters = document.querySelectorAll('.counter');
-    
-    counters.forEach(counter => {
-        const target = parseInt(counter.getAttribute('data-target'));
-        const duration = parseInt(counter.getAttribute('data-duration') || 2000);
-        const increment = target / (duration / 16); // 60fps
-        
-        let current = 0;
-        
-        const updateCounter = () => {
-            current += increment;
-            
-            if (current < target) {
-                counter.textContent = Math.floor(current);
-                requestAnimationFrame(updateCounter);
-            } else {
-                counter.textContent = target;
-            }
-        };
-        
-        updateCounter();
-    });
-}
-
-// Initialize counters when they come into view
-function initCounters() {
-    // Check if we have any counter elements
-    const counterElements = document.querySelectorAll('.counter');
-    
-    if (counterElements.length > 0) {
-        // Create the IntersectionObserver
-        const counterObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    // Start animation when element is in view
-                    animateCounters();
-                    
-                    // Stop observing after triggering
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-        
-        // Observe each counter element
-        counterElements.forEach(counter => {
-            counterObserver.observe(counter);
+    /* Cookie banner (lightweight) */
+    var COOKIE_KEY = 'maestro-cookie-consent';
+    var banner = document.querySelector('[data-cookie-banner]');
+    if (banner) {
+      var stored = null;
+      try { stored = localStorage.getItem(COOKIE_KEY); } catch (e) {}
+      if (!stored) {
+        setTimeout(function () { banner.classList.add('is-open'); }, 800);
+      }
+      banner.querySelectorAll('[data-cookie-action]').forEach(function (b) {
+        b.addEventListener('click', function () {
+          try { localStorage.setItem(COOKIE_KEY, b.getAttribute('data-cookie-action')); } catch (e) {}
+          banner.classList.remove('is-open');
         });
+      });
     }
-}
+  });
+})();
 
-// Add on window load for elements that need full page load
-window.addEventListener('load', () => {
-    // Rerun counters animation after page is fully loaded
-    animateCounters();
-});
+/* Ambient parallax — faint clinical-trial background motifs that drift at
+   different speeds as the user scrolls. Single rAF loop, passive scroll
+   listener, and bails out for prefers-reduced-motion users. Each shape's
+   data-speed attribute is the parallax factor: values < 1 make the shape
+   appear to scroll slower than the page (depth illusion). */
+(function ambientParallax() {
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-/**
- * Cloud Slider
- */
-function initCloudSlider() {
-    const slides = document.querySelectorAll('.cloud-slide');
-    const dotsContainer = document.querySelector('.cloud-dots');
-    const prevBtn = document.querySelector('#cloud-providers .prev-btn');
-    const nextBtn = document.querySelector('#cloud-providers .next-btn');
-    const slider = document.querySelector('.cloud-slider');
-    
-    if (slides.length && dotsContainer) {
-        let currentSlide = 0;
-        let autoSlideInterval;
-        let touchStartX = 0;
-        let touchEndX = 0;
-        
-        // Create navigation dots
-        slides.forEach((_, index) => {
-            const dot = document.createElement('div');
-            dot.classList.add('cloud-dot');
-            if (index === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => {
-                goToSlide(index);
-                resetAutoSlide();
-            });
-            dotsContainer.appendChild(dot);
-        });
-        
-        // Set initial slide
-        updateSlider();
-        
-        // Add swipe functionality
-        if (slider) {
-            slider.addEventListener('touchstart', (e) => {
-                touchStartX = e.changedTouches[0].screenX;
-            }, {passive: true});
-            
-            slider.addEventListener('touchend', (e) => {
-                touchEndX = e.changedTouches[0].screenX;
-                handleSwipe();
-                resetAutoSlide();
-            }, {passive: true});
-        }
-        
-        function handleSwipe() {
-            const threshold = 50; // Minimum swipe distance
-            if (touchStartX - touchEndX > threshold) {
-                // Swipe left (next)
-                goToNextSlide();
-            } else if (touchEndX - touchStartX > threshold) {
-                // Swipe right (previous)
-                goToPrevSlide();
-            }
-        }
-        
-        // Previous button
-        if (prevBtn) {
-            prevBtn.addEventListener('click', () => {
-                goToPrevSlide();
-                resetAutoSlide();
-            });
-        }
-        
-        // Next button
-        if (nextBtn) {
-            nextBtn.addEventListener('click', () => {
-                goToNextSlide();
-                resetAutoSlide();
-            });
-        }
-        
-        function updateSlider() {
-            slides.forEach((slide, index) => {
-                slide.classList.remove('active', 'prev', 'next');
-                
-                if (index === currentSlide) {
-                    slide.classList.add('active');
-                } else if (index === getPrevIndex()) {
-                    slide.classList.add('prev');
-                } else if (index === getNextIndex()) {
-                    slide.classList.add('next');
-                }
-            });
-            
-            // Update dots
-            const dots = dotsContainer.querySelectorAll('.cloud-dot');
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentSlide);
-            });
-        }
-        
-        function getPrevIndex() {
-            return (currentSlide - 1 + slides.length) % slides.length;
-        }
-        
-        function getNextIndex() {
-            return (currentSlide + 1) % slides.length;
-        }
-        
-        function goToSlide(index) {
-            currentSlide = index;
-            updateSlider();
-        }
-        
-        function goToNextSlide() {
-            currentSlide = (currentSlide + 1) % slides.length;
-            updateSlider();
-        }
-        
-        function goToPrevSlide() {
-            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-            updateSlider();
-        }
-        
-        function startAutoSlide() {
-            autoSlideInterval = setInterval(goToNextSlide, 5000);
-        }
-        
-        function resetAutoSlide() {
-            clearInterval(autoSlideInterval);
-            startAutoSlide();
-        }
-        
-        // Start auto sliding
-        startAutoSlide();
-        
-        // Pause auto sliding when user hovers over the slider
-        if (slider) {
-            slider.addEventListener('mouseenter', () => {
-                clearInterval(autoSlideInterval);
-            });
-            
-            slider.addEventListener('mouseleave', () => {
-                startAutoSlide();
-            });
-        }
+  var shapes = Array.prototype.slice.call(document.querySelectorAll('.ambient-shape'));
+  if (!shapes.length) return;
+
+  var scrollY = window.scrollY || window.pageYOffset || 0;
+  var ticking = false;
+
+  function update() {
+    for (var i = 0; i < shapes.length; i++) {
+      var s = shapes[i];
+      var speed = parseFloat(s.getAttribute('data-speed'));
+      if (isNaN(speed)) speed = 0.6;
+      var offset = scrollY * (1 - speed);
+      s.style.transform = 'translate3d(0,' + offset.toFixed(1) + 'px,0)';
     }
-} 
+    ticking = false;
+  }
+
+  function onScroll() {
+    scrollY = window.scrollY || window.pageYOffset || 0;
+    if (!ticking) {
+      window.requestAnimationFrame(update);
+      ticking = true;
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  update();
+})();

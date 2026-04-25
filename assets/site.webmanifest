@@ -1,0 +1,27 @@
+{
+  "name": "MAESTRO — Clinical Trial Management Software for Canada",
+  "short_name": "MAESTRO",
+  "description": "AI-powered clinical trials platform for Canadian sponsors, CROs and academic centres. CTMS, eTMF, QMS and AI agents on PIPEDA-compliant Canadian cloud.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
+  "lang": "en-CA",
+  "dir": "ltr",
+  "categories": ["business", "medical", "productivity"],
+  "icons": [
+    {
+      "src": "/assets/images/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/images/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
